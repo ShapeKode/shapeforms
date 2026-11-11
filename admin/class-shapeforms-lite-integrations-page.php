@@ -79,9 +79,8 @@ class ShapeForms_Lite_Integrations_Page {
 	 */
 	public function register_menu(): void {
 		// This page registers on admin_menu priority 20 — after the core ShapeForms
-		// submenus (priority 10) — so by default it would append below "Help &
-		// Support". Pass an explicit position to slot it in just before that item
-		// (Help & Support is the last core submenu, at offset 5).
+		// submenus (priority 10) — so pass an explicit position (offset 5) to slot it right
+		// after the core items.
 		$hook = add_submenu_page(
 			'shapeforms',
 			__( 'Integrations', 'shapeforms' ),
@@ -382,15 +381,6 @@ class ShapeForms_Lite_Integrations_Page {
 		);
 		$nav_items = apply_filters( 'shapeforms_admin_topbar_items', $nav_items, 'shapeforms-lite-integrations' );
 
-		// "Upgrade to Pro" as the final nav item (see ShapeForms_Lite_Admin::render_admin_topbar()).
-		if ( apply_filters( 'shapeforms_show_upgrade_cta', true ) ) {
-			$nav_items[] = array(
-				'slug'  => 'shapeforms-lite-upgrade',
-				'label' => __( 'Upgrade', 'shapeforms' ),
-				'icon'  => 'dashicons-star-filled',
-				'url'   => admin_url( 'admin.php?page=shapeforms-lite-upgrade' ),
-			);
-		}
 		?>
 		<div class="shapeforms-admin-topbar">
 			<div class="shapeforms-admin-topbar__brand">

@@ -243,13 +243,6 @@ final class ShapeForms_Lite {
 		$this->loader->add_action( 'admin_bar_menu', $this->admin, 'register_admin_bar', 100 );
 		$this->loader->add_action( 'admin_enqueue_scripts', $this->admin, 'enqueue_assets' );
 		$this->loader->add_action( 'admin_init', $this->admin, 'handle_form_actions' );
-		// The Pro promo notice is NOT hooked to the global admin_notices here — it is
-		// rendered only from ShapeForms_Lite_Admin::render_own_notices(), which each
-		// ShapeForms screen (main admin pages + the Integrations page) re-registers for
-		// itself after purging foreign notices. That keeps the notice confined to
-		// ShapeForms's own screens instead of showing on every wp-admin page. Do not add
-		// a global 'admin_notices' hook for maybe_render_pro_notice() here again.
-		$this->loader->add_action( 'admin_enqueue_scripts', $this->admin, 'enqueue_admin_notice_assets' );
 		$this->loader->add_action( 'wp_ajax_shapeforms_lite_dismiss_notice', $this->admin, 'ajax_dismiss_notice' );
 		$this->loader->add_filter( 'upload_mimes', $this->admin, 'allow_svg_upload' );
 		$this->loader->add_filter( 'wp_check_filetype_and_ext', $this->admin, 'fix_svg_filetype', 10, 4 );

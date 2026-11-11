@@ -83,21 +83,6 @@ class ShapeForms_Lite_Admin {
 	private $reports_page_hook = '';
 
 	/**
-	 * Documentation page hook suffix.
-	 *
-	 * @var string
-	 */
-	private $docs_page_hook = '';
-
-	/**
-	 * Upgrade ("Pro") promo page hook suffix. Only registered while no callback has
-	 * turned the shapeforms_show_upgrade_cta filter off (i.e. Pro is not active).
-	 *
-	 * @var string
-	 */
-	private $upgrade_page_hook = '';
-
-	/**
 	 * AJAX handler.
 	 *
 	 * @var ShapeForms_Lite_Ajax_Save
@@ -192,17 +177,6 @@ class ShapeForms_Lite_Admin {
 
 		add_action( 'load-' . $this->preview_page_hook, array( $this, 'set_preview_title' ) );
 
-		// Help & Support — links to online documentation and support resources.
-		$this->docs_page_hook = add_submenu_page(
-			'shapeforms',
-			__( 'Help & Support', 'shapeforms' ),
-			__( 'Help & Support', 'shapeforms' ),
-			'manage_options',
-			'shapeforms-lite-docs',
-			array( $this, 'render_docs_page' )
-		);
-		$this->force_submenu_highlight( $this->docs_page_hook, 'shapeforms-lite-docs' );
-
 		/**
 		 * Fires after ShapeForms registers all its admin submenu pages.
 		 *
@@ -211,29 +185,6 @@ class ShapeForms_Lite_Admin {
 		 * @param ShapeForms_Lite_Admin $admin The admin instance.
 		 */
 		do_action( 'shapeforms_admin_menu', $this );
-
-		// Highlighted "Upgrade to Pro" submenu item, opening an in-dashboard Free-vs-Pro
-		// comparison page (its red label accent is set inline, so no extra stylesheet).
-		// The page is ALWAYS registered so a bookmarked URL always resolves; it only
-		// appears IN the menu while the shapeforms_show_upgrade_cta filter is on. When an
-		// add-on turns the filter off, registering under an empty parent (not null —
-		// avoids PHP 8.1+ deprecations) keeps the page reachable by URL but out of every
-		// menu, and render_upgrade_page() shows a friendly confirmation instead of the
-		// pitch. Lite never detects the add-on itself — it only reads the filter.
-		$show_upgrade_cta = apply_filters( 'shapeforms_show_upgrade_cta', true );
-		$this->upgrade_page_hook = add_submenu_page(
-			$show_upgrade_cta ? 'shapeforms' : '',
-			__( 'Upgrade to Pro', 'shapeforms' ),
-			$show_upgrade_cta
-				? '<span class="shapeforms-upgrade-menu" style="color:#ff6d6d;font-weight:600;">' . esc_html__( 'Upgrade to Pro', 'shapeforms' ) . '</span>'
-				: __( 'Upgrade to Pro', 'shapeforms' ),
-			'manage_options',
-			'shapeforms-lite-upgrade',
-			array( $this, 'render_upgrade_page' )
-		);
-		if ( $show_upgrade_cta ) {
-			$this->force_submenu_highlight( $this->upgrade_page_hook, 'shapeforms-lite-upgrade' );
-		}
 	}
 
 	/**
@@ -425,17 +376,6 @@ class ShapeForms_Lite_Admin {
 			. '#adminmenu #toplevel_page_shapeforms .wp-submenu li.current a:hover,'
 			. '#adminmenu #toplevel_page_shapeforms .wp-submenu li.current a:focus{'
 			. 'font-weight:600;}';
-
-		// "Upgrade to Pro" submenu item (Lite only): red text always (set inline on the
-		// span), plus a RED left accent bar on hover/focus AND when it's the current page
-		// — overriding the generic blue bar above with higher specificity ([attr] adds a
-		// class level, so it beats the generic li.current/li a:hover rules).
-		if ( apply_filters( 'shapeforms_show_upgrade_cta', true ) ) {
-			$css .= '#adminmenu #toplevel_page_shapeforms .wp-submenu a[href*="page=shapeforms-lite-upgrade"]:hover,'
-				. '#adminmenu #toplevel_page_shapeforms .wp-submenu a[href*="page=shapeforms-lite-upgrade"]:focus,'
-				. '#adminmenu #toplevel_page_shapeforms .wp-submenu li.current a[href*="page=shapeforms-lite-upgrade"]{'
-				. 'box-shadow:inset 3px 0 0 #ff6d6d;}';
-		}
 
 		// No stylesheet file backs this handle (src=false) — it exists only to carry
 		// the inline CSS below via wp_add_inline_style(), instead of echoing a raw
@@ -760,8 +700,6 @@ class ShapeForms_Lite_Admin {
 			$this->settings_page_hook,
 			$this->reports_page_hook,
 			$this->preview_page_hook,
-			$this->docs_page_hook,
-			$this->upgrade_page_hook,
 		);
 
 		if ( in_array( $hook_suffix, $all_pages, true ) ) {
@@ -1467,7 +1405,7 @@ class ShapeForms_Lite_Admin {
 			);
 		}
 
-		$admin_pages = array( $this->settings_page_hook, $this->list_page_hook, $this->entries_page_hook, $this->reports_page_hook, $this->docs_page_hook, $this->upgrade_page_hook );
+		$admin_pages = array( $this->settings_page_hook, $this->list_page_hook, $this->entries_page_hook, $this->reports_page_hook );
 
 		if ( in_array( $hook_suffix, $admin_pages, true ) ) {
 			wp_enqueue_style(
@@ -2054,16 +1992,13 @@ class ShapeForms_Lite_Admin {
 	 * foreign-notice purge (suppress_foreign_notices(), and the Integrations page's
 	 * equivalent), which only runs on ShapeForms's own screens. There is no global
 	 * 'admin_notices' registration for this class elsewhere — that is what keeps
-	 * the Pro promo notice confined to ShapeForms's own screens instead of showing on
-	 * every wp-admin page. A render-once-per-request guard on maybe_render_pro_notice()
-	 * makes it safe even if more than one ShapeForms screen ends up wiring this in the
-	 * same request.
+	 * ShapeForms notices confined to ShapeForms's own screens instead of showing on
+	 * every wp-admin page.
 	 *
 	 * @return void
 	 */
 	public function render_own_notices() {
 		settings_errors( 'shapeforms_lite_settings' );
-		$this->maybe_render_pro_notice();
 
 		/**
 		 * Fires where an add-on can render an admin notice on ShapeForms's screens.
@@ -2084,104 +2019,6 @@ class ShapeForms_Lite_Admin {
 		do_action( 'shapeforms_admin_notices' );
 	}
 
-	/**
-	 * Outputs the dismissible ShapeForms Pro promo admin notice.
-	 *
-	 * Shown only on ShapeForms's own admin screens (List, Builder, Entries, Settings,
-	 * Reports, Preview, Docs, Upgrade, and Integrations), to administrators who have
-	 * not dismissed it — see render_own_notices() for how that scoping is enforced.
-	 * A thin consumer of the shared admin-notice layer: it outputs this notice's
-	 * specific markup with the generic `.shapeforms-admin-notice` chrome + a
-	 * `data-notice-id`, and relies on enqueue_admin_notice_assets() for styling and
-	 * ajax_dismiss_notice() for persistent, per-user dismissal (stored in user meta,
-	 * so it stays closed).
-	 *
-	 * @return void
-	 */
-	public function maybe_render_pro_notice() {
-		static $rendered = false;
-
-		if ( $rendered ) {
-			return;
-		}
-
-		if ( ! $this->should_show_pro_notice() ) {
-			return;
-		}
-
-		$rendered = true;
-
-		$sale_url = 'https://shapekode.com/';
-		?>
-		<div class="notice shapeforms-admin-notice" data-notice-id="<?php echo esc_attr( self::NOTICE_PRO_SALE ); ?>">
-
-			<button type="button" class="shapeforms-admin-notice__dismiss" aria-label="<?php esc_attr_e( 'Dismiss this notice', 'shapeforms' ); ?>">
-				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>
-			</button>
-
-			<div class="shapeforms-admin-notice__inner">
-				<div class="shapeforms-admin-notice__content">
-					<span class="shapeforms-admin-notice__badge">
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
-						<?php esc_html_e( 'Early Bird Sale', 'shapeforms' ); ?>
-					</span>
-
-					<div class="shapeforms-admin-notice__title"><?php esc_html_e( 'ShapeForms Pro is here — get 70% off!', 'shapeforms' ); ?></div>
-
-					<p class="shapeforms-admin-notice__text"><?php esc_html_e( 'Payments, multi-page forms, advanced fields, and much more.', 'shapeforms' ); ?></p>
-
-					<div class="shapeforms-admin-notice__actions">
-						<a href="<?php echo esc_url( $sale_url ); ?>" class="shapeforms-admin-notice__btn" target="_blank" rel="noopener noreferrer">
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
-							<?php esc_html_e( 'Claim 70% Off', 'shapeforms' ); ?>
-							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
-						</a>
-					</div>
-				</div>
-
-				<div class="shapeforms-admin-notice__art" aria-hidden="true">
-					<svg class="shapeforms-admin-notice__illustration" viewBox="0 0 360 250" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
-						<circle cx="150" cy="92" r="72" fill="#eaeefe"/>
-						<circle cx="252" cy="150" r="82" fill="#eff2fe"/>
-						<circle cx="120" cy="172" r="56" fill="#eff2fe"/>
-						<defs>
-							<clipPath id="bfwWindowClip"><rect x="70" y="45" width="240" height="160" rx="14"/></clipPath>
-						</defs>
-						<g clip-path="url(#bfwWindowClip)">
-							<rect x="70" y="45" width="240" height="160" fill="#ffffff"/>
-							<rect x="70" y="45" width="240" height="26" fill="#2c4bff"/>
-							<circle cx="84" cy="58" r="2.6" fill="#ffffff" opacity=".85"/>
-							<circle cx="94" cy="58" r="2.6" fill="#ffffff" opacity=".85"/>
-							<circle cx="104" cy="58" r="2.6" fill="#ffffff" opacity=".85"/>
-							<g>
-								<circle cx="90" cy="92" r="6" fill="#d9def0"/><rect x="102" y="89" width="34" height="6" rx="3" fill="#e7ebf6"/>
-								<circle cx="90" cy="116" r="6" fill="#d9def0"/><rect x="102" y="113" width="34" height="6" rx="3" fill="#e7ebf6"/>
-								<circle cx="90" cy="140" r="6" fill="#d9def0"/><rect x="102" y="137" width="34" height="6" rx="3" fill="#e7ebf6"/>
-								<circle cx="90" cy="164" r="6" fill="#d9def0"/><rect x="102" y="161" width="34" height="6" rx="3" fill="#e7ebf6"/>
-								<circle cx="90" cy="188" r="6" fill="#d9def0"/><rect x="102" y="185" width="34" height="6" rx="3" fill="#e7ebf6"/>
-							</g>
-							<rect x="150" y="82" width="70" height="116" rx="10" fill="#fbfcff" stroke="#b9c2dd" stroke-width="2" stroke-dasharray="6 6"/>
-							<rect x="166" y="121" width="38" height="36" rx="9" fill="#ffffff" stroke="#e4e8f4" stroke-width="2"/>
-							<text x="185" y="145" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#2c4bff" text-anchor="middle">T</text>
-							<rect x="232" y="92" width="58" height="7" rx="3.5" fill="#e7ebf6"/>
-							<rect x="232" y="104" width="64" height="13" rx="4" fill="#f3f5fc" stroke="#e7ebf6" stroke-width="1.5"/>
-							<rect x="232" y="132" width="58" height="7" rx="3.5" fill="#e7ebf6"/>
-							<rect x="232" y="144" width="64" height="13" rx="4" fill="#f3f5fc" stroke="#e7ebf6" stroke-width="1.5"/>
-							<rect x="232" y="172" width="58" height="7" rx="3.5" fill="#e7ebf6"/>
-							<rect x="232" y="184" width="64" height="13" rx="4" fill="#f3f5fc" stroke="#e7ebf6" stroke-width="1.5"/>
-						</g>
-						<rect x="70" y="45" width="240" height="160" rx="14" stroke="#e4e8f4" stroke-width="2"/>
-						<path d="M196 147v18l4.4-4.4 2.8 5.6 2.7-1.3-2.8-5.5h6z" fill="#2b3040" stroke="#ffffff" stroke-width="1.4" stroke-linejoin="round"/>
-						<path d="M52 60l1.9 6.4L60 68l-6.1 1.6L52 76l-1.9-6.4L44 68l6.1-1.6z" fill="#2c4bff" opacity=".9"/>
-						<path d="M318 52l1.5 5.1 4.9 1.3-4.9 1.3-1.5 5.1-1.5-5.1-4.9-1.3 4.9-1.3z" fill="#2c4bff" opacity=".55"/>
-						<path d="M330 146l1.7 5.7 5.5 1.5-5.5 1.5-1.7 5.7-1.7-5.7-5.5-1.5 5.5-1.5z" fill="#2c4bff" opacity=".7"/>
-					</svg>
-					<span class="shapeforms-admin-notice__logo"><?php shapeforms_lite_brand_icon( array( 'class' => '', 'size' => 26, 'fill' => '#ffffff' ) ); ?></span>
-				</div>
-			</div>
-		</div>
-		<?php
-	}
 
 	/**
 	 * Persists the current user's dismissal of an admin notice.
@@ -2243,92 +2080,8 @@ class ShapeForms_Lite_Admin {
 		return current_user_can( 'manage_options' ) && ! $this->is_notice_dismissed( $notice_id );
 	}
 
-	/**
-	 * Whether the Pro promo notice should be shown on the current screen.
-	 *
-	 * Adds the Pro-specific screen rule on top of the generic notice gate: the
-	 * banner is suppressed on the "Upgrade to Pro" page, which is itself a full
-	 * upgrade pitch, so the notice there would be redundant. Used by both the asset
-	 * enqueue and the markup render so they stay in sync.
-	 *
-	 * @return bool
-	 */
-	private function should_show_pro_notice() {
-		// Honour the shared upgrade-CTA switch (an add-on turns it off), and skip the
-		// Upgrade page itself, where this promo banner would be redundant.
-		if ( ! apply_filters( 'shapeforms_show_upgrade_cta', true ) || $this->is_upgrade_screen() ) {
-			return false;
-		}
 
-		return $this->should_show_notice( self::NOTICE_PRO_SALE );
-	}
 
-	/**
-	 * Whether the current admin screen is ShapeForms's "Upgrade to Pro" page.
-	 *
-	 * @return bool
-	 */
-	private function is_upgrade_screen() {
-		if ( ! function_exists( 'get_current_screen' ) ) {
-			return false;
-		}
-
-		$screen = get_current_screen();
-
-		return $screen && '' !== $this->upgrade_page_hook && $this->upgrade_page_hook === $screen->id;
-	}
-
-	/**
-	 * Enqueues the shared admin-notice assets on ShapeForms's own admin screens.
-	 *
-	 * ShapeForms admin notices only ever render on ShapeForms's own screens (see
-	 * render_own_notices()), so the assets are scoped the same way here — loaded
-	 * only on a ShapeForms hook suffix, and only when a notice will actually appear,
-	 * so nothing loads once every notice has been dismissed.
-	 *
-	 * @param string $hook_suffix Current admin page hook.
-	 * @return void
-	 */
-	public function enqueue_admin_notice_assets( $hook_suffix ) {
-		// 'shapeforms', not the narrower 'shapeforms': render_own_notices() also runs
-		// on ShapeForms Pro's own screens (its settings page installs the same purge/
-		// restore pattern), so the asset gate has to match every screen the notice can
-		// actually render on, not just Lite's own menu slugs.
-		if ( false === strpos( (string) $hook_suffix, 'shapeforms' ) ) {
-			return;
-		}
-
-		// Load only when at least one ShapeForms admin notice will render. Extend this
-		// condition (|| $this->should_show_notice( self::NOTICE_OTHER )) as more notices are added.
-		if ( ! $this->should_show_pro_notice() ) {
-			return;
-		}
-
-		wp_enqueue_style(
-			'shapeforms-lite-admin-notice',
-			SHAPEFORMS_LITE_URL . 'assets/css/admin-notice.css',
-			array(),
-			SHAPEFORMS_LITE_VERSION
-		);
-
-		wp_enqueue_script(
-			'shapeforms-lite-admin-notice',
-			SHAPEFORMS_LITE_URL . 'assets/js/admin-notice.js',
-			array( 'jquery' ),
-			SHAPEFORMS_LITE_VERSION,
-			true
-		);
-
-		wp_localize_script(
-			'shapeforms-lite-admin-notice',
-			'shapeformsAdminNotice',
-			array(
-				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-				'action'  => 'shapeforms_lite_dismiss_notice',
-				'nonce'   => wp_create_nonce( 'shapeforms_lite_dismiss_notice' ),
-			)
-		);
-	}
 
 	/**
 	 * Renders the shared admin topbar navigation.
@@ -2418,17 +2171,6 @@ class ShapeForms_Lite_Admin {
 		 */
 		$nav_items = apply_filters( 'shapeforms_admin_topbar_items', $nav_items, $active_page );
 
-		// "Upgrade to Pro" as the final nav item, linking to the in-dashboard comparison
-		// page. Shown by default; hidden when a shapeforms_show_upgrade_cta callback returns
-		// false. Appended after the filter so it always sits last.
-		if ( apply_filters( 'shapeforms_show_upgrade_cta', true ) ) {
-			$nav_items[] = array(
-				'slug'  => 'shapeforms-lite-upgrade',
-				'label' => __( 'Upgrade', 'shapeforms' ),
-				'icon'  => 'dashicons-star-filled',
-				'url'   => admin_url( 'admin.php?page=shapeforms-lite-upgrade' ),
-			);
-		}
 		?>
 		<div class="shapeforms-admin-topbar">
 			<div class="shapeforms-admin-topbar__brand">
@@ -2767,123 +2509,6 @@ class ShapeForms_Lite_Admin {
 		'});';
 	}
 
-	/**
-	 * Renders the in-dashboard "Upgrade to Pro" promo / comparison page.
-	 *
-	 * A marketing page that lives entirely in Lite — it lists Pro's features as
-	 * copy (no code dependency on Pro). The page is only registered while the
-	 * shapeforms_show_upgrade_cta filter is true, so it disappears once Pro is active.
-	 *
-	 * @return void
-	 */
-	public function render_upgrade_page() {
-		// When the upgrade CTAs are switched off (an add-on turns the shared filter
-		// off), the menu item is hidden but this page stays reachable by URL — so a
-		// bookmarked link shows a friendly confirmation state instead of the pitch.
-		if ( ! apply_filters( 'shapeforms_show_upgrade_cta', true ) ) {
-			$this->render_admin_topbar( 'shapeforms-lite-upgrade' );
-			?>
-			<div class="wrap shapeforms-upgrade-page">
-				<hr class="wp-header-end">
-				<div class="shapeforms-up-hero">
-					<span class="shapeforms-up-badge">
-						<span class="dashicons dashicons-yes" aria-hidden="true"></span>
-						<?php esc_html_e( 'Pro active', 'shapeforms' ); ?>
-					</span>
-					<h1><?php esc_html_e( "You're on ShapeForms Pro", 'shapeforms' ); ?></h1>
-					<p><?php esc_html_e( 'Every premium feature is unlocked — payments, multi-page forms, advanced fields, and 30+ integrations are ready to use inside your forms.', 'shapeforms' ); ?></p>
-					<a class="shapeforms-up-btn" href="<?php echo esc_url( admin_url( 'admin.php?page=shapeforms' ) ); ?>">
-						<?php esc_html_e( 'Go to your forms', 'shapeforms' ); ?>
-						<span class="dashicons dashicons-arrow-right-alt2" aria-hidden="true"></span>
-					</a>
-				</div>
-			</div>
-			<?php
-			return;
-		}
-
-		// Destination for the buy buttons. Filterable so resellers can repoint it.
-		$buy_url = apply_filters( 'shapeforms_upgrade_url', 'https://shapekode.com/' );
-
-		// Free-vs-Pro feature matrix. A cell is true (included), false (not included),
-		// or a string (a short qualifier shown as text).
-		$features = array(
-			array( 'label' => __( 'Drag & Drop Form Builder, Contact Form & Survey', 'shapeforms' ),                         'lite' => true,                                  'pro' => true ),
-			array( 'label' => __( 'Unlimited forms & entries', 'shapeforms' ),                        'lite' => true,                                  'pro' => true ),
-			array( 'label' => __( 'Core fields (text, email, select, date, file upload…)', 'shapeforms' ), 'lite' => true,                             'pro' => true ),
-			array( 'label' => __( 'Email notifications + SMTP', 'shapeforms' ),                        'lite' => true,                                  'pro' => true ),
-			array( 'label' => __( 'Conditional logic', 'shapeforms' ),                                 'lite' => true,                                  'pro' => true ),
-			array( 'label' => __( 'Anti-spam: reCAPTCHA, hCaptcha & Turnstile', 'shapeforms' ),        'lite' => true,                                  'pro' => true ),
-			array( 'label' => __( 'Entries, CSV export & reports', 'shapeforms' ),                     'lite' => true,                                  'pro' => true ),
-			array( 'label' => __( 'Integrations', 'shapeforms' ),                                      'lite' => __( 'Mailchimp & Brevo', 'shapeforms' ), 'pro' => __( '35+ apps', 'shapeforms' ) ),
-			array( 'label' => __( 'Multi-page (step) forms', 'shapeforms' ),                           'lite' => false,                                 'pro' => true ),
-			array( 'label' => __( 'Payments — Stripe & PayPal', 'shapeforms' ),                        'lite' => false,                                 'pro' => true ),
-			array( 'label' => __( 'Advanced fields (Rich Text, Signature, Repeater, Calculation, Geolocation, NPS…)', 'shapeforms' ), 'lite' => false,    'pro' => true ),
-			array( 'label' => __( 'Webhooks', 'shapeforms' ),                                          'lite' => false,                                 'pro' => true ),
-			array( 'label' => __( 'Form scheduling (open / close dates)', 'shapeforms' ),              'lite' => false,                                 'pro' => true ),
-			array( 'label' => __( 'Auto-populate & hidden data', 'shapeforms' ),                       'lite' => false,                                 'pro' => true ),
-			array( 'label' => __( 'Advanced analytics (views & conversions)', 'shapeforms' ),          'lite' => false,                                 'pro' => true ),
-			array( 'label' => __( 'Priority support & automatic updates', 'shapeforms' ),             'lite' => false,                                 'pro' => true ),
-		);
-
-		$render_cell = static function ( $value ) {
-			if ( true === $value ) {
-				return '<span class="shapeforms-up-yes dashicons dashicons-yes" aria-label="' . esc_attr__( 'Included', 'shapeforms' ) . '"></span>';
-			}
-			if ( false === $value ) {
-				return '<span class="shapeforms-up-no" aria-label="' . esc_attr__( 'Not included', 'shapeforms' ) . '">—</span>';
-			}
-			return '<span class="shapeforms-up-text">' . esc_html( $value ) . '</span>';
-		};
-		?>
-		<?php $this->render_admin_topbar( 'shapeforms-lite-upgrade' ); ?>
-		<div class="wrap shapeforms-upgrade-page">
-			<hr class="wp-header-end">
-
-			<div class="shapeforms-up-hero">
-				<span class="shapeforms-up-badge shapeforms-up-badge--sale">
-					<span class="dashicons dashicons-tag" aria-hidden="true"></span>
-					<?php esc_html_e( 'Early Bird Sale — 70% off', 'shapeforms' ); ?>
-				</span>
-				<h1><?php esc_html_e( 'Do more with ShapeForms Pro', 'shapeforms' ); ?></h1>
-				<p><?php esc_html_e( 'Add payments, multi-page forms, advanced fields, and 30+ integrations — all inside the same drag-and-drop builder you already know.', 'shapeforms' ); ?></p>
-				<a class="shapeforms-up-btn" href="<?php echo esc_url( $buy_url ); ?>" target="_blank" rel="noopener noreferrer">
-					<?php esc_html_e( 'Claim 70% Off', 'shapeforms' ); ?>
-					<span class="dashicons dashicons-arrow-right-alt2" aria-hidden="true"></span>
-				</a>
-				<ul class="shapeforms-up-hero__perks">
-					<li><?php esc_html_e( 'Instant access', 'shapeforms' ); ?></li>
-					<li><?php esc_html_e( 'Automatic updates', 'shapeforms' ); ?></li>
-					<li><?php esc_html_e( 'Priority support', 'shapeforms' ); ?></li>
-				</ul>
-			</div>
-
-			<div class="shapeforms-up-table-card">
-				<table class="shapeforms-up-table">
-					<thead>
-						<tr>
-							<th class="shapeforms-up-feat"><?php esc_html_e( 'Feature', 'shapeforms' ); ?></th>
-							<th class="shapeforms-up-col-lite"><?php esc_html_e( 'Lite (Free)', 'shapeforms' ); ?></th>
-							<th class="shapeforms-up-col-pro">
-								<?php esc_html_e( 'Pro', 'shapeforms' ); ?>
-								<span class="shapeforms-up-col-pro__tag"><?php esc_html_e( 'Recommended', 'shapeforms' ); ?></span>
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php foreach ( $features as $row ) : ?>
-							<tr>
-								<th scope="row"><?php echo esc_html( $row['label'] ); ?></th>
-								<td><?php echo wp_kses_post( $render_cell( $row['lite'] ) ); ?></td>
-								<td class="shapeforms-up-col-pro"><?php echo wp_kses_post( $render_cell( $row['pro'] ) ); ?></td>
-							</tr>
-						<?php endforeach; ?>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<?php
-	}
 
 	/**
 	 * Registers ShapeForms nodes in the WordPress admin bar.
@@ -3269,107 +2894,6 @@ class ShapeForms_Lite_Admin {
 		$form_data   = $this->normalize_form_for_builder( $form_record );
 
 		include SHAPEFORMS_LITE_PATH . 'admin/admin-builder.php';
-	}
-
-	/**
-	 * Renders the documentation page with links to user and developer guides.
-	 *
-	 * @return void
-	 */
-	public function render_docs_page() {
-		$cards = array(
-			array(
-				'icon'        => 'dashicons-book',
-				'icon_color'  => '#0f766e',
-				'bg_color'    => '#f0fdf4',
-				'border'      => '#bbf7d0',
-				'title'       => __( 'User Guide', 'shapeforms' ),
-				'desc'        => __( 'Learn how to create forms, manage entries, configure settings, and embed forms on your site.', 'shapeforms' ),
-				'btn_label'   => __( 'Open User Guide', 'shapeforms' ),
-				'btn_color'   => '#0f766e',
-				'url'         => 'https://documentation.shapekode.com/docs/shapeforms-user-guide/',
-			),
-			array(
-				'icon'        => 'dashicons-editor-code',
-				'icon_color'  => '#6366f1',
-				'bg_color'    => '#f5f3ff',
-				'border'      => '#ddd6fe',
-				'title'       => __( 'Developer Guide', 'shapeforms' ),
-				'desc'        => __( 'Hooks, filters, custom field types, integrations API, database schema, and file structure reference.', 'shapeforms' ),
-				'btn_label'   => __( 'Open Developer Guide', 'shapeforms' ),
-				'btn_color'   => '#6366f1',
-				'url'         => 'https://documentation.shapekode.com/docs/shape-forms-developer-guide/',
-			),
-			array(
-				'icon'        => 'dashicons-sos',
-				'icon_color'  => '#0ea5e9',
-				'bg_color'    => '#f0f9ff',
-				'border'      => '#bae6fd',
-				'title'       => __( 'Support', 'shapeforms' ),
-				'desc'        => __( 'Run into an issue? Open a support ticket and our team will help you get back on track quickly.', 'shapeforms' ),
-				'btn_label'   => __( 'Get Support', 'shapeforms' ),
-				'btn_color'   => '#0ea5e9',
-				'url'         => 'https://shapekode.com/support/',
-			),
-			array(
-				'icon'        => 'dashicons-groups',
-				'icon_color'  => '#f59e0b',
-				'bg_color'    => '#fffbeb',
-				'border'      => '#fde68a',
-				'title'       => __( 'Community', 'shapeforms' ),
-				'desc'        => __( 'Join the ShapeForms community to share tips, ask questions, and connect with other users and developers.', 'shapeforms' ),
-				'btn_label'   => __( 'Join Community', 'shapeforms' ),
-				'btn_color'   => '#f59e0b',
-				'url'         => 'https://www.facebook.com/groups/shapekode',
-			),
-			array(
-				'icon'        => 'dashicons-star-filled',
-				'icon_color'  => '#ef4444',
-				'bg_color'    => '#fff1f2',
-				'border'      => '#fecdd3',
-				'title'       => __( 'Leave a Review', 'shapeforms' ),
-				'desc'        => __( 'Enjoying ShapeForms? A quick 5-star review on WordPress.org helps others find the plugin and motivates us to keep improving.', 'shapeforms' ),
-				'btn_label'   => __( 'Leave a Review', 'shapeforms' ),
-				'btn_color'   => '#ef4444',
-				'url'         => 'https://wordpress.org/support/plugin/shapeforms/reviews/#new-post',
-			),
-			array(
-				'icon'        => 'dashicons-lightbulb',
-				'icon_color'  => '#8b5cf6',
-				'bg_color'    => '#faf5ff',
-				'border'      => '#e9d5ff',
-				'title'       => __( 'Request a Feature', 'shapeforms' ),
-				'desc'        => __( 'Have an idea that would make ShapeForms even better? Share it with us — your feedback shapes our roadmap.', 'shapeforms' ),
-				'btn_label'   => __( 'Request a Feature', 'shapeforms' ),
-				'btn_color'   => '#8b5cf6',
-				'url'         => 'https://wordpress.org/support/plugin/shapeforms/',
-			),
-		);
-		?>
-		<?php $this->render_admin_topbar( 'shapeforms-lite-docs' ); ?>
-		<div class="wrap">
-			<hr class="wp-header-end"><?php // Keep relocated notices above the header (see Forms list for rationale). ?>
-			<div class="shapeforms-page-header">
-				<h1><?php esc_html_e( 'Help &amp; Support', 'shapeforms' ); ?></h1>
-				<?php $this->render_header_upgrade(); ?>
-			</div>
-
-			<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:4px;">
-				<?php foreach ( $cards as $card ) : ?>
-				<div style="background:<?php echo esc_attr( $card['bg_color'] ); ?>;border:1px solid <?php echo esc_attr( $card['border'] ); ?>;border-radius:14px;padding:28px 24px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;">
-					<span class="dashicons <?php echo esc_attr( $card['icon'] ); ?>" style="font-size:32px;width:32px;height:32px;line-height:32px;color:<?php echo esc_attr( $card['icon_color'] ); ?>;"></span>
-					<h2 style="font-size:15px;font-weight:700;margin:0;padding:0;border:none;color:#0f172a;"><?php echo esc_html( $card['title'] ); ?></h2>
-					<p style="color:#475569;font-size:13px;line-height:1.6;margin:0;flex:1;"><?php echo esc_html( $card['desc'] ); ?></p>
-					<a href="<?php echo esc_url( $card['url'] ); ?>" target="_blank" rel="noopener noreferrer"
-					   style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:<?php echo esc_attr( $card['btn_color'] ); ?>;color:#fff;font-size:13px;font-weight:600;text-decoration:none;margin-top:4px;">
-						<?php echo esc_html( $card['btn_label'] ); ?>
-						<span class="dashicons dashicons-external" style="font-size:14px;width:14px;height:14px;line-height:14px;"></span>
-					</a>
-				</div>
-				<?php endforeach; ?>
-			</div>
-		</div>
-		<?php
 	}
 
 	/**
