@@ -56,6 +56,11 @@ class ShapeForms_Lite_Migrator {
 	 */
 	public function init() {
 		add_action( 'admin_init', array( $this, 'handle_import' ) );
+
+		// Old [boldform] shortcodes and BoldForm blocks keep rendering (as their
+		// imported ShapeForms form) after BoldForm is deactivated.
+		$this->load_default_sources();
+		add_action( 'init', array( 'ShapeForms_Lite_Source_BoldForm', 'register_legacy_embeds' ), 99 );
 	}
 
 	/**
@@ -80,7 +85,7 @@ class ShapeForms_Lite_Migrator {
 		 *
 		 * @param array<int, ShapeForms_Lite_Migration_Source> $sources Source objects.
 		 */
-		$registered = apply_filters( 'shapeforms_migration_sources', array( new ShapeForms_Lite_Source_CF7() ) );
+		$registered = apply_filters( 'shapeforms_migration_sources', array( new ShapeForms_Lite_Source_BoldForm(), new ShapeForms_Lite_Source_CF7() ) );
 
 		$this->sources = array();
 
@@ -330,6 +335,7 @@ class ShapeForms_Lite_Migrator {
 		$created = isset( $result['created'] ) ? (int) $result['created'] : 0;
 		$updated = isset( $result['updated'] ) ? (int) $result['updated'] : 0;
 		$failed  = isset( $result['failed'] ) ? (int) $result['failed'] : 0;
+		$entries = isset( $result['entries'] ) ? (int) $result['entries'] : 0;
 		$forms   = isset( $result['forms'] ) && is_array( $result['forms'] ) ? $result['forms'] : array();
 		?>
 		<div class="shapeforms-card shapeforms-card--success shapeforms-migrator-result">
@@ -343,6 +349,16 @@ class ShapeForms_Lite_Migrator {
 						$updated
 					)
 				);
+				if ( $entries > 0 ) {
+					echo ' ';
+					echo esc_html(
+						sprintf(
+							/* translators: %d: number of entries copied. */
+							_n( '%d entry copied.', '%d entries copied.', $entries, 'shapeforms' ),
+							$entries
+						)
+					);
+				}
 				if ( $failed > 0 ) {
 					echo ' ';
 					echo esc_html(
@@ -363,6 +379,8 @@ class ShapeForms_Lite_Migrator {
 				$skipped     = isset( $form['skipped'] ) && is_array( $form['skipped'] ) ? $form['skipped'] : array();
 				$warnings    = isset( $form['warnings'] ) && is_array( $form['warnings'] ) ? $form['warnings'] : array();
 				$row_error   = isset( $form['error'] ) ? (string) $form['error'] : '';
+				$row_entries = isset( $form['entries'] ) ? (int) $form['entries'] : 0;
+				$notes       = isset( $form['notes'] ) && is_array( $form['notes'] ) ? $form['notes'] : array();
 				?>
 				<div class="shapeforms-migrator-result__form">
 					<strong><?php echo esc_html( $title ); ?></strong>
@@ -370,8 +388,14 @@ class ShapeForms_Lite_Migrator {
 						&mdash; <span class="shapeforms-migrator-result__error"><?php echo esc_html( $row_error ); ?></span>
 					<?php elseif ( '' !== $edit_url ) : ?>
 						&mdash; <a href="<?php echo esc_url( $edit_url ); ?>"><?php esc_html_e( 'Edit form', 'shapeforms' ); ?></a>
+						<?php if ( $row_entries > 0 ) : ?>
+							<?php
+							/* translators: %d: number of entries copied for this form. */
+							echo esc_html( sprintf( _n( '(%d entry copied)', '(%d entries copied)', $row_entries, 'shapeforms' ), $row_entries ) );
+							?>
+						<?php endif; ?>
 					<?php endif; ?>
-					<?php if ( ! empty( $skipped ) || ! empty( $warnings ) ) : ?>
+					<?php if ( ! empty( $skipped ) || ! empty( $warnings ) || ! empty( $notes ) ) : ?>
 						<?php
 						// Warnings sit in the same list as the skip notes but describe a
 						// field that DID come across, so they are labelled to keep the
@@ -383,6 +407,9 @@ class ShapeForms_Lite_Migrator {
 							<?php endforeach; ?>
 							<?php foreach ( $warnings as $note ) : ?>
 								<li><em><?php esc_html_e( 'Check:', 'shapeforms' ); ?></em> <?php echo esc_html( (string) $note ); ?></li>
+							<?php endforeach; ?>
+							<?php foreach ( $notes as $note ) : ?>
+								<li><?php echo esc_html( (string) $note ); ?></li>
 							<?php endforeach; ?>
 						</ul>
 					<?php endif; ?>
@@ -479,6 +506,7 @@ class ShapeForms_Lite_Migrator {
 		$created = 0;
 		$updated = 0;
 		$failed  = 0;
+		$entries = 0;
 		$forms   = array();
 
 		foreach ( $ids as $source_id ) {
@@ -500,11 +528,15 @@ class ShapeForms_Lite_Migrator {
 				++$created;
 			}
 
+			$entries += $result->entries;
+
 			$forms[] = array(
 				'title'    => $result->title,
 				'form_id'  => $result->form_id,
 				'skipped'  => $result->skipped,
 				'warnings' => $result->warnings,
+				'entries'  => $result->entries,
+				'notes'    => $result->notes,
 			);
 		}
 
@@ -512,6 +544,7 @@ class ShapeForms_Lite_Migrator {
 			'created' => $created,
 			'updated' => $updated,
 			'failed'  => $failed,
+			'entries' => $entries,
 			'forms'   => $forms,
 		);
 	}
@@ -607,6 +640,16 @@ class ShapeForms_Lite_Migrator {
 
 			$result->form_id = (int) $wpdb->insert_id;
 			$this->mark_imported( $slug, $source_id, $result->form_id );
+		}
+
+		// Optional per-source follow-up (e.g. BoldForm copies the form's entries).
+		if ( method_exists( $source, 'after_import' ) ) {
+			$extra = $source->after_import( $source_id, $result->form_id );
+
+			if ( is_array( $extra ) ) {
+				$result->entries = isset( $extra['entries'] ) ? (int) $extra['entries'] : 0;
+				$result->notes   = isset( $extra['notes'] ) && is_array( $extra['notes'] ) ? $extra['notes'] : array();
+			}
 		}
 
 		return $result;
@@ -810,5 +853,6 @@ class ShapeForms_Lite_Migrator {
 	 */
 	private function load_default_sources() {
 		require_once SHAPEFORMS_LITE_PATH . 'admin/migrator/sources/class-shapeforms-lite-source-cf7.php';
+		require_once SHAPEFORMS_LITE_PATH . 'admin/migrator/sources/class-shapeforms-lite-source-boldform.php';
 	}
 }

@@ -52,6 +52,20 @@ class ShapeForms_Lite_Migration_Result {
 	public $warnings = array();
 
 	/**
+	 * Number of entries copied along with the form (sources that support it).
+	 *
+	 * @var int
+	 */
+	public $entries = 0;
+
+	/**
+	 * Informational notes from the source's after-import step.
+	 *
+	 * @var array<int, string>
+	 */
+	public $notes = array();
+
+	/**
 	 * A fatal error, when the form could not be imported at all.
 	 *
 	 * @var WP_Error|null

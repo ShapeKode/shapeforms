@@ -34,6 +34,9 @@ $shapeforms_lite_uninstall_site = static function () use ( $wpdb ) {
 	delete_option( 'shapeforms_lite_ai_api_keys' ); // AI provider keys, one per provider.
 	delete_option( 'shapeforms_lite_ai_provider' ); // Which AI provider is selected.
 	delete_option( 'shapeforms_lite_ai_models' );   // Optional per-provider model overrides.
+	delete_option( 'shapeforms_migration_map' );    // Form Migrator: source form => ShapeForms form.
+	delete_option( 'shapeforms_migration_boldform_entries' );        // BoldForm import: entries copied so far.
+	delete_option( 'shapeforms_migration_boldform_settings_noted' ); // BoldForm import: one-time settings note shown.
 
 	/*
 	 * The AI model catalogue is cached per provider, and generations are rate

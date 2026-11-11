@@ -3935,122 +3935,170 @@ msgstr ""
 msgid "Invalid API key."
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:127
+#: admin/migrator/class-shapeforms-lite-migrator.php:132
 msgid "Import your forms into ShapeForms"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:129
+#: admin/migrator/class-shapeforms-lite-migrator.php:134
 msgid "Already built forms in another plugin? Bring them over in a few clicks — fields, options, and basic settings are mapped for you. Activate one of the supported plugins below and its forms will appear here, ready to import."
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:134
+#: admin/migrator/class-shapeforms-lite-migrator.php:139
 msgid "Supported sources"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:140
+#: admin/migrator/class-shapeforms-lite-migrator.php:145
 msgid "Not detected"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:148
+#: admin/migrator/class-shapeforms-lite-migrator.php:153
 msgid "More form plugins are being added over time."
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:166
+#: admin/migrator/class-shapeforms-lite-migrator.php:171
 msgid "Import from another form plugin"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:168
+#: admin/migrator/class-shapeforms-lite-migrator.php:173
 msgid "Bring your existing forms into ShapeForms. Select a source below, then import the forms you want — fields and basic settings are mapped automatically."
 msgstr ""
 
 #. translators: %s: source plugin name, e.g. Contact Form 7.
-#: admin/migrator/class-shapeforms-lite-migrator.php:207
+#: admin/migrator/class-shapeforms-lite-migrator.php:212
 #, php-format
 msgid "No %s forms were found to import."
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:226
+#: admin/migrator/class-shapeforms-lite-migrator.php:231
 msgid "Re-importing a form updates the one you imported before instead of creating a duplicate, and overwrites its fields with the source version."
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:234
+#: admin/migrator/class-shapeforms-lite-migrator.php:239
 msgid "Select all forms"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:236
+#: admin/migrator/class-shapeforms-lite-migrator.php:241
 msgid "Form Name"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:237
-#: admin/migrator/class-shapeforms-lite-migrator.php:259
+#: admin/migrator/class-shapeforms-lite-migrator.php:242
+#: admin/migrator/class-shapeforms-lite-migrator.php:264
 msgid "Imported"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:238
+#: admin/migrator/class-shapeforms-lite-migrator.php:243
 msgid "Action"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:266
+#: admin/migrator/class-shapeforms-lite-migrator.php:271
 msgid "Re-import"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:266
+#: admin/migrator/class-shapeforms-lite-migrator.php:271
 msgid "Import Form"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:277
+#: admin/migrator/class-shapeforms-lite-migrator.php:282
 msgid "Import Selected"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:280
+#: admin/migrator/class-shapeforms-lite-migrator.php:285
 msgid "Import All Forms"
 msgstr ""
 
 #. translators: 1: number of forms created, 2: number updated.
-#: admin/migrator/class-shapeforms-lite-migrator.php:341
+#: admin/migrator/class-shapeforms-lite-migrator.php:347
 #, php-format
 msgid "Import complete — %1$d form(s) created, %2$d updated."
 msgstr ""
 
+#. translators: %d: number of entries copied.
+#: admin/migrator/class-shapeforms-lite-migrator.php:357
+#, php-format
+msgid "%d entry copied."
+msgid_plural "%d entries copied."
+msgstr[0] ""
+msgstr[1] ""
+
 #. translators: %d: number of forms that failed to import.
-#: admin/migrator/class-shapeforms-lite-migrator.php:351
+#: admin/migrator/class-shapeforms-lite-migrator.php:367
 #, php-format
 msgid "%d form could not be imported."
 msgid_plural "%d forms could not be imported."
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:372
+#: admin/migrator/class-shapeforms-lite-migrator.php:390
 msgid "Edit form"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:385
+#. translators: %d: number of entries copied for this form.
+#: admin/migrator/class-shapeforms-lite-migrator.php:394
+#, php-format
+msgid "(%d entry copied)"
+msgid_plural "(%d entries copied)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/migrator/class-shapeforms-lite-migrator.php:409
 msgid "Check:"
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:416
+#: admin/migrator/class-shapeforms-lite-migrator.php:443
 msgid "That import source is not available."
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:424
+#: admin/migrator/class-shapeforms-lite-migrator.php:451
 msgid "Select at least one form to import."
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:491
+#: admin/migrator/class-shapeforms-lite-migrator.php:519
 msgid "Import failed."
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:551
+#: admin/migrator/class-shapeforms-lite-migrator.php:584
 msgid "No fields could be imported from this form."
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:562
-#: admin/migrator/class-shapeforms-lite-migrator.php:604
+#: admin/migrator/class-shapeforms-lite-migrator.php:595
+#: admin/migrator/class-shapeforms-lite-migrator.php:637
 msgid "The form could not be saved."
 msgstr ""
 
-#: admin/migrator/class-shapeforms-lite-migrator.php:584
+#: admin/migrator/class-shapeforms-lite-migrator.php:617
 msgid "The form could not be updated."
+msgstr ""
+
+#: admin/migrator/sources/class-shapeforms-lite-source-boldform.php:72
+msgid "BoldForm"
+msgstr ""
+
+#: admin/migrator/sources/class-shapeforms-lite-source-boldform.php:131
+msgid "That BoldForm form could not be found."
+msgstr ""
+
+#: admin/migrator/sources/class-shapeforms-lite-source-boldform.php:165
+msgid "Its entries could not be copied."
+msgstr ""
+
+#: admin/migrator/sources/class-shapeforms-lite-source-boldform.php:290
+msgid "BoldForm's global settings (email, SMTP, captcha, integrations) were copied to ShapeForms."
+msgstr ""
+
+#: admin/migrator/sources/class-shapeforms-lite-source-boldform.php:300
+msgid "ShapeForms already has its own global settings, so BoldForm's were left as they are."
+msgstr ""
+
+#. translators: 1: field label, 2: field type.
+#: admin/migrator/sources/class-shapeforms-lite-source-boldform.php:369
+#, php-format
+msgid "\"%1$s\" (%2$s field) was not imported — this field type needs ShapeForms Pro."
+msgstr ""
+
+#. translators: %d: BoldForm form ID.
+#: admin/migrator/sources/class-shapeforms-lite-source-boldform.php:421
+#, php-format
+msgid "BoldForm #%d"
 msgstr ""
 
 #: admin/migrator/sources/class-shapeforms-lite-source-cf7.php:41

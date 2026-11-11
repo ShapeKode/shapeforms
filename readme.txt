@@ -22,6 +22,7 @@ Lightweight drag-and-drop WordPress form builder — contact forms and more with
 * **Conversational forms, free** — any form becomes one-question-at-a-time with a single switch. No rebuild, no add-on.
 * **Lightweight by design** — assets load only where a form appears, and each form is queried once per request.
 * **No lock-in** — export and import forms, entries and settings as JSON at any time.
+* **Switch over easily** — import your forms from BoldForm (with their entries and settings) or Contact Form 7 under Settings > Tools > Migrator.
 * **Yours to control** — submissions live in your own database, with tools to export or erase personal data on request.
 * **Extend anywhere** — a documented action/filter API covers every stage of the form lifecycle.
 
@@ -334,6 +335,7 @@ Learn more about how [Appsero collects and uses this data](https://appsero.com/p
 
 = 1.1.8 =
 New features:
+* New: Import from BoldForm — copies your BoldForm forms, their entries and global settings into ShapeForms. Old [boldform] shortcodes and BoldForm blocks keep working after BoldForm is deactivated.
 * New: AI Form Builder — describe a form in plain language and have it built on the canvas, with multi-column rows, multi-step page breaks, help text and conditional show/hide rules.
 * New: Choose your AI provider — Anthropic, OpenAI, Google Gemini or OpenRouter — under Settings > AI, using your own API key. Gemini has a free tier.
 * New: Pick any OpenRouter model that supports strict JSON schema output; the list is fetched live and grouped by vendor.
