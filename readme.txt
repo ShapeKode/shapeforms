@@ -14,9 +14,7 @@ Lightweight drag-and-drop WordPress form builder — contact forms and more with
 
 **ShapeForms** is a fast, lightweight drag-and-drop form builder for WordPress. Build any form in a visual editor — no code — then embed it with a shortcode, a Gutenberg block or an Elementor widget. Every submission is stored in your own database.
 
-* [Live Demo](https://shapekode.com/) | [Documentation](https://documentation.shapekode.com/docs/shapeforms-user-guide/) | [Roadmap](https://shapekode.com/roadmap/) | [Support](https://shapekode.com/support/) | [Community](https://www.facebook.com/groups/shapekode)
-
-https://www.youtube.com/watch?v=EWum_aGDAMc
+* [Website](https://shapekode.com/) | [Support](https://shapekode.com/support/)
 
 = Why ShapeForms? =
 
@@ -38,7 +36,6 @@ Drag fields from the sidebar into multi-column rows, reorder with a handle, and 
 * **Custom submit button** — your own text, a Dashicon or custom SVG icon, and icon colour.
 * **11 form templates** across General, Business, Events & Booking, and HR & Surveys — import one in a click, then make it yours.
 
-https://www.youtube.com/watch?v=wkY9uTVaYJ0
 
 = AI Form Builder — describe a form and have it built =
 

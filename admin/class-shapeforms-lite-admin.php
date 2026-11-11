@@ -2134,28 +2134,6 @@ class ShapeForms_Lite_Admin {
 				'icon'  => 'dashicons-admin-tools',
 				'url'   => admin_url( 'admin.php?page=shapeforms-lite-settings&tab=tools' ),
 			),
-			array(
-				'slug'     => 'shapeforms-lite-docs',
-				'label'    => __( 'Documentation', 'shapeforms' ),
-				'icon'     => 'dashicons-book',
-				// Parent is a category; clicking it opens the user guide, hovering reveals both.
-				'url'      => 'https://documentation.shapekode.com/docs/shapeforms-user-guide/',
-				'external' => true,
-				'children' => array(
-					array(
-						'label'    => __( 'User Documentation', 'shapeforms' ),
-						'icon'     => 'dashicons-admin-users',
-						'url'      => 'https://documentation.shapekode.com/docs/shapeforms-user-guide/',
-						'external' => true,
-					),
-					array(
-						'label'    => __( 'Admin Documentation', 'shapeforms' ),
-						'icon'     => 'dashicons-admin-tools',
-						'url'      => 'https://documentation.shapekode.com/docs/shape-forms-developer-guide/',
-						'external' => true,
-					),
-				),
-			),
 		);
 
 		/**
