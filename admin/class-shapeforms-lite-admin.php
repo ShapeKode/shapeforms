@@ -361,7 +361,7 @@ class ShapeForms_Lite_Admin {
 			. '#adminmenu #toplevel_page_shapeforms:hover .shapeforms-menu-count,'
 			. '#adminmenu #toplevel_page_shapeforms.current .shapeforms-menu-count,'
 			. '#adminmenu #toplevel_page_shapeforms.wp-has-current-submenu .shapeforms-menu-count{'
-			. 'background:#2271b1;color:#fff;}'
+			. 'background:#6d28d9;color:#fff;}'
 			// Active submenu item mirrors the hover treatment — accent text + a left
 			// accent bar — so "you are here" matches the hover affordance. Defined for
 			// hover/focus/current together so they look identical (2 IDs out-rank core).
@@ -370,7 +370,7 @@ class ShapeForms_Lite_Admin {
 			. '#adminmenu #toplevel_page_shapeforms .wp-submenu li.current a,'
 			. '#adminmenu #toplevel_page_shapeforms .wp-submenu li.current a:hover,'
 			. '#adminmenu #toplevel_page_shapeforms .wp-submenu li.current a:focus{'
-			. 'color:#2271b1;box-shadow:inset 3px 0 0 #2271b1;}'
+			. 'color:#6d28d9;box-shadow:inset 3px 0 0 #6d28d9;}'
 			// The active item stays semi-bold to reinforce "you are here".
 			. '#adminmenu #toplevel_page_shapeforms .wp-submenu li.current a,'
 			. '#adminmenu #toplevel_page_shapeforms .wp-submenu li.current a:hover,'
@@ -6605,7 +6605,7 @@ class ShapeForms_Lite_Admin {
 						var x=padL+(chartW/labels.length)*j+((chartW/labels.length)-barW)/2;
 						var barY=padT+chartH-barH;
 						var gradient=ctx.createLinearGradient(x,barY,x,padT+chartH);
-						gradient.addColorStop(0,"#3b82f6");gradient.addColorStop(1,"#93c5fd");
+						gradient.addColorStop(0,"#6d28d9");gradient.addColorStop(1,"#c4b5fd");
 						ctx.fillStyle=gradient;
 						var r=Math.min(barW/2,4);
 						if(barH>r){

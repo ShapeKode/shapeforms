@@ -32,13 +32,13 @@
 }
 
 .bf-int-card:hover {
-	border-color: #6366f1;
+	border-color: #6d28d9;
 	box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
 }
 
 .bf-int-card.is-active {
-	border-color: var( --bf-int-color, #6366f1 );
-	background: color-mix( in srgb, var( --bf-int-color, #6366f1 ) 6%, #fff );
+	border-color: var( --bf-int-color, #6d28d9 );
+	background: color-mix( in srgb, var( --bf-int-color, #6d28d9 ) 6%, #fff );
 }
 
 .bf-int-card__icon {
@@ -48,7 +48,7 @@
 	width: 36px;
 	height: 36px;
 	border-radius: 8px;
-	background: var( --bf-int-color, #6366f1 );
+	background: var( --bf-int-color, #6d28d9 );
 	flex-shrink: 0;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .bf-int-card.is-active .bf-int-card__label {
-	color: color-mix( in srgb, var( --bf-int-color, #6366f1 ) 70%, #111827 );
+	color: color-mix( in srgb, var( --bf-int-color, #6d28d9 ) 70%, #111827 );
 }
 
 .bf-int-card__badge {
@@ -79,7 +79,7 @@
 	font-weight: 700;
 	padding: 1px 5px;
 	border-radius: 4px;
-	background: #6366f1;
+	background: #6d28d9;
 	color: #fff;
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
@@ -255,8 +255,8 @@
 .bf-int-input:focus,
 .bf-int-select:focus {
 	outline: none;
-	border-color: #6366f1;
-	box-shadow: 0 0 0 2px rgba(99,102,241,0.12);
+	border-color: #6d28d9;
+	box-shadow: 0 0 0 2px rgba(109,40,217,0.12);
 }
 
 /* API key row */
@@ -274,7 +274,7 @@
 	flex-shrink: 0;
 	height: 32px;
 	padding: 0 12px;
-	background: #6366f1;
+	background: #6d28d9;
 	color: #fff;
 	border: none;
 	border-radius: 6px;
@@ -286,7 +286,7 @@
 }
 
 .bf-int-fetch-btn:hover {
-	background: #4f46e5;
+	background: #5b21b6;
 }
 
 .bf-int-fetch-btn:disabled {
@@ -319,7 +319,7 @@
 }
 
 .bf-int-hint-msg.is-loading {
-	color: #6366f1;
+	color: #6d28d9;
 }
 
 /* Spinner */
@@ -438,8 +438,8 @@
 .bf-assign-gear:hover,
 .bf-assign-gear.is-active {
 	background: #ede9fe;
-	border-color: #6366f1;
-	color: #6366f1;
+	border-color: #6d28d9;
+	color: #6d28d9;
 }
 
 .bf-assign-gear .dashicons {
@@ -501,8 +501,8 @@
 
 .bf-assign-map__select:focus {
 	outline: none;
-	border-color: #6366f1;
-	box-shadow: 0 0 0 2px rgba(99,102,241,0.1);
+	border-color: #6d28d9;
+	box-shadow: 0 0 0 2px rgba(109,40,217,0.1);
 }
 
 /* Footer manage link */
@@ -517,12 +517,12 @@
 	align-items: center;
 	gap: 4px;
 	font-size: 12px;
-	color: #6366f1;
+	color: #6d28d9;
 	text-decoration: none;
 }
 
 .bf-assign-manage-link:hover {
-	color: #4f46e5;
+	color: #5b21b6;
 	text-decoration: underline;
 }
 
@@ -535,7 +535,7 @@
 /* Count badge on nav tab */
 .bf-int-count-badge {
 	display: inline-block;
-	background: #6366f1;
+	background: #6d28d9;
 	color: #fff;
 	font-size: 10px;
 	font-weight: 700;
@@ -565,7 +565,7 @@
 }
 
 .bf-assign-locked:focus-visible {
-	outline: 2px solid #6366f1;
+	outline: 2px solid #6d28d9;
 	outline-offset: -2px;
 	border-radius: 8px;
 }
@@ -592,7 +592,7 @@
 }
 
 .bf-assign-locked:hover .bf-assign-lock .dashicons {
-	color: #6366f1;
+	color: #6d28d9;
 }
 
 .bf-assign-upgrade-pill {

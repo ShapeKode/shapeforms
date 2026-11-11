@@ -557,8 +557,10 @@ function shapeforms_lite_get_brand_icon( $args = array() ) {
 	$size_attr  = $args['size'] ? sprintf( ' width="%1$d" height="%1$d"', absint( $args['size'] ) ) : '';
 	$class_attr = '' !== $args['class'] ? sprintf( ' class="%s"', esc_attr( $args['class'] ) ) : '';
 
-	return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59 74"' . $size_attr . $class_attr . ' fill="' . esc_attr( $args['fill'] ) . '" aria-hidden="true" focusable="false">'
-		. '<path fill-rule="evenodd" clip-rule="evenodd" d="M48.5399 38.6667L5.39262 73.3386C5.39262 73.3386 34.3209 73.3386 41.6055 73.3386C48.8901 73.3386 57.9958 66.1241 57.9958 54.6368C57.9958 43.1496 48.5399 38.6667 48.5399 38.6667Z M57.8215 12.853C54.3543 1.19072 43.1472 0 43.1472 0H0V72.846L45.844 36.4229C45.844 36.4229 61.2888 24.5155 57.8215 12.853Z M10.7656 16.1492C10.7656 14.6627 11.9706 13.4576 13.4571 13.4576H43.0639C43.0639 14.9441 41.8589 16.1492 40.3724 16.1492H10.7656Z M10.7656 24.2237C10.7656 22.7372 11.9706 21.5322 13.4571 21.5322H43.0639C43.0639 23.0187 41.8589 24.2237 40.3724 24.2237H10.7656Z M16.1486 32.2983C16.1486 30.8118 17.3537 29.6068 18.8402 29.6068H37.6809C37.6809 31.0933 36.4758 32.2983 34.9893 32.2983H16.1486Z"/>'
+	// A geometric "S": one continuous stroke of two stacked half-rounds, drawn as a
+	// stroke (not a fill) so the mark stays crisp at 16px in the admin menu.
+	return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"' . $size_attr . $class_attr . ' fill="none" stroke="' . esc_attr( $args['fill'] ) . '" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
+		. '<path d="M50 12H22a10 10 0 0 0 0 20h20a10 10 0 0 1 0 20H14"/>'
 		. '</svg>';
 }
 

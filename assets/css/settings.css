@@ -24,12 +24,14 @@
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	gap: 8px 20px;
+	gap: 8px 18px;
 	margin: -1px 0 0;
 	padding: 10px 24px;
-	background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-	min-height: 56px;
-	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+	background: #fff;
+	border-top: 3px solid #6d28d9;
+	border-bottom: 1px solid #ede9fe;
+	min-height: 60px;
+	box-shadow: 0 1px 3px rgba(76, 29, 149, 0.06);
 	position: relative;
 	box-sizing: border-box;
 	z-index: 10;
@@ -39,41 +41,43 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	color: #fff;
+	color: #1e1b4b;
 	flex-shrink: 0;
-	padding-right: 20px;
+	padding-right: 18px;
 	margin-right: 4px;
-	border-right: 1px solid rgba(255, 255, 255, 0.1);
+	border-right: 1px solid #ede9fe;
 }
 
+/* The "S" mark sits in a solid violet tile. */
 .shapeforms-admin-topbar__brand > .dashicons {
-	width: 24px;
-	height: 24px;
-	font-size: 24px;
-	line-height: 24px;
-	color: #60a5fa;
-	filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.4));
+	box-sizing: border-box;
+	width: 32px;
+	height: 32px;
+	padding: 8px;
+	font-size: 16px;
+	line-height: 16px;
+	color: #fff;
+	background: #6d28d9;
+	border-radius: 9px;
+	box-shadow: 0 2px 6px rgba(109, 40, 217, 0.3);
 }
 
 .shapeforms-admin-topbar__name {
 	font-size: 15px;
 	font-weight: 800;
-	letter-spacing: 0.03em;
-	background: linear-gradient(135deg, #fff 0%, #93c5fd 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
+	letter-spacing: 0.01em;
+	color: #1e1b4b;
 }
 
 .shapeforms-admin-topbar__version {
 	display: inline-block;
 	padding: 2px 8px;
 	border-radius: 999px;
-	background: rgba(96, 165, 250, 0.15);
-	border: 1px solid rgba(96, 165, 250, 0.2);
+	background: #f5f3ff;
+	border: 1px solid #ddd6fe;
 	font-size: 10px;
 	font-weight: 700;
-	color: #93c5fd;
+	color: #6d28d9;
 	letter-spacing: 0.03em;
 }
 
@@ -91,29 +95,30 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 7px;
-	padding: 8px 14px;
+	padding: 7px 14px;
 	font-size: 13px;
 	font-weight: 500;
-	color: #94a3b8;
+	color: #475569;
 	text-decoration: none;
-	border-radius: 8px;
-	transition: all 0.18s ease;
+	border-radius: 999px;
+	transition: color 0.18s ease, background 0.18s ease;
 }
 
 .shapeforms-admin-topbar__link:hover {
-	color: #e2e8f0;
-	background: rgba(255, 255, 255, 0.06);
+	color: #4c1d95;
+	background: #f5f3ff;
 }
 
 .shapeforms-admin-topbar__link:focus {
-	color: #e2e8f0;
+	color: #4c1d95;
 	outline: none;
+	box-shadow: 0 0 0 2px #ddd6fe;
 }
 
 .shapeforms-admin-topbar__link.is-active {
-	color: #fff;
-	background: rgba(96, 165, 250, 0.15);
-	box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.2);
+	color: #6d28d9;
+	font-weight: 600;
+	background: #ede9fe;
 }
 
 .shapeforms-admin-topbar__link .dashicons {
@@ -121,7 +126,7 @@
 	height: 16px;
 	font-size: 16px;
 	line-height: 16px;
-	opacity: 0.7;
+	opacity: 0.75;
 	transition: opacity 0.18s ease;
 }
 
@@ -161,10 +166,10 @@
 	display: flex;
 	flex-direction: column;
 	gap: 2px;
-	background: #1e293b;
-	border: 1px solid rgba(255, 255, 255, 0.08);
-	border-radius: 10px;
-	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+	background: #fff;
+	border: 1px solid #ede9fe;
+	border-radius: 12px;
+	box-shadow: 0 12px 28px rgba(76, 29, 149, 0.12);
 	opacity: 0;
 	visibility: hidden;
 	transform: translateY(-4px);
@@ -186,17 +191,17 @@
 	padding: 9px 12px;
 	font-size: 13px;
 	font-weight: 500;
-	color: #cbd5e1;
+	color: #334155;
 	text-decoration: none;
-	border-radius: 7px;
+	border-radius: 8px;
 	white-space: nowrap;
 	transition: color 0.15s ease, background 0.15s ease;
 }
 
 .shapeforms-admin-topbar__dropdown-link:hover,
 .shapeforms-admin-topbar__dropdown-link:focus {
-	color: #fff;
-	background: rgba(96, 165, 250, 0.15);
+	color: #6d28d9;
+	background: #f5f3ff;
 	outline: none;
 }
 
@@ -211,7 +216,7 @@
 /* Upgrade-to-Pro call-to-action — lives in the page-title header, pushed flush
    right (margin-left:auto). A clean, flat solid-blue pill (no gradient, no icon)
    in the spirit of FormGent/FluentCRM's upgrade buttons, in a vivid royal blue so
-   it reads as premium and stays distinct from the muted "Add New" (#2271b1).
+   it reads as premium and stays distinct from the muted "Add New" (#6d28d9).
    Lite-only: not rendered when ShapeForms Pro is active. */
 .shapeforms-header-upgrade {
 	display: inline-flex;
@@ -349,8 +354,8 @@
 
 .shapeforms-settings-sidebar .shapeforms-nav-item.is-active {
 	background: #fff;
-	color: #2271b1;
-	border-left-color: #2271b1;
+	color: #6d28d9;
+	border-left-color: #6d28d9;
 	font-weight: 600;
 }
 
@@ -510,8 +515,8 @@
 
 .shapeforms-field-control input:focus,
 .shapeforms-field-control textarea:focus {
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
+	border-color: #6d28d9;
+	box-shadow: 0 0 0 1px #6d28d9;
 	outline: none;
 }
 
@@ -562,7 +567,7 @@
 }
 
 .shapeforms-radio-group label:has(input:checked) {
-	background: #2271b1;
+	background: #6d28d9;
 	color: #fff;
 }
 
@@ -584,13 +589,13 @@
 }
 
 .shapeforms-style-option:hover {
-	border-color: #2271b1;
+	border-color: #6d28d9;
 }
 
 .shapeforms-style-option.is-selected {
-	border-color: #2271b1;
-	background: #f0f6fc;
-	box-shadow: 0 0 0 1px #2271b1;
+	border-color: #6d28d9;
+	background: #f5f3ff;
+	box-shadow: 0 0 0 1px #6d28d9;
 }
 
 .shapeforms-style-option input[type="radio"] {
@@ -648,7 +653,7 @@
 }
 
 .shapeforms-toggle input[type="checkbox"]:checked {
-	background: #2271b1;
+	background: #6d28d9;
 }
 
 .shapeforms-toggle input[type="checkbox"]:checked::before {
@@ -680,7 +685,7 @@
 }
 
 .shapeforms-captcha-card:hover {
-	border-color: #2271b1;
+	border-color: #6d28d9;
 }
 
 .shapeforms-captcha-card input {
@@ -704,9 +709,9 @@
 }
 
 .shapeforms-captcha-card.is-selected {
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
-	background: #f0f6fc;
+	border-color: #6d28d9;
+	box-shadow: 0 0 0 1px #6d28d9;
+	background: #f5f3ff;
 }
 
 .shapeforms-captcha-panel {
@@ -742,8 +747,8 @@
 }
 
 .shapeforms-smtp-subtabs a.active {
-	color: #2271b1;
-	border-bottom-color: #2271b1;
+	color: #6d28d9;
+	border-bottom-color: #6d28d9;
 	font-weight: 600;
 }
 
@@ -842,7 +847,7 @@
 	}
 
 	.shapeforms-settings-sidebar .shapeforms-nav-item.is-active {
-		border-bottom-color: #2271b1;
+		border-bottom-color: #6d28d9;
 	}
 
 	.shapeforms-settings-content {
@@ -899,7 +904,7 @@
 	align-items: center;
 	gap: 7px;
 	padding: 10px 20px;
-	background: #2271b1;
+	background: #6d28d9;
 	color: #fff;
 	border: none;
 	border-radius: 8px;
@@ -908,26 +913,26 @@
 	line-height: 1.4;
 	text-decoration: none;
 	cursor: pointer;
-	box-shadow: 0 1px 2px rgba(34, 113, 177, 0.3);
+	box-shadow: 0 1px 2px rgba(,,, 0.3);
 	transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
 }
 
 .shapeforms-page-header .shapeforms-btn-add:hover,
 .shapeforms-page-header .shapeforms-btn-add:focus {
-	background: #135e96;
+	background: #5b21b6;
 	color: #fff;
-	box-shadow: 0 4px 12px rgba(34, 113, 177, 0.35);
+	box-shadow: 0 4px 12px rgba(,,, 0.35);
 	transform: translateY(-1px);
 }
 
 .shapeforms-page-header .shapeforms-btn-add:active {
 	transform: translateY(0);
-	box-shadow: 0 1px 2px rgba(34, 113, 177, 0.3);
+	box-shadow: 0 1px 2px rgba(,,, 0.3);
 }
 
 .shapeforms-page-header .shapeforms-btn-add:focus-visible {
 	outline: none;
-	box-shadow: 0 0 0 3px rgba(34, 113, 177, 0.35);
+	box-shadow: 0 0 0 3px rgba(,,, 0.35);
 }
 
 .shapeforms-page-header .shapeforms-btn-add .dashicons {
@@ -973,12 +978,12 @@
 
 .shapeforms-forms-tab:focus {
 	outline: none;
-	box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(34, 113, 177, 0.35);
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(,,, 0.35);
 }
 
 .shapeforms-forms-tab.is-active {
 	background: #fff;
-	color: #2271b1;
+	color: #6d28d9;
 	box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12), 0 1px 1px rgba(15, 23, 42, 0.04);
 }
 
@@ -1003,8 +1008,8 @@
 }
 
 .shapeforms-forms-tab.is-active .shapeforms-forms-tab__count {
-	background: rgba(34, 113, 177, 0.12);
-	color: #2271b1;
+	background: rgba(,,, 0.12);
+	color: #6d28d9;
 }
 
 /* ── Table card wrapper ── */
@@ -1128,7 +1133,7 @@
 }
 
 .shapeforms-table-card table.widefat tbody td strong a:hover {
-	color: #2271b1;
+	color: #6d28d9;
 }
 
 .shapeforms-table-card table.widefat tbody td code {
@@ -1161,7 +1166,7 @@
 	width: 18px;
 	height: 18px;
 	cursor: pointer;
-	accent-color: #2271b1;
+	accent-color: #6d28d9;
 }
 
 .shapeforms-bulk-action-wrap {
@@ -1204,8 +1209,8 @@
 .shapeforms-bulk-action-wrap select:focus,
 .shapeforms-filter-form select:focus {
 	outline: 2px solid transparent;
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
+	border-color: #6d28d9;
+	box-shadow: 0 0 0 1px #6d28d9;
 }
 
 /* ── Bulk-bar dropdown ───────────────────────────────────────────────────
@@ -1269,8 +1274,8 @@
 .shapeforms-select__toggle:focus-visible,
 .shapeforms-select.is-open .shapeforms-select__toggle {
 	outline: none;
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
+	border-color: #6d28d9;
+	box-shadow: 0 0 0 1px #6d28d9;
 }
 
 .shapeforms-select__toggle:disabled {
@@ -1390,12 +1395,12 @@
 }
 
 .shapeforms-select__option.is-selected {
-	color: #2271b1;
+	color: #6d28d9;
 	font-weight: 600;
 }
 
 .shapeforms-select__option.is-selected::before {
-	background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M15.6%205.3l1.4%201.4L8%2015.7l-5-5%201.4-1.4L8%2012.9z%22%20fill%3D%22%232271b1%22%2F%3E%3C%2Fsvg%3E");
+	background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M15.6%205.3l1.4%201.4L8%2015.7l-5-5%201.4-1.4L8%2012.9z%22%20fill%3D%22%236d28d9%22%2F%3E%3C%2Fsvg%3E");
 }
 
 /* One highlight, driven by the keyboard and by the pointer alike, so arrowing
@@ -1423,10 +1428,10 @@
 .shapeforms-bulk-apply {
 	height: 36px;
 	padding: 0 16px;
-	border: 1px solid #2271b1;
+	border: 1px solid #6d28d9;
 	border-radius: 8px;
 	background: #f6f7f7;
-	color: #2271b1;
+	color: #6d28d9;
 	font-size: 13px;
 	font-weight: 600;
 	line-height: 1;
@@ -1435,15 +1440,15 @@
 }
 
 .shapeforms-bulk-apply:hover {
-	background: #f0f6fc;
-	border-color: #0a4b78;
-	color: #0a4b78;
+	background: #f5f3ff;
+	border-color: #4c1d95;
+	color: #4c1d95;
 }
 
 .shapeforms-bulk-apply:focus {
 	outline: 2px solid transparent;
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
+	border-color: #6d28d9;
+	box-shadow: 0 0 0 1px #6d28d9;
 }
 
 .shapeforms-search-form {
@@ -1490,8 +1495,8 @@ input[type="search"].shapeforms-search-input:hover {
 
 input[type="search"].shapeforms-search-input:focus {
 	outline: 2px solid transparent;
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
+	border-color: #6d28d9;
+	box-shadow: 0 0 0 1px #6d28d9;
 }
 
 /* ── Forms table ── */
@@ -1602,7 +1607,7 @@ input[type="search"].shapeforms-search-input:focus {
 	width: 16px;
 	height: 16px;
 	margin: 0;
-	accent-color: #2271b1;
+	accent-color: #6d28d9;
 	vertical-align: middle;
 	cursor: pointer;
 }
@@ -1629,7 +1634,7 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-form-title-link:hover {
-	color: #2271b1;
+	color: #6d28d9;
 }
 
 .shapeforms-form-meta {
@@ -1652,12 +1657,12 @@ input[type="search"].shapeforms-search-input:focus {
 
 .shapeforms-form-row-actions a {
 	font-size: 12px;
-	color: #2271b1;
+	color: #6d28d9;
 	text-decoration: none;
 }
 
 .shapeforms-form-row-actions a:hover {
-	color: #135e96;
+	color: #5b21b6;
 }
 
 .shapeforms-form-row-actions .shapeforms-action-danger {
@@ -1744,7 +1749,7 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-copy-shortcode:hover {
-	border-color: #2271b1;
+	border-color: #6d28d9;
 	background: #eff6ff;
 }
 
@@ -1773,7 +1778,7 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-copy-shortcode:hover .dashicons {
-	color: #2271b1;
+	color: #6d28d9;
 }
 
 .shapeforms-copy-shortcode.is-copied .dashicons {
@@ -1798,7 +1803,7 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-entries-link:hover {
-	background: #2271b1;
+	background: #6d28d9;
 	color: #fff;
 }
 
@@ -1916,7 +1921,7 @@ input[type="search"].shapeforms-search-input:focus {
 	line-height: 1;
 	border-radius: 50%;
 	background: #eaf2fb;
-	color: #2271b1;
+	color: #6d28d9;
 }
 
 .shapeforms-forms-empty p {
@@ -1931,7 +1936,7 @@ input[type="search"].shapeforms-search-input:focus {
 	align-items: center;
 	gap: 6px;
 	padding: 9px 20px;
-	background: #2271b1;
+	background: #6d28d9;
 	color: #fff;
 	border: none;
 	border-radius: 6px;
@@ -1944,7 +1949,7 @@ input[type="search"].shapeforms-search-input:focus {
 
 .shapeforms-forms-empty .shapeforms-btn-add:hover,
 .shapeforms-forms-empty .shapeforms-btn-add:focus {
-	background: #135e96;
+	background: #5b21b6;
 	color: #fff;
 }
 
@@ -1984,14 +1989,14 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-pagination .page-numbers:hover {
-	background: #f0f6fc;
-	border-color: #2271b1;
-	color: #2271b1;
+	background: #f5f3ff;
+	border-color: #6d28d9;
+	color: #6d28d9;
 }
 
 .shapeforms-pagination .page-numbers.current {
-	background: #2271b1;
-	border-color: #2271b1;
+	background: #6d28d9;
+	border-color: #6d28d9;
 	color: #fff;
 	font-weight: 600;
 }
@@ -2143,12 +2148,12 @@ input[type="search"].shapeforms-search-input:focus {
 
 .shapeforms-entries-tab:focus {
 	outline: none;
-	box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(34, 113, 177, 0.35);
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(,,, 0.35);
 }
 
 .shapeforms-entries-tab.is-active {
 	background: #fff;
-	color: #2271b1;
+	color: #6d28d9;
 	box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12), 0 1px 1px rgba(15, 23, 42, 0.04);
 }
 
@@ -2173,8 +2178,8 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-entries-tab.is-active .shapeforms-entries-tab__count {
-	background: rgba(34, 113, 177, 0.12);
-	color: #2271b1;
+	background: rgba(,,, 0.12);
+	color: #6d28d9;
 }
 
 /* Custom dropdown */
@@ -2203,8 +2208,8 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-dropdown.is-open .shapeforms-dropdown__trigger {
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
+	border-color: #6d28d9;
+	box-shadow: 0 0 0 1px #6d28d9;
 }
 
 .shapeforms-dropdown__trigger .dashicons {
@@ -2281,7 +2286,7 @@ input[type="search"].shapeforms-search-input:focus {
 
 .shapeforms-dropdown__item.is-active {
 	background: #eff6ff;
-	color: #2271b1;
+	color: #6d28d9;
 	font-weight: 600;
 }
 
@@ -2325,8 +2330,8 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-custom-dates__form input[type="date"]:focus {
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
+	border-color: #6d28d9;
+	box-shadow: 0 0 0 1px #6d28d9;
 	outline: none;
 }
 
@@ -2411,8 +2416,8 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-bulk-bar select.shapeforms-bulk-bar__select:focus {
-	border-color: #2271b1;
-	box-shadow: 0 0 0 1px #2271b1;
+	border-color: #6d28d9;
+	box-shadow: 0 0 0 1px #6d28d9;
 	outline: none;
 }
 
@@ -2423,9 +2428,9 @@ input[type="search"].shapeforms-search-input:focus {
 	height: 34px;
 	min-height: 34px;
 	padding: 0 18px;
-	border: 1px solid #2271b1;
+	border: 1px solid #6d28d9;
 	border-radius: 8px;
-	background: #2271b1;
+	background: #6d28d9;
 	color: #fff;
 	font-size: 13px;
 	font-weight: 600;
@@ -2436,15 +2441,15 @@ input[type="search"].shapeforms-search-input:focus {
 
 .shapeforms-bulk-bar #shapeforms-bulk-apply:hover,
 .shapeforms-bulk-bar #shapeforms-bulk-apply:focus {
-	background: #135e96;
-	border-color: #135e96;
+	background: #5b21b6;
+	border-color: #5b21b6;
 	color: #fff;
-	box-shadow: 0 2px 8px rgba(34, 113, 177, .25);
+	box-shadow: 0 2px 8px rgba(,,, .25);
 }
 
 .shapeforms-bulk-bar #shapeforms-bulk-apply:focus-visible {
 	outline: none;
-	box-shadow: 0 0 0 3px rgba(34, 113, 177, .35);
+	box-shadow: 0 0 0 3px rgba(,,, .35);
 }
 
 /* Export-selected dropdown — replaces the old row of format buttons (CSV/Excel/PDF).
@@ -2490,7 +2495,7 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-entries-table tbody tr.shapeforms-entry--unread td:first-child {
-	box-shadow: inset 3px 0 0 #2271b1;
+	box-shadow: inset 3px 0 0 #6d28d9;
 }
 
 /* Keep the blue highlight (a touch deeper) on hover instead of the neutral gray. */
@@ -2532,7 +2537,7 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-entry-link:hover {
-	color: #2271b1;
+	color: #6d28d9;
 }
 
 .shapeforms-entry-form-badge {
@@ -2766,14 +2771,14 @@ input[type="search"].shapeforms-search-input:focus {
 	border: 1px solid #d0d5dd;
 	border-radius: 6px;
 	background: #f9fafb;
-	color: #2271b1;
+	color: #6d28d9;
 	font-size: 13px;
 	text-decoration: none;
 	transition: all 0.14s ease;
 }
 
 .shapeforms-entry-file-link:hover {
-	border-color: #2271b1;
+	border-color: #6d28d9;
 	background: #eff6ff;
 }
 
@@ -2849,7 +2854,7 @@ input[type="search"].shapeforms-search-input:focus {
 }
 
 .shapeforms-entry-meta-item__link {
-	color: #2271b1;
+	color: #6d28d9;
 	text-decoration: none;
 }
 
@@ -3557,9 +3562,9 @@ input[type="search"].shapeforms-search-input:focus {
 	font-weight: 700;
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
-	color: #93c5fd;
-	background: rgba(96, 165, 250, 0.14);
-	border: 1px solid rgba(96, 165, 250, 0.25);
+	color: #c4b5fd;
+	background: rgba(,,, 0.14);
+	border: 1px solid rgba(,,, 0.25);
 }
 
 .shapeforms-up-badge .dashicons {
@@ -3938,7 +3943,7 @@ input[type="search"].shapeforms-search-input:focus {
 	display: inline-flex;
 	align-items: center;
 	padding: 10px 22px;
-	background: #2271b1;
+	background: #6d28d9;
 	color: #fff;
 	border-radius: 8px;
 	font-size: 13px;
@@ -3948,9 +3953,9 @@ input[type="search"].shapeforms-search-input:focus {
 
 .shapeforms-upgrade-modal__cta:hover,
 .shapeforms-upgrade-modal__cta:focus {
-	background: #135e96;
+	background: #5b21b6;
 	color: #fff;
-	box-shadow: 0 4px 12px rgba( 34, 113, 177, 0.35 );
+	box-shadow: 0 4px 12px rgba(,,, 0.35 );
 }
 
 .shapeforms-upgrade-modal__dismiss {
@@ -4024,7 +4029,7 @@ body.shapeforms-upgrade-modal-open {
 	height: 16px;
 	margin: 0;
 	padding: 0;
-	accent-color: #2271b1;
+	accent-color: #6d28d9;
 	vertical-align: middle;
 	float: none;
 	cursor: pointer;
@@ -4108,7 +4113,7 @@ body.shapeforms-upgrade-modal-open {
 	margin-bottom: 14px;
 	border-radius: 50%;
 	background: #eef4fb;
-	color: #2271b1;
+	color: #6d28d9;
 	font-size: 28px;
 }
 
