@@ -1,0 +1,477 @@
+/**
+ * AI Form Builder — builder styles.
+ *
+ * The card itself reuses Lite's `.shapeforms-setup-card` / `.shapeforms-start-card`
+ * classes, so it inherits their layout for free; only the icon accent is
+ * overridden here. The modal is new markup and is styled in full, using Lite's
+ * builder tokens (teal #0f766e focus accent, #cbd5e1 borders, 10px radius) so it
+ * reads as part of the same UI.
+ *
+ * @package ShapeFormsLite
+ */
+
+/* -------------------------------------------------------------------------
+ * Card accent
+ * ---------------------------------------------------------------------- */
+
+/*
+ * The tile follows the pattern the three sibling cards already set — a 135deg
+ * pastel wash behind a saturated mark — so the AI card sits in the row instead
+ * of on top of it. It used to be a solid teal-to-blue slab with a white glyph,
+ * which made the one free feature in the row look like the paid one.
+ *
+ * The wash is indigo to fuchsia: the mark's own gradient sweeps the same two
+ * hues, and neither is claimed by Blank (blue), Template (green), or
+ * Conversational (violet).
+ */
+.shapeforms-ai-card__icon {
+	background: linear-gradient( 135deg, #eef2ff 0%, #fae8ff 100% );
+}
+
+/*
+ * Sized here rather than inherited: the sibling rules that size these marks are
+ * written against `.dashicons`, which an inline SVG is not. Set a few pixels
+ * larger than the dashicon each one replaces — a star's thin arms carry less
+ * ink than a solid glyph, so matching them by number would leave this tile
+ * looking emptier than the ones beside it. The tiles themselves are unchanged.
+ */
+.shapeforms-setup-card__icon .shapeforms-ai-spark {
+	width: 34px;
+	height: 34px;
+}
+
+.shapeforms-start-card__icon .shapeforms-ai-spark {
+	width: 26px;
+	height: 26px;
+}
+
+.shapeforms-ai-spark {
+	display: block;
+	transition: transform 0.16s ease;
+}
+
+/*
+ * A hover lift on the mark alone. The start card's shared rule flips its tile
+ * to solid dark teal with a white glyph, which would bury a gradient mark and
+ * borrow Template's colour, so the AI tile keeps its wash and answers with
+ * movement instead.
+ */
+.shapeforms-start-card:hover .shapeforms-ai-card__icon,
+.shapeforms-setup-card:hover .shapeforms-ai-card__icon {
+	background: linear-gradient( 135deg, #e0e7ff 0%, #f5d0fe 100% );
+}
+
+.shapeforms-setup-card:hover .shapeforms-ai-spark,
+.shapeforms-start-card:hover .shapeforms-ai-spark {
+	transform: scale( 1.08 ) rotate( -4deg );
+}
+
+/*
+ * The shared hover rules tint the border blue on the setup screen and teal on
+ * the empty canvas, both inherited from when this tile was teal-to-blue. Now
+ * that the mark is indigo-to-fuchsia the card would light up in a colour it
+ * does not contain, so each card answers in its own.
+ */
+.shapeforms-setup-card.shapeforms-ai-card:hover {
+	border-color: #9333ea;
+	box-shadow: 0 12px 32px rgba( 147, 51, 234, 0.14 );
+}
+
+.shapeforms-start-card.shapeforms-ai-card:hover {
+	border-color: #9333ea;
+	box-shadow: 0 14px 30px rgba( 147, 51, 234, 0.16 );
+}
+
+.shapeforms-start-card.shapeforms-ai-card:hover .shapeforms-start-card__arrow.dashicons {
+	color: #9333ea;
+}
+
+@media ( prefers-reduced-motion: reduce ) {
+
+	.shapeforms-ai-spark {
+		transition: none;
+	}
+
+	.shapeforms-setup-card:hover .shapeforms-ai-spark,
+	.shapeforms-start-card:hover .shapeforms-ai-spark {
+		transform: none;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Modal
+ * ---------------------------------------------------------------------- */
+
+.shapeforms-ai-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 100050;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+/*
+ * The modal is shown/hidden via the `hidden` attribute. An author `display`
+ * value beats the user-agent `[hidden] { display: none }` rule regardless of
+ * specificity, so without this guard the modal would stay visible and the
+ * attribute would silently do nothing.
+ */
+.shapeforms-ai-modal[hidden] {
+	display: none;
+}
+
+.shapeforms-ai-modal__backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba( 15, 23, 42, 0.55 );
+}
+
+.shapeforms-ai-modal__panel {
+	position: relative;
+	width: 100%;
+	max-width: 560px;
+	max-height: calc( 100vh - 40px );
+	overflow-y: auto;
+	padding: 28px;
+	border-radius: 12px;
+	background: #fff;
+	box-shadow: 0 24px 48px rgba( 15, 23, 42, 0.24 );
+}
+
+.shapeforms-ai-modal__close {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	color: #64748b;
+	cursor: pointer;
+}
+
+.shapeforms-ai-modal__close:hover {
+	background: #f1f5f9;
+	color: #0f172a;
+}
+
+.shapeforms-ai-modal__close:focus {
+	outline: none;
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba( 15, 118, 110, 0.45 );
+}
+
+.shapeforms-ai-modal__panel h2 {
+	margin: 0 0 6px;
+	padding: 0;
+	font-size: 20px;
+	line-height: 1.3;
+	color: #0f172a;
+}
+
+.shapeforms-ai-modal__intro {
+	margin: 0 0 16px;
+	font-size: 13px;
+	line-height: 1.5;
+	color: #64748b;
+}
+
+/* Element-qualified so it beats wp-admin's `textarea` rule (0,1,1). */
+textarea.shapeforms-ai-modal__input {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid #cbd5e1;
+	border-radius: 10px;
+	background: #fff;
+	color: #1e293b;
+	font-size: 14px;
+	line-height: 1.5;
+	resize: vertical;
+	box-sizing: border-box;
+}
+
+textarea.shapeforms-ai-modal__input:focus {
+	border-color: #0f766e;
+	outline: none;
+	box-shadow: 0 0 0 3px rgba( 15, 118, 110, 0.12 );
+}
+
+/* -------------------------------------------------------------------------
+ * Suggestion chips
+ * ---------------------------------------------------------------------- */
+
+.shapeforms-ai-modal__suggest-label {
+	margin: 16px 0 8px;
+	font-size: 12px;
+	font-weight: 600;
+	color: #475569;
+}
+
+.shapeforms-ai-modal__suggestions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.shapeforms-ai-suggestion {
+	padding: 6px 10px;
+	border: 1px solid #e2e8f0;
+	border-radius: 999px;
+	background: #f8fafc;
+	color: #475569;
+	font-size: 12px;
+	line-height: 1.4;
+	cursor: pointer;
+}
+
+.shapeforms-ai-suggestion:hover {
+	border-color: #0f766e;
+	background: #fff;
+	color: #0f766e;
+}
+
+.shapeforms-ai-suggestion:focus {
+	outline: none;
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba( 15, 118, 110, 0.35 );
+}
+
+/* -------------------------------------------------------------------------
+ * Notice
+ * ---------------------------------------------------------------------- */
+
+.shapeforms-ai-modal__notice {
+	margin-top: 16px;
+	padding: 10px 12px;
+	border-radius: 8px;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.shapeforms-ai-modal__notice[hidden] {
+	display: none;
+}
+
+.shapeforms-ai-modal__notice.is-error {
+	border-left: 3px solid #dc2626;
+	background: #fef2f2;
+	color: #991b1b;
+}
+
+.shapeforms-ai-modal__notice.is-info {
+	border-left: 3px solid #0f766e;
+	background: #f0fdfa;
+	color: #115e59;
+}
+
+/* -------------------------------------------------------------------------
+ * Building state
+ *
+ * A generation runs for anything from a few seconds to most of a minute, which
+ * is far too long for a disabled button to be the only sign of life. The panel
+ * shows the shape of what is coming instead: placeholder rows that mirror a
+ * real form — label above control, some of them side by side — so the wait
+ * reads as the form being assembled rather than as nothing happening.
+ * ---------------------------------------------------------------------- */
+
+/*
+ * The suggestion chips are dead weight while a request is in flight — nothing
+ * there can be clicked and none of it says anything about what is going on —
+ * so the preview takes over the same space instead of pushing the panel taller.
+ */
+.shapeforms-ai-modal.is-busy .shapeforms-ai-modal__suggest-label,
+.shapeforms-ai-modal.is-busy .shapeforms-ai-modal__suggestions {
+	display: none;
+}
+
+.shapeforms-ai-modal__skeleton {
+	margin-top: 18px;
+}
+
+/* Same `hidden` guard as the modal above: an author `display` beats the
+   user-agent `[hidden]` rule, so without this the attribute does nothing. */
+.shapeforms-ai-modal__skeleton[hidden] {
+	display: none;
+}
+
+.shapeforms-ai-skeleton__status {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	margin: 0 0 14px;
+	font-size: 13px;
+	line-height: 1.4;
+	color: #115e59;
+}
+
+.shapeforms-ai-skeleton__pulse {
+	position: relative;
+	flex: 0 0 auto;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: #0f766e;
+}
+
+/* The expanding ring is a pseudo-element so the dot keeps a fixed footprint
+   and the text beside it never shifts as the ring grows. */
+.shapeforms-ai-skeleton__pulse::after {
+	content: "";
+	position: absolute;
+	inset: -4px;
+	border: 1px solid #0f766e;
+	border-radius: 50%;
+	animation: shapeforms-ai-pulse 1.9s ease-out infinite;
+}
+
+@keyframes shapeforms-ai-pulse {
+	0% {
+		opacity: 0.55;
+		transform: scale( 0.5 );
+	}
+
+	70%,
+	100% {
+		opacity: 0;
+		transform: scale( 1.5 );
+	}
+}
+
+.shapeforms-ai-skeleton__form {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.shapeforms-ai-skeleton__row {
+	display: flex;
+	gap: 12px;
+	animation: shapeforms-ai-rise 0.45s ease both;
+}
+
+@keyframes shapeforms-ai-rise {
+	from {
+		opacity: 0;
+		transform: translateY( 6px );
+	}
+
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.shapeforms-ai-skeleton__field {
+	display: flex;
+	flex: 1 1 0;
+	flex-direction: column;
+	gap: 8px;
+	min-width: 0;
+}
+
+/*
+ * One flat grey with a soft band travelling across it. Only the band moves, so
+ * this reads as a sweep rather than the whole bar flashing on and off — the
+ * difference between "working" and "broken".
+ */
+.shapeforms-ai-skeleton__bar {
+	display: block;
+	height: 9px;
+	border-radius: 4px;
+	background-color: #e3e9f1;
+	background-image: linear-gradient(
+		90deg,
+		rgba( 255, 255, 255, 0 ) 0%,
+		rgba( 255, 255, 255, 0.72 ) 50%,
+		rgba( 255, 255, 255, 0 ) 100%
+	);
+	background-repeat: no-repeat;
+	background-size: 45% 100%;
+	animation: shapeforms-ai-shimmer 1.6s ease-in-out infinite;
+}
+
+/* Overshoots both edges so the band clears the bar entirely between passes
+   instead of parking a bright patch at one end. */
+@keyframes shapeforms-ai-shimmer {
+	from {
+		background-position: -70% 0;
+	}
+
+	to {
+		background-position: 170% 0;
+	}
+}
+
+.shapeforms-ai-skeleton__bar--control {
+	height: 32px;
+	border-radius: 8px;
+}
+
+.shapeforms-ai-skeleton__bar--tall {
+	height: 56px;
+}
+
+/*
+ * The second row arrives a beat after the first, and its sweep starts a beat
+ * apart too. The offset is negative so the bar begins part-way through its
+ * cycle rather than sitting flat while it waits its turn.
+ */
+.shapeforms-ai-skeleton__row:nth-child( 2 ) {
+	animation-delay: 0.1s;
+}
+
+.shapeforms-ai-skeleton__row:nth-child( 2 ) .shapeforms-ai-skeleton__bar {
+	animation-delay: -0.45s;
+}
+
+/*
+ * With motion off the bars would keep a bright patch frozen wherever the sweep
+ * stopped, so the highlight is removed rather than merely paused; the status
+ * line is then the only thing reporting progress, which is why it is text and
+ * not an animation.
+ */
+@media ( prefers-reduced-motion: reduce ) {
+	.shapeforms-ai-skeleton__pulse::after,
+	.shapeforms-ai-skeleton__row,
+	.shapeforms-ai-skeleton__bar {
+		animation: none;
+	}
+
+	.shapeforms-ai-skeleton__bar {
+		background-image: none;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Actions
+ * ---------------------------------------------------------------------- */
+
+.shapeforms-ai-modal__actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 20px;
+}
+
+.shapeforms-ai-modal.is-busy .shapeforms-ai-modal__panel {
+	cursor: progress;
+}
+
+.shapeforms-ai-modal.is-busy .shapeforms-ai-modal__submit {
+	opacity: 0.75;
+}
+
+/* -------------------------------------------------------------------------
+ * Small screens
+ * ---------------------------------------------------------------------- */
+
+@media screen and ( max-width: 600px ) {
+	.shapeforms-ai-modal__panel {
+		padding: 20px;
+	}
+}

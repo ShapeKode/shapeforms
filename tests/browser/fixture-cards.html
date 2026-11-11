@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--
+	Lite's real markup and real stylesheet, with Pro's real script doing the
+	injecting. Nothing about the card count or the grid is restated here, so a
+	change on either side shows up as a failure rather than passing against a
+	copy that has drifted.
+-->
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-includes/css/buttons.min.css">
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-includes/css/dashicons.min.css">
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-admin/css/common.min.css">
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-admin/css/forms.min.css">
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-content/plugins/shapeforms/assets/css/builder.css">
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-content/plugins/shapeforms/assets/css/ai-builder.css">
+<style>
+	body { margin: 0; background: #f0f4f8; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; }
+	.pad { padding: 40px 24px; }
+	.shapeforms-canvas-empty { background: #fff; padding: 32px; margin: 40px auto; max-width: 900px; border-radius: 16px; }
+</style>
+</head>
+<body>
+
+<div class="pad">
+	<div class="shapeforms-setup-choices">
+		<button type="button" class="shapeforms-setup-card" id="shapeforms-setup-blank">
+			<span class="shapeforms-setup-card__icon shapeforms-setup-card__icon--blank"><span class="dashicons dashicons-plus-alt2"></span></span>
+			<strong>Blank Form</strong>
+			<span>Start with an empty canvas and build your form from scratch.</span>
+		</button>
+		<button type="button" class="shapeforms-setup-card" id="shapeforms-setup-template">
+			<span class="shapeforms-setup-card__icon shapeforms-setup-card__icon--template"><span class="dashicons dashicons-layout"></span></span>
+			<strong>Use a Template</strong>
+			<span>Browse ready-made templates, preview them, and import in one click.</span>
+		</button>
+		<button type="button" class="shapeforms-setup-card" id="shapeforms-setup-conversational">
+			<span class="shapeforms-setup-card__icon shapeforms-setup-card__icon--conversational"><span class="dashicons dashicons-format-chat"></span></span>
+			<strong>Conversational Form</strong>
+			<span>Ask one question at a time. You can switch any form to this later.</span>
+		</button>
+	</div>
+</div>
+
+<div class="shapeforms-canvas-empty" id="shapeforms-canvas-empty">
+	<div class="shapeforms-empty-state">
+		<span class="shapeforms-empty-state__icon dashicons dashicons-layout" aria-hidden="true"></span>
+		<h3>Start building your form</h3>
+		<p>Start from a blank canvas or open the built-in template gallery.</p>
+		<div class="shapeforms-start-grid">
+			<button type="button" class="shapeforms-start-card" data-template="blank">
+				<span class="shapeforms-start-card__icon"><span class="dashicons dashicons-welcome-add-page" aria-hidden="true"></span></span>
+				<span class="shapeforms-start-card__body">
+					<strong>Blank Form</strong>
+					<span>Choose your layout and build the form from scratch.</span>
+				</span>
+				<span class="shapeforms-start-card__arrow dashicons dashicons-arrow-right-alt2" aria-hidden="true"></span>
+			</button>
+			<button type="button" class="shapeforms-start-card" id="shapeforms-open-template-modal">
+				<span class="shapeforms-start-card__icon"><span class="dashicons dashicons-layout" aria-hidden="true"></span></span>
+				<span class="shapeforms-start-card__body">
+					<strong>Use a Template</strong>
+					<span>Browse starter templates, preview them, and import in one click.</span>
+				</span>
+				<span class="shapeforms-start-card__arrow dashicons dashicons-arrow-right-alt2" aria-hidden="true"></span>
+			</button>
+		</div>
+	</div>
+</div>
+
+<script src="/Users/riaz/Local Sites/develop/app/public/wp-includes/js/jquery/jquery.min.js"></script>
+<script>
+window.shapeformsLiteAI = {
+	endpoint: '/fake',
+	nonce: 'x',
+	i18n: {
+		cardTitle: 'Create with AI',
+		cardText: 'Describe the form you need and let AI build it for you.',
+		modalTitle: 'Describe your form',
+		generate: 'Generate',
+		cancel: 'Cancel',
+		generating: 'Building your form…'
+	}
+};
+</script>
+<script src="/Users/riaz/Local Sites/develop/app/public/wp-content/plugins/shapeforms/assets/js/ai-builder.js"></script>
+</body>
+</html>

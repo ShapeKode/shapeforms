@@ -1,0 +1,25 @@
+<wpml-config>
+	<admin-texts>
+		<key name="shapeforms_lite_settings">
+			<key name="default_email" />
+			<key name="required_msg_text" />
+			<key name="required_msg_email" />
+			<key name="required_msg_number" />
+			<key name="required_msg_textarea" />
+			<key name="required_msg_select" />
+			<key name="required_msg_checkbox" />
+			<key name="required_msg_radio" />
+			<key name="required_msg_date" />
+			<key name="required_msg_time" />
+			<key name="smtp_from_name" />
+		</key>
+	</admin-texts>
+	<shortcodes>
+		<shortcode>
+			<tag>shapeforms</tag>
+			<attributes>
+				<attribute>id</attribute>
+			</attributes>
+		</shortcode>
+	</shortcodes>
+</wpml-config>

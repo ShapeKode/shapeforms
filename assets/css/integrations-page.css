@@ -1,0 +1,576 @@
+/* ==========================================================================
+   ShapeForms — Integrations Admin Page
+   ========================================================================== */
+
+.shapeforms-int-page {
+	max-width: 100%;
+	margin: 0;
+	/* 20px top padding matches .wrap on every other ShapeForms screen so the notice (or,
+	   when dismissed, the header) sits the same distance below the topbar everywhere. */
+	padding: 20px 20px 32px;
+}
+
+.shapeforms-int-page .wp-header-end {
+	margin: 0; padding: 0; border: 0; height: 0; visibility: hidden;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.shapeforms-int-header {
+	/* Top padding now lives on .shapeforms-int-page (above); keeping it here too would
+	   double the top gap. Bottom spacing unchanged. */
+	padding: 0 0 14px;
+	margin-bottom: 14px;
+	/* Title block on the left, Upgrade-to-Pro CTA pushed to the right. */
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.shapeforms-int-header__titles {
+	min-width: 0;
+}
+
+.shapeforms-int-header h1 {
+	font-size: 20px;
+	font-weight: 700;
+	color: #1d2327;
+	margin: 0 0 2px;
+}
+
+.shapeforms-int-header p {
+	color: #667085;
+	font-size: 13px;
+	margin: 0;
+}
+
+/* ── Tabs ─────────────────────────────────────────────────────────────────── */
+.shapeforms-int-tabs {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-bottom: 20px;
+	padding: 5px;
+	background: #f1f5f9;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+}
+
+.shapeforms-int-tab {
+	display: inline-flex;
+	align-items: center;
+	padding: 7px 16px;
+	border: 0;
+	border-radius: 8px;
+	font-size: 12.5px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: #475569;
+	text-decoration: none;
+	background: transparent;
+	transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shapeforms-int-tab:hover {
+	background: rgba(255, 255, 255, 0.7);
+	color: #1e293b;
+}
+
+.shapeforms-int-tab:focus {
+	outline: none;
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(34, 113, 177, 0.35);
+}
+
+.shapeforms-int-tab.is-active {
+	background: #fff;
+	color: #2271b1;
+	box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12), 0 1px 1px rgba(15, 23, 42, 0.04);
+}
+
+.shapeforms-int-tab.is-active:hover {
+	background: #fff;
+}
+
+/* ── Grid ─────────────────────────────────────────────────────────────────── */
+.bf-int-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+	gap: 12px;
+}
+
+/* ── Card ─────────────────────────────────────────────────────────────────── */
+.bf-int-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 22px 14px 16px;
+	background: #fff;
+	border: 1px solid #e2e4e7;
+	border-radius: 8px;
+	transition: border-color 0.14s, box-shadow 0.14s;
+}
+
+.bf-int-card:hover {
+	border-color: #d0d5dd;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.bf-int-card.is-on {
+	border-color: #2271b1;
+	background: #f0f6fc;
+}
+
+/* Icon */
+.bf-int-card__icon {
+	width: 42px;
+	height: 42px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	margin-bottom: 10px;
+}
+
+.bf-int-card__icon .dashicons {
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+}
+
+/* Name */
+.bf-int-card__name {
+	display: block;
+	font-size: 13px;
+	font-weight: 700;
+	color: #1d2327;
+	margin-bottom: 3px;
+	line-height: 1.3;
+}
+
+/* Description */
+.bf-int-card__desc {
+	display: block;
+	font-size: 11px;
+	color: #98a2b3;
+	line-height: 1.4;
+	margin-bottom: 12px;
+	min-height: 30px;
+}
+
+/* Actions row */
+.bf-int-card__actions {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: auto;
+	width: 100%;
+	justify-content: center;
+}
+
+/* Static pro-available note */
+.bf-int-card__pro-note {
+	font-size: 11px;
+	color: #6b7280;
+	font-style: italic;
+}
+
+/* Pro is installed but its license isn't active — same amber "Locked" treatment
+   as ShapeForms Pro's own Features tab, so the two screens read as one product. */
+.bf-int-card.is-locked {
+	opacity: 0.75;
+}
+
+.bf-int-card__locked-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 3px 9px 3px 7px;
+	border-radius: 999px;
+	background: #fdf2d9;
+	border: 1px solid #f0c869;
+	color: #8a6510;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.6;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+a.bf-int-card__locked-badge:hover {
+	background: #fbe7bb;
+	color: #6b4d0c;
+}
+
+.bf-int-card__locked-badge .dashicons {
+	font-size: 12px;
+	width: 12px;
+	height: 12px;
+	line-height: 12px;
+}
+
+/* Settings button — hidden until enabled */
+.bf-int-card__settings {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	background: #fff;
+	border: 1px solid #d0d5dd;
+	border-radius: 8px;
+	cursor: pointer;
+	flex-shrink: 0;
+	transition: all 0.14s;
+	padding: 0;
+}
+
+.bf-int-card.is-on .bf-int-card__settings {
+	display: flex;
+}
+
+.bf-int-card__settings .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	color: #667085;
+	transition: color 0.14s;
+}
+
+.bf-int-card__settings:hover {
+	border-color: #2271b1;
+	background: #f0f6fc;
+}
+
+.bf-int-card__settings:hover .dashicons {
+	color: #2271b1;
+}
+
+/* ── Toggle switch ───────────────────────────────────────────────────────── */
+.bf-int-toggle {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.bf-int-toggle input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.bf-int-toggle__track {
+	display: block;
+	width: 36px;
+	height: 20px;
+	background: #d0d5dd;
+	border-radius: 10px;
+	transition: background 0.15s;
+	position: relative;
+}
+
+.bf-int-toggle__track::after {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+	transition: transform 0.15s;
+}
+
+.bf-int-toggle input:checked + .bf-int-toggle__track {
+	background: #2271b1;
+}
+
+.bf-int-toggle input:checked + .bf-int-toggle__track::after {
+	transform: translateX(16px);
+}
+
+.bf-int-toggle input:disabled + .bf-int-toggle__track {
+	opacity: 0.5;
+	cursor: wait;
+}
+
+/* ── Modal ────────────────────────────────────────────────────────────────── */
+.bf-conn-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 100100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.bf-conn-modal[hidden] {
+	display: none;
+}
+
+.bf-conn-modal__backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(15, 23, 42, 0.55);
+	-webkit-backdrop-filter: blur(2px);
+	backdrop-filter: blur(2px);
+}
+
+.bf-conn-modal__dialog {
+	position: relative;
+	z-index: 1;
+	background: #fff;
+	border-radius: 14px;
+	width: 540px;
+	max-width: calc(100vw - 40px);
+	max-height: calc(100vh - 80px);
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28), 0 4px 12px rgba(15, 23, 42, 0.1);
+	overflow: hidden;
+	animation: bf-modal-in 0.18s ease;
+}
+
+@keyframes bf-modal-in {
+	from { opacity: 0; transform: translateY(10px) scale(0.985); }
+	to   { opacity: 1; transform: none; }
+}
+
+.bf-conn-modal__head {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 18px 24px;
+	border-bottom: 1px solid #e2e8f0;
+	background: #fff;
+}
+
+.bf-conn-modal__title {
+	flex: 1;
+	font-size: 16px;
+	font-weight: 700;
+	color: #1e293b;
+	letter-spacing: -0.01em;
+}
+
+.bf-conn-modal__close {
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #f1f5f9;
+	border: 0;
+	border-radius: 8px;
+	font-size: 18px;
+	line-height: 1;
+	color: #64748b;
+	cursor: pointer;
+	padding: 0;
+	transition: background 0.14s, color 0.14s;
+}
+
+.bf-conn-modal__close:hover {
+	background: #e2e8f0;
+	color: #1e293b;
+}
+
+.bf-conn-modal__body {
+	padding: 22px 24px;
+	overflow-y: auto;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.bf-conn-modal__foot {
+	padding: 16px 24px;
+	border-top: 1px solid #e2e8f0;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	background: #f8fafc;
+}
+
+.bf-conn-modal__status {
+	flex: 1;
+	font-size: 12px;
+	color: #64748b;
+}
+
+.bf-conn-modal__status.is-ok {
+	color: #15803d;
+	font-weight: 600;
+}
+
+.bf-conn-modal__status.is-error {
+	color: #d63638;
+}
+
+.bf-conn-modal__actions {
+	display: flex;
+	gap: 8px;
+	flex-shrink: 0;
+}
+
+/* Footer buttons: round to match the modal; keep WP primary/secondary colors. */
+.bf-conn-modal__foot .button {
+	min-height: 36px;
+	height: auto;
+	padding: 5px 16px;
+	border-radius: 8px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.5;
+	display: inline-flex;
+	align-items: center;
+	/* WP core buttons don't transition by default, so bg/border/color/shadow
+	   snapped on hover/focus. Animate them for a smooth state change. */
+	transition: background-color 0.14s ease, border-color 0.14s ease, color 0.14s ease, box-shadow 0.14s ease;
+}
+
+/* ── Modal form rows ──────────────────────────────────────────────────────── */
+.bf-modal-row {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.bf-modal-row--inline {
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+}
+
+.bf-modal-label {
+	font-size: 12.5px;
+	font-weight: 600;
+	color: #475569;
+}
+
+.bf-modal-req {
+	color: #dc2626;
+}
+
+.bf-modal-hint {
+	font-weight: 400;
+	color: #94a3b8;
+}
+
+.bf-modal-check-label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	color: #334155;
+	cursor: pointer;
+}
+
+.bf-modal-section-title {
+	font-size: 11px;
+	font-weight: 700;
+	color: #94a3b8;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	padding-top: 14px;
+	border-top: 1px solid #f1f5f9;
+	margin-top: 4px;
+}
+
+.bf-modal-hint-text {
+	font-size: 12px;
+	color: #94a3b8;
+	margin: 0;
+	line-height: 1.5;
+}
+
+.bf-modal-hint-text.is-error {
+	color: #d63638;
+}
+
+/* Modal inputs */
+.bf-conn-modal__body .regular-text,
+.bf-conn-modal__body .large-text,
+.bf-conn-modal__body input[type="text"],
+.bf-conn-modal__body input[type="password"],
+.bf-conn-modal__body select {
+	width: 100%;
+	max-width: unset;
+	box-sizing: border-box;
+	min-height: 40px;
+	border: 1px solid #cbd5e1;
+	border-radius: 9px;
+	padding: 9px 12px;
+	font-size: 13px;
+	color: #1e293b;
+	background-color: #fff;
+	transition: border-color 0.14s, box-shadow 0.14s;
+}
+
+.bf-conn-modal__body select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	padding-right: 34px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 12px center;
+	background-size: 14px;
+	cursor: pointer;
+}
+
+.bf-conn-modal__body .regular-text:focus,
+.bf-conn-modal__body .large-text:focus,
+.bf-conn-modal__body input[type="text"]:focus,
+.bf-conn-modal__body input[type="password"]:focus,
+.bf-conn-modal__body select:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 3px rgba(34, 113, 177, 0.14);
+	outline: none;
+}
+
+/* Loading */
+.bf-loading-msg {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12px;
+	color: #2271b1;
+}
+
+.bf-spinner {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border: 2px solid currentColor;
+	border-top-color: transparent;
+	border-radius: 50%;
+	animation: bf-spin 0.7s linear infinite;
+	flex-shrink: 0;
+}
+
+@keyframes bf-spin {
+	to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 782px) {
+	.bf-int-grid {
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		gap: 8px;
+	}
+
+	.bf-int-card {
+		padding: 16px 10px 12px;
+	}
+
+	.bf-conn-modal__dialog {
+		width: calc(100vw - 24px);
+	}
+}

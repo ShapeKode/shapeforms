@@ -1,0 +1,30 @@
+# Keep GitHub's auto-generated "Source code" archive (the download attached to
+# every tag/release) free of development-only files. `export-ignore` removes the
+# listed paths from `git archive` output — which is exactly what GitHub serves as
+# the tag "Source code (zip/tar.gz)". It does NOT affect the repository itself,
+# repo browsing, history, or the WordPress.org SVN release (that stays manual).
+#
+# NOTE: this only applies to tags created from a commit that contains this file —
+# commit it before tagging; pre-existing tags are unaffected.
+
+# --- Currently tracked dev-only files (these would otherwise leak) ---
+/.gitignore           export-ignore
+/.gitattributes       export-ignore
+/README.md            export-ignore
+/package.json         export-ignore
+/docs/                export-ignore
+
+# --- Defensive: no-ops today (git-ignored), but prevent leaks if ever tracked ---
+/.github/             export-ignore
+/.distignore          export-ignore
+/package-lock.json    export-ignore
+/composer.json        export-ignore
+/composer.lock        export-ignore
+/webpack.config.js    export-ignore
+/phpcs.xml            export-ignore
+/.phpcs.xml           export-ignore
+/tests/               export-ignore
+/src/                 export-ignore
+/node_modules/        export-ignore
+/RELEASE-COMPARISON-1.0.2-to-1.1.0.md export-ignore
+/RELEASE-COMPARISON-1.1.0-to-1.1.1.md export-ignore

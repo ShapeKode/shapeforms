@@ -1,0 +1,607 @@
+/* ==========================================================================
+   ShapeForms — Integrations Builder UI
+   ========================================================================== */
+
+/* ── Pane wrapper ─────────────────────────────────────────────────────────── */
+.bf-int-pane {
+	padding: 4px 0 16px;
+}
+
+/* ── Service cards grid ───────────────────────────────────────────────────── */
+.bf-int-grid {
+	display: grid;
+	grid-template-columns: repeat( 3, 1fr );
+	gap: 8px;
+	margin-bottom: 20px;
+}
+
+.bf-int-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+	padding: 12px 8px 10px;
+	background: #fff;
+	border: 2px solid #e5e7eb;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+	text-align: center;
+	font-size: 0;
+}
+
+.bf-int-card:hover {
+	border-color: #6366f1;
+	box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+}
+
+.bf-int-card.is-active {
+	border-color: var( --bf-int-color, #6366f1 );
+	background: color-mix( in srgb, var( --bf-int-color, #6366f1 ) 6%, #fff );
+}
+
+.bf-int-card__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 8px;
+	background: var( --bf-int-color, #6366f1 );
+	flex-shrink: 0;
+}
+
+.bf-int-card__icon .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+	color: var( --bf-int-icon-color, #fff );
+}
+
+.bf-int-card__label {
+	font-size: 11px;
+	font-weight: 600;
+	color: #374151;
+	line-height: 1.2;
+	word-break: break-word;
+}
+
+.bf-int-card.is-active .bf-int-card__label {
+	color: color-mix( in srgb, var( --bf-int-color, #6366f1 ) 70%, #111827 );
+}
+
+.bf-int-card__badge {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 9px;
+	font-weight: 700;
+	padding: 1px 5px;
+	border-radius: 4px;
+	background: #6366f1;
+	color: #fff;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.bf-int-card__badge--on {
+	background: #10b981;
+}
+
+/* ── Integration config form ──────────────────────────────────────────────── */
+.bf-int-form {
+	background: #f9fafb;
+	border: 1px solid #e5e7eb;
+	border-radius: 10px;
+	margin-bottom: 12px;
+	overflow: hidden;
+}
+
+.bf-int-form__head {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 14px;
+	background: #fff;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.bf-int-form__title {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #111827;
+}
+
+.bf-int-form__title .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	flex-shrink: 0;
+}
+
+.bf-int-form__remove {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 22px;
+	height: 22px;
+	background: none;
+	border: 1px solid #e5e7eb;
+	border-radius: 5px;
+	color: #9ca3af;
+	font-size: 16px;
+	line-height: 1;
+	cursor: pointer;
+	padding: 0;
+	flex-shrink: 0;
+	transition: color 0.12s, border-color 0.12s;
+}
+
+.bf-int-form__remove:hover {
+	color: #ef4444;
+	border-color: #ef4444;
+}
+
+.bf-int-form__body {
+	padding: 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+/* ── Toggle switch ────────────────────────────────────────────────────────── */
+.bf-int-toggle {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	flex-shrink: 0;
+}
+
+.bf-int-toggle input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.bf-int-toggle__track {
+	display: block;
+	width: 34px;
+	height: 18px;
+	background: #d1d5db;
+	border-radius: 9px;
+	transition: background 0.15s;
+	position: relative;
+}
+
+.bf-int-toggle__track::after {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+	transition: transform 0.15s;
+}
+
+.bf-int-toggle input:checked + .bf-int-toggle__track {
+	background: #10b981;
+}
+
+.bf-int-toggle input:checked + .bf-int-toggle__track::after {
+	transform: translateX( 16px );
+}
+
+/* ── Form rows ────────────────────────────────────────────────────────────── */
+.bf-int-row {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.bf-int-row--2col {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+}
+
+.bf-int-row--check {
+	flex-direction: row;
+	align-items: center;
+}
+
+.bf-int-label {
+	font-size: 11px;
+	font-weight: 600;
+	color: #374151;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.bf-int-hint {
+	font-weight: 400;
+	color: #9ca3af;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+.bf-int-required {
+	color: #ef4444;
+}
+
+.bf-int-input,
+.bf-int-select {
+	width: 100%;
+	height: 32px;
+	padding: 0 8px;
+	border: 1px solid #d1d5db;
+	border-radius: 6px;
+	font-size: 12px;
+	color: #111827;
+	background: #fff;
+	box-sizing: border-box;
+	transition: border-color 0.12s, box-shadow 0.12s;
+}
+
+.bf-int-input:focus,
+.bf-int-select:focus {
+	outline: none;
+	border-color: #6366f1;
+	box-shadow: 0 0 0 2px rgba(99,102,241,0.12);
+}
+
+/* API key row */
+.bf-int-api-row {
+	display: flex;
+	gap: 6px;
+}
+
+.bf-int-api-row .bf-int-input {
+	flex: 1;
+	min-width: 0;
+}
+
+.bf-int-fetch-btn {
+	flex-shrink: 0;
+	height: 32px;
+	padding: 0 12px;
+	background: #6366f1;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	font-size: 12px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.12s;
+	white-space: nowrap;
+}
+
+.bf-int-fetch-btn:hover {
+	background: #4f46e5;
+}
+
+.bf-int-fetch-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* Check-label */
+.bf-int-check-label {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12px;
+	color: #374151;
+	cursor: pointer;
+}
+
+/* Hint messages (loading / error / info) */
+.bf-int-hint-msg {
+	font-size: 11px;
+	color: #6b7280;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.bf-int-hint-msg.is-error {
+	color: #ef4444;
+}
+
+.bf-int-hint-msg.is-loading {
+	color: #6366f1;
+}
+
+/* Spinner */
+.bf-int-spinner {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border: 2px solid currentColor;
+	border-top-color: transparent;
+	border-radius: 50%;
+	animation: bf-int-spin 0.7s linear infinite;
+}
+
+@keyframes bf-int-spin {
+	to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Assign panel (builder form-settings tab)
+   ========================================================================== */
+
+.bf-assign-pane {
+	padding: 4px 0 16px;
+}
+
+/* Empty state */
+.bf-assign-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	padding: 32px 16px;
+	text-align: center;
+	color: #9ca3af;
+}
+
+.bf-assign-empty .dashicons {
+	font-size: 32px;
+	width: 32px;
+	height: 32px;
+}
+
+.bf-assign-empty p {
+	margin: 0;
+	font-size: 13px;
+}
+
+/* ── Connection list ─────────────────────────────────────────────────────── */
+.bf-assign-list {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	margin-bottom: 16px;
+}
+
+.bf-assign-item {
+	background: #fff;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: border-color 0.12s;
+}
+
+.bf-assign-item.is-on {
+	border-color: #10b981;
+}
+
+.bf-assign-item__row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 12px;
+}
+
+.bf-assign-item__info {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+}
+
+.bf-assign-item__name {
+	font-size: 12px;
+	font-weight: 600;
+	color: #111827;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.bf-assign-item__type {
+	font-size: 10px;
+	color: #9ca3af;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+/* Gear button */
+.bf-assign-gear {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 28px;
+	height: 28px;
+	padding: 0;
+	background: #f3f4f6;
+	border: 1px solid #e5e7eb;
+	border-radius: 6px;
+	color: #6b7280;
+	cursor: pointer;
+	transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.bf-assign-gear:hover,
+.bf-assign-gear.is-active {
+	background: #ede9fe;
+	border-color: #6366f1;
+	color: #6366f1;
+}
+
+.bf-assign-gear .dashicons {
+	font-size: 15px;
+	width: 15px;
+	height: 15px;
+}
+
+.bf-assign-gear-placeholder {
+	flex-shrink: 0;
+	width: 28px;
+	height: 28px;
+}
+
+/* Field mapping panel (collapsible) */
+.bf-assign-map-panel {
+	padding: 10px 12px 12px;
+	background: #f9fafb;
+	border-top: 1px solid #e5e7eb;
+}
+
+.bf-assign-map__rows {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.bf-assign-map__row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.bf-assign-map__label {
+	width: 80px;
+	flex-shrink: 0;
+	font-size: 11px;
+	font-weight: 600;
+	color: #374151;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+}
+
+.bf-assign-map__req {
+	color: #ef4444;
+}
+
+.bf-assign-map__select {
+	flex: 1;
+	height: 30px;
+	padding: 0 6px;
+	border: 1px solid #d1d5db;
+	border-radius: 5px;
+	font-size: 12px;
+	color: #111827;
+	background: #fff;
+	box-sizing: border-box;
+}
+
+.bf-assign-map__select:focus {
+	outline: none;
+	border-color: #6366f1;
+	box-shadow: 0 0 0 2px rgba(99,102,241,0.1);
+}
+
+/* Footer manage link */
+.bf-assign-footer {
+	padding-top: 12px;
+	border-top: 1px solid #f3f4f6;
+	text-align: center;
+}
+
+.bf-assign-manage-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 12px;
+	color: #6366f1;
+	text-decoration: none;
+}
+
+.bf-assign-manage-link:hover {
+	color: #4f46e5;
+	text-decoration: underline;
+}
+
+.bf-assign-manage-link .dashicons {
+	font-size: 13px;
+	width: 13px;
+	height: 13px;
+}
+
+/* Count badge on nav tab */
+.bf-int-count-badge {
+	display: inline-block;
+	background: #6366f1;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 700;
+	padding: 1px 5px;
+	border-radius: 8px;
+	vertical-align: middle;
+	margin-left: 3px;
+	line-height: 1.4;
+}
+
+/* ── Locked (upgrade-teaser) connection rows ─────────────────────────────────
+   A connection whose type the free plugin cannot dispatch. Shaped like a normal
+   assign row but with a lock in place of the toggle and an "Upgrade" pill in
+   place of the gear; the whole row opens the integration upgrade dialog. */
+
+.bf-assign-item.is-locked {
+	border-style: dashed;
+	background: #f9fafb;
+}
+
+.bf-assign-locked {
+	cursor: pointer;
+}
+
+.bf-assign-locked:hover {
+	background: #f3f4ff;
+}
+
+.bf-assign-locked:focus-visible {
+	outline: 2px solid #6366f1;
+	outline-offset: -2px;
+	border-radius: 8px;
+}
+
+/* Muted name/type, to read as unavailable rather than active. */
+.bf-assign-item.is-locked .bf-assign-item__name {
+	color: #6b7280;
+}
+
+.bf-assign-lock {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 20px;
+}
+
+.bf-assign-lock .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+	color: #9ca3af;
+}
+
+.bf-assign-locked:hover .bf-assign-lock .dashicons {
+	color: #6366f1;
+}
+
+.bf-assign-upgrade-pill {
+	flex-shrink: 0;
+	padding: 3px 9px;
+	border-radius: 999px;
+	background: #eef2ff;
+	color: #4338ca;
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 1.5;
+}

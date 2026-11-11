@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<!--
+	The REAL stylesheets the builder screen loads, in the real order, so the
+	cascade this is tested against is the one that ships. Hand-written
+	stand-ins would let a rule pass here for reasons the actual page does not
+	share — wp-admin's `forms.css` and `common.css` between them set defaults
+	on p, span, input and .button that the modal has to survive.
+-->
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-includes/css/buttons.min.css">
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-includes/css/dashicons.min.css">
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-admin/css/common.min.css">
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-admin/css/forms.min.css">
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-content/plugins/shapeforms/assets/css/builder.css">
+<link rel="stylesheet" href="/Users/riaz/Local Sites/develop/app/public/wp-content/plugins/shapeforms/assets/css/ai-builder.css">
+<style>
+	body { margin: 0; background: #f0f0f1; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; }
+	.shapeforms-setup-choices { padding: 40px; }
+</style>
+</head>
+<body>
+<div class="shapeforms-setup-choices"></div>
+<script src="/Users/riaz/Local Sites/develop/app/public/wp-includes/js/jquery/jquery.min.js"></script>
+<script>
+window.shapeformsLiteAI = {
+	endpoint: '/fake',
+	nonce: 'x',
+	maxChars: 1000,
+	allowedTypes: [ 'text', 'email' ],
+	suggestions: [
+		'A contact form with name, email and message',
+		'A job application with a CV upload',
+		'An event registration form',
+		'A customer feedback survey with a rating'
+	],
+	i18n: {
+		cardTitle: 'Create with AI',
+		cardText: 'Describe the form you need and let AI build it for you.',
+		modalTitle: 'Describe your form',
+		modalIntro: 'Tell us what the form is for. The more specific you are, the better the result.',
+		placeholder: 'e.g. a contact form…',
+		suggestLabel: 'Need a starting point?',
+		cancel: 'Cancel',
+		generate: 'Generate',
+		generating: 'Building your form…',
+		close: 'Close',
+		genericError: 'Something went wrong.',
+		emptyPrompt: 'Describe the form you want before generating.'
+	}
+};
+</script>
+<script src="/Users/riaz/Local Sites/develop/app/public/wp-content/plugins/shapeforms/assets/js/ai-builder.js"></script>
+<script>
+// Never settles, so the busy state stays put for the screenshot.
+jQuery.ajax = function () {
+	var chain = { done: function () { return chain; }, fail: function () { return chain; } };
+	return chain;
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+/**
+ * ShapeForms admin notices — shared, reusable styles.
+ *
+ * Loaded on every admin screen (gated on capability + dismissal state) because
+ * these notices are global and settings.css only loads on ShapeForms's own pages.
+ *
+ * `.shapeforms-admin-notice` (card chrome) and `.shapeforms-admin-notice__dismiss`
+ * (close button) are the GENERIC, reusable parts every notice shares; the rest
+ * (badge/title/CTAs/art) styles the current Pro-waitlist banner and can be
+ * overridden per notice with a modifier class when other notices are added.
+ *
+ * Child selectors are parent-prefixed so they out-specify WordPress core
+ * `.notice p` / link (`a:hover`/`a:visited`) rules.
+ */
+
+/* Anti-flash: WordPress prints admin notices as a direct child of #wpbody-content
+ * (above our topbar), then common.js moves them below .wp-header-end on DOM-ready —
+ * so without this the big card paints at the very top for a frame and then jumps.
+ * Hiding only the PRE-relocation position (direct child of #wpbody-content) kills the
+ * flash; once relocated the card is nested inside .wrap, this no longer matches, and it
+ * shows in place. This stylesheet loads in <head>, so the rule applies before first paint. */
+#wpbody-content > .shapeforms-admin-notice {
+	display: none;
+}
+
+.shapeforms-admin-notice {
+	position: relative;
+	border: 1px solid #e6e9f4;
+	border-left: 1px solid #e6e9f4;
+	border-radius: 16px;
+	background: #fff;
+	padding: 0;
+	/* Full width within the page's 20px-padded container: zero side margins so the
+	   card lines up with the header and content cards below it. Bottom margin is the
+	   ONLY gap the notice owns; the top gap comes from the container's own padding, so
+	   the header sits in the same place whether or not the notice is rendered. */
+	margin: 0 0 20px;
+	box-shadow: 0 10px 30px rgba(22, 33, 91, .07);
+	overflow: hidden;
+}
+
+/* The relocation marker WordPress keys off (wp-admin/js/common.js) must not add any
+   vertical space of its own, or the gap above the notice/header would differ from the
+   page's own padding. Loaded with the notice; the per-page stylesheets repeat this so
+   the collapse also holds once the notice is dismissed. */
+.wp-header-end {
+	margin: 0;
+	border: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+.shapeforms-admin-notice__dismiss {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	border: 0;
+	border-radius: 8px;
+	background: transparent;
+	color: #8a93a8;
+	cursor: pointer;
+	transition: background .15s ease, color .15s ease;
+}
+
+.shapeforms-admin-notice__dismiss:hover {
+	background: #f1f3fa;
+	color: #11161f;
+}
+
+.shapeforms-admin-notice__dismiss svg {
+	width: 18px;
+	height: 18px;
+}
+
+.shapeforms-admin-notice__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	padding: 22px 36px;
+}
+
+.shapeforms-admin-notice__content {
+	flex: 1 1 auto;
+	max-width: 600px;
+}
+
+.shapeforms-admin-notice__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	background: #e9edfe;
+	color: #2c4bff;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .09em;
+	text-transform: uppercase;
+	padding: 7px 14px;
+	border-radius: 999px;
+	line-height: 1;
+}
+
+.shapeforms-admin-notice__badge svg {
+	width: 15px;
+	height: 15px;
+}
+
+.shapeforms-admin-notice .shapeforms-admin-notice__title {
+	margin: 12px 0 6px;
+	padding: 0;
+	font-size: 25px;
+	line-height: 1.15;
+	font-weight: 800;
+	color: #11161f;
+}
+
+.shapeforms-admin-notice .shapeforms-admin-notice__text {
+	margin: 0 0 16px;
+	padding: 0;
+	font-size: 14px;
+	line-height: 1.55;
+	color: #5a6479;
+	max-width: 560px;
+}
+
+.shapeforms-admin-notice__actions {
+	display: flex;
+	align-items: center;
+	gap: 14px 24px;
+	flex-wrap: wrap;
+}
+
+.shapeforms-admin-notice a.shapeforms-admin-notice__btn,
+.shapeforms-admin-notice a.shapeforms-admin-notice__btn:hover,
+.shapeforms-admin-notice a.shapeforms-admin-notice__btn:focus,
+.shapeforms-admin-notice a.shapeforms-admin-notice__btn:active,
+.shapeforms-admin-notice a.shapeforms-admin-notice__btn:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+.shapeforms-admin-notice a.shapeforms-admin-notice__btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	background: #2c4bff;
+	font-size: 15px;
+	font-weight: 600;
+	padding: 11px 24px;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px rgba(44, 75, 255, .26);
+	transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+}
+
+.shapeforms-admin-notice a.shapeforms-admin-notice__btn:hover {
+	background: #1f3ae0;
+	transform: translateY(-1px);
+	box-shadow: 0 12px 24px rgba(44, 75, 255, .32);
+}
+
+.shapeforms-admin-notice a.shapeforms-admin-notice__btn:focus {
+	background: #1f3ae0;
+	box-shadow: 0 12px 24px rgba(44, 75, 255, .32);
+	outline: 2px solid #1f3ae0;
+	outline-offset: 2px;
+}
+
+.shapeforms-admin-notice__btn svg {
+	width: 18px;
+	height: 18px;
+}
+
+.shapeforms-admin-notice a.shapeforms-admin-notice__link,
+.shapeforms-admin-notice a.shapeforms-admin-notice__link:hover,
+.shapeforms-admin-notice a.shapeforms-admin-notice__link:focus,
+.shapeforms-admin-notice a.shapeforms-admin-notice__link:active,
+.shapeforms-admin-notice a.shapeforms-admin-notice__link:visited {
+	color: #2c4bff;
+	text-decoration: none;
+	box-shadow: none;
+}
+
+.shapeforms-admin-notice a.shapeforms-admin-notice__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+.shapeforms-admin-notice a.shapeforms-admin-notice__link:hover,
+.shapeforms-admin-notice a.shapeforms-admin-notice__link:focus {
+	color: #1f3ae0;
+}
+
+.shapeforms-admin-notice a.shapeforms-admin-notice__link:focus {
+	outline: 2px solid #2c4bff;
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+.shapeforms-admin-notice__link svg {
+	width: 16px;
+	height: 16px;
+}
+
+.shapeforms-admin-notice__art {
+	position: relative;
+	flex: 0 0 auto;
+	width: 264px;
+	max-width: 34%;
+}
+
+.shapeforms-admin-notice__art svg.shapeforms-admin-notice__illustration {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.shapeforms-admin-notice__logo {
+	position: absolute;
+	right: 8%;
+	bottom: 8%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 46px;
+	height: 46px;
+	border-radius: 13px;
+	background: #2c4bff;
+	box-shadow: 0 10px 20px rgba(44, 75, 255, .35);
+}
+
+.shapeforms-admin-notice__logo svg {
+	width: 26px;
+	height: 26px;
+}
+
+@media screen and (max-width: 1100px) {
+	.shapeforms-admin-notice__art {
+		display: none;
+	}
+
+	.shapeforms-admin-notice__inner {
+		padding: 20px 24px;
+	}
+
+	.shapeforms-admin-notice .shapeforms-admin-notice__title {
+		font-size: 22px;
+	}
+}

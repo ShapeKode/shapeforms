@@ -1,0 +1,29 @@
+{
+  "name": "shapeforms",
+  "version": "1.1.8",
+  "description": "Build tooling for the ShapeForms WordPress plugin (dev-only; not part of the shipped plugin).",
+  "private": true,
+  "license": "GPL-2.0-or-later",
+  "author": "Shapekode",
+  "files": [
+    "admin",
+    "assets",
+    "blocks",
+    "includes",
+    "languages",
+    "public",
+    "shapeforms.php",
+    "readme.txt",
+    "uninstall.php",
+    "wpml-config.xml"
+  ],
+  "scripts": {
+    "test:browser": "node tests/browser/ai-loader.mjs && node tests/browser/start-cards.mjs && node tests/browser/build-settings-fixture.mjs && node tests/browser/ai-settings.mjs",
+    "makepot": "wp i18n make-pot . languages/shapeforms.pot --exclude=build,node_modules,src,tests --slug=shapeforms && sed -i.bak '/POT-Creation-Date/d' languages/shapeforms.pot && rm -f languages/shapeforms.pot.bak",
+    "build": "npm run makepot && wp-scripts plugin-zip && { zip -qd shapeforms.zip shapeforms/package.json shapeforms/README.md || true; } && rm -rf build && mkdir -p build && unzip -qo shapeforms.zip -d build && mv -f shapeforms.zip build/shapeforms-lite-$npm_package_version.zip",
+    "release": "npm run makepot && { [ -z \"$(git status --porcelain)\" ] || { echo 'Working tree is not clean (commit the regenerated translation template if it changed) - commit or stash before releasing.'; exit 1; }; } && npm run build"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^32.4.0"
+  }
+}

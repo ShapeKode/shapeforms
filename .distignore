@@ -1,0 +1,43 @@
+# Files and folders excluded from the distributed plugin zip.
+#
+# `wp-scripts plugin-zip` (the `npm run build` step) honors this file, so anything
+# listed here is kept OUT of the production archive that ships to WordPress.org.
+# This is the single source of truth for packaging — `.gitattributes` export-ignore
+# only affects GitHub's "Source code" download, not this build or the SVN release.
+#
+# Keep this in sync with the dev-only paths in `.gitattributes`.
+
+# --- Build output & OS/editor junk (these caused Plugin Check failures) ---
+/build
+*.zip
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# --- Version control & CI ---
+.git
+.github
+.gitignore
+.gitattributes
+.distignore
+
+# --- Dev tooling & dependencies ---
+/node_modules
+package.json
+package-lock.json
+composer.json
+composer.lock
+webpack.config.js
+phpcs.xml
+.phpcs.xml
+phpcs.xml.dist
+
+# --- Sources & tests (only built assets ship) ---
+/src
+/tests
+
+# --- Project docs not meant for end users (readme.txt still ships) ---
+/docs
+README.md
+/RELEASE-COMPARISON-1.0.2-to-1.1.0.md
+/RELEASE-COMPARISON-1.1.0-to-1.1.1.md

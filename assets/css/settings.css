@@ -1,0 +1,4202 @@
+/* ShapeForms — Admin Topbar */
+#wpcontent {
+	padding-left: 0;
+}
+
+.wrap {
+	margin-top: 0;
+	margin-right: 0;
+	padding: 20px;
+}
+
+/* The notice-relocation marker (wp-admin/js/common.js) must contribute zero space so the
+   gap above the notice/header is exactly .wrap's padding — in both states (notice shown or
+   dismissed). admin-notice.css repeats this for when it loads; this copy covers the
+   dismissed state where admin-notice.css is not enqueued. */
+.wp-header-end {
+	margin: 0;
+	border: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+.shapeforms-admin-topbar {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px 20px;
+	margin: -1px 0 0;
+	padding: 10px 24px;
+	background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+	min-height: 56px;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+	position: relative;
+	box-sizing: border-box;
+	z-index: 10;
+}
+
+.shapeforms-admin-topbar__brand {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: #fff;
+	flex-shrink: 0;
+	padding-right: 20px;
+	margin-right: 4px;
+	border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.shapeforms-admin-topbar__brand > .dashicons {
+	width: 24px;
+	height: 24px;
+	font-size: 24px;
+	line-height: 24px;
+	color: #60a5fa;
+	filter: drop-shadow(0 0 6px rgba(96, 165, 250, 0.4));
+}
+
+.shapeforms-admin-topbar__name {
+	font-size: 15px;
+	font-weight: 800;
+	letter-spacing: 0.03em;
+	background: linear-gradient(135deg, #fff 0%, #93c5fd 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.shapeforms-admin-topbar__version {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: rgba(96, 165, 250, 0.15);
+	border: 1px solid rgba(96, 165, 250, 0.2);
+	font-size: 10px;
+	font-weight: 700;
+	color: #93c5fd;
+	letter-spacing: 0.03em;
+}
+
+.shapeforms-admin-topbar__nav {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 4px;
+	flex: 1;
+	min-width: 0;
+}
+
+.shapeforms-admin-topbar__link {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	padding: 8px 14px;
+	font-size: 13px;
+	font-weight: 500;
+	color: #94a3b8;
+	text-decoration: none;
+	border-radius: 8px;
+	transition: all 0.18s ease;
+}
+
+.shapeforms-admin-topbar__link:hover {
+	color: #e2e8f0;
+	background: rgba(255, 255, 255, 0.06);
+}
+
+.shapeforms-admin-topbar__link:focus {
+	color: #e2e8f0;
+	outline: none;
+}
+
+.shapeforms-admin-topbar__link.is-active {
+	color: #fff;
+	background: rgba(96, 165, 250, 0.15);
+	box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.2);
+}
+
+.shapeforms-admin-topbar__link .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+	line-height: 16px;
+	opacity: 0.7;
+	transition: opacity 0.18s ease;
+}
+
+.shapeforms-admin-topbar__link:hover .dashicons,
+.shapeforms-admin-topbar__link.is-active .dashicons {
+	opacity: 1;
+}
+
+/* Nav item with a hover dropdown (e.g. Documentation) */
+.shapeforms-admin-topbar__item--has-children {
+	position: relative;
+	display: inline-flex;
+}
+
+.shapeforms-admin-topbar__caret {
+	width: 14px !important;
+	height: 14px !important;
+	font-size: 14px !important;
+	line-height: 14px !important;
+	margin-left: -2px;
+	opacity: 0.6;
+	transition: transform 0.18s ease;
+}
+
+.shapeforms-admin-topbar__item--has-children:hover .shapeforms-admin-topbar__caret,
+.shapeforms-admin-topbar__item--has-children:focus-within .shapeforms-admin-topbar__caret {
+	transform: rotate(180deg);
+	opacity: 1;
+}
+
+.shapeforms-admin-topbar__dropdown {
+	position: absolute;
+	top: calc(100% + 6px);
+	left: 0;
+	min-width: 210px;
+	padding: 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	background: #1e293b;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: 10px;
+	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-4px);
+	transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+	z-index: 100;
+}
+
+.shapeforms-admin-topbar__item--has-children:hover .shapeforms-admin-topbar__dropdown,
+.shapeforms-admin-topbar__item--has-children:focus-within .shapeforms-admin-topbar__dropdown {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.shapeforms-admin-topbar__dropdown-link {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 9px 12px;
+	font-size: 13px;
+	font-weight: 500;
+	color: #cbd5e1;
+	text-decoration: none;
+	border-radius: 7px;
+	white-space: nowrap;
+	transition: color 0.15s ease, background 0.15s ease;
+}
+
+.shapeforms-admin-topbar__dropdown-link:hover,
+.shapeforms-admin-topbar__dropdown-link:focus {
+	color: #fff;
+	background: rgba(96, 165, 250, 0.15);
+	outline: none;
+}
+
+.shapeforms-admin-topbar__dropdown-link .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+	line-height: 16px;
+	opacity: 0.75;
+}
+
+/* Upgrade-to-Pro call-to-action — lives in the page-title header, pushed flush
+   right (margin-left:auto). A clean, flat solid-blue pill (no gradient, no icon)
+   in the spirit of FormGent/FluentCRM's upgrade buttons, in a vivid royal blue so
+   it reads as premium and stays distinct from the muted "Add New" (#2271b1).
+   Lite-only: not rendered when ShapeForms Pro is active. */
+.shapeforms-header-upgrade {
+	display: inline-flex;
+	align-items: center;
+	flex-shrink: 0;
+	margin-left: auto;
+	padding: 12px 20px;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1;
+	color: #fff;
+	text-decoration: none;
+	white-space: nowrap;
+	border-radius: 8px;
+	background: #2563eb;
+	box-shadow: 0 1px 2px rgba(37, 99, 235, 0.25);
+	transition: background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.shapeforms-header-upgrade:hover,
+.shapeforms-header-upgrade:focus {
+	color: #fff;
+	background: #1d4ed8;
+	box-shadow: 0 3px 10px rgba(37, 99, 235, 0.35);
+}
+
+.shapeforms-header-upgrade:focus {
+	outline: none;
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(37, 99, 235, 0.5);
+}
+
+@media screen and (max-width: 782px) {
+	.shapeforms-admin-topbar {
+		flex-wrap: wrap;
+		padding: 10px 12px;
+		gap: 8px;
+		/* WP's `.auto-fold #wpcontent` adds `padding-left:10px` at this breakpoint,
+		   which would inset the bar 10px from the left and break its full-bleed
+		   alignment with the admin toolbar. Pull it back so it stays flush. */
+		margin-left: -10px;
+	}
+
+	.shapeforms-admin-topbar__brand {
+		border-right: 0;
+		padding-right: 0;
+		margin-right: 0;
+		width: 100%;
+		justify-content: flex-start;
+	}
+
+	/* Single-line horizontally-scrollable nav instead of an awkward multi-row
+	   wrap. The scrollbar is hidden but swipe/trackpad scrolling still works. */
+	.shapeforms-admin-topbar__nav {
+		flex-wrap: nowrap;
+		gap: 4px;
+		width: 100%;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+		padding-bottom: 2px;
+		-ms-overflow-style: none;
+	}
+
+	.shapeforms-admin-topbar__nav::-webkit-scrollbar {
+		display: none;
+	}
+
+	.shapeforms-admin-topbar__link {
+		padding: 7px 11px;
+		font-size: 12px;
+		flex-shrink: 0;
+		white-space: nowrap;
+	}
+}
+
+/* On the very narrowest viewports (admin sidebar collapsed / phones) tighten
+   the brand block so it never pushes the version pill out of view. */
+@media screen and (max-width: 480px) {
+	.shapeforms-admin-topbar__name {
+		font-size: 14px;
+	}
+
+	.shapeforms-admin-topbar__link .dashicons {
+		display: none;
+	}
+
+	.shapeforms-admin-topbar__link {
+		gap: 0;
+		padding: 7px 10px;
+	}
+}
+
+
+/* ShapeForms — Settings Page */
+
+.shapeforms-settings-wrap {
+	margin: 20px 0;
+	display: grid;
+	grid-template-columns: 220px 1fr;
+	gap: 0;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Sidebar ── */
+.shapeforms-settings-sidebar {
+	background: #f8f9fa;
+	border-right: 1px solid #e2e4e7;
+	padding: 24px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.shapeforms-settings-sidebar .shapeforms-nav-item {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 11px 20px;
+	color: #50575e;
+	text-decoration: none;
+	font-size: 13.5px;
+	font-weight: 500;
+	border-left: 3px solid transparent;
+	transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.shapeforms-settings-sidebar .shapeforms-nav-item:hover {
+	background: #f0f0f1;
+	color: #1d2327;
+}
+
+.shapeforms-settings-sidebar .shapeforms-nav-item.is-active {
+	background: #fff;
+	color: #2271b1;
+	border-left-color: #2271b1;
+	font-weight: 600;
+}
+
+.shapeforms-settings-sidebar .shapeforms-nav-item .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	opacity: 0.65;
+}
+
+/*
+ * The sparkle marking the AI tab. Sized to match the dashicons beside it but a
+ * touch larger, because a star's thin arms carry less ink than a solid glyph
+ * and matching by number leaves it looking smaller than its neighbours.
+ *
+ * It keeps its own colour rather than taking the nav's, so it stays legible as
+ * the mark for this feature whether the tab is active or not — which is also
+ * why it is exempt from the 0.65 dimming above.
+ */
+.shapeforms-settings-sidebar .shapeforms-nav-item .shapeforms-ai-spark {
+	flex: 0 0 auto;
+	width: 20px;
+	height: 20px;
+}
+
+.shapeforms-settings-sidebar .shapeforms-nav-item.is-active .dashicons {
+	opacity: 1;
+}
+
+/* ── Content area ── */
+.shapeforms-settings-content {
+	padding: 32px 36px;
+	min-height: 480px;
+}
+
+.shapeforms-settings-content h2 {
+	font-size: 18px;
+	font-weight: 600;
+	color: #1d2327;
+	margin: 0 0 4px;
+	padding: 0;
+	line-height: 1.4;
+}
+
+.shapeforms-settings-content .shapeforms-tab-description {
+	color: #646970;
+	font-size: 13px;
+	margin: 0 0 24px;
+}
+
+/* ── Cards ── */
+.shapeforms-card {
+	background: #fff;
+	border: 1px solid #e2e4e7;
+	border-radius: 8px;
+	padding: 24px;
+	margin-bottom: 20px;
+}
+
+.shapeforms-card--flush {
+	padding: 0;
+}
+
+.shapeforms-card h3 {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+	margin: 0 0 16px;
+	padding: 0 0 14px;
+	border-bottom: 1px solid #e9e9ed;
+}
+
+/* When an intro paragraph follows the title, the title hugs it and the
+   separator moves below the paragraph instead (so the whole header block —
+   title + intro — sits above one divider). */
+.shapeforms-card h3:has(+ .shapeforms-tab-description) {
+	margin-bottom: 6px;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+.shapeforms-card > .shapeforms-tab-description {
+	margin: 0 0 16px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #e9e9ed;
+}
+
+/* ── Field rows ── */
+.shapeforms-field-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+	padding: 14px 0;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+/*
+ * An author `display` beats the user-agent `[hidden] { display: none }` rule
+ * whatever the specificity, so a row marked hidden stays on screen unless the
+ * rule is restated here. The AI settings shipped every provider's key field at
+ * once because of this. Written against the row rather than any one feature, so
+ * the next row to use the attribute does not have to rediscover it — the same
+ * guard the captcha panels and the select menu already carry.
+ */
+.shapeforms-field-row[hidden] {
+	display: none;
+}
+
+.shapeforms-field-row:first-child {
+	padding-top: 0;
+}
+
+.shapeforms-field-row:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.shapeforms-field-label {
+	flex: 0 0 180px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+	padding-top: 7px;
+}
+
+.shapeforms-field-label label {
+	font-weight: 600;
+}
+
+.shapeforms-field-control {
+	flex: 1;
+	min-width: 0;
+}
+
+.shapeforms-field-control input[type="text"],
+.shapeforms-field-control input[type="email"],
+.shapeforms-field-control input[type="password"],
+.shapeforms-field-control input[type="number"],
+.shapeforms-field-control input[type="url"],
+.shapeforms-field-control textarea {
+	width: 100%;
+	max-width: 400px;
+	padding: 8px 12px;
+	border: 1px solid #d0d5dd;
+	border-radius: 6px;
+	font-size: 13px;
+	color: #1d2327;
+	background: #fff;
+	transition: border-color 0.15s, box-shadow 0.15s;
+	box-sizing: border-box;
+}
+
+.shapeforms-field-control input[type="number"] {
+	max-width: 120px;
+}
+
+.shapeforms-field-control input:focus,
+.shapeforms-field-control textarea:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	outline: none;
+}
+
+.shapeforms-field-control .description {
+	margin-top: 6px;
+	font-size: 12.5px;
+	color: #646970;
+}
+
+/* ── Radio pills ── */
+.shapeforms-radio-group {
+	display: inline-flex;
+	gap: 0;
+	border: 1px solid #d0d5dd;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.shapeforms-radio-group label {
+	display: flex;
+	align-items: center;
+	gap: 0;
+	padding: 7px 16px;
+	font-size: 13px;
+	font-weight: 500;
+	color: #50575e;
+	cursor: pointer;
+	background: #fff;
+	border-right: 1px solid #d0d5dd;
+	transition: background 0.15s, color 0.15s;
+	user-select: none;
+}
+
+.shapeforms-radio-group label:last-child {
+	border-right: none;
+}
+
+.shapeforms-radio-group label:hover {
+	background: #f6f7f7;
+}
+
+.shapeforms-radio-group input[type="radio"] {
+	display: none;
+}
+
+.shapeforms-radio-group input[type="radio"]:checked + span {
+	color: #fff;
+}
+
+.shapeforms-radio-group label:has(input:checked) {
+	background: #2271b1;
+	color: #fff;
+}
+
+/* ── Style cards (General tab) ── */
+.shapeforms-style-option {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 14px 16px;
+	border: 1px solid #e2e4e7;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+	margin-bottom: 10px;
+}
+
+.shapeforms-style-option:last-child {
+	margin-bottom: 0;
+}
+
+.shapeforms-style-option:hover {
+	border-color: #2271b1;
+}
+
+.shapeforms-style-option.is-selected {
+	border-color: #2271b1;
+	background: #f0f6fc;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+.shapeforms-style-option input[type="radio"] {
+	margin-top: 2px;
+	flex-shrink: 0;
+}
+
+.shapeforms-style-option strong {
+	display: block;
+	font-size: 13px;
+	color: #1d2327;
+	margin-bottom: 2px;
+}
+
+.shapeforms-style-option span {
+	font-size: 12.5px;
+	color: #646970;
+}
+
+/* ── Checkbox switch ── */
+.shapeforms-toggle {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+}
+
+.shapeforms-toggle input[type="checkbox"] {
+	width: 36px;
+	height: 20px;
+	appearance: none;
+	-webkit-appearance: none;
+	background: #c3c4c7;
+	border-radius: 10px;
+	position: relative;
+	cursor: pointer;
+	transition: background 0.2s;
+	flex-shrink: 0;
+	margin: 0;
+	border: none;
+	outline: none;
+}
+
+.shapeforms-toggle input[type="checkbox"]::before {
+	content: "";
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	border-radius: 50%;
+	transition: transform 0.2s;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.shapeforms-toggle input[type="checkbox"]:checked {
+	background: #2271b1;
+}
+
+.shapeforms-toggle input[type="checkbox"]:checked::before {
+	top: 4px;
+	transform: translateX(18px);
+}
+
+.shapeforms-toggle span {
+	font-size: 13px;
+	color: #50575e;
+}
+
+/* ── Captcha cards ── */
+.shapeforms-captcha-provider-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 12px;
+}
+
+.shapeforms-captcha-card {
+	position: relative;
+	display: block;
+	border: 1px solid #e2e4e7;
+	border-radius: 8px;
+	background: #fff;
+	padding: 16px;
+	cursor: pointer;
+	transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.shapeforms-captcha-card:hover {
+	border-color: #2271b1;
+}
+
+.shapeforms-captcha-card input {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+}
+
+.shapeforms-captcha-card__title {
+	display: block;
+	font-size: 13.5px;
+	font-weight: 600;
+	margin: 0 0 4px;
+	color: #1d2327;
+}
+
+.shapeforms-captcha-card__description {
+	display: block;
+	font-size: 12.5px;
+	color: #646970;
+}
+
+.shapeforms-captcha-card.is-selected {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	background: #f0f6fc;
+}
+
+.shapeforms-captcha-panel {
+	margin-top: 16px;
+}
+
+.shapeforms-captcha-panel[hidden] {
+	display: none;
+}
+
+/* ── SMTP sub-tabs ── */
+.shapeforms-smtp-subtabs {
+	display: flex;
+	gap: 0;
+	margin: 0 0 24px;
+	border-bottom: 2px solid #e2e4e7;
+}
+
+.shapeforms-smtp-subtabs a {
+	display: inline-block;
+	padding: 10px 18px;
+	text-decoration: none;
+	color: #50575e;
+	font-weight: 500;
+	font-size: 13.5px;
+	border-bottom: 2px solid transparent;
+	margin-bottom: -2px;
+	transition: color 0.15s, border-color 0.15s;
+}
+
+.shapeforms-smtp-subtabs a:hover {
+	color: #1d2327;
+}
+
+.shapeforms-smtp-subtabs a.active {
+	color: #2271b1;
+	border-bottom-color: #2271b1;
+	font-weight: 600;
+}
+
+/* ── Test mail section ── */
+.shapeforms-test-mail-card {
+	background: #fff;
+	border: 1px solid #e2e4e7;
+	border-radius: 8px;
+	padding: 28px;
+}
+
+.shapeforms-test-mail-card h3 {
+	font-size: 15px;
+	font-weight: 600;
+	color: #1d2327;
+	margin: 0 0 20px;
+}
+
+.shapeforms-test-mail-result {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+.shapeforms-test-mail-result:empty {
+	display: none;
+}
+
+/* ── Submit button area ── */
+.shapeforms-submit-area {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 12px;
+	padding-top: 8px;
+}
+
+.shapeforms-submit-area .button-primary {
+	padding: 6px 24px;
+	height: auto;
+	font-size: 13px;
+	border-radius: 6px;
+}
+
+/* ── Tools tab ── */
+.shapeforms-card--spaced {
+	margin-top: 20px;
+}
+
+.shapeforms-card--success {
+	background: #ecfdf3;
+	border-color: #a3e4b8;
+	margin-top: 20px;
+}
+
+.shapeforms-card--success p {
+	margin: 0;
+	color: #166534;
+}
+
+.shapeforms-radio-list label {
+	display: block;
+	margin-bottom: 6px;
+}
+
+.shapeforms-radio-list label:last-child {
+	margin-bottom: 0;
+}
+
+#shapeforms-smtp-auth-fields .shapeforms-field-row:first-child {
+	padding-top: 14px;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 860px) {
+	.shapeforms-settings-wrap {
+		grid-template-columns: 1fr;
+	}
+
+	.shapeforms-settings-sidebar {
+		flex-direction: row;
+		border-right: none;
+		border-bottom: 1px solid #e2e4e7;
+		padding: 0;
+		overflow-x: auto;
+	}
+
+	.shapeforms-settings-sidebar .shapeforms-nav-item {
+		border-left: none;
+		border-bottom: 3px solid transparent;
+		white-space: nowrap;
+		padding: 12px 16px;
+	}
+
+	.shapeforms-settings-sidebar .shapeforms-nav-item.is-active {
+		border-bottom-color: #2271b1;
+	}
+
+	.shapeforms-settings-content {
+		padding: 24px 20px;
+	}
+
+	.shapeforms-field-row {
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.shapeforms-field-label {
+		flex: none;
+		padding-top: 0;
+	}
+}
+
+@media screen and (max-width: 782px) {
+	.shapeforms-radio-list label input[type=radio] {
+		height: 1rem;
+		width: 1rem;
+	}
+	.shapeforms-radio-list label input[type=radio]:checked:before {
+		height: .5rem;
+		width: .5rem;
+		margin: 0;
+	}
+	.shapeforms-toggle input[type="checkbox"]::before {
+		margin: 0;
+	}
+}
+
+/* ─────────────────────────────────────────
+   Forms List & Entries Pages
+   ───────────────────────────────────────── */
+
+.shapeforms-page-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 20px;
+}
+
+.shapeforms-page-header h1 {
+	font-size: 22px;
+	font-weight: 600;
+	color: #1d2327;
+	margin: 0;
+	padding: 0;
+}
+
+.shapeforms-page-header .shapeforms-btn-add {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	padding: 10px 20px;
+	background: #2271b1;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.4;
+	text-decoration: none;
+	cursor: pointer;
+	box-shadow: 0 1px 2px rgba(34, 113, 177, 0.3);
+	transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+}
+
+.shapeforms-page-header .shapeforms-btn-add:hover,
+.shapeforms-page-header .shapeforms-btn-add:focus {
+	background: #135e96;
+	color: #fff;
+	box-shadow: 0 4px 12px rgba(34, 113, 177, 0.35);
+	transform: translateY(-1px);
+}
+
+.shapeforms-page-header .shapeforms-btn-add:active {
+	transform: translateY(0);
+	box-shadow: 0 1px 2px rgba(34, 113, 177, 0.3);
+}
+
+.shapeforms-page-header .shapeforms-btn-add:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(34, 113, 177, 0.35);
+}
+
+.shapeforms-page-header .shapeforms-btn-add .dashicons {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	line-height: 16px;
+}
+
+/* ── View filter tabs ── */
+/* Forms page tabs */
+.shapeforms-forms-tabs {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-bottom: 16px;
+	padding: 5px;
+	background: #f1f5f9;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+}
+
+.shapeforms-forms-tab {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 16px;
+	border: 0;
+	border-radius: 8px;
+	font-size: 12.5px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: #475569;
+	text-decoration: none;
+	background: transparent;
+	transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shapeforms-forms-tab:hover {
+	background: rgba(255, 255, 255, 0.7);
+	color: #1e293b;
+}
+
+.shapeforms-forms-tab:focus {
+	outline: none;
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(34, 113, 177, 0.35);
+}
+
+.shapeforms-forms-tab.is-active {
+	background: #fff;
+	color: #2271b1;
+	box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12), 0 1px 1px rgba(15, 23, 42, 0.04);
+}
+
+.shapeforms-forms-tab.is-active:hover {
+	background: #fff;
+}
+
+.shapeforms-forms-tab__count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 20px;
+	height: 18px;
+	padding: 0 6px;
+	border-radius: 999px;
+	background: #e2e8f0;
+	color: #475569;
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 1;
+	transition: background 0.15s ease, color 0.15s ease;
+}
+
+.shapeforms-forms-tab.is-active .shapeforms-forms-tab__count {
+	background: rgba(34, 113, 177, 0.12);
+	color: #2271b1;
+}
+
+/* ── Table card wrapper ── */
+.shapeforms-table-card {
+	background: #fff;
+	border: 1px solid #e2e4e7;
+	border-radius: 8px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.shapeforms-table-card .shapeforms-bulk-bar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 16px;
+	background: #f8f9fa;
+	border-bottom: 1px solid #e2e4e7;
+}
+
+/* Selects in the bulk bar are styled by the unified WP-native rule below
+   (.shapeforms-bulk-action-wrap select, .shapeforms-filter-form select).
+   A generic select rule here would out-specify and break that caret. */
+
+.shapeforms-table-card .shapeforms-bulk-bar .button {
+	padding: 4px 14px;
+	border-radius: 4px;
+	font-size: 12.5px;
+}
+
+/* ── Enhanced table ── */
+/* Wrap the table itself in a horizontal scroll region so a wide multi-column
+   table never breaks the page layout on narrow screens — the bulk bar and the
+   card chrome stay put while only the table scrolls. */
+/* The card clips its own content so a wide table (min-width below) can NEVER
+   spill past the card and create document-level horizontal scroll / a dead gap
+   on the right — only the inner scroll region scrolls. min-width:0 lets the card
+   shrink below its table's intrinsic width inside any flex/grid ancestor. */
+.shapeforms-table-card {
+	overflow: hidden;
+	min-width: 0;
+}
+
+.shapeforms-table-card .shapeforms-table-scroll {
+	width: 100%;
+	max-width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* The row-actions dropdown is absolutely positioned and drops below/left of its
+   button, so the card's overflow:hidden (rounded corners + narrow-screen spill
+   guard) and the scroll wrapper's overflow-x:auto were clipping it. Lift both
+   clips ONLY while a menu is open (:has()), so the rounded corners and
+   horizontal scrolling are untouched in every other state. */
+.shapeforms-table-card:has(.shapeforms-form-actions-dd.is-open) {
+	overflow: visible;
+}
+
+.shapeforms-table-card:has(.shapeforms-form-actions-dd.is-open) .shapeforms-table-scroll {
+	overflow: visible;
+}
+
+.shapeforms-table-card table.widefat {
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	margin: 0;
+}
+
+/* Keep columns legible while scrolling rather than crushing them. */
+@media screen and (max-width: 782px) {
+	.shapeforms-table-card .shapeforms-table-scroll table.widefat,
+	.shapeforms-table-card .shapeforms-table-scroll .shapeforms-forms-table {
+		min-width: 640px;
+	}
+}
+
+.shapeforms-table-card table.widefat thead th,
+.shapeforms-table-card table.widefat thead td {
+	background: #f8f9fa;
+	border-bottom: 1px solid #e2e4e7;
+	font-size: 11px;
+	font-weight: 700;
+	color: #667085;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 10px 14px;
+}
+
+.shapeforms-table-card table.widefat tbody td,
+.shapeforms-table-card table.widefat tbody th {
+	padding: 14px;
+	vertical-align: middle;
+	border-bottom: 1px solid #f0f0f1;
+	font-size: 13px;
+	color: #344054;
+}
+
+/* Belt-and-suspenders: force clean white rows so the table reads like the
+   Forms table even if the WP `striped` zebra class is present. */
+.shapeforms-table-card table.widefat.striped > tbody > tr,
+.shapeforms-table-card table.widefat tbody tr:nth-child(odd),
+.shapeforms-table-card table.widefat tbody tr:nth-child(even) {
+	background: #fff;
+}
+
+.shapeforms-table-card table.widefat tbody tr:last-child td,
+.shapeforms-table-card table.widefat tbody tr:last-child th {
+	border-bottom: none;
+}
+
+.shapeforms-table-card table.widefat tbody tr:hover td,
+.shapeforms-table-card table.widefat tbody tr:hover th {
+	background: #f9fafb;
+}
+
+.shapeforms-table-card table.widefat tbody td strong a {
+	color: #1d2327;
+	text-decoration: none;
+	font-size: 13.5px;
+}
+
+.shapeforms-table-card table.widefat tbody td strong a:hover {
+	color: #2271b1;
+}
+
+.shapeforms-table-card table.widefat tbody td code {
+	background: #f0f0f1;
+	padding: 3px 8px;
+	border-radius: 4px;
+	font-size: 12px;
+	color: #50575e;
+}
+
+.shapeforms-table-card table.widefat .row-actions {
+	padding-top: 4px;
+}
+
+.shapeforms-table-card table.widefat .row-actions a {
+	font-size: 12.5px;
+}
+
+/* ── Bulk bar redesign ── */
+.shapeforms-bulk-bar {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 16px;
+	background: #f8f9fa;
+	border-bottom: 1px solid #e2e4e7;
+}
+
+.shapeforms-bulk-check {
+	width: 18px;
+	height: 18px;
+	cursor: pointer;
+	accent-color: #2271b1;
+}
+
+.shapeforms-bulk-action-wrap {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.shapeforms-filter-form {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.shapeforms-bulk-action-wrap select,
+.shapeforms-filter-form select {
+	height: 36px;
+	min-height: 36px;
+	padding: 0 30px 0 12px;
+	border: 1px solid #8c8f94;
+	border-radius: 8px;
+	background: #fff;
+	font-size: 13px;
+	color: #2c3338;
+	-webkit-appearance: none;
+	appearance: none;
+	/* The SVG is arrow-down-alt2 from Dashicons — the WordPress-native select caret. */
+	background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%2350575e%22%2F%3E%3C%2Fsvg%3E");
+	background-repeat: no-repeat;
+	background-position: right 8px center;
+	background-size: 16px 16px;
+	cursor: pointer;
+}
+
+.shapeforms-bulk-action-wrap select:hover,
+.shapeforms-filter-form select:hover {
+	border-color: #1e1e1e;
+}
+
+.shapeforms-bulk-action-wrap select:focus,
+.shapeforms-filter-form select:focus {
+	outline: 2px solid transparent;
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+/* ── Bulk-bar dropdown ───────────────────────────────────────────────────
+   A native <select> draws its option list as an operating-system menu — on
+   macOS a floating panel with its own font, radius and blue pill highlight,
+   rendered outside the page where no CSS can reach it. Everything below is the
+   replacement built by assets/js/admin-select.js.
+
+   The rules above still matter: with no JS the plain <select> is what shows,
+   and it must stay styled. Nothing here overrides them. */
+.shapeforms-select {
+	position: relative;
+	display: inline-flex;
+	max-width: 100%;
+	/* Set inline by the JS from the native control's measured height, so the
+	   toggle is exactly as tall as the select it replaced — the bulk bars on
+	   the forms list and the entries screen use different heights. */
+	--shapeforms-select-h: 36px;
+}
+
+/* Kept in the DOM and still the thing that submits: it holds the name, the id,
+   the `form` attribute and the value. Clipped rather than display:none so the
+   element keeps a box the browser is willing to measure. */
+.shapeforms-select .shapeforms-select__native {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	clip-path: inset(50%);
+	border: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.shapeforms-select__toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+	height: var(--shapeforms-select-h);
+	padding: 0 12px;
+	border: 1px solid #d0d5dd;
+	border-radius: 8px;
+	background: #fff;
+	color: #344054;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1;
+	text-align: left;
+	cursor: pointer;
+	transition: border-color 0.14s ease, box-shadow 0.14s ease;
+}
+
+.shapeforms-select__toggle:hover {
+	border-color: #98a2b3;
+}
+
+.shapeforms-select__toggle:focus-visible,
+.shapeforms-select.is-open .shapeforms-select__toggle {
+	outline: none;
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+.shapeforms-select__toggle:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* The prompt option ("Bulk Actions", "All Status") is not a choice yet, so it
+   is not shown as one. */
+.shapeforms-select__toggle.is-placeholder .shapeforms-select__label {
+	color: #667085;
+	font-weight: 400;
+}
+
+.shapeforms-select__label {
+	flex: 1 1 auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* arrow-down-alt2 from Dashicons — the same caret the native control used. */
+.shapeforms-select__caret {
+	flex: 0 0 16px;
+	height: 16px;
+	background: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%2350575e%22%2F%3E%3C%2Fsvg%3E") no-repeat center / 16px 16px;
+	transition: transform 0.14s ease;
+}
+
+.shapeforms-select.is-open .shapeforms-select__caret {
+	transform: rotate(180deg);
+}
+
+.shapeforms-select__menu {
+	position: absolute;
+	z-index: 120;
+	top: calc(100% + 6px);
+	left: 0;
+	min-width: 100%;
+	max-height: 280px;
+	margin: 0;
+	padding: 6px;
+	overflow-y: auto;
+	list-style: none;
+	border: 1px solid #d0d5dd;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 12px 32px rgba(15, 23, 42, 0.14);
+}
+
+/* [hidden] loses to the display above in the cascade, so it is restated. */
+.shapeforms-select__menu[hidden] {
+	display: none;
+}
+
+.shapeforms-select__menu:focus {
+	outline: none;
+}
+
+/* <optgroup>. The wrapper is what bounds the sticky label: scoped to its own
+   group, each label is pushed out by the next one instead of every label in the
+   list piling up at the same offset. */
+.shapeforms-select__groupwrap {
+	display: block;
+	margin: 0;
+}
+
+.shapeforms-select__grouplist {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* The label is a caption, not a row — it is deliberately not styled like
+   something you could click, because it is not an option and cannot be chosen.
+   Sticky so the group you have scrolled into stays named. */
+.shapeforms-select__group {
+	position: sticky;
+	top: -6px;
+	z-index: 1;
+	display: block;
+	margin: 6px 0 2px;
+	padding: 4px 10px;
+	background: #fff;
+	color: #667085;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.shapeforms-select__groupwrap:first-child .shapeforms-select__group {
+	margin-top: 0;
+}
+
+.shapeforms-select__option {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	padding: 8px 10px;
+	border-radius: 6px;
+	color: #344054;
+	font-size: 13px;
+	line-height: 1.3;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+/* A fixed-width slot for the tick, always present. Revealing it only on the
+   selected row would shift every label sideways as the selection moved. */
+.shapeforms-select__option::before {
+	content: "";
+	flex: 0 0 14px;
+	height: 14px;
+	background: no-repeat center / 14px 14px;
+}
+
+.shapeforms-select__option.is-selected {
+	color: #2271b1;
+	font-weight: 600;
+}
+
+.shapeforms-select__option.is-selected::before {
+	background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M15.6%205.3l1.4%201.4L8%2015.7l-5-5%201.4-1.4L8%2012.9z%22%20fill%3D%22%232271b1%22%2F%3E%3C%2Fsvg%3E");
+}
+
+/* One highlight, driven by the keyboard and by the pointer alike, so arrowing
+   down and moving the mouse never disagree about where you are. */
+.shapeforms-select__option.is-active {
+	background: #f2f4f7;
+}
+
+.shapeforms-select__option.is-disabled {
+	color: #98a2b3;
+	cursor: not-allowed;
+}
+
+.shapeforms-select__option.is-disabled.is-active {
+	background: transparent;
+}
+
+/* The card clips its own content (rounded corners + the narrow-screen spill
+   guard), which would cut the menu off. Lifted only while a menu is open, the
+   same way the row-actions dropdown does it above. */
+.shapeforms-table-card:has(.shapeforms-select.is-open) {
+	overflow: visible;
+}
+
+.shapeforms-bulk-apply {
+	height: 36px;
+	padding: 0 16px;
+	border: 1px solid #2271b1;
+	border-radius: 8px;
+	background: #f6f7f7;
+	color: #2271b1;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1;
+	cursor: pointer;
+	transition: all 0.14s ease;
+}
+
+.shapeforms-bulk-apply:hover {
+	background: #f0f6fc;
+	border-color: #0a4b78;
+	color: #0a4b78;
+}
+
+.shapeforms-bulk-apply:focus {
+	outline: 2px solid transparent;
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+.shapeforms-search-form {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-left: auto;
+}
+
+/* WP core's wp-admin/css/forms.css styles input[type="search"] directly
+   (element + attribute selector, specificity 0,1,1), which beats a bare
+   single-class selector (0,1,0) — that's what was overriding our height/
+   border/border-radius/padding. Match core's own selector shape so ours
+   wins deterministically regardless of stylesheet load order. */
+input[type="search"].shapeforms-search-input {
+	height: 36px;
+	min-height: 36px;
+	width: 220px;
+	max-width: 100%;
+	padding: 0 12px;
+	border: 1px solid #8c8f94;
+	border-radius: 8px;
+	background: #fff;
+	font-size: 13px;
+	color: #2c3338;
+	box-sizing: border-box;
+	/* Chrome/Safari draw a native "searchfield" appearance for type="search" with
+	   its own rounded frame underneath any author-supplied border/border-radius —
+	   without resetting it the two frames render as a visible double border and
+	   the custom radius never actually applies. */
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+input[type="search"].shapeforms-search-input::-webkit-search-cancel-button,
+input[type="search"].shapeforms-search-input::-webkit-search-decoration {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+input[type="search"].shapeforms-search-input:hover {
+	border-color: #1e1e1e;
+}
+
+input[type="search"].shapeforms-search-input:focus {
+	outline: 2px solid transparent;
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+/* ── Forms table ── */
+.shapeforms-forms-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.shapeforms-forms-table thead th {
+	padding: 10px 14px;
+	background: #f8f9fa;
+	border-bottom: 1px solid #e2e4e7;
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #667085;
+	text-align: left;
+}
+
+/* Sortable column headers (WordPress-style click-to-sort) */
+.shapeforms-forms-table thead th.shapeforms-sortable {
+	padding: 0;
+}
+
+.shapeforms-forms-table thead th.shapeforms-sortable .shapeforms-sort-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	padding: 10px 14px;
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+	font: inherit;
+	letter-spacing: inherit;
+	text-transform: inherit;
+}
+
+.shapeforms-forms-table thead th.shapeforms-sortable .shapeforms-sort-link:hover,
+.shapeforms-forms-table thead th.shapeforms-sortable.is-sorted .shapeforms-sort-link {
+	color: #1d2939;
+}
+
+/* Stacked up/down sort arrows — copied from WordPress core (Dashicons \f142/\f140). */
+.shapeforms-forms-table thead th.shapeforms-sortable .shapeforms-sort-indicators {
+	display: grid;
+	flex: 0 0 auto;
+}
+
+.shapeforms-forms-table thead th.shapeforms-sortable .shapeforms-sort-indicator {
+	display: block;
+	width: 10px;
+	height: 4px;
+	margin-top: 4px;
+	margin-left: 4px;
+}
+
+.shapeforms-forms-table thead th.shapeforms-sortable .shapeforms-sort-indicator:before {
+	font: normal 20px/0.5 dashicons;
+	display: inline-block;
+	padding: 0;
+	position: relative;
+	top: -4px;
+	left: -8px;
+	vertical-align: top;
+	color: #a7aaad;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.shapeforms-forms-table thead th.shapeforms-sortable .shapeforms-sort-asc:before {
+	content: "\f142";
+}
+
+.shapeforms-forms-table thead th.shapeforms-sortable .shapeforms-sort-desc:before {
+	content: "\f140";
+}
+
+.shapeforms-forms-table thead th.shapeforms-sortable.is-sorted-asc .shapeforms-sort-asc:before,
+.shapeforms-forms-table thead th.shapeforms-sortable.is-sorted-desc .shapeforms-sort-desc:before {
+	color: #1d2327;
+}
+
+.shapeforms-forms-table tbody td {
+	padding: 14px;
+	border-bottom: 1px solid #f0f0f1;
+	vertical-align: middle;
+	font-size: 13px;
+	color: #344054;
+}
+
+.shapeforms-forms-table tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+.shapeforms-forms-table tbody tr:hover td {
+	background: #f9fafb;
+}
+
+.shapeforms-col-cb { width: 32px; }
+.shapeforms-col-shortcode { width: 210px; }
+.shapeforms-col-entries { width: 80px; text-align: center; }
+.shapeforms-col-status { width: 120px; }
+.shapeforms-col-date { width: 110px; }
+.shapeforms-col-actions { width: 90px; text-align: center; white-space: nowrap; }
+
+.shapeforms-col-cb input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	accent-color: #2271b1;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.shapeforms-forms-table thead .shapeforms-col-cb,
+.shapeforms-forms-table tbody .shapeforms-col-cb {
+	padding-left: 14px;
+	padding-right: 0;
+	vertical-align: baseline;
+}
+
+/* Title */
+.shapeforms-form-title-wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.shapeforms-form-title-link {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+	text-decoration: none;
+}
+
+.shapeforms-form-title-link:hover {
+	color: #2271b1;
+}
+
+.shapeforms-form-meta {
+	font-size: 12px;
+	color: #98a2b3;
+}
+
+.shapeforms-form-row-actions {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding-top: 4px;
+	opacity: 0;
+	transition: opacity 0.14s ease;
+}
+
+.shapeforms-forms-table tbody tr:hover .shapeforms-form-row-actions {
+	opacity: 1;
+}
+
+.shapeforms-form-row-actions a {
+	font-size: 12px;
+	color: #2271b1;
+	text-decoration: none;
+}
+
+.shapeforms-form-row-actions a:hover {
+	color: #135e96;
+}
+
+.shapeforms-form-row-actions .shapeforms-action-danger {
+	color: #d63638;
+}
+
+.shapeforms-form-row-actions .shapeforms-action-danger:hover {
+	color: #a02021;
+}
+
+.shapeforms-form-row-sep {
+	color: #d0d5dd;
+	font-size: 11px;
+}
+
+/* Form status toggle */
+.shapeforms-form-status-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+}
+
+.shapeforms-form-status-toggle input {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+.shapeforms-form-status-toggle__track {
+	position: relative;
+	display: inline-block;
+	width: 34px;
+	height: 20px;
+	flex-shrink: 0;
+	border-radius: 999px;
+	background: #d0d5dd;
+	transition: background 0.18s ease;
+}
+
+.shapeforms-form-status-toggle input:checked + .shapeforms-form-status-toggle__track {
+	background: #16a34a;
+}
+
+.shapeforms-form-status-toggle__thumb {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 16px;
+	height: 16px;
+	border-radius: 999px;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+	transition: left 0.18s ease;
+}
+
+.shapeforms-form-status-toggle input:checked + .shapeforms-form-status-toggle__track .shapeforms-form-status-toggle__thumb {
+	left: 16px;
+}
+
+.shapeforms-form-status-toggle__label {
+	font-size: 12px;
+	font-weight: 600;
+	color: #98a2b3;
+}
+
+.shapeforms-form-status-toggle input:checked ~ .shapeforms-form-status-toggle__label {
+	color: #16a34a;
+}
+
+/* Shortcode copy */
+.shapeforms-copy-shortcode {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 5px 10px;
+	border: 1px solid #e2e4e7;
+	border-radius: 6px;
+	background: #f9fafb;
+	cursor: pointer;
+	transition: all 0.14s ease;
+}
+
+.shapeforms-copy-shortcode:hover {
+	border-color: #2271b1;
+	background: #eff6ff;
+}
+
+.shapeforms-copy-shortcode.is-copied {
+	border-color: #16a34a;
+	background: #f0fdf4;
+}
+
+.shapeforms-copy-shortcode code {
+	font-size: 12px;
+	color: #50575e;
+	background: none;
+	padding: 0;
+	/* Keep the shortcode on one line — without this the forms table (which is
+	   NOT table-layout:fixed) squeezes this column and wraps it character by
+	   character into a tall narrow box. */
+	white-space: nowrap;
+}
+
+.shapeforms-copy-shortcode .dashicons {
+	width: 14px;
+	height: 14px;
+	font-size: 14px;
+	line-height: 14px;
+	color: #98a2b3;
+}
+
+.shapeforms-copy-shortcode:hover .dashicons {
+	color: #2271b1;
+}
+
+.shapeforms-copy-shortcode.is-copied .dashicons {
+	color: #16a34a;
+}
+
+/* Entries link */
+.shapeforms-entries-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 32px;
+	height: 28px;
+	padding: 0 10px;
+	border-radius: 999px;
+	background: #f0f0f1;
+	color: #50575e;
+	font-size: 13px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.14s ease;
+}
+
+.shapeforms-entries-link:hover {
+	background: #2271b1;
+	color: #fff;
+}
+
+/* Actions dropdown */
+.shapeforms-form-actions-dd {
+	position: relative;
+}
+
+.shapeforms-form-actions-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 1px solid transparent;
+	border-radius: 6px;
+	background: transparent;
+	color: #98a2b3;
+	cursor: pointer;
+	transition: all 0.14s ease;
+}
+
+.shapeforms-form-actions-btn:hover,
+.shapeforms-form-actions-dd.is-open .shapeforms-form-actions-btn {
+	border-color: #d0d5dd;
+	background: #f9fafb;
+	color: #344054;
+}
+
+.shapeforms-form-actions-btn .dashicons {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+	line-height: 18px;
+}
+
+.shapeforms-form-actions-menu {
+	display: none;
+	position: absolute;
+	top: calc(100% + 4px);
+	right: 0;
+	z-index: 100;
+	min-width: 170px;
+	padding: 6px;
+	border: 1px solid #e4e7ec;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+	animation: shapeformsDropFadeIn 0.12s ease;
+}
+
+.shapeforms-form-actions-dd.is-open .shapeforms-form-actions-menu {
+	display: block;
+}
+
+.shapeforms-form-actions-menu a {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 12px;
+	border-radius: 6px;
+	font-size: 13px;
+	color: #344054;
+	text-decoration: none;
+	transition: background 0.1s ease;
+}
+
+.shapeforms-form-actions-menu a:hover {
+	background: #f2f4f7;
+}
+
+.shapeforms-form-actions-menu a .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+	line-height: 16px;
+	color: #667085;
+}
+
+.shapeforms-form-actions-menu .shapeforms-action-danger {
+	color: #dc2626;
+}
+
+.shapeforms-form-actions-menu .shapeforms-action-danger .dashicons {
+	color: #dc2626;
+}
+
+.shapeforms-form-actions-menu .shapeforms-action-danger:hover {
+	background: #fef2f2;
+}
+
+.shapeforms-form-actions-menu hr {
+	margin: 4px 0;
+	border: 0;
+	border-top: 1px solid #f0f0f1;
+}
+
+/* Empty state */
+.shapeforms-forms-empty {
+	text-align: center;
+	padding: 56px 20px !important;
+	color: #667085;
+}
+
+.shapeforms-forms-empty .dashicons,
+.shapeforms-forms-empty__badge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 18px;
+	width: 64px;
+	height: 64px;
+	font-size: 30px;
+	line-height: 1;
+	border-radius: 50%;
+	background: #eaf2fb;
+	color: #2271b1;
+}
+
+.shapeforms-forms-empty p {
+	margin: 0 0 20px;
+	font-size: 15px;
+	font-weight: 500;
+	color: #344054;
+}
+
+.shapeforms-forms-empty .shapeforms-btn-add {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 9px 20px;
+	background: #2271b1;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 0.15s;
+}
+
+.shapeforms-forms-empty .shapeforms-btn-add:hover,
+.shapeforms-forms-empty .shapeforms-btn-add:focus {
+	background: #135e96;
+	color: #fff;
+}
+
+/* ── Legacy empty state ── */
+.shapeforms-table-card .shapeforms-empty-row td {
+	text-align: center;
+	padding: 40px 20px;
+	color: #646970;
+	font-size: 14px;
+}
+
+/* ── Pagination ── */
+.shapeforms-pagination {
+	display: flex;
+	justify-content: flex-end;
+	padding: 12px 16px;
+	border-top: 1px solid #e2e4e7;
+	background: #f8f9fa;
+}
+
+.shapeforms-pagination .page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 34px;
+	height: 34px;
+	padding: 0 9px;
+	margin: 0 3px;
+	border: 1px solid #d0d5dd;
+	border-radius: 8px;
+	background: #fff;
+	color: #50575e;
+	font-size: 13px;
+	font-weight: 500;
+	text-decoration: none;
+	transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shapeforms-pagination .page-numbers:hover {
+	background: #f0f6fc;
+	border-color: #2271b1;
+	color: #2271b1;
+}
+
+.shapeforms-pagination .page-numbers.current {
+	background: #2271b1;
+	border-color: #2271b1;
+	color: #fff;
+	font-weight: 600;
+}
+
+.shapeforms-pagination .page-numbers.dots {
+	border: none;
+	background: none;
+}
+
+/* ── Entry data ── */
+.shapeforms-table-card table.widefat td .shapeforms-entry-fields {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px 16px;
+	font-size: 13px;
+}
+
+.shapeforms-table-card table.widefat td .shapeforms-entry-fields strong {
+	font-weight: 600;
+	color: #1d2327;
+}
+
+/* ── List-page action notice (modern alert) ──
+   Rendered with `notice is-dismissible` so WordPress keeps wiring the dismiss (×)
+   button; these rules override the default WP notice chrome into a soft pill.
+   NOTE: namespaced `.shapeforms-inline-notice` so it stays separate from the full-width
+   promo card `.shapeforms-admin-notice` (admin-notice.css). They previously shared a
+   class, and this rule's `display:inline-flex; margin:0` silently shrank the card and
+   killed its bottom gap on every page that loads this stylesheet. Don't merge them. */
+.shapeforms-inline-notice.notice {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	padding: 7px 36px 7px 12px;
+	border: 1px solid transparent;
+	border-left-width: 1px;
+	border-radius: 8px;
+	box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06);
+	background: #fff;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.shapeforms-inline-notice .dashicons {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.shapeforms-inline-notice p {
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+}
+
+.shapeforms-inline-notice--success.notice {
+	background: #ecfdf3;
+	border-color: #a3e4b8;
+	color: #166534;
+}
+
+.shapeforms-inline-notice--success .dashicons {
+	color: #16a34a;
+}
+
+.shapeforms-inline-notice--error.notice {
+	background: #fef2f2;
+	border-color: #fca5a5;
+	color: #991b1b;
+}
+
+.shapeforms-inline-notice--error .dashicons {
+	color: #dc2626;
+}
+
+/* Keep WordPress's injected dismiss button centred in the taller pill. */
+.shapeforms-inline-notice .notice-dismiss {
+	top: 50%;
+	right: 6px;
+	padding: 0;
+	transform: translateY(-50%);
+}
+
+.shapeforms-inline-notice .notice-dismiss::before {
+	color: currentColor;
+	opacity: 0.55;
+}
+
+.shapeforms-inline-notice .notice-dismiss:hover::before,
+.shapeforms-inline-notice .notice-dismiss:focus::before {
+	opacity: 1;
+}
+
+/* ── Entries filters ── */
+.shapeforms-entries-filters {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	flex-wrap: wrap;
+	margin-bottom: 16px;
+}
+
+.shapeforms-entries-filters__left {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.shapeforms-entries-filters__right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.shapeforms-entries-tabs {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	padding: 5px;
+	background: #f1f5f9;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+}
+
+.shapeforms-entries-tab {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	padding: 7px 14px;
+	border: 0;
+	border-radius: 8px;
+	font-size: 12.5px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: #475569;
+	text-decoration: none;
+	background: transparent;
+	transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shapeforms-entries-tab:hover {
+	background: rgba(255, 255, 255, 0.7);
+	color: #1e293b;
+}
+
+.shapeforms-entries-tab:focus {
+	outline: none;
+	box-shadow: 0 0 0 2px #fff, 0 0 0 4px rgba(34, 113, 177, 0.35);
+}
+
+.shapeforms-entries-tab.is-active {
+	background: #fff;
+	color: #2271b1;
+	box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12), 0 1px 1px rgba(15, 23, 42, 0.04);
+}
+
+.shapeforms-entries-tab.is-active:hover {
+	background: #fff;
+}
+
+.shapeforms-entries-tab__count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 20px;
+	height: 18px;
+	padding: 0 6px;
+	border-radius: 999px;
+	background: #e2e8f0;
+	color: #475569;
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 1;
+	transition: background 0.15s ease, color 0.15s ease;
+}
+
+.shapeforms-entries-tab.is-active .shapeforms-entries-tab__count {
+	background: rgba(34, 113, 177, 0.12);
+	color: #2271b1;
+}
+
+/* Custom dropdown */
+.shapeforms-dropdown {
+	position: relative;
+}
+
+.shapeforms-dropdown__trigger {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 14px;
+	border: 1px solid #d0d5dd;
+	border-radius: 8px;
+	background: #fff;
+	font-size: 13px;
+	font-weight: 500;
+	color: #344054;
+	cursor: pointer;
+	transition: border-color 0.14s ease, box-shadow 0.14s ease;
+	white-space: nowrap;
+}
+
+.shapeforms-dropdown__trigger:hover {
+	border-color: #98a2b3;
+}
+
+.shapeforms-dropdown.is-open .shapeforms-dropdown__trigger {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+.shapeforms-dropdown__trigger .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+	line-height: 16px;
+	color: #667085;
+}
+
+.shapeforms-dropdown__arrow {
+	width: 8px;
+	height: 8px;
+	border-right: 1.5px solid #667085;
+	border-bottom: 1.5px solid #667085;
+	transform: rotate(45deg);
+	margin-top: -2px;
+	margin-left: 2px;
+	transition: transform 0.18s ease;
+}
+
+.shapeforms-dropdown.is-open .shapeforms-dropdown__arrow {
+	transform: rotate(-135deg);
+	margin-top: 2px;
+}
+
+.shapeforms-dropdown__panel {
+	display: none;
+	position: absolute;
+	top: calc(100% + 6px);
+	right: 0;
+	z-index: 100;
+	min-width: 180px;
+	max-height: 280px;
+	overflow-y: auto;
+	padding: 6px;
+	border: 1px solid #e4e7ec;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04);
+	animation: shapeformsDropFadeIn 0.14s ease;
+}
+
+@keyframes shapeformsDropFadeIn {
+	from { opacity: 0; transform: translateY(-4px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+.shapeforms-dropdown.is-open .shapeforms-dropdown__panel {
+	display: block;
+}
+
+.shapeforms-dropdown__item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	padding: 8px 12px;
+	border: 0;
+	border-radius: 6px;
+	background: transparent;
+	font-size: 13px;
+	color: #344054;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 0.1s ease;
+	box-sizing: border-box;
+}
+
+.shapeforms-dropdown__item:hover {
+	background: #f2f4f7;
+	color: #1d2327;
+}
+
+.shapeforms-dropdown__item.is-active {
+	background: #eff6ff;
+	color: #2271b1;
+	font-weight: 600;
+}
+
+.shapeforms-dropdown__panel::-webkit-scrollbar {
+	width: 5px;
+}
+
+.shapeforms-dropdown__panel::-webkit-scrollbar-thumb {
+	background: #d0d5dd;
+	border-radius: 999px;
+}
+
+.shapeforms-custom-dates {
+	margin-bottom: 16px;
+}
+
+.shapeforms-custom-dates__form {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 16px;
+	background: #fff;
+	border: 1px solid #d0d5dd;
+	border-radius: 8px;
+}
+
+.shapeforms-custom-dates__form label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	font-weight: 500;
+	color: #344054;
+}
+
+.shapeforms-custom-dates__form input[type="date"] {
+	padding: 6px 10px;
+	border: 1px solid #d0d5dd;
+	border-radius: 6px;
+	font-size: 13px;
+}
+
+.shapeforms-custom-dates__form input[type="date"]:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	outline: none;
+}
+
+@media screen and (max-width: 782px) {
+	.shapeforms-entries-filters {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.shapeforms-entries-tabs {
+		overflow-x: auto;
+	}
+
+	.shapeforms-entries-filters__right {
+		flex-wrap: wrap;
+	}
+
+	.shapeforms-custom-dates__form {
+		flex-wrap: wrap;
+	}
+}
+
+/* ── Entries list ── */
+/* Bulk actions bar — appears above the table when one or more rows are checked. */
+.shapeforms-bulk-bar {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 12px;
+	padding: 10px 14px;
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+	box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+}
+
+/* The bar is always visible; only the "N selected" count toggles via the [hidden]
+   attribute (the JS sets/removes it). Re-assert none in case a display value is ever
+   added to the count, so an explicit display can't beat the UA [hidden] rule. */
+.shapeforms-bulk-bar__count[hidden] {
+	display: none;
+}
+
+.shapeforms-bulk-bar__count {
+	font-weight: 600;
+	color: #1d2327;
+	font-size: 13px;
+}
+
+/* Apply is disabled until a row AND an action are chosen, so it must clearly
+   read as unavailable. WP core's .button-primary:disabled is easy to miss on a
+   solid fill, so dim the whole control and drop the pointer cursor. */
+.shapeforms-bulk-bar .button-primary:disabled,
+.shapeforms-bulk-bar .button-primary[disabled] {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* The descendant + element-qualified selector (.shapeforms-bulk-bar select.x) is
+   intentional: WP core's `.wp-core-ui select` (specificity 0,1,1) overrides a plain
+   single-class rule, so we must out-specify it (0,2,1+) for the border/radius/height
+   to actually apply. min-height resets WP's forced 40px. */
+.shapeforms-bulk-bar select.shapeforms-bulk-bar__select {
+	min-width: 170px;
+	height: 34px;
+	min-height: 34px;
+	padding: 0 28px 0 12px;
+	border: 1px solid #d0d5dd;
+	border-radius: 8px;
+	background-color: #fff;
+	font-size: 13px;
+	line-height: 1;
+	font-weight: 500;
+	color: #344054;
+	cursor: pointer;
+	box-shadow: none;
+	transition: border-color .14s ease, box-shadow .14s ease;
+}
+
+.shapeforms-bulk-bar select.shapeforms-bulk-bar__select:hover {
+	border-color: #98a2b3;
+}
+
+.shapeforms-bulk-bar select.shapeforms-bulk-bar__select:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	outline: none;
+}
+
+/* Apply = the primary (solid) action, sized + radiused to match the select and the
+   outlined Export button so the three controls read as one set. The #id out-specifies
+   WP core's `.wp-core-ui .button-primary` (0,2,0) without !important. */
+.shapeforms-bulk-bar #shapeforms-bulk-apply {
+	height: 34px;
+	min-height: 34px;
+	padding: 0 18px;
+	border: 1px solid #2271b1;
+	border-radius: 8px;
+	background: #2271b1;
+	color: #fff;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1;
+	box-shadow: none;
+	transition: background .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.shapeforms-bulk-bar #shapeforms-bulk-apply:hover,
+.shapeforms-bulk-bar #shapeforms-bulk-apply:focus {
+	background: #135e96;
+	border-color: #135e96;
+	color: #fff;
+	box-shadow: 0 2px 8px rgba(34, 113, 177, .25);
+}
+
+.shapeforms-bulk-bar #shapeforms-bulk-apply:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(34, 113, 177, .35);
+}
+
+/* Export-selected dropdown — replaces the old row of format buttons (CSV/Excel/PDF).
+   Sits at the far right of the bulk bar, like the buttons did, and is revealed only
+   while rows are selected (JS toggles the [hidden] attribute). */
+.shapeforms-bulk-export-dd {
+	margin-left: auto;
+}
+
+.shapeforms-bulk-export-dd[hidden] {
+	display: none;
+}
+
+/* Icons inside a dropdown menu item (the CSV/Excel/PDF export items). */
+.shapeforms-dropdown__item .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+	line-height: 16px;
+	color: #667085;
+	flex-shrink: 0;
+}
+
+/* Checkbox column — keep the select cells tight and centred. */
+.shapeforms-entries-table th.shapeforms-entry-cb,
+.shapeforms-entries-table td.shapeforms-entry-cb {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.shapeforms-entries-table td.shapeforms-entry-cb input,
+.shapeforms-entries-table th.shapeforms-entry-cb input {
+	margin: 0;
+}
+
+/* Unread entries: bold text + a light blue row tint + a blue left accent bar so
+   they clearly stand out from read rows (email-client style). The tint is set on
+   the TD so it paints over the white-row rule; the accent uses an inset shadow on
+   the first cell. */
+.shapeforms-entries-table tbody tr.shapeforms-entry--unread td {
+	font-weight: 600;
+	background: #eff6ff;
+}
+
+.shapeforms-entries-table tbody tr.shapeforms-entry--unread td:first-child {
+	box-shadow: inset 3px 0 0 #2271b1;
+}
+
+/* Keep the blue highlight (a touch deeper) on hover instead of the neutral gray. */
+.shapeforms-table-card .shapeforms-entries-table tbody tr.shapeforms-entry--unread:hover td {
+	background: #e0ecfd;
+}
+
+.shapeforms-entry-star {
+	text-align: center;
+}
+
+.shapeforms-star-btn {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 2px;
+	color: #c3c4c7;
+	transition: color 0.15s;
+}
+
+.shapeforms-star-btn:hover,
+.shapeforms-star-btn.is-starred {
+	color: #f59e0b;
+}
+
+.shapeforms-star-btn .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+}
+
+.shapeforms-entry-link {
+	color: #1d2327;
+	text-decoration: none;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.shapeforms-entry-link:hover {
+	color: #2271b1;
+}
+
+.shapeforms-entry-form-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	background: #f0f0f1;
+	border-radius: 4px;
+	font-size: 12px;
+	color: #50575e;
+}
+
+.shapeforms-status-badge {
+	display: inline-block;
+	padding: 2px 10px;
+	border-radius: 10px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+}
+
+.shapeforms-status--unread {
+	background: #dbeafe;
+	color: #1d4ed8;
+}
+
+.shapeforms-status--read {
+	background: #f0f0f1;
+	color: #646970;
+}
+
+.shapeforms-status--starred {
+	background: #fef3c7;
+	color: #b45309;
+}
+
+.shapeforms-status--spam {
+	background: #fee2e2;
+	color: #b91c1c;
+}
+
+.shapeforms-status--trash {
+	background: #e9e9ed;
+	color: #8a8f98;
+}
+
+/* Active "Mark as Spam" toggle on the entry detail header. */
+.shapeforms-entry-action-btn.is-spam {
+	color: #b91c1c;
+	border-color: #fca5a5;
+	background: #fef2f2;
+}
+
+/* ── Entry detail meta sidebar ── */
+/* ── Entry detail page ── */
+.shapeforms-entry-detail-wrap {
+	max-width: 100%;
+	padding-top: 0;
+}
+
+.shapeforms-entry-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 16px 20px;
+	margin: -1px -20px 24px;
+	background: #fff;
+	border-bottom: 1px solid #e2e4e7;
+}
+
+.shapeforms-entry-header__left {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.shapeforms-entry-header__back {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border: 1px solid #d0d5dd;
+	border-radius: 8px;
+	background: #fff;
+	color: #344054;
+	text-decoration: none;
+	transition: all 0.14s ease;
+}
+
+.shapeforms-entry-header__back:hover {
+	border-color: #98a2b3;
+	background: #f9fafb;
+	color: #1d2327;
+}
+
+.shapeforms-entry-header__back .dashicons {
+	width: 20px;
+	height: 20px;
+	font-size: 20px;
+	line-height: 20px;
+}
+
+.shapeforms-entry-header__title h1 {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 700;
+	color: #1d2327;
+	line-height: 1.3;
+}
+
+.shapeforms-entry-header .shapeforms-status-badge {
+	height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+}
+
+.shapeforms-entry-header__form {
+	display: inline-block;
+	margin-top: 2px;
+	padding: 2px 10px;
+	border-radius: 999px;
+	background: #f0f0f1;
+	font-size: 12px;
+	font-weight: 500;
+	color: #50575e;
+}
+
+.shapeforms-entry-header__right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.shapeforms-entry-action-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	padding: 0;
+	border: 1px solid #d0d5dd;
+	border-radius: 8px;
+	background: #fff;
+	color: #667085;
+	cursor: pointer;
+	text-decoration: none;
+	transition: all 0.14s ease;
+}
+
+.shapeforms-entry-action-btn:hover {
+	border-color: #98a2b3;
+	background: #f9fafb;
+	color: #344054;
+}
+
+.shapeforms-entry-action-btn:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+.shapeforms-entry-action-btn--danger:hover {
+	border-color: #fecaca;
+	background: #fef2f2;
+	color: #dc2626;
+}
+
+.shapeforms-entry-action-btn .dashicons {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+	line-height: 18px;
+}
+
+/* Layout */
+.shapeforms-entry-layout {
+	display: grid;
+	grid-template-columns: 1fr 320px;
+	gap: 24px;
+	align-items: start;
+}
+
+/* Main data */
+.shapeforms-entry-data {
+	background: #fff;
+	border: 1px solid #e2e4e7;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.shapeforms-entry-field {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	gap: 16px;
+	padding: 16px 20px;
+	border-bottom: 1px solid #f0f0f1;
+	align-items: baseline;
+}
+
+.shapeforms-entry-field:last-child {
+	border-bottom: 0;
+}
+
+.shapeforms-entry-field:nth-child(even) {
+	background: #fafbfc;
+}
+
+.shapeforms-entry-field__label {
+	font-size: 13px;
+	font-weight: 600;
+	color: #344054;
+}
+
+.shapeforms-entry-field__value {
+	font-size: 14px;
+	color: #1d2327;
+	line-height: 1.6;
+	word-break: break-word;
+}
+
+.shapeforms-entry-field__empty {
+	color: #d0d5dd;
+}
+
+.shapeforms-entry-file-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 12px;
+	border: 1px solid #d0d5dd;
+	border-radius: 6px;
+	background: #f9fafb;
+	color: #2271b1;
+	font-size: 13px;
+	text-decoration: none;
+	transition: all 0.14s ease;
+}
+
+.shapeforms-entry-file-link:hover {
+	border-color: #2271b1;
+	background: #eff6ff;
+}
+
+.shapeforms-entry-file-link .dashicons {
+	width: 16px;
+	height: 16px;
+	font-size: 16px;
+	line-height: 16px;
+}
+
+/* Sidebar meta card */
+.shapeforms-entry-meta-card {
+	background: #fff;
+	border: 1px solid #e2e4e7;
+	border-radius: 12px;
+	padding: 20px;
+}
+
+.shapeforms-entry-meta-card h3 {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 16px;
+	font-size: 14px;
+	font-weight: 700;
+	color: #1d2327;
+}
+
+.shapeforms-entry-meta-card h3 .dashicons {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+	line-height: 18px;
+	color: #667085;
+}
+
+.shapeforms-entry-meta-list {
+	display: grid;
+	gap: 14px;
+}
+
+.shapeforms-entry-meta-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+}
+
+.shapeforms-entry-meta-item__icon {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+	line-height: 18px;
+	color: #98a2b3;
+	margin-top: 1px;
+	flex-shrink: 0;
+}
+
+.shapeforms-entry-meta-item__label {
+	display: block;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #98a2b3;
+	margin-bottom: 2px;
+}
+
+.shapeforms-entry-meta-item__value {
+	display: block;
+	font-size: 13px;
+	color: #344054;
+	font-weight: 500;
+}
+
+.shapeforms-entry-meta-item__link {
+	color: #2271b1;
+	text-decoration: none;
+}
+
+.shapeforms-entry-meta-item__link:hover {
+	text-decoration: underline;
+}
+
+.shapeforms-entry-meta-item__ua {
+	font-size: 11px;
+	color: #667085;
+	word-break: break-all;
+	line-height: 1.4;
+}
+
+@media screen and (max-width: 960px) {
+	.shapeforms-entry-layout {
+		grid-template-columns: 1fr;
+	}
+
+	.shapeforms-entry-field {
+		grid-template-columns: 1fr;
+		gap: 4px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.shapeforms-entry-header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.shapeforms-entry-header__right {
+		width: 100%;
+		justify-content: flex-start;
+	}
+}
+
+/* Legacy meta (keep for backwards compat) */
+.shapeforms-entry-meta {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.shapeforms-entry-meta__row {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 8px;
+	font-size: 13px;
+}
+
+.shapeforms-entry-meta__label {
+	color: #646970;
+	flex-shrink: 0;
+}
+
+/* ============================================================
+   REPORTS PAGE
+   ============================================================ */
+
+
+.shapeforms-page-header__badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 3px 10px;
+	border-radius: 999px;
+	background: rgba(59, 130, 246, 0.08);
+	border: 1px solid rgba(59, 130, 246, 0.15);
+	font-size: 11px;
+	font-weight: 600;
+	color: #3b82f6;
+	letter-spacing: 0.03em;
+	margin-left: 12px;
+	vertical-align: middle;
+}
+
+/* --- Stat Cards --- */
+.shapeforms-reports-stats {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 14px;
+	margin-bottom: 24px;
+}
+
+.shapeforms-stat-card {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	padding: 18px 20px;
+	transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.shapeforms-stat-card:hover {
+	border-color: #cbd5e1;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+	transform: translateY(-1px);
+}
+
+.shapeforms-stat-card__icon {
+	width: 44px;
+	height: 44px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.shapeforms-stat-card__icon .dashicons {
+	width: 22px;
+	height: 22px;
+	font-size: 22px;
+	line-height: 22px;
+	color: #fff;
+}
+
+.shapeforms-stat-card__icon--forms {
+	background: linear-gradient(135deg, #3b82f6, #2563eb);
+	box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.shapeforms-stat-card__icon--entries {
+	background: linear-gradient(135deg, #10b981, #059669);
+	box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+.shapeforms-stat-card__icon--unread {
+	background: linear-gradient(135deg, #f59e0b, #d97706);
+	box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+}
+
+.shapeforms-stat-card__icon--starred {
+	background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+	box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+}
+
+.shapeforms-stat-card__icon--today {
+	background: linear-gradient(135deg, #06b6d4, #0891b2);
+	box-shadow: 0 4px 10px rgba(6, 182, 212, 0.3);
+}
+
+.shapeforms-stat-card__icon--week {
+	background: linear-gradient(135deg, #ec4899, #db2777);
+	box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
+}
+
+/* Pro-injected stat card icon colours */
+.shapeforms-stat-card__icon--views {
+	background: linear-gradient(135deg, #10b981, #059669);
+	box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+.shapeforms-stat-card__icon--conversion {
+	background: linear-gradient(135deg, #6366f1, #4f46e5);
+	box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+/* Chart legend (views vs submissions) */
+.shapeforms-chart-legend {
+	display: flex;
+	gap: 20px;
+	padding: 8px 16px 12px;
+}
+
+.shapeforms-chart-legend__item {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12px;
+	color: #64748b;
+	font-weight: 500;
+}
+
+.shapeforms-chart-legend__item .shapeforms-chart-legend__dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
+
+.shapeforms-chart-legend__item--views .shapeforms-chart-legend__dot {
+	background: rgb(16, 185, 129);
+}
+
+.shapeforms-chart-legend__item--submissions .shapeforms-chart-legend__dot {
+	background: rgb(59, 130, 246);
+}
+
+.shapeforms-stat-card__body {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+	min-width: 0;
+}
+
+.shapeforms-stat-card__value {
+	font-size: 24px;
+	font-weight: 700;
+	color: #0f172a;
+	line-height: 1.2;
+}
+
+.shapeforms-stat-card__label {
+	font-size: 12px;
+	color: #64748b;
+	font-weight: 500;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* --- Card Headers --- */
+.shapeforms-reports-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 16px;
+	gap: 12px;
+}
+
+.shapeforms-reports-card-header h2 {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #0f172a;
+	margin: 0;
+	padding: 0;
+}
+
+.shapeforms-reports-card-header h2 .dashicons {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+	line-height: 18px;
+	color: #94a3b8;
+}
+
+.shapeforms-reports-card-header__sub {
+	font-size: 12px;
+	color: #94a3b8;
+	font-weight: 500;
+	padding: 3px 10px;
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+}
+
+.shapeforms-reports-card-header__link {
+	font-size: 12px;
+	color: #3b82f6;
+	text-decoration: none;
+	font-weight: 500;
+	transition: color 0.15s ease;
+}
+
+.shapeforms-reports-card-header__link:hover {
+	color: #2563eb;
+}
+
+/* --- Chart & Table Cards --- */
+.shapeforms-reports-row {
+	margin-bottom: 24px;
+}
+
+.shapeforms-reports-row--two-col {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 24px;
+}
+
+.shapeforms-reports-chart-card,
+.shapeforms-reports-table-card {
+	background: #fff;
+	border: 1px solid #e2e8f0;
+	border-radius: 12px;
+	padding: 24px;
+}
+
+.shapeforms-reports-chart-card canvas {
+	width: 100%;
+	display: block;
+}
+
+/* Chart tooltip */
+.shapeforms-chart-tooltip {
+	display: none;
+	position: absolute;
+	background: #0f172a;
+	color: #fff;
+	padding: 8px 12px;
+	border-radius: 8px;
+	font-size: 12px;
+	line-height: 1.5;
+	pointer-events: none;
+	transform: translateX(-50%);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+	white-space: nowrap;
+	z-index: 10;
+}
+
+.shapeforms-chart-tooltip strong {
+	display: block;
+	color: #94a3b8;
+	font-size: 11px;
+	font-weight: 500;
+}
+
+/* --- Reports Table --- */
+.shapeforms-reports-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 13px;
+}
+
+.shapeforms-reports-table thead th {
+	text-align: left;
+	padding: 10px 12px;
+	font-weight: 600;
+	color: #475569;
+	border-bottom: 2px solid #e2e8f0;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.shapeforms-reports-table .shapeforms-col-center {
+	text-align: center;
+}
+
+.shapeforms-reports-table tbody td {
+	padding: 10px 12px;
+	border-bottom: 1px solid #f1f5f9;
+	color: #334155;
+	vertical-align: middle;
+}
+
+.shapeforms-reports-table tbody tr:last-child td {
+	border-bottom: none;
+}
+
+.shapeforms-reports-table tbody tr:hover {
+	background: #f8fafc;
+}
+
+.shapeforms-reports-table a {
+	color: #3b82f6;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.shapeforms-reports-table a:hover {
+	color: #2563eb;
+	text-decoration: underline;
+}
+
+/* Count badge in table */
+.shapeforms-reports-count-badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 28px;
+	padding: 2px 8px;
+	border-radius: 6px;
+	background: #f0f4ff;
+	color: #3b82f6;
+	font-weight: 700;
+	font-size: 13px;
+}
+
+/* --- Stacked Bar Chart in Table --- */
+.shapeforms-reports-bar-wrap {
+	width: 100%;
+	min-width: 120px;
+}
+
+.shapeforms-reports-bar {
+	display: flex;
+	height: 10px;
+	border-radius: 5px;
+	overflow: hidden;
+	background: #f1f5f9;
+}
+
+.shapeforms-reports-bar__segment {
+	display: block;
+	height: 100%;
+	transition: width 0.3s ease;
+}
+
+.shapeforms-reports-bar__segment--unread {
+	background: #f59e0b;
+}
+
+.shapeforms-reports-bar__segment--read {
+	background: #3b82f6;
+}
+
+.shapeforms-reports-bar__segment--starred {
+	background: #8b5cf6;
+}
+
+/* Bar legend */
+.shapeforms-reports-bar-legend {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-top: 14px;
+	padding-top: 12px;
+	border-top: 1px solid #f1f5f9;
+}
+
+.shapeforms-reports-bar-legend__item {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 11px;
+	color: #64748b;
+	font-weight: 500;
+}
+
+.shapeforms-reports-bar-legend__dot {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 3px;
+}
+
+.shapeforms-reports-bar-legend__dot--unread {
+	background: #f59e0b;
+}
+
+.shapeforms-reports-bar-legend__dot--read {
+	background: #3b82f6;
+}
+
+.shapeforms-reports-bar-legend__dot--starred {
+	background: #8b5cf6;
+}
+
+/* --- Activity Feed (Recent Entries) --- */
+.shapeforms-reports-activity {
+	display: flex;
+	flex-direction: column;
+}
+
+.shapeforms-reports-activity__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 12px 8px;
+	border-bottom: 1px solid #f1f5f9;
+	text-decoration: none;
+	transition: background 0.15s ease;
+	border-radius: 6px;
+	margin: 0 -8px;
+}
+
+.shapeforms-reports-activity__item:last-child {
+	border-bottom: none;
+}
+
+.shapeforms-reports-activity__item:hover {
+	background: #f8fafc;
+}
+
+.shapeforms-reports-activity__dot {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	margin-top: 6px;
+	flex-shrink: 0;
+}
+
+.shapeforms-reports-activity__dot--unread {
+	background: #f59e0b;
+	box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+.shapeforms-reports-activity__dot--read {
+	background: #3b82f6;
+	box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.shapeforms-reports-activity__dot--starred {
+	background: #8b5cf6;
+	box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+.shapeforms-reports-activity__body {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.shapeforms-reports-activity__text {
+	font-size: 13px;
+	color: #334155;
+	font-weight: 500;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.shapeforms-reports-activity__form {
+	font-weight: 400;
+	color: #94a3b8;
+	margin-left: 6px;
+	font-size: 12px;
+}
+
+.shapeforms-reports-activity__meta {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.shapeforms-reports-activity__date {
+	font-size: 11px;
+	color: #94a3b8;
+}
+
+/* --- Empty State --- */
+.shapeforms-reports-empty-state {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 20px;
+	text-align: center;
+}
+
+.shapeforms-reports-empty-state .dashicons {
+	width: 40px;
+	height: 40px;
+	font-size: 40px;
+	line-height: 40px;
+	color: #cbd5e1;
+	margin-bottom: 12px;
+}
+
+.shapeforms-reports-empty-state p {
+	color: #94a3b8;
+	font-size: 13px;
+	margin: 0;
+	max-width: 260px;
+}
+
+/* --- Compact Cards --- */
+.shapeforms-reports-table-card--compact {
+	display: flex;
+	flex-direction: column;
+}
+
+.shapeforms-reports-paginated {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	min-height: 0;
+}
+
+/* --- Card Footer with Legend + Pager --- */
+.shapeforms-reports-card-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid #f1f5f9;
+	gap: 12px;
+}
+
+.shapeforms-reports-pager-info {
+	font-size: 12px;
+	color: #94a3b8;
+	font-weight: 500;
+}
+
+/* --- Pagination --- */
+.shapeforms-reports-pager {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.shapeforms-pager-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 30px;
+	height: 30px;
+	padding: 0 6px;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+	background: #fff;
+	color: #475569;
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.15s ease;
+	line-height: 1;
+}
+
+.shapeforms-pager-btn:hover:not(:disabled):not(.is-active) {
+	background: #f8fafc;
+	border-color: #cbd5e1;
+	color: #0f172a;
+}
+
+.shapeforms-pager-btn.is-active {
+	background: #3b82f6;
+	border-color: #3b82f6;
+	color: #fff;
+}
+
+.shapeforms-pager-btn:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+	.shapeforms-reports-stats {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 1024px) {
+	.shapeforms-reports-stats {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.shapeforms-reports-row--two-col {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 600px) {
+	.shapeforms-reports-stats {
+		grid-template-columns: 1fr;
+	}
+
+	.shapeforms-reports-card-footer {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+/* ── Small-screen overflow guard ──────────────────────────────────────────
+   On narrow viewports let the list-table toolbar + filter controls wrap so they
+   never force the table card wider than the screen (which used to leave a dead
+   gap on the right). The wide table itself still scrolls inside
+   .shapeforms-table-scroll; the card clips so nothing reaches document level. */
+@media screen and (max-width: 782px) {
+	.shapeforms-table-card .shapeforms-bulk-bar,
+	.shapeforms-table-card .shapeforms-filter-form {
+		flex-wrap: wrap;
+	}
+
+	.shapeforms-search-form {
+		margin-left: 0;
+		flex-basis: 100%;
+	}
+
+	input[type="search"].shapeforms-search-input {
+		width: 100%;
+	}
+}
+
+/* ===================================================================
+   Upgrade ("Pro") promo / comparison page (?page=shapeforms-lite-upgrade)
+   Shown only while no callback turns shapeforms_show_upgrade_cta off.
+   =================================================================== */
+.shapeforms-upgrade-page {
+	max-width: 920px;
+	margin: 0 auto;
+}
+
+/* ── Hero ── */
+.shapeforms-up-hero {
+	text-align: center;
+	padding: 44px 24px 40px;
+	margin: 20px 0 28px;
+	border-radius: 16px;
+	background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
+	color: #fff;
+	box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+}
+
+.shapeforms-up-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	padding: 5px 14px;
+	margin-bottom: 16px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #93c5fd;
+	background: rgba(96, 165, 250, 0.14);
+	border: 1px solid rgba(96, 165, 250, 0.25);
+}
+
+.shapeforms-up-badge .dashicons {
+	width: 15px;
+	height: 15px;
+	font-size: 15px;
+	line-height: 1;
+}
+
+/* Sale variant: amber accent so the offer stands out from the blue brand colour. */
+.shapeforms-up-badge--sale {
+	color: #fcd34d;
+	background: rgba(251, 191, 36, 0.14);
+	border-color: rgba(251, 191, 36, 0.30);
+}
+
+.shapeforms-up-hero h1 {
+	margin: 0 0 12px;
+	padding: 0;
+	font-size: 30px;
+	font-weight: 800;
+	line-height: 1.2;
+	color: #fff;
+}
+
+.shapeforms-up-hero p {
+	max-width: 620px;
+	margin: 0 auto 24px;
+	font-size: 15px;
+	line-height: 1.65;
+	color: #cbd5e1;
+}
+
+/* ── Buy button ── */
+.shapeforms-up-btn {
+	display: inline-flex;
+	align-items: center;
+	padding: 12px 28px;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 10px;
+	background: #2563eb;
+	box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+	transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.shapeforms-up-btn .dashicons {
+	width: 16px;
+	height: 16px;
+	margin-left: 8px;
+	font-size: 16px;
+	line-height: 1;
+	transition: transform 0.18s ease;
+}
+
+.shapeforms-up-btn:hover {
+	color: #fff;
+	background: #1d4ed8;
+	transform: translateY(-1px);
+	box-shadow: 0 7px 20px rgba(37, 99, 235, 0.5);
+}
+
+.shapeforms-up-btn:hover .dashicons {
+	transform: translateX(3px);
+}
+
+/* ── Hero reassurance row ── */
+.shapeforms-up-hero__perks {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 8px 22px;
+	margin: 22px 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.shapeforms-up-hero__perks li {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0;
+	font-size: 13px;
+	color: #94a3b8;
+}
+
+.shapeforms-up-hero__perks li::before {
+	content: "\f147"; /* dashicons-yes */
+	font-family: dashicons;
+	font-size: 15px;
+	line-height: 1;
+	color: #4ade80;
+}
+
+/* Keep the focus ring as a box-shadow (always follows border-radius) and kill the
+   default outline so the corners never look squared on focus. Dark offset matches
+   the hero background. */
+.shapeforms-up-btn:focus {
+	color: #fff;
+	background: #1d4ed8;
+	outline: none;
+	box-shadow: 0 0 0 2px #0f172a, 0 0 0 4px rgba(37, 99, 235, 0.6);
+}
+
+/* ── Comparison table ── */
+.shapeforms-up-table-card {
+	background: #fff;
+	border: 1px solid #e2e4e7;
+	border-radius: 14px;
+	overflow: hidden;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.shapeforms-up-table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+
+.shapeforms-up-table thead th {
+	padding: 16px 20px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: 700;
+	color: #1d2327;
+	background: #f6f7f7;
+	border-bottom: 1px solid #e2e4e7;
+}
+
+.shapeforms-up-table thead th.shapeforms-up-feat {
+	text-align: left;
+}
+
+.shapeforms-up-table thead th.shapeforms-up-col-pro,
+.shapeforms-up-table td.shapeforms-up-col-pro {
+	background: #eff6ff;
+}
+
+.shapeforms-up-col-pro__tag {
+	display: block;
+	margin-top: 4px;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	color: #2563eb;
+}
+
+.shapeforms-up-table tbody th[scope="row"] {
+	padding: 14px 20px;
+	text-align: left;
+	font-weight: 500;
+	color: #1d2327;
+}
+
+.shapeforms-up-table tbody td {
+	padding: 14px 20px;
+	text-align: center;
+	width: 150px;
+}
+
+.shapeforms-up-table tbody tr + tr th,
+.shapeforms-up-table tbody tr + tr td {
+	border-top: 1px solid #f0f0f1;
+}
+
+.shapeforms-up-yes {
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+	color: #16a34a;
+}
+
+.shapeforms-up-no {
+	color: #c3c4c7;
+	font-weight: 700;
+}
+
+.shapeforms-up-text {
+	font-size: 12.5px;
+	font-weight: 600;
+	color: #475569;
+}
+
+.shapeforms-up-table td.shapeforms-up-col-pro .shapeforms-up-text {
+	color: #1d4ed8;
+}
+
+@media screen and (max-width: 600px) {
+	.shapeforms-up-hero h1 {
+		font-size: 24px;
+	}
+	.shapeforms-up-table tbody td {
+		width: auto;
+	}
+	.shapeforms-up-table thead th,
+	.shapeforms-up-table tbody th[scope="row"],
+	.shapeforms-up-table tbody td {
+		padding: 12px 12px;
+	}
+}
+
+/* ── Export upgrade teaser (Entries screen, Lite only) ──────────────────────
+   Locked "Export Excel/PDF" buttons that preview a premium feature, plus the
+   contextual upgrade modal they open. Rendered only when the paid add-on is
+   inactive (see render_entries_export_teaser() in the admin class). */
+.shapeforms-page-header .shapeforms-btn-add.shapeforms-export-teaser {
+	background: #fff;
+	color: #4b5563;
+	border: 1px solid #d1d5db;
+	box-shadow: none;
+}
+
+.shapeforms-page-header .shapeforms-btn-add.shapeforms-export-teaser:hover,
+.shapeforms-page-header .shapeforms-btn-add.shapeforms-export-teaser:focus {
+	background: #f9fafb;
+	color: #1f2937;
+	border-color: #9ca3af;
+	box-shadow: 0 2px 8px rgba( 17, 24, 39, 0.08 );
+	transform: translateY( -1px );
+}
+
+.shapeforms-page-header .shapeforms-btn-add.shapeforms-export-teaser > .dashicons:first-child {
+	color: #9ca3af;
+}
+
+.shapeforms-export-teaser__badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	margin-left: 2px;
+	padding: 2px 7px 2px 5px;
+	border-radius: 999px;
+	background: #eef2ff;
+	color: #4338ca;
+	font-size: 10px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	line-height: 1.5;
+}
+
+.shapeforms-export-teaser__badge .dashicons {
+	width: 12px;
+	height: 12px;
+	font-size: 12px;
+	line-height: 1;
+}
+
+.shapeforms-upgrade-modal[hidden] {
+	display: none;
+}
+
+.shapeforms-upgrade-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+.shapeforms-upgrade-modal__backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba( 15, 23, 42, 0.55 );
+}
+
+.shapeforms-upgrade-modal__dialog {
+	position: relative;
+	width: 100%;
+	max-width: 440px;
+	padding: 28px 28px 24px;
+	background: #fff;
+	border-radius: 14px;
+	box-shadow: 0 24px 60px rgba( 15, 23, 42, 0.3 );
+	text-align: center;
+	animation: shapeforms-upgrade-modal-in 0.16s ease-out;
+}
+
+@keyframes shapeforms-upgrade-modal-in {
+	from { opacity: 0; transform: translateY( 8px ) scale( 0.98 ); }
+	to { opacity: 1; transform: none; }
+}
+
+.shapeforms-upgrade-modal__close {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	background: transparent;
+	border: none;
+	border-radius: 8px;
+	color: #94a3b8;
+	cursor: pointer;
+}
+
+.shapeforms-upgrade-modal__close:hover {
+	background: #f1f5f9;
+	color: #475569;
+}
+
+.shapeforms-upgrade-modal__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 52px;
+	height: 52px;
+	margin: 0 auto 14px;
+	border-radius: 50%;
+	background: #eef2ff;
+	color: #4338ca;
+}
+
+.shapeforms-upgrade-modal__icon .dashicons {
+	width: 26px;
+	height: 26px;
+	font-size: 26px;
+}
+
+.shapeforms-upgrade-modal__title {
+	margin: 0 0 8px;
+	font-size: 18px;
+	font-weight: 700;
+	color: #0f172a;
+}
+
+.shapeforms-upgrade-modal__text {
+	margin: 0 0 16px;
+	font-size: 13px;
+	line-height: 1.6;
+	color: #475569;
+}
+
+.shapeforms-upgrade-modal__list {
+	margin: 0 0 20px;
+	padding: 0;
+	list-style: none;
+	text-align: left;
+}
+
+.shapeforms-upgrade-modal__list li {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	margin: 0 0 8px;
+	font-size: 13px;
+	color: #334155;
+}
+
+.shapeforms-upgrade-modal__list .dashicons {
+	flex: 0 0 auto;
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+	color: #16a34a;
+}
+
+.shapeforms-upgrade-modal__actions {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.shapeforms-upgrade-modal__cta {
+	display: inline-flex;
+	align-items: center;
+	padding: 10px 22px;
+	background: #2271b1;
+	color: #fff;
+	border-radius: 8px;
+	font-size: 13px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.shapeforms-upgrade-modal__cta:hover,
+.shapeforms-upgrade-modal__cta:focus {
+	background: #135e96;
+	color: #fff;
+	box-shadow: 0 4px 12px rgba( 34, 113, 177, 0.35 );
+}
+
+.shapeforms-upgrade-modal__dismiss {
+	padding: 10px 14px;
+	background: transparent;
+	border: none;
+	color: #64748b;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.shapeforms-upgrade-modal__dismiss:hover {
+	color: #334155;
+	text-decoration: underline;
+}
+
+body.shapeforms-upgrade-modal-open {
+	overflow: hidden;
+}
+
+/* Hint under the locked Tools -> Entries export format selector. */
+.shapeforms-upgrade-hint {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	margin: 8px 0 0;
+	font-size: 12px;
+	color: #64748b;
+}
+
+.shapeforms-upgrade-hint .dashicons {
+	width: 14px;
+	height: 14px;
+	font-size: 14px;
+	color: #94a3b8;
+}
+
+/* Form Migrator (Settings → Tools → Migrator) */
+.shapeforms-migrator-sources {
+	margin-bottom: 16px;
+}
+
+.shapeforms-migrator-note {
+	margin: 0 0 12px;
+}
+
+.shapeforms-migrator-table-wrap {
+	overflow-x: auto;
+}
+
+.shapeforms-migrator-table {
+	margin: 0 0 16px;
+}
+
+.shapeforms-migrator-table th,
+.shapeforms-migrator-table td {
+	vertical-align: middle;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+.shapeforms-migrator-table .check-column {
+	width: 2.5em;
+	text-align: center;
+	vertical-align: middle;
+	padding: 0 !important;
+}
+
+.shapeforms-migrator-table .check-column input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	padding: 0;
+	accent-color: #2271b1;
+	vertical-align: middle;
+	float: none;
+	cursor: pointer;
+}
+
+.shapeforms-migrator-table__action {
+	text-align: right !important;
+	white-space: nowrap;
+}
+
+.shapeforms-migrator-table__action .button {
+	min-width: 110px;
+}
+
+.shapeforms-migrator-badge {
+	display: inline-block;
+	font-size: 12px;
+	color: #64748b;
+}
+
+.shapeforms-migrator-badge--done {
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: #dcfce7;
+	color: #166534;
+	font-weight: 600;
+}
+
+.shapeforms-migrator-empty {
+	color: #64748b;
+}
+
+/* Match the secondary "Import Selected" button to the primary's height/size
+   (the primary already gets custom padding via .shapeforms-submit-area .button-primary,
+   so a plain .button would otherwise be shorter). Scoped to the migrator form so
+   other Settings pages are untouched. */
+.shapeforms-migrator-form .shapeforms-submit-area .button {
+	height: auto;
+	min-height: 0;
+	padding: 6px 24px;
+	font-size: 13px;
+	line-height: 1.8;
+	border-radius: 6px;
+}
+
+.shapeforms-migrator-result__form {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #e2e8f0;
+}
+
+.shapeforms-migrator-result__form:first-of-type {
+	border-top: 0;
+}
+
+.shapeforms-migrator-result__error {
+	color: #b91c1c;
+}
+
+.shapeforms-migrator-result__skipped {
+	margin: 6px 0 0 18px;
+	list-style: disc;
+	color: #64748b;
+	font-size: 13px;
+}
+
+/* ── Migrator empty state (no supported source active) ── */
+.shapeforms-migrator-empty {
+	max-width: 560px;
+	margin: 0 auto;
+	padding: 16px 8px 8px;
+	text-align: center;
+}
+
+.shapeforms-migrator-empty__icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	margin-bottom: 14px;
+	border-radius: 50%;
+	background: #eef4fb;
+	color: #2271b1;
+	font-size: 28px;
+}
+
+.shapeforms-migrator-empty__icon::before {
+	width: 28px;
+	height: 28px;
+	font-size: 28px;
+	line-height: 1;
+}
+
+.shapeforms-migrator-empty__title {
+	margin: 0 0 8px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.shapeforms-migrator-empty__text {
+	margin: 0 auto 20px;
+	max-width: 480px;
+	color: #646970;
+	font-size: 13.5px;
+	line-height: 1.6;
+}
+
+.shapeforms-migrator-empty__sources {
+	margin: 0 auto 18px;
+	padding: 16px;
+	border: 1px solid #e2e4e7;
+	border-radius: 8px;
+	background: #fafbfc;
+}
+
+.shapeforms-migrator-empty__sources-label {
+	display: block;
+	margin-bottom: 12px;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #8c8f94;
+}
+
+.shapeforms-migrator-source-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.shapeforms-migrator-source-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	padding: 6px 12px;
+	border: 1px solid #e2e4e7;
+	border-radius: 999px;
+	background: #fff;
+	font-size: 13px;
+	color: #1d2327;
+}
+
+.shapeforms-migrator-source-chip .dashicons {
+	width: 10px;
+	height: 10px;
+	font-size: 10px;
+	line-height: 1;
+	color: #c3c4c7;
+}
+
+.shapeforms-migrator-source-chip__name {
+	font-weight: 500;
+}
+
+.shapeforms-migrator-source-chip__status {
+	padding-left: 8px;
+	margin-left: 2px;
+	border-left: 1px solid #e2e4e7;
+	font-size: 12px;
+	color: #8c8f94;
+}
+
+.shapeforms-migrator-empty__hint {
+	margin: 0;
+	font-size: 12.5px;
+	font-style: italic;
+	color: #8c8f94;
+}

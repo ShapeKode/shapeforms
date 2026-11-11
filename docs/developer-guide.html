@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShapeForms &mdash; Developer Guide</title>
+<style>
+:root{--bf-primary:#0f766e;--bf-dark:#0f172a;--bf-text:#334155;--bf-muted:#64748b;--bf-border:#e2e8f0;--bf-bg:#f8fafc;--bf-code-bg:#f1f5f9;--bf-link:#2563eb;--bf-sidebar-w:260px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:var(--bf-text);line-height:1.7;background:#fff}
+/* Smooth-scroll for in-page hash links; offset targets from the top edge */
+html{scroll-behavior:smooth}
+:where(h1,h2,h3,h4,[id]){scroll-margin-top:24px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+a{color:var(--bf-link);text-decoration:none}
+a:hover{text-decoration:underline}
+.bf-docs{display:flex;min-height:100vh}
+.bf-sidebar{position:fixed;top:0;left:0;width:var(--bf-sidebar-w);height:100vh;overflow-y:auto;background:var(--bf-dark);color:#fff;padding:24px 0;z-index:10}
+.bf-sidebar::-webkit-scrollbar{width:5px}
+.bf-sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:3px}
+.bf-main{margin-left:var(--bf-sidebar-w);flex:1;max-width:900px;padding:40px 48px 80px}
+.bf-sidebar__brand{padding:0 20px 20px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:12px;font-size:17px;font-weight:700;letter-spacing:-.02em}
+.bf-sidebar__brand span{color:var(--bf-primary);font-weight:400}
+.bf-sidebar__group{padding:8px 20px 4px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:8px}
+.bf-sidebar__link{display:block;padding:6px 20px 6px 28px;font-size:13px;color:rgba(255,255,255,.7);transition:all .12s}
+.bf-sidebar__link:hover,.bf-sidebar__link.is-active{background:rgba(255,255,255,.06);color:#fff;text-decoration:none}
+.bf-sidebar__link.is-active{border-left:3px solid var(--bf-primary);padding-left:25px}
+h1{font-size:28px;font-weight:800;color:var(--bf-dark);margin-bottom:8px;letter-spacing:-.03em}
+h2{font-size:22px;font-weight:700;color:var(--bf-dark);margin:48px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--bf-border)}
+h3{font-size:17px;font-weight:700;color:var(--bf-dark);margin:32px 0 10px}
+h4{font-size:14px;font-weight:700;color:var(--bf-dark);margin:20px 0 8px}
+p{margin-bottom:14px}
+.bf-subtitle{font-size:15px;color:var(--bf-muted);margin-bottom:32px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:6px}
+li ul{margin-top:6px}
+table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:13px}
+th,td{padding:10px 14px;text-align:left;border:1px solid var(--bf-border)}
+th{background:var(--bf-bg);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--bf-muted)}
+tr:nth-child(even) td{background:var(--bf-bg)}
+code{font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;font-size:12px;background:var(--bf-code-bg);padding:2px 6px;border-radius:4px;color:#0f172a}
+pre{background:var(--bf-dark);color:#e2e8f0;padding:18px 20px;border-radius:8px;overflow-x:auto;margin:12px 0 20px;font-size:13px;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+.bf-tip,.bf-note,.bf-warn{padding:14px 18px;border-radius:8px;margin:16px 0 20px;font-size:13px;line-height:1.6}
+.bf-tip{background:#f0fdfa;border-left:4px solid #0f766e;color:#134e4a}
+.bf-note{background:#eff6ff;border-left:4px solid #3b82f6;color:#1e3a5f}
+.bf-warn{background:#fef3c7;border-left:4px solid #f59e0b;color:#78350f}
+.bf-badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.bf-badge--pro{background:#fef3c7;color:#92400e}
+@media(max-width:900px){
+  .bf-sidebar{position:relative;width:100%;height:auto}
+  .bf-main{margin-left:0;padding:24px 20px 60px}
+  .bf-docs{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<div class="bf-docs">
+
+<!-- ─── Sidebar ─────────────────────────────────────────────────────── -->
+<nav class="bf-sidebar">
+  <div class="bf-sidebar__brand">ShapeForms <span>Dev Guide</span></div>
+  <div class="bf-sidebar__nav">
+    <div class="bf-sidebar__group">Overview</div>
+    <a href="#introduction" class="bf-sidebar__link">Introduction</a>
+    <a href="#architecture" class="bf-sidebar__link">Architecture</a>
+    <a href="#pro-architecture" class="bf-sidebar__link">Pro Architecture</a>
+    <a href="#database" class="bf-sidebar__link">Database Schema</a>
+
+    <div class="bf-sidebar__group">Hooks &amp; Filters</div>
+    <a href="#hook-reference" class="bf-sidebar__link">Complete Hook Reference</a>
+    <a href="#form-rendering" class="bf-sidebar__link">Form Rendering (Detailed)</a>
+    <a href="#conversational-hooks" class="bf-sidebar__link">Conversational Forms</a>
+    <a href="#field-types" class="bf-sidebar__link">Custom Field Types</a>
+    <a href="#submission-flow" class="bf-sidebar__link">Submission Flow</a>
+    <a href="#email-hooks" class="bf-sidebar__link">Email Notifications</a>
+    <a href="#builder-hooks" class="bf-sidebar__link">Builder &amp; Admin</a>
+    <a href="#block-elementor" class="bf-sidebar__link">Block &amp; Elementor</a>
+    <a href="#integration-hooks" class="bf-sidebar__link">Integrations</a>
+
+    <div class="bf-sidebar__group">Extending</div>
+    <a href="#add-field-type" class="bf-sidebar__link">Adding a Field Type</a>
+    <a href="#add-integration" class="bf-sidebar__link">Adding an Integration</a>
+    <a href="#add-template" class="bf-sidebar__link">Adding a Template</a>
+    <a href="#custom-validation" class="bf-sidebar__link">Custom Validation</a>
+    <a href="#addon-tutorial" class="bf-sidebar__link">End-to-End Tutorial</a>
+
+    <div class="bf-sidebar__group">Reference &amp; Policy</div>
+    <a href="#hook-stability" class="bf-sidebar__link">Hook Stability Policy</a>
+    <a href="#js-events" class="bf-sidebar__link">JavaScript Events &amp; Guide</a>
+    <a href="#css-variables" class="bf-sidebar__link">CSS Variables</a>
+    <a href="#rest-ajax" class="bf-sidebar__link">AJAX Endpoints</a>
+    <a href="#file-structure" class="bf-sidebar__link">File Structure</a>
+  </div>
+</nav>
+
+<!-- ─── Main Content ───────────────────────────────────────────────── -->
+<main class="bf-main">
+
+<h1 id="introduction">ShapeForms &mdash; Developer Guide</h1>
+<p class="bf-subtitle">Extend, customize, and integrate with ShapeForms using hooks, filters, and the plugin's architecture.</p>
+<p style="font-size:12px;color:var(--bf-muted);margin-bottom:24px">Applies to Lite v1.1.8 · Pro v1.1.6 · Updated 2026-09-16</p>
+
+<p>ShapeForms is designed with extensibility in mind. Every major operation &mdash; rendering, saving, validation, email &mdash; passes through WordPress filters and actions. This guide covers the public API surface available to developers.</p>
+
+<!-- Architecture -->
+<h2 id="architecture">Architecture</h2>
+
+<h3>Plugin Bootstrap</h3>
+<p>The plugin initializes on <code>plugins_loaded</code> via a singleton pattern:</p>
+
+<pre><code>// shapeforms.php
+function shapeforms_lite() {
+    return ShapeForms_Lite::get_instance();
+}
+add_action( 'plugins_loaded', 'shapeforms_lite' );</code></pre>
+
+<h3>Core Classes</h3>
+<table>
+  <thead><tr><th>Class</th><th>Responsibility</th></tr></thead>
+  <tbody>
+    <tr><td><code>ShapeForms_Lite</code></td><td>Singleton, wires all components together</td></tr>
+    <tr><td><code>ShapeForms_Lite_Admin</code></td><td>Admin pages, menus, builder, settings, reports</td></tr>
+    <tr><td><code>ShapeForms_Lite_Shortcode</code></td><td>Frontend form rendering via <code>[shapeforms]</code></td></tr>
+    <tr><td><code>ShapeForms_Lite_Form_Handler</code></td><td>Submission processing, validation, file uploads</td></tr>
+    <tr><td><code>ShapeForms_Lite_Email_Handler</code></td><td>Admin &amp; user email notifications</td></tr>
+    <tr><td><code>ShapeForms_Lite_Ajax_Save</code></td><td>AJAX handler for saving forms in the builder</td></tr>
+    <tr><td><code>ShapeForms_Lite_Block</code></td><td>Gutenberg block registration &amp; rendering</td></tr>
+    <tr><td><code>ShapeForms_Lite_Elementor_Widget</code></td><td>Elementor widget with full styling controls</td></tr>
+    <tr><td><code>ShapeForms_Lite_Integrations</code></td><td>Per-form integration dispatch (Mailchimp, Brevo)</td></tr>
+    <tr><td><code>ShapeForms_Lite_Integrations_Page</code></td><td>Global integrations admin page &amp; AJAX handlers</td></tr>
+    <tr><td><code>ShapeForms_Lite_Export_Import</code></td><td>JSON export &amp; import of forms/entries/settings</td></tr>
+    <tr><td><code>ShapeForms_Lite_Activator</code></td><td>Database table creation, multisite support</td></tr>
+  </tbody>
+</table>
+
+<h3>Freemium Architecture & Extensions</h3>
+<p>ShapeForms is built as the free tier of a freemium product. <strong>ShapeForms Pro</strong> and third-party extensions hook into Lite without modifying its code. All extension points fire on the <code>plugins_loaded</code> hook via <code>shapeforms_loaded</code>, which passes the singleton instance:</p>
+
+<pre><code>add_action( 'shapeforms_loaded', function( $plugin ) {
+    // $plugin is the ShapeForms_Lite singleton
+    // Register your hooks, actions, filters here
+    add_filter( 'shapeforms_allowed_field_types', function( $types ) {
+        $types[] = 'my_custom_field';
+        return $types;
+    } );
+}, 10, 1 );</code></pre>
+
+<p><strong>Important:</strong> This is the canonical bootstrap hook for all extensions. It runs after ShapeForms's own hooks are in place, ensuring a stable foundation for your customizations.</p>
+
+<h3>Freemium teaser seams</h3>
+<p>Lite renders its upgrade prompts <strong>unconditionally</strong> — it never detects whether Pro is installed.
+An add-on removes or replaces a teaser by hooking a seam; there are two shapes:</p>
+<ul>
+  <li><strong>Boolean gate — <code>shapeforms_show_upgrade_cta</code>:</strong> a single filter (default <code>true</code>)
+  that guards every &ldquo;Upgrade&rdquo; prompt — the promo notice, admin menu item, toolbar button and page-header
+  link, plus the builder's locked email/attachment/routing teasers. Pro simply calls
+  <code>add_filter( 'shapeforms_show_upgrade_cta', '__return_false' )</code> to hide them all at once, without Lite
+  knowing which add-on is present.</li>
+  <li><strong>Registry/data filter — <code>shapeforms_integration_type_defs</code>:</strong> Lite lists paid services as
+  <em>static</em> teaser cards by flagging them <code>'pro' =&gt; true</code> with empty <code>fields</code>. Pro's
+  callback injects the real <code>fields</code> and <code>unset()</code>s the <code>'pro'</code> flag, so the very same
+  card renders as a live, configurable control instead of a locked teaser. (See <a href="#integration-hooks">Integration
+  Hooks</a>.)</li>
+</ul>
+<p>Rule of thumb: a yes/no &ldquo;show or hide&rdquo; decision is a boolean gate; adding or modifying a <em>set</em>
+(fields, services, columns) is a registry filter. Both are standard WordPress filter idioms.</p>
+
+<!-- Pro Architecture -->
+<h2 id="pro-architecture">ShapeForms Pro — Architecture &amp; Extension Model <span style="background:#fef3c7;padding:2px 6px;border-radius:3px;font-size:11px"><strong>PRO</strong></span></h2>
+
+<p>Pro is a separate plugin that extends Lite via the `shapeforms_loaded` hook and the module system. This section explains how Pro works and how it fits the freemium contract.</p>
+
+<h3>Pro Module System</h3>
+<p>Pro boots on Lite's <code>shapeforms_loaded</code> action (after a min-Lite-version compatibility check).
+On boot it instantiates each feature module into a registry, then &mdash; for every module whose
+<code>is_enabled()</code> returns true &mdash; calls <code>register_hooks()</code>, passing a shared
+<code>ShapeForms_Pro_Loader</code>. Each module implements:</p>
+
+<pre><code>interface ShapeForms_Pro_Module_Interface {
+    // True when the license is valid AND this module's toggle is on.
+    public function is_enabled();
+
+    // Register this module's WordPress hooks via the shared loader.
+    public function register_hooks( ShapeForms_Pro_Loader $loader );
+}
+
+// Example: the Payments module plugs into Lite's seams.
+class ShapeForms_Pro_Payments implements ShapeForms_Pro_Module_Interface {
+    public function is_enabled() { /* license + 'payments' toggle */ }
+    public function register_hooks( ShapeForms_Pro_Loader $loader ) {
+        $loader->add_filter( 'shapeforms_allowed_field_types', $this, 'register_field_types' );
+        $loader->add_filter( 'shapeforms_field_control_html', $this, 'render_product_field', 10, 4 );
+        $loader->add_filter( 'shapeforms_entry_data', $this, 'calculate_totals', 10, 3 );
+    }
+}</code></pre>
+<p>Modules are wired up in <code>load_modules()</code> (<code>includes/class-shapeforms-pro.php</code>); the
+<strong>Scheduling</strong> module boots slightly earlier via <code>ShapeForms_Pro_Scheduling::boot()</code> so it
+can gate form output before render.</p>
+
+<h3>Pro Modules (28)</h3>
+<p>Pro ships its features as self-contained modules, each registering its own fields and hooks:</p>
+<ul>
+  <li><strong>Multi-Page</strong> — <code>page_break</code> field, progress bar, step navigation</li>
+  <li><strong>Payments</strong> — <code>product</code>, <code>quantity</code>, <code>custom_amount</code>, <code>order_summary</code> fields + PayPal &amp; Stripe gateways</li>
+  <li><strong>Analytics</strong> — view counts, conversion rate, field-abandonment tracking</li>
+  <li><strong>Auto-Populate</strong> — extended pre-fill sources (user meta, post meta, query vars)</li>
+  <li><strong>Webhooks</strong> — POST submissions to external HTTP endpoints</li>
+  <li><strong>Calculation</strong> — <code>calculation</code> field (live formula evaluation)</li>
+  <li><strong>Image Choice</strong> — <code>image_choice</code> field (image-based radio/checkbox)</li>
+  <li><strong>Repeater</strong> — <code>repeater</code> field (add/remove row groups dynamically)</li>
+  <li><strong>Signature</strong> — <code>signature</code> field (canvas-based signature pad)</li>
+  <li><strong>Hidden Field</strong> — <code>hidden_field</code> with server-side resolved sources</li>
+  <li><strong>Color Picker</strong> — <code>color_picker</code> field (swatch, hue map, hex input, presets)</li>
+  <li><strong>Advanced Fields</strong> — <code>password</code>, <code>rich_text</code>, <code>date_range</code>, <code>nps</code>, <code>matrix</code>, <code>lookup</code>, <code>geolocation</code></li>
+  <li><strong>Integrations</strong> — many third-party services (ActiveCampaign, ConvertKit, HubSpot, Google Sheets, Slack, Zapier, Make, and more)</li>
+  <li><strong>Scheduling</strong> — open/close dates, time windows</li>
+  <li><strong>Entry Limit</strong> — total and per-user submission caps with cooldown</li>
+  <li><strong>Akismet</strong> — anti-spam checks with per-form toggle and spam/block action</li>
+  <li><strong>Entry Editing</strong> — edit stored field values of a saved entry in the admin</li>
+  <li><strong>Entry Notes</strong> — private admin notes on an entry (renders via <code>shapeforms_entry_detail_sidebar</code>)</li>
+  <li><strong>Entry Export</strong> — Excel (XLSX) &amp; PDF export in addition to Lite's CSV</li>
+  <li><strong>Entry Import</strong> — import entries from an exported file</li>
+  <li><strong>Save &amp; Resume</strong> — save a partial submission and continue later via a resume link</li>
+  <li><strong>Draft Auto-Save</strong> — auto-save in-progress input and restore on return</li>
+  <li><strong>Form Locking</strong> — password-protect an individual form</li>
+  <li><strong>Entry Approval</strong> — hold submissions for admin review before notifications/integrations fire; approve/reject per entry or in bulk (uses the deferral + entries-list seams)</li>
+  <li><strong>Custom Email</strong> — per-form custom subject/body for the admin &amp; user emails, merge-tag engine, per-email Reply-To (fills the <code>.shapeforms-email-pro-slot</code> on <code>shapeforms:form_settings_rendered</code>)</li>
+  <li><strong>Custom Confirmation</strong> — merge tags in the on-screen thank-you message (Custom Thank-You), sharing the merge-tag engine</li>
+  <li><strong>Email Routing</strong> — Conditional Email Routing; picks the admin recipient from the answers via <code>shapeforms_lite_admin_email_to</code> (fills the <code>.shapeforms-email-routing-slot</code>)</li>
+  <li><strong>PDF Attachment</strong> — generates a per-submission PDF and attaches it to either email via <code>shapeforms_lite_admin_email_attachments</code> / <code>shapeforms_lite_user_email_attachments</code> (fills the <code>.shapeforms-email-attachment-slot</code>); also a Download PDF button per entry</li>
+</ul>
+<p class="bf-note">Several of these modules plug into Lite via the extension hooks documented below — e.g. Entry Notes
+uses <code>shapeforms_entry_detail_sidebar</code> / <code>shapeforms_entry_detail_enqueue_assets</code>, and every Pro
+field type registers through <code>shapeforms_allowed_field_types</code> + <code>shapeforms_field_control_html</code>.</p>
+
+<h3>How Pro Extends Lite (No Code Duplication)</h3>
+<p><strong>Critical principle:</strong> Pro does NOT copy or duplicate Lite code. Instead:</p>
+<ol>
+  <li><strong>Pro registers field types</strong> via `shapeforms_allowed_field_types` filter</li>
+  <li><strong>Pro renders fields</strong> via `shapeforms_field_control_html` filter (Lite's rendering engine)</li>
+  <li><strong>Pro validates fields</strong> via `shapeforms_validate_field` filter</li>
+  <li><strong>Pro formats field display</strong> via `shapeforms_format_field_value` filter</li>
+  <li><strong>Pro hooks into submission</strong> via `shapeforms_entry_created`, `shapeforms_entry_data`, etc.</li>
+</ol>
+<p>This means: Lite owns the core form engine; Pro plugs into it without modifying Lite's code.</p>
+
+<h3>Pro JavaScript Events</h3>
+<p>Pro modules re-initialize on these frontend events (see <a href="#js-events">JavaScript Events &amp; Extension Guide</a> for the full picture of which are fired by Lite vs. Pro):</p>
+<ul>
+  <li><code>shapeforms_frontend_init</code> <span class="bf-badge bf-badge--pro">Pro</span> — convention signal (fired by Pro / 3rd-party) to initialize Pro widgets; not fired by Lite</li>
+  <li><code>shapeforms_step_loaded</code> <span class="bf-badge bf-badge--pro">Pro</span> — fired by the Pro multi-page module to re-init calculation/repeater on a new step</li>
+  <li><code>shapeforms_form_reset</code> — fired by <strong>Lite</strong> after a successful submission; Pro listens to clean up its state</li>
+</ul>
+
+<!-- Database Schema -->
+<h2 id="database">Database Schema</h2>
+
+<h3>wp_shapeforms_forms</h3>
+<pre><code>CREATE TABLE wp_shapeforms_forms (
+  id            BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  title         VARCHAR(191) NOT NULL,
+  status        VARCHAR(20)  NOT NULL DEFAULT 'draft',   -- draft | publish | trash
+  fields_json   LONGTEXT     NOT NULL,                   -- JSON: { rows: [...] }
+  settings_json LONGTEXT     NULL,                       -- JSON: form settings
+  created_by    BIGINT(20) UNSIGNED NOT NULL DEFAULT 0,
+  created_at    DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at    DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  KEY status (status),
+  KEY created_by (created_by)
+);</code></pre>
+
+<h3>wp_shapeforms_entries</h3>
+<pre><code>CREATE TABLE wp_shapeforms_entries (
+  id              BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  form_id         BIGINT(20) UNSIGNED NOT NULL,
+  entry_data_json LONGTEXT     NOT NULL,                 -- JSON: { field_id: value, ... }
+  submission_key  VARCHAR(64)  NULL,                     -- unique submission identifier
+  user_id         BIGINT(20) UNSIGNED NOT NULL DEFAULT 0,
+  user_ip         VARCHAR(100) NULL,
+  user_agent      TEXT         NULL,
+  status          VARCHAR(20)  NOT NULL DEFAULT 'unread', -- unread | read | starred
+  created_at      DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  KEY form_id (form_id),
+  KEY status (status),
+  KEY created_at (created_at),
+  KEY submission_key (submission_key)
+);</code></pre>
+
+<div class="bf-note"><strong>Multisite:</strong> On multisite, each sub-site gets its own tables (e.g. <code>wp_2_shapeforms_forms</code>). Tables are created on network activation, new site creation, and via a <code>plugins_loaded</code> safety net.</div>
+
+<!-- Complete Hook Reference -->
+<h2 id="hook-reference">Complete Hook Reference (All ~61 Hooks)</h2>
+
+<p>Every public hook exposed by ShapeForms, organized by category. Hooks marked <span style="background:#ecfdf5;padding:2px 6px;border-radius:3px;font-size:11px"><strong>PRO</strong></span> are consumed by ShapeForms Pro.</p>
+
+<h3>Bootstrap &amp; Architecture</h3>
+<table>
+  <thead><tr><th>Hook</th><th>Type</th><th>Description</th><th>Since</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_loaded</code></td><td>action</td><td>Fires after ShapeForms initializes; passes singleton instance for extension bootstrap</td><td>1.0.0</td></tr>
+  </tbody>
+</table>
+
+<h3>Field Management</h3>
+<table>
+  <thead><tr><th>Hook</th><th>Type</th><th>Description</th><th>Since</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_field_library</code></td><td>filter</td><td>Register custom field types in the builder field library</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_allowed_field_types</code></td><td>filter</td><td>Whitelist field types for save/render; used to validate form data</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_skip_field_types</code></td><td>filter</td><td>Exclude field types from being processed (e.g., layout-only fields)</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_field_extra_keys</code></td><td>filter</td><td>Define extra properties to save for a field type (beyond label, required, etc.)</td><td>1.0.0</td></tr>
+  </tbody>
+</table>
+
+<h3>Form Rendering</h3>
+<table>
+  <thead><tr><th>Hook</th><th>Type</th><th>Description</th><th>Since</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_lite_form_output</code></td><td>filter</td><td>Filter complete rendered form HTML before output</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_form_rendered</code></td><td>action</td><td>Fires after form is rendered on frontend; passes form record &amp; element</td><td>1.1.0</td></tr>
+    <tr><td><code>shapeforms_field_control_html</code></td><td>filter</td><td>Filter inner HTML of any field; primary hook for custom field rendering <span style="background:#ecfdf5;padding:2px 6px;border-radius:3px;font-size:11px"><strong>PRO</strong></span></td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_render_field</code></td><td>action</td><td>Fires when rendering each field; use to inject custom JavaScript/data</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_field_conditional_attrs</code></td><td>filter</td><td>Add custom data attributes for conditional logic evaluation</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_preview_enqueue_assets</code></td><td>action</td><td>Enqueue assets for the builder form preview</td><td>1.0.0</td></tr>
+  </tbody>
+</table>
+
+<h3>Validation &amp; Submission</h3>
+<table>
+  <thead><tr><th>Hook</th><th>Type</th><th>Description</th><th>Since</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_validate_field</code></td><td>filter</td><td>Validate a single field; called for each field before save</td><td>1.1.0</td></tr>
+    <tr><td><code>shapeforms_pre_sanitize_field_value</code></td><td>filter</td><td>Pre-process field value before sanitization (e.g., transform input)</td><td>1.1.0</td></tr>
+    <tr><td><code>shapeforms_field_kses_allowed</code></td><td>filter</td><td>Define allowed HTML tags for a field type (KSES whitelist)</td><td>1.1.0</td></tr>
+    <tr><td><code>shapeforms_gate_submission</code></td><td>filter</td><td>Form-level validation; reject entire submission before save</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_submission_request</code></td><td>filter</td><td>Modify the raw submission request before validation</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_before_submission</code></td><td>action</td><td>Fires before submission processing begins</td><td>1.0.0</td></tr>
+  </tbody>
+</table>
+
+<h3>Entry Data &amp; Display</h3>
+<table>
+  <thead><tr><th>Hook</th><th>Type</th><th>Description</th><th>Since</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_entry_data</code></td><td>filter</td><td>Modify entry data before save; access all field values</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_before_entry_save</code></td><td>action</td><td>Fires after validation, before entry is written to database</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_entry_created</code></td><td>action</td><td>Fires after entry successfully saved; triggers integrations &amp; emails</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_entry_saved</code></td><td>action</td><td>Fires after entry is saved (admin context; used for post-save cleanup)</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_format_field_value</code></td><td>filter</td><td>Format a field value for display (e.g., date formatting)</td><td>1.1.0</td></tr>
+    <tr><td><code>shapeforms_entry_value_admin_html</code></td><td>filter</td><td>Render a field value in the entries admin list/detail view</td><td>1.1.0</td></tr>
+    <tr><td><code>shapeforms_entry_detail_sidebar</code></td><td>action</td><td>Append a custom card to the single-entry sidebar (after the Details card); receives the full entry object</td><td>1.1.3</td></tr>
+    <tr><td><code>shapeforms_entry_detail_enqueue_assets</code></td><td>action</td><td>Enqueue CSS/JS for the entry-detail screen; receives the entry ID</td><td>1.1.3</td></tr>
+    <tr><td><code>shapeforms_entries_list_columns</code></td><td>filter</td><td>Add columns to each entries-list row query so an add-on can read its own column off the row object (each value is <code>esc_sql()</code>'d)</td><td>1.1.3</td></tr>
+    <tr><td><code>shapeforms_entries_where_clauses</code></td><td>filter</td><td>Append prepared WHERE fragments to scope the entries list and its counts by an add-on-owned column</td><td>1.1.3</td></tr>
+    <tr><td><code>shapeforms_entries_filter_controls</code></td><td>action</td><td>Render an extra filter control in the Entries toolbar, beside the Form and Date dropdowns; receives the active screen filters</td><td>1.1.3</td></tr>
+    <tr><td><code>shapeforms_entry_status_badge_after</code></td><td>filter</td><td>Append markup after a row's status badge in the entries list (passed through <code>wp_kses_post</code>); receives the entry object</td><td>1.1.3</td></tr>
+    <tr><td><code>shapeforms_entries_bulk_actions</code></td><td>action</td><td>Add <code>&lt;option&gt;</code> items to the entries bulk-actions dropdown (non-trash views); receives the current status view</td><td>1.1.3</td></tr>
+    <tr><td><code>shapeforms_bulk_entry_action</code></td><td>action</td><td>Handle a custom bulk action after ids resolve (nonce &amp; capability already verified); a handler that claims the action sends its own JSON response</td><td>1.1.3</td></tr>
+    <tr><td><code>shapeforms_duplicate_entry_message</code></td><td>filter</td><td>Customize the "duplicate detected" message shown to the user</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_should_save_entry</code></td><td>filter</td><td>Determine whether an entry should be saved (false = skip save)</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_submission_result</code></td><td>filter</td><td>Modify the submission result before returning to frontend (success/error/redirect)</td><td>1.0.0</td></tr>
+  </tbody>
+</table>
+
+<h3>Notifications &amp; Email</h3>
+<table>
+  <thead><tr><th>Hook</th><th>Type</th><th>Description</th><th>Since</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_before_notifications</code></td><td>action</td><td>Fires before any admin/user emails are sent</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_after_notifications</code></td><td>action</td><td>Fires after all notifications (emails) have been sent</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_lite_admin_email_subject</code> / <code>_content</code></td><td>filter</td><td>Subject/HTML body of the admin notification (4th <code>$entry_id</code> arg since 1.1.4). <span style="background:#ecfdf5;padding:2px 6px;border-radius:3px;font-size:11px"><strong>PRO</strong></span></td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_lite_admin_email_headers</code></td><td>filter</td><td>Adjust the admin email <code>wp_mail</code> headers (e.g. Reply-To)</td><td>1.1.4</td></tr>
+    <tr><td><code>shapeforms_lite_admin_email_to</code></td><td>filter</td><td>Choose the admin recipient after form settings apply (re-validated; used by Conditional Email Routing). <span style="background:#ecfdf5;padding:2px 6px;border-radius:3px;font-size:11px"><strong>PRO</strong></span></td><td>1.1.5</td></tr>
+    <tr><td><code>shapeforms_lite_admin_email_attachments</code></td><td>filter</td><td>Add files to the admin email; each path re-validated to a readable file inside uploads (used by PDF Attachment). <span style="background:#ecfdf5;padding:2px 6px;border-radius:3px;font-size:11px"><strong>PRO</strong></span></td><td>1.1.5</td></tr>
+    <tr><td><code>shapeforms_lite_user_email_subject</code> / <code>_content</code></td><td>filter</td><td>Subject/HTML body of the user confirmation (5th <code>$entry_id</code> arg since 1.1.4). <span style="background:#ecfdf5;padding:2px 6px;border-radius:3px;font-size:11px"><strong>PRO</strong></span></td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_lite_user_email_headers</code></td><td>filter</td><td>Adjust the user confirmation <code>wp_mail</code> headers</td><td>1.1.4</td></tr>
+    <tr><td><code>shapeforms_lite_user_email_attachments</code></td><td>filter</td><td>Add files to the user confirmation (starts empty; same uploads-boundary validation). <span style="background:#ecfdf5;padding:2px 6px;border-radius:3px;font-size:11px"><strong>PRO</strong></span></td><td>1.1.5</td></tr>
+  </tbody>
+</table>
+
+<h3>Auto-Populate &amp; Dynamic Data</h3>
+<table>
+  <thead><tr><th>Hook</th><th>Type</th><th>Description</th><th>Since</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_auto_populate_value</code></td><td>filter</td><td>Get the value to pre-fill a field (from URL, user data, etc.)</td><td>1.1.0</td></tr>
+    <tr><td><code>shapeforms_auto_populate_{source}</code></td><td>filter</td><td>Dynamic hook per source (e.g., shapeforms_auto_populate_user_meta); return value for a source</td><td>1.0.0</td></tr>
+  </tbody>
+</table>
+
+<h3>Integrations</h3>
+<table>
+  <thead><tr><th>Hook</th><th>Type</th><th>Description</th><th>Since</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_integration_type_defs</code></td><td>filter</td><td>Register a new integration service (Mailchimp, Brevo, custom CRM, etc.)</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_integration_dispatch_{type}</code></td><td>action</td><td>Handle the actual integration dispatch when a form submits (e.g., shapeforms_integration_dispatch_mailchimp)</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_integration_dispatched</code></td><td>action</td><td>Fires after an integration dispatch completes (success or error)</td><td>1.1.0</td></tr>
+    <tr><td><code>shapeforms_connection_fetch_lists_{type}</code></td><td>action</td><td>Fetch available lists/resources from an integration service (used in admin UI)</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_connection_normalize_fields</code></td><td>filter</td><td>Sanitize custom connection fields before storage</td><td>1.0.0</td></tr>
+  </tbody>
+</table>
+
+<h3>Admin &amp; Builder</h3>
+<table>
+  <thead><tr><th>Hook</th><th>Type</th><th>Description</th><th>Since</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_builder_localize_data</code></td><td>filter</td><td>Inject data into builder JavaScript (templates, field config, etc.) <span style="background:#ecfdf5;padding:2px 6px;border-radius:3px;font-size:11px"><strong>PRO</strong></span></td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_builder_enqueue_assets</code></td><td>action</td><td>Enqueue scripts/styles for the builder page</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_builder_fields</code></td><td>filter</td><td>Modify the set of fields available in the builder library</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_admin_menu</code></td><td>filter</td><td>Modify the admin menu structure (add/remove items)</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_admin_notices</code></td><td>action</td><td>Render your own admin notice on ShapeForms's screens. Use this instead of <code>admin_notices</code>: ShapeForms strips third-party notices on its own pages, so a direct registration is removed before it renders. Echo your own escaped markup, and guard against rendering twice in one request.</td><td>1.1.7</td></tr>
+    <tr><td><code>shapeforms_admin_topbar_items</code></td><td>filter</td><td>Add buttons/controls to the builder top bar</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_show_locked_fields_teaser</code></td><td>filter</td><td>Show or hide the Field Library's locked "premium fields" teaser. Defaults to <code>shapeforms_show_upgrade_cta</code>, so an add-on that suppresses the shared upgrade prompts can keep just this one visible.</td><td>1.1.7</td></tr>
+    <tr><td><code>shapeforms_show_locked_templates_teaser</code></td><td>filter</td><td>Same, for the locked rows in the "Choose a Template" library. Four categories contain only add-on templates, so without this the categories do not render at all.</td><td>1.1.7</td></tr>
+    <tr><td><code>shapeforms_upgrade_label</code></td><td>filter</td><td>Text on every upgrade CTA — buttons, dialog actions and the template lock. Receives a second argument naming where it appears: <code>button</code> (a control the user clicks), <code>suffix</code> (appended to another label, e.g. &quot;Excel (.xlsx) &mdash; %s&quot;) or <code>sr_state</code> (screen-reader text describing a state, not an action). Rewriting all three to the same value produces accessible names like &quot;Export Excel Activate License&quot;, so branch on the context. Pair it with <code>shapeforms_upgrade_url</code> to send people somewhere other than the sales page; a URL inside the admin opens in the same tab.</td><td>1.1.7</td></tr>
+    <tr><td><code>shapeforms_library_lock_group_title</code></td><td>filter</td><td>The heading above the Field Library's locked field group. Default <code>Premium Fields</code>.</td><td>1.1.7</td></tr>
+    <tr><td><code>shapeforms_library_lock_title</code> / <code>shapeforms_library_lock_text</code></td><td>filter</td><td>Heading and body of the Field Library's locked card. Word these to match whatever <code>shapeforms_upgrade_label</code> puts on its button, and the group heading above.</td><td>1.1.7</td></tr>
+    <tr><td><code>shapeforms_template_lock_title</code> / <code>shapeforms_template_lock_text</code></td><td>filter</td><td>Heading and body shown in the template preview pane when a locked row is selected.</td><td>1.1.7</td></tr>
+    <tr><td><code>shapeforms_integration_lock_title</code></td><td>filter</td><td>Tooltip on a locked integration card. Receives the integration type slug as a second argument. Only the add-on that marked the card <code>locked</code> knows why, so it owns this wording.</td><td>1.1.7</td></tr>
+    <tr><td><code>shapeforms_show_locked_export_teaser</code> / <code>shapeforms_export_lock_hint</code></td><td>filter</td><td>Whether the locked Excel/PDF export controls show — both the Entries screen teaser buttons and the Tools &rarr; Entries format selector — and the hint beneath the latter. Keep the teaser on if your add-on supplies extra formats but is not yet entitled to run, or the format selector disappears before your own control can replace it.</td><td>1.1.7</td></tr>
+    <tr><td><code>shapeforms_upgrade_modal_title</code> / <code>shapeforms_upgrade_modal_text</code></td><td>filter</td><td>Copy for the teaser dialogs. Both receive a second argument naming the dialog: <code>fields</code>, <code>templates</code> or <code>export</code>. The export dialog rewrites its own heading per format each time it opens, so <code>shapeforms_upgrade_modal_title</code> is also applied with <code>export_excel</code> and <code>export_pdf</code> — handle those two or the heading a user actually sees will not change.</td><td>1.1.7</td></tr>
+    <tr><td><code>shapeforms_admin_bar_items</code></td><td>filter</td><td>Add items to the ShapeForms WordPress admin bar dropdown</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_form_saved</code></td><td>action</td><td>Fires after a form is saved in the builder (admin context)</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_form_settings_extra</code></td><td>filter</td><td>Add custom settings fields to the form Settings tab</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_show_upgrade_cta</code></td><td>filter</td><td>Return <code>false</code> to suppress every free-version upgrade prompt (promo notice, menu item, toolbar button, page-header link). The master teaser gate. <span style="background:#ecfdf5;padding:2px 6px;border-radius:3px;font-size:11px"><strong>PRO</strong></span></td><td>1.1.4</td></tr>
+    <tr><td><code>shapeforms_migration_sources</code></td><td>filter</td><td>Register a Form Migrator source (importer for another form plugin). Append an object implementing <code>ShapeForms_Lite_Migration_Source</code>.</td><td>1.1.6</td></tr>
+  </tbody>
+</table>
+
+<h3>Form Migrator sources</h3>
+<p>The Form Migrator (<strong>Settings &rarr; Tools &rarr; Migrator</strong>) imports forms from other
+plugins into ShapeForms. Contact Form 7 ships as the first source; each additional source is one class
+implementing <code>ShapeForms_Lite_Migration_Source</code> and registered through the
+<code>shapeforms_migration_sources</code> filter. The controller stays source-agnostic: it lists every
+available source as a tab, and runs each imported form's plain <code>rows</code>/<code>settings</code>
+through the builder's own save path (<code>ShapeForms_Lite_Ajax_Save::prepare_rows()</code> and
+<code>::normalize_form_settings()</code>) &mdash; a source never writes <code>fields_json</code> directly.</p>
+<pre><code>interface ShapeForms_Lite_Migration_Source {
+    public function get_slug();        // 'cf7' — used in URLs, nonces, the migration marker
+    public function get_label();       // 'Contact Form 7' (translatable)
+    public function is_available();    // true when the source plugin/data is present
+    public function get_forms();       // [ { id, title, imported } ]
+    public function import_form( $id ); // { title, rows, settings, skipped[], source_id } | WP_Error
+}
+
+add_filter( 'shapeforms_migration_sources', function ( $sources ) {
+    $sources[] = new My_WPForms_Migration_Source();
+    return $sources;
+} );</code></pre>
+<p>Idempotency is handled by the controller via an autoloaded <code>shapeforms_migration_map</code> option
+(<code>"{slug}:{source_id}" =&gt; form_id</code>), so a re-import updates the previously created form
+instead of duplicating it. A source only needs to describe how to read its own forms.</p>
+
+<h3>Block &amp; Elementor</h3>
+<table>
+  <thead><tr><th>Hook</th><th>Type</th><th>Description</th><th>Since</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_block_attributes</code></td><td>filter</td><td>Add custom attributes to the Gutenberg block</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_block_editor_data</code></td><td>filter</td><td>Inject data into the block editor JavaScript</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_block_editor_enqueue</code></td><td>action</td><td>Enqueue scripts for the block editor (editor.js)</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_elementor_widget_controls</code></td><td>action</td><td>Add custom Elementor widget controls after the default sections</td><td>1.0.0</td></tr>
+  </tbody>
+</table>
+
+<h3>Assets &amp; Caching</h3>
+<table>
+  <thead><tr><th>Hook</th><th>Type</th><th>Description</th><th>Since</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_register_assets</code></td><td>action</td><td>Register custom scripts/styles for the frontend or admin</td><td>1.0.0</td></tr>
+    <tr><td><code>shapeforms_purge_caches</code></td><td>action</td><td>Clear all ShapeForms-related caches (called after form save)</td><td>1.1.0</td></tr>
+    <tr><td><code>shapeforms_purge_caches_on_save</code></td><td>action</td><td>Clear caches when a form is saved (filtering opportunity)</td><td>1.1.0</td></tr>
+    <tr><td><code>shapeforms_defer_post_save_actions</code></td><td>action</td><td>Queue asynchronous tasks to run after submission (e.g., webhooks, cleanup)</td><td>1.1.0</td></tr>
+    <tr><td><code>shapeforms_max_file_size</code></td><td>filter</td><td>Control the max file upload size for file upload fields</td><td>1.0.0</td></tr>
+  </tbody>
+</table>
+
+<!-- Form Rendering Hooks -->
+<h2 id="form-rendering">Form Rendering Hooks (Detailed)</h2>
+
+<h3>shapeforms_form_output</h3>
+<p>Filter the complete rendered form HTML before output.</p>
+<pre><code>add_filter( 'shapeforms_form_output', function( $html, $form_id, $form_record, $settings ) {
+    // Wrap form in a custom container
+    return '&lt;div class="my-form-wrapper"&gt;' . $html . '&lt;/div&gt;';
+}, 10, 4 );</code></pre>
+
+<h3>shapeforms_field_control_html</h3>
+<p>Filter the inner HTML of any field control. This is the primary hook for adding custom field type rendering.</p>
+<pre><code>add_filter( 'shapeforms_field_control_html', function( $html, $type, $field_name, $field ) {
+    if ( 'my_custom_type' === $type ) {
+        return '&lt;div class="my-field"&gt;Custom field HTML&lt;/div&gt;';
+    }
+    return $html;
+}, 10, 4 );</code></pre>
+
+<table>
+  <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><code>$html</code></td><td>string</td><td>Current control HTML from Lite's renderer</td></tr>
+    <tr><td><code>$type</code></td><td>string</td><td>Field type slug</td></tr>
+    <tr><td><code>$field_name</code></td><td>string</td><td>Input name attribute (e.g. <code>shapeforms_field_abc</code>)</td></tr>
+    <tr><td><code>$field</code></td><td>array</td><td>Full field definition array</td></tr>
+  </tbody>
+</table>
+
+<h3>shapeforms_field_conditional_attrs</h3>
+<p>Modify the conditional logic data attributes on field wrappers.</p>
+<pre><code>add_filter( 'shapeforms_field_conditional_attrs', function( $attrs, $field ) {
+    // Add custom data attributes
+    return $attrs;
+}, 10, 2 );</code></pre>
+
+<h3>shapeforms_max_file_size</h3>
+<p>Override the maximum file upload size (in MB) per field.</p>
+<pre><code>add_filter( 'shapeforms_max_file_size', function( $max_mb, $field ) {
+    if ( 'resume' === ( $field['css_class'] ?? '' ) ) {
+        return 10; // Allow 10 MB for resume uploads
+    }
+    return $max_mb;
+}, 10, 2 );</code></pre>
+
+<!-- Custom Field Types -->
+<h2 id="conversational-hooks">Conversational Forms</h2>
+
+<p>Conversational mode post-processes the <em>already rendered</em> form. It never re-renders, re-orders away or removes anything, so every field stays in the DOM &mdash; which is why conditional logic, validation and the submit path are untouched, and why field types added by an add-on work inside it with no changes on their side.</p>
+
+<p>Screens are classified by <strong>what a row renders</strong>, not by field-type name:</p>
+
+<table>
+  <thead><tr><th>Row renders</th><th>Treated as</th></tr></thead>
+  <tbody>
+    <tr><td>No focusable control and no text</td><td><strong>Static</strong> &mdash; never a screen; stays in the DOM and still posts (hidden fields, stripped page breaks)</td></tr>
+    <tr><td>No focusable control but has text</td><td><strong>Statement</strong> &mdash; a screen with nothing to answer</td></tr>
+    <tr><td>A focusable control</td><td><strong>Question</strong> &mdash; an ordinary screen</td></tr>
+  </tbody>
+</table>
+
+<p>This means a field type ShapeForms has never heard of behaves correctly with no registration at all. The filters below only refine the two cases structure cannot infer.</p>
+
+<h3>shapeforms_conversational_tail_types</h3>
+<p>Field types pinned to the final screen instead of getting one of their own. A consent box or captcha stranded mid-form leaves the visitor on a screen they cannot complete.</p>
+<pre><code>add_filter( 'shapeforms_conversational_tail_types', function ( $types ) {
+    $types[] = 'order_summary';
+    return $types;
+} );</code></pre>
+<p>Default: <code>captcha</code>, <code>terms_conditions</code>.</p>
+
+<h3>shapeforms_conversational_stacking_types</h3>
+<p>Field types large enough that their row must never share a screen side by side.</p>
+<pre><code>add_filter( 'shapeforms_conversational_stacking_types', function ( $types ) {
+    return array_merge( $types, array( 'signature', 'repeater', 'matrix' ) );
+} );</code></pre>
+<p>Default: <code>name</code>, <code>address</code>, <code>file</code>.</p>
+
+<h3>shapeforms_conversational_enabled</h3>
+<p>Override whether conversational mode runs for a form, without changing the stored setting. Useful for disabling it site-wide or on specific templates.</p>
+<pre><code>add_filter( 'shapeforms_conversational_enabled', function ( $enabled, $settings, $form_id ) {
+    return is_front_page() ? false : $enabled;
+}, 10, 3 );</code></pre>
+
+<div class="bf-callout bf-callout--info">
+  <strong>Conversational mode is embedded-only.</strong> ShapeForms registers no rewrite rules and no front-end URLs of its own &mdash; a conversational form renders in place, wherever the shortcode, block or widget sits. Nothing is added to your permalink structure and no path is claimed at your site root.
+</div>
+
+<h3>Render-layer priorities</h3>
+<table>
+  <thead><tr><th>Priority on <code>shapeforms_form_output</code></th><th>What runs</th></tr></thead>
+  <tbody>
+    <tr><td>6</td><td>Conversational strips the page-break marker, standing the multi-step renderer down</td></tr>
+    <tr><td>10</td><td>Multi-step wrapper (add-on)</td></tr>
+    <tr><td>20</td><td>Payment card element, save-and-resume, draft autosave (add-on)</td></tr>
+    <tr><td>30</td><td>Conversational injects its chrome &mdash; after everything above, so all of it lands on the right screen</td></tr>
+  </tbody>
+</table>
+
+<h3>Notes for add-on authors</h3>
+<ul>
+  <li><strong>Per-form config travels in a <code>data-</code> attribute</strong>, not <code>wp_localize_script()</code>. A render-time localize is silently dropped under block (FSE) themes.</li>
+  <li><strong><code>novalidate</code> is applied from JavaScript only.</strong> The browser validates the whole form on submit, and an invalid required control inside a hidden screen cannot be focused &mdash; so the browser refuses to submit and reports nothing. Setting it from PHP would take native validation away from visitors without JavaScript.</li>
+  <li><strong>Detect conditional hiding with <code>element.style.display</code></strong>, never a visibility test: everything inside a hidden screen measures zero.</li>
+  <li><strong>Per-screen styling is stored on whichever object IS the screen</strong> &mdash; the row when several questions share it, the field otherwise. Eleven keys in <code>fields_json</code>: eight <code>cv_media_*</code> (an <strong>attachment ID</strong>, never a URL, resolved at render time) and three colours (<code>cv_bg</code>, <code>cv_question_color</code>, <code>cv_answer_color</code>). The chrome colours are form-level only: every rule reading <code>--bfc-btn</code>, <code>--bfc-btn-text</code>, <code>--bfc-accent</code>, <code>--bfc-track</code>, <code>--bfc-prev</code>, <code>--bfc-prev-bg</code> and <code>--bfc-hint</code> is scoped to the wrapper, which is a screen&rsquo;s ancestor, so a screen-level value could never reach one. A field-screen with no image of its own falls back to its row's.</li>
+  <li><strong><code>cv_media_height</code> uses <code>0</code> for the same purpose</strong> &mdash; the renderer omits <code>--bfc-media-h</code> entirely and the stylesheet's <code>var( --bfc-media-h, min( 60vh, 460px ) )</code> fallback applies. Note it is deliberately NOT <code>absint()</code>: that returns the absolute value, so <code>-400</code> would arrive as a deliberate-looking <code>400</code> instead of falling back to the default.</li>
+  <li><strong><code>''</code> means INHERIT, and must be stored as <code>''</code>.</strong> The renderer omits the custom property entirely for an empty value, so the form-level colour cascades in untouched. Storing a resolved copy of the form's colour instead would <em>pin</em> it &mdash; every screen would silently keep the old value the day the form default changed. The same rule governs the builder's controls: an untouched colour reads <em>Form default</em> and writes nothing.</li>
+  <li><strong>The three screen colours are read at the point of use, so a screen overrides by cascade alone.</strong> Setting <code>--bfc-question</code> on a <code>.shapeforms-cv-screen</code> overrides it for that screen and nothing else &mdash; no extra selectors, no JS re-theming. The one exception is the background: <code>--bfc-bg</code> is consumed on the <code>.shapeforms-cv</code> wrapper, so a screen uses <strong><code>--bfc-screen-bg</code></strong>. Reusing the wrapper's name would make a screen repaint the wrapper's padding along with itself.</li>
+  <li><strong>A colour control that renders over a fixed <code>opacity</code> is a control that lies.</strong> The &ldquo;press Enter&rdquo; hint is deliberately dimmed &mdash; <code>0.6</code> on the text, <code>0.8</code> on the key cap &mdash; so it does not compete with the button beside it, and that default has to be a <em>faded inherit</em> rather than a fixed grey, or it stops being legible the moment a form goes dark. Adding <code>--bfc-hint</code> on top of a literal <code>opacity</code> would give an author a washed version of the colour they picked. The fix is to tokenise the opacity: <code>opacity: var( --bfc-hint-opacity, 0.6 )</code>, with <code>build_custom_properties()</code> emitting <code>--bfc-hint-opacity:1</code> <em>only</em> alongside a <code>--bfc-hint</code> that survived <code>sanitize_hex_color()</code>. Two fallbacks on one token cover both elements, and a form that sets no colour renders byte-identically.</li>
+  <li><strong>A screen is a question, not a row.</strong> A row with more than one column becomes one screen, preserving the author's side-by-side layout. A single-column row holding several fields is split at runtime into one row per field. The split <strong>moves</strong> field nodes and <strong>clones only the row wrapper</strong> (and its media figure) &mdash; cloning a field would leave the conditional-logic evaluator driving a copy that is no longer on the page.</li>
+  <li><strong>Register on <code>shapeforms_preview_enqueue_assets</code> as well as <code>wp_enqueue_scripts</code>.</strong> The admin form-preview screen is wp-admin, so <code>wp_enqueue_scripts</code> never fires there. Enqueueing a handle that was never registered still puts it in the queue &mdash; <code>wp_script_is( $handle, 'enqueued' )</code> returns <strong>true</strong> and nothing is printed. Check <code>'registered'</code> and a non-empty <code>src</code>, or assert on real printed output.</li>
+  <li><strong>PHP's screen count is an upper bound on purpose.</strong> <code>wrap_form_output()</code> suppresses the chrome only when a form can never have more than one screen; the engine measures the live DOM and adds <code>shapeforms-cv--inert</code> (restoring the form to where it was rendered) when just one screen survives. Do not re-implement the split in PHP.</li>
+</ul>
+
+<h2 id="field-types">Custom Field Types</h2>
+
+<h3>shapeforms_field_library</h3>
+<p>Add new field types to the builder's sidebar library.</p>
+<pre><code>add_filter( 'shapeforms_field_library', function( $library ) {
+    $library['color_picker'] = array(
+        'label' =&gt; 'Color Picker',
+        'icon'  =&gt; 'dashicons-art',
+        'group' =&gt; 'advanced',
+    );
+    return $library;
+} );</code></pre>
+
+<h3>shapeforms_builder_field_groups</h3>
+<p>Add new field group headings in the sidebar.</p>
+<pre><code>add_filter( 'shapeforms_builder_field_groups', function( $groups ) {
+    $groups['custom'] = 'My Custom Fields';
+    return $groups;
+} );</code></pre>
+
+<h3>shapeforms_allowed_field_types</h3>
+<p>Whitelist your custom field type so it passes save validation.</p>
+<pre><code>add_filter( 'shapeforms_allowed_field_types', function( $types ) {
+    $types[] = 'color_picker';
+    return $types;
+} );</code></pre>
+
+<h3>shapeforms_field_extra_keys</h3>
+<p>Persist additional field properties during form save.</p>
+<pre><code>add_filter( 'shapeforms_field_extra_keys', function( $extra, $field, $field_type ) {
+    if ( 'color_picker' === $field_type ) {
+        $extra['default_color'] = sanitize_hex_color( $field['default_color'] ?? '#000000' );
+    }
+    return $extra;
+}, 10, 3 );</code></pre>
+
+<!-- Submission Flow -->
+<h2 id="submission-flow">Submission Flow Hooks</h2>
+
+<p>The submission lifecycle in order:</p>
+<ol>
+  <li><code>shapeforms_gate_submission</code> &mdash; accept or reject before validation</li>
+  <li><code>shapeforms_before_submission</code> &mdash; fires before field validation</li>
+  <li><code>shapeforms_submission_request</code> &mdash; modify raw request payload</li>
+  <li><code>shapeforms_entry_data</code> &mdash; mutate validated entry data</li>
+  <li><code>shapeforms_should_save_entry</code> &mdash; control whether entry is persisted</li>
+  <li><code>shapeforms_before_entry_save</code> &mdash; last chance before DB insert</li>
+  <li><code>shapeforms_entry_saved</code> &mdash; after entry inserted</li>
+  <li><code>shapeforms_entry_created</code> &mdash; entry ID available, triggers integrations</li>
+  <li><code>shapeforms_submission_result</code> &mdash; filter the final JSON response</li>
+</ol>
+
+<h3>shapeforms_gate_submission</h3>
+<p>Reject an entire submission before validation. Return an array with
+<code>'success' =&gt; false</code> (and an optional <code>'message'</code>) to block it; the
+default value passed in is <code>null</code>.</p>
+<pre><code>add_filter( 'shapeforms_gate_submission', function( $gate, $form_id, $settings, $request ) {
+    if ( ! is_user_logged_in() ) {
+        return array( 'success' =&gt; false, 'message' =&gt; 'Please log in to submit this form.' );
+    }
+    return $gate;
+}, 10, 4 );</code></pre>
+
+<h3>shapeforms_entry_data</h3>
+<p>Modify entry data after validation, before saving.</p>
+<pre><code>add_filter( 'shapeforms_entry_data', function( $data, $form_id, $settings ) {
+    $data['submitted_url'] = sanitize_url( wp_get_referer() );
+    return $data;
+}, 10, 3 );</code></pre>
+
+<h3>shapeforms_should_save_entry</h3>
+<p>Return <code>false</code> to skip saving the entry to the database.</p>
+<pre><code>add_filter( 'shapeforms_should_save_entry', function( $should_save, $form_id, $entry_data, $settings, $request ) {
+    // Don't save entries for a specific form
+    if ( 42 === $form_id ) {
+        return false;
+    }
+    return $should_save;
+}, 10, 5 );</code></pre>
+
+<h3>shapeforms_entry_created</h3>
+<p>Fires after a new entry is saved. Use this to trigger external actions.</p>
+<pre><code>add_action( 'shapeforms_entry_created', function( $entry_id, $form_id, $entry_data, $settings ) {
+    // Send data to an external API
+    wp_remote_post( 'https://api.example.com/webhook', array(
+        'body' =&gt; wp_json_encode( $entry_data ),
+    ) );
+}, 10, 4 );</code></pre>
+
+<h3>shapeforms_submission_result</h3>
+<p>Filter the JSON response sent back to the browser.</p>
+<pre><code>add_filter( 'shapeforms_submission_result', function( $result, $form_id, $entry_data, $settings, $entry_id, $request ) {
+    $result['custom_data'] = 'Extra info for JS';
+    return $result;
+}, 10, 6 );</code></pre>
+
+<!-- Email Hooks -->
+<h2 id="email-hooks">Email Notification Hooks</h2>
+
+<h3>Lifecycle</h3>
+<pre><code>shapeforms_before_notifications  &rarr;  send emails  &rarr;  shapeforms_after_notifications</code></pre>
+
+<h3>Admin notification: subject &amp; content</h3>
+<p>The admin email is sent to the site owner. Filter its subject and HTML body. Both filters
+receive the form record object (<code>$form_record</code>, not an ID) and the sanitized entry data.</p>
+<pre><code>// Subject line of the admin notification.
+add_filter( 'shapeforms_lite_admin_email_subject', function( $subject, $form_record, $entry_data ) {
+    return '[Priority] ' . $subject;
+}, 10, 3 );
+
+// HTML body of the admin notification.
+add_filter( 'shapeforms_lite_admin_email_content', function( $message, $form_record, $entry_data ) {
+    $message .= '<p>Form ID: ' . (int) $form_record->id . '</p>';
+    return $message;
+}, 10, 3 );</code></pre>
+
+<h3>Checking a hook exists <span class="bf-badge" style="background:var(--bf-accent,#2563eb);color:#fff">1.1.5</span></h3>
+<p>Before hooking a newer extension point, ask ShapeForms whether it provides it &mdash; rather than comparing
+<code>SHAPEFORMS_LITE_VERSION</code>. That constant marks the last <em>released</em> version, so between releases it
+names a build that lacks a seam it actually has.</p>
+<pre><code>if ( method_exists( 'ShapeForms_Lite', 'supports' )
+    &amp;&amp; ShapeForms_Lite::supports( 'admin_email_attachments' ) ) {
+    add_filter( 'shapeforms_lite_admin_email_attachments', 'my_addon_attach', 10, 4 );
+}</code></pre>
+<p>The <code>method_exists()</code> guard matters &mdash; on a ShapeForms older than 1.1.5 the method itself is absent,
+which correctly reads as "no capabilities". Capability names are permanent once published.</p>
+<p>Capabilities in this release: <code>admin_email_recipient</code>, <code>admin_email_attachments</code>, <code>user_email_attachments</code>.</p>
+
+<h3>Admin notification: recipient <span class="bf-badge" style="background:var(--bf-accent,#2563eb);color:#fff">1.1.5</span></h3>
+<p>Choose who the admin notification goes to, after the form's own settings have been applied &mdash; so a
+submission can be routed to different people based on what was answered. Return a single address, or several
+separated by commas.</p>
+<pre><code>// Route "Sales" enquiries to a different inbox.
+add_filter( 'shapeforms_lite_admin_email_to', function( $to, $form_record, $entry_data, $entry_id ) {
+    foreach ( $entry_data as $field ) {
+        if ( 'Department' === $field['label'] &amp;&amp; 'Sales' === $field['value'] ) {
+            return 'sales@example.com, manager@example.com';
+        }
+    }
+    return $to;
+}, 10, 4 );</code></pre>
+<p><strong>Whatever you return is re-validated before it is used.</strong> Each address must pass
+<code>is_email()</code> <em>and</em> survive <code>sanitize_email()</code> unchanged; any candidate containing
+CR/LF is discarded outright rather than cleaned up. That second rule matters because
+<code>sanitize_email()</code> repairs as readily as it rejects &mdash; a header-injection attempt such as
+<code>a@evil.com\nBcc: v@x.com</code> would otherwise be tidied into the valid-looking
+<code>a@evil.comBccvx.com</code>, an address nobody configured but that mail would really be delivered to.
+The same validation is applied to any <code>Cc</code>/<code>Bcc</code> line added via
+<code>shapeforms_lite_admin_email_headers</code>.</p>
+<p>If the filtered value yields no valid address at all, the recipient the form already resolved is kept, so a
+notification is never lost. Note that the display-name form (<code>Sales &lt;sales@example.com&gt;</code>) is
+rejected &mdash; bare addresses only.</p>
+
+<h3>Admin notification: attachments <span class="bf-badge" style="background:var(--bf-accent,#2563eb);color:#fff">1.1.5</span></h3>
+<p>Add files to the admin notification &mdash; a generated PDF of the submission, an invoice, a copy of a contract.
+The filter receives the visitor's uploaded files, which ShapeForms attaches already, so add to the array rather than
+replacing it. Return absolute paths to files that <strong>already exist on disk</strong>; <code>wp_mail()</code>
+reads them while sending.</p>
+<pre><code>add_filter( 'shapeforms_lite_admin_email_attachments', function( $attachments, $form_record, $entry_data, $entry_id ) {
+    $path = my_addon_write_pdf( $entry_id );   // must live under wp-content/uploads
+
+    if ( $path ) {
+        $attachments[] = $path;
+    }
+
+    return $attachments;
+}, 10, 4 );</code></pre>
+<p><strong>Paths are re-validated before use.</strong> Each one must resolve &mdash; through <code>realpath()</code>,
+so symlinks and <code>../</code> are followed to where they actually land &mdash; to a readable regular file
+<em>inside the uploads directory</em>. Anything else is dropped silently and the email still sends.</p>
+<p>That boundary is deliberate. The return value becomes an outbound email attachment, so an add-on that builds a
+path from submitted data (or is simply buggy) could otherwise mail out <code>wp-config.php</code>. Write generated
+files under <code>wp_get_upload_dir()['basedir']</code> &mdash; ideally a subdirectory of your own with a deny-all
+<code>.htaccess</code>, since uploads is web-readable &mdash; and delete them on
+<code>shapeforms_after_notifications</code> once the mail has gone.</p>
+<p>The same filter exists for the user confirmation &mdash; <code>shapeforms_lite_user_email_attachments</code>, which
+passes <code>$user_email</code> before <code>$entry_id</code> (five arguments). Its list starts <strong>empty</strong>
+rather than inheriting the visitor's uploads, so add whatever you need explicitly.</p>
+<p><strong>Think before attaching there.</strong> That email goes to an address a stranger typed into a public form, so
+whatever rides along is delivered to whoever owns that address &mdash; including when it was mistyped. The admin
+notification goes to a known inbox; this one does not.</p>
+
+<h3>User confirmation: subject &amp; content</h3>
+<p>The user confirmation email is sent to the address auto-detected from an email field in the
+submission. Its filters receive a fourth argument, <code>$user_email</code> (the detected recipient).</p>
+<pre><code>// Subject line of the user confirmation.
+add_filter( 'shapeforms_lite_user_email_subject', function( $subject, $form_record, $entry_data, $user_email ) {
+    return 'Thanks for contacting us';
+}, 10, 4 );
+
+// HTML body of the user confirmation.
+add_filter( 'shapeforms_lite_user_email_content', function( $message, $form_record, $entry_data, $user_email ) {
+    $message .= '<p>We will reply to ' . esc_html( $user_email ) . ' shortly.</p>';
+    return $message;
+}, 10, 4 );</code></pre>
+
+<!-- Builder Hooks -->
+<h2 id="builder-hooks">Builder &amp; Admin Hooks</h2>
+
+<h3>shapeforms_builder_localize_data</h3>
+<p>Inject data into the builder's JavaScript environment.</p>
+<pre><code>add_filter( 'shapeforms_builder_localize_data', function( $data ) {
+    $data['myCustomConfig'] = array( 'key' =&gt; 'value' );
+    return $data;
+} );</code></pre>
+
+<h3>shapeforms_builder_enqueue_assets</h3>
+<p>Enqueue additional scripts/styles for the builder page.</p>
+<pre><code>add_action( 'shapeforms_builder_enqueue_assets', function() {
+    wp_enqueue_script( 'my-builder-addon', plugin_dir_url( __FILE__ ) . 'addon.js', array( 'jquery' ), '1.0', true );
+} );</code></pre>
+
+<h3>shapeforms_form_saved</h3>
+<p>Fires after a form is saved via the builder.</p>
+<pre><code>add_action( 'shapeforms_form_saved', function( $form_id, $data, $is_new ) {
+    if ( $is_new ) {
+        // New form created
+    }
+}, 10, 3 );</code></pre>
+
+<h3>shapeforms_form_settings_extra</h3>
+<p>Add custom form-level settings to the saved JSON.</p>
+<pre><code>add_filter( 'shapeforms_form_settings_extra', function( $extra, $settings_payload ) {
+    $extra['my_option'] = sanitize_text_field( $settings_payload['my_option'] ?? '' );
+    return $extra;
+}, 10, 2 );</code></pre>
+
+<h3>shapeforms_admin_bar_items</h3>
+<p>Add items to the ShapeForms admin bar dropdown.</p>
+<pre><code>add_filter( 'shapeforms_admin_bar_items', function( $items ) {
+    $items[] = array(
+        'id'    =&gt; 'my-addon',
+        'title' =&gt; 'My Addon',
+        'href'  =&gt; admin_url( 'admin.php?page=my-addon' ),
+    );
+    return $items;
+} );</code></pre>
+
+<h3>shapeforms_entry_detail_sidebar <span class="bf-badge" style="background:var(--bf-accent,#2563eb);color:#fff">1.1.3</span></h3>
+<p>Render a custom card in the single-entry sidebar, after the built-in Details card. The full entry row object is
+passed, so an add-on can display extra data (e.g. a private admin-notes panel) without overriding the entry template.
+Pair it with <code>shapeforms_entry_detail_enqueue_assets</code> to load any CSS/JS the card needs.</p>
+<pre><code>// Enqueue assets for the entry-detail screen.
+add_action( 'shapeforms_entry_detail_enqueue_assets', function( $entry_id ) {
+    wp_enqueue_style( 'my-addon-entry', plugins_url( 'entry.css', __FILE__ ), array(), '1.0.0' );
+} );
+
+// Render a card in the entry-detail sidebar.
+add_action( 'shapeforms_entry_detail_sidebar', function( $entry ) {
+    printf(
+        '&lt;div class="shapeforms-entry-card"&gt;&lt;h3&gt;%s&lt;/h3&gt;&lt;p&gt;Entry #%d &mdash; %s&lt;/p&gt;&lt;/div&gt;',
+        esc_html__( 'My Add-on', 'my-addon' ),
+        (int) $entry-&gt;id,
+        esc_html( $entry-&gt;status )
+    );
+} );</code></pre>
+
+<!-- Block & Elementor -->
+<h2 id="block-elementor">Block &amp; Elementor Hooks</h2>
+
+<h3>shapeforms_block_attributes</h3>
+<p>Add custom attributes to the Gutenberg block.</p>
+<pre><code>add_filter( 'shapeforms_block_attributes', function( $attrs ) {
+    $attrs['myCustomColor'] = array( 'type' =&gt; 'string', 'default' =&gt; '' );
+    return $attrs;
+} );</code></pre>
+
+<h3>shapeforms_block_editor_data</h3>
+<p>Inject data into the block editor JavaScript.</p>
+
+<h3>shapeforms_block_editor_enqueue</h3>
+<p>Enqueue additional scripts for the block editor.</p>
+
+<h3>shapeforms_elementor_widget_controls</h3>
+<p>Add custom Elementor widget controls after the default sections.</p>
+
+<!-- Integration Hooks -->
+<h2 id="integration-hooks">Integration Hooks</h2>
+
+<h3>shapeforms_integration_type_defs</h3>
+<p>Register new integration types with their configuration fields.</p>
+<pre><code>add_filter( 'shapeforms_integration_type_defs', function( $defs ) {
+    $defs['my_crm'] = array(
+        'type'       =&gt; 'my_crm',
+        'label'      =&gt; 'My CRM',
+        'icon'       =&gt; 'dashicons-admin-users',
+        'color'      =&gt; '#ff6600',
+        'icon_color' =&gt; '#fff',
+        'category'   =&gt; 'crm',
+        'desc'       =&gt; 'Sync contacts with My CRM.',
+        'list_label' =&gt; 'List',
+        'fields'     =&gt; array(
+            array( 'key' =&gt; 'api_key', 'label' =&gt; 'API Key', 'type' =&gt; 'password', 'required' =&gt; true ),
+            array( 'key' =&gt; 'list_id', 'label' =&gt; 'List',    'type' =&gt; 'list_select' ),
+        ),
+    );
+    return $defs;
+} );</code></pre>
+
+<h3>shapeforms_integration_dispatch_{type}</h3>
+<p>Handle the actual integration dispatch when a form is submitted.</p>
+<pre><code>add_action( 'shapeforms_integration_dispatch_my_crm', function( $connection, $entry_data, $field_map, $entry_id ) {
+    $api_key = $connection['api_key'] ?? '';
+    $email   = $entry_data[ $field_map['email'] ] ?? '';
+
+    wp_remote_post( 'https://api.mycrm.com/contacts', array(
+        'headers' =&gt; array( 'Authorization' =&gt; 'Bearer ' . $api_key ),
+        'body'    =&gt; wp_json_encode( array( 'email' =&gt; $email ) ),
+    ) );
+}, 10, 4 );</code></pre>
+
+<h3>shapeforms_connection_normalize_fields</h3>
+<p>Sanitize custom connection fields before storage.</p>
+
+<h3>shapeforms_connection_fetch_lists_{type}</h3>
+<p>Fetch available lists/resources for a connection type (used in settings modal).</p>
+
+<!-- Adding a Field Type -->
+<h2 id="add-field-type">Adding a Field Type (Step by Step)</h2>
+
+<ol>
+  <li><strong>Register in field library</strong> via <code>shapeforms_field_library</code></li>
+  <li><strong>Whitelist for save</strong> via <code>shapeforms_allowed_field_types</code></li>
+  <li><strong>Render on frontend</strong> via <code>shapeforms_field_control_html</code></li>
+  <li><strong>Save extra properties</strong> via <code>shapeforms_field_extra_keys</code> (optional)</li>
+  <li><strong>Add builder JS data</strong> via <code>shapeforms_builder_localize_data</code> (optional)</li>
+  <li><strong>Add builder preview</strong> via inline script (optional)</li>
+</ol>
+
+<h3>Minimal Example</h3>
+<pre><code>&lt;?php
+// 1. Add to field library
+add_filter( 'shapeforms_field_library', function( $lib ) {
+    $lib['color_picker'] = array(
+        'label' =&gt; 'Color Picker',
+        'icon'  =&gt; 'dashicons-art',
+        'group' =&gt; 'advanced',
+    );
+    return $lib;
+} );
+
+// 2. Allow saving
+add_filter( 'shapeforms_allowed_field_types', function( $types ) {
+    $types[] = 'color_picker';
+    return $types;
+} );
+
+// 3. Render on frontend
+add_filter( 'shapeforms_field_control_html', function( $html, $type, $name, $field ) {
+    if ( 'color_picker' !== $type ) return $html;
+
+    $default = esc_attr( $field['default_value'] ?? '#000000' );
+    $req     = ! empty( $field['required'] ) ? ' required' : '';
+
+    return '&lt;input type="color" id="' . esc_attr( $name ) . '" name="' . esc_attr( $name ) . '" value="' . $default . '"' . $req . '&gt;';
+}, 10, 4 );</code></pre>
+
+<!-- Adding an Integration -->
+<h2 id="add-integration">Adding an Integration</h2>
+
+<ol>
+  <li>Register the type definition via <code>shapeforms_integration_type_defs</code></li>
+  <li>Handle dispatch via <code>shapeforms_integration_dispatch_{type}</code></li>
+  <li>Optionally provide list fetching via <code>shapeforms_connection_fetch_lists_{type}</code></li>
+  <li>Optionally normalize extra fields via <code>shapeforms_connection_normalize_fields</code></li>
+</ol>
+
+<!-- Adding a Template -->
+<h2 id="add-template">Adding a Template</h2>
+
+<p>Inject templates via the builder localize data. Every template needs a <code>category</code> &mdash; one of
+<code>general</code>, <code>business</code>, <code>events</code>, <code>hr_survey</code>, <code>health</code>,
+<code>education</code>, <code>payment</code> or <code>multi_step</code> &mdash; so the template modal groups it
+correctly instead of dumping it into General. If the form only makes sense with a toggleable Pro module turned
+on (payments, multi-page, etc.), declare it with <code>requires_modules</code>: the modal then shows a
+padlock/warning for that template until the module is enabled, rather than letting someone import a
+half-configured form.</p>
+<pre><code>add_filter( 'shapeforms_builder_localize_data', function( $data ) {
+    $data['proTemplates']['my_template'] = array(
+        'category'         =&gt; 'business',
+        'requires_modules' =&gt; array( 'payments' ), // omit if the template needs no module
+        'title'            =&gt; 'My Custom Template',
+        'description'      =&gt; 'A specialized form for...',
+        'rows'             =&gt; array(
+            array( 'columns' =&gt; array(
+                array( 'width' =&gt; '100%', 'fields' =&gt; array(
+                    array( 'type' =&gt; 'text',  'label' =&gt; 'Full Name', 'required' =&gt; true ),
+                    array( 'type' =&gt; 'email', 'label' =&gt; 'Email',     'required' =&gt; true ),
+                ) ),
+            ) ),
+        ),
+    );
+    return $data;
+} );</code></pre>
+
+<p>ShapeForms Pro's own 28-template library is built this way too, in <code>ShapeForms_Pro_Templates::get_all()</code>
+&mdash; use it as a reference for the row/column/field contract, including the stable-field-ID rule that lets a
+Calculation field's formula work immediately on import.</p>
+
+<!-- Custom Validation -->
+<h2 id="custom-validation">Custom Validation</h2>
+
+<p>ShapeForms provides multiple validation hooks for different scopes:</p>
+
+<h3>Per-Field Validation</h3>
+<p>Use <code>shapeforms_validate_field</code> to validate a single field before the entry is saved. The
+filter receives <code>($error, $value, $field, $request)</code> &mdash; the field's id and type are on the
+<code>$field</code> array. Return a <strong>non-empty string</strong> (the error message) to fail validation;
+return the unchanged <code>$error</code> (empty by default) to pass.</p>
+<pre><code>add_filter( 'shapeforms_validate_field', function( $error, $value, $field, $request ) {
+    if ( 'number' === ( $field['type'] ?? '' ) && 'age' === ( $field['id'] ?? '' ) ) {
+        if ( absint( $value ) &lt; 18 ) {
+            return 'You must be 18 or older.';
+        }
+    }
+    return $error;
+}, 10, 4 );</code></pre>
+
+<h3>Form-Level &amp; Entry Data Validation</h3>
+<p>Use <code>shapeforms_gate_submission</code> for form-level checks (reject the whole submission), or
+<code>shapeforms_entry_data</code> to mutate validated data before save:</p>
+
+<pre><code>add_filter( 'shapeforms_gate_submission', function( $gate, $form_id, $settings, $request ) {
+    if ( 5 === $form_id ) {
+        $age = absint( $request['shapeforms_age'] ?? 0 );
+        if ( $age &lt; 18 ) {
+            return array( 'success' =&gt; false, 'message' =&gt; 'You must be 18 or older.' );
+        }
+    }
+    return $gate;
+}, 10, 4 );</code></pre>
+
+<!-- End-to-End Add-On Tutorial -->
+<h2 id="addon-tutorial">End-to-End Add-On Tutorial: Custom Validation Field</h2>
+
+<p>Build a complete, shippable add-on that adds a custom "Phone" field with validation and formatting.</p>
+
+<h3>Step 1: Register the Field Type</h3>
+<pre><code>add_filter( 'shapeforms_field_library', function( $library ) {
+    $library['phone'] = array(
+        'label'  =&gt; 'Phone (US)',
+        'icon'   =&gt; 'dashicons-phone',
+        'group'  =&gt; 'basic',
+        'pro'    =&gt; false,
+    );
+    return $library;
+} );</code></pre>
+
+<h3>Step 2: Whitelist the Field for Save</h3>
+<pre><code>add_filter( 'shapeforms_allowed_field_types', function( $types ) {
+    $types[] = 'phone';
+    return $types;
+} );</code></pre>
+
+<h3>Step 3: Render on Frontend</h3>
+<pre><code>add_filter( 'shapeforms_field_control_html', function( $html, $type, $field_name, $field ) {
+    if ( 'phone' !== $type ) {
+        return $html;
+    }
+
+    $value = isset( $_POST[ $field_name ] ) ? sanitize_text_field( $_POST[ $field_name ] ) : '';
+    $required = ! empty( $field['required'] ) ? ' required' : '';
+
+    return '&lt;input type="tel" id="' . esc_attr( $field_name ) . '" name="' . esc_attr( $field_name ) . '" value="' . esc_attr( $value ) . '" pattern="[0-9\-\(\)\s]+"' . $required . ' placeholder="(123) 456-7890"&gt;';
+}, 10, 4 );</code></pre>
+
+<h3>Step 4: Add Validation</h3>
+<p>The filter receives <code>($error, $value, $field, $request)</code>; return a non-empty string to fail.</p>
+<pre><code>add_filter( 'shapeforms_validate_field', function( $error, $value, $field, $request ) {
+    if ( 'phone' !== ( $field['type'] ?? '' ) ) {
+        return $error;
+    }
+
+    // Remove non-digits for validation
+    $digits_only = preg_replace( '/[^\d]/', '', $value );
+
+    // US phone: 10 digits
+    if ( strlen( $digits_only ) !== 10 ) {
+        return 'Please enter a valid 10-digit US phone number.';
+    }
+
+    return $error;
+}, 10, 4 );</code></pre>
+
+<h3>Step 5: Format for Display</h3>
+<pre><code>add_filter( 'shapeforms_format_field_value', function( $formatted, $value, $field_type ) {
+    if ( 'phone' !== $field_type ) {
+        return $formatted;
+    }
+
+    // Format: (123) 456-7890
+    $digits = preg_replace( '/[^\d]/', '', $value );
+    if ( strlen( $digits ) === 10 ) {
+        return sprintf( '(%s) %s-%s', substr( $digits, 0, 3 ), substr( $digits, 3, 3 ), substr( $digits, 6 ) );
+    }
+
+    return $value;
+}, 10, 3 );</code></pre>
+
+<h3>Step 6: Display in Admin Entries List</h3>
+<pre><code>add_filter( 'shapeforms_entry_value_admin_html', function( $html, $value, $field_type, $field ) {
+    if ( 'phone' !== $field_type ) {
+        return $html;
+    }
+
+    $digits = preg_replace( '/[^\d]/', '', $value );
+    $formatted = strlen( $digits ) === 10 ? sprintf( '(%s) %s-%s', substr( $digits, 0, 3 ), substr( $digits, 3, 3 ), substr( $digits, 6 ) ) : $value;
+
+    return '&lt;a href="tel:' . esc_attr( $value ) . '"&gt;' . esc_html( $formatted ) . '&lt;/a&gt;';
+}, 10, 4 );</code></pre>
+
+<p><strong>Result:</strong> You now have a complete phone field add-on with field registration, validation, formatting, and admin display. Ship this as a standalone plugin or include it in a larger extension.</p>
+
+<!-- Hook Stability & Deprecation Policy -->
+<h2 id="hook-stability">Hook Stability &amp; Deprecation Policy</h2>
+
+<p>All hooks listed in the <a href="#hook-reference">Hook Reference Table</a> are part of ShapeForms's public API and are stable.</p>
+
+<h3>Stability Guarantee</h3>
+<ul>
+  <li><strong>Shipped hooks never disappear.</strong> If a hook is released, it remains available in all future releases.</li>
+  <li><strong>Hook signatures don't change.</strong> The number and order of parameters are fixed; new parameters are added only at the end (for filters) or as new hooks.</li>
+  <li><strong>Hook behavior is predictable.</strong> The timing and context of hook execution don't change between versions.</li>
+</ul>
+
+<h3>Deprecation Process</h3>
+<p>If a hook must be retired (very rare), the deprecation follows this process:</p>
+<ol>
+  <li><strong>Notice Phase (1 minor version):</strong> The hook is marked deprecated in the codebase; a `_deprecated_hook()` call alerts developers via WordPress debug logs.</li>
+  <li><strong>Grace Period (1 major version):</strong> The hook still fires and works normally, but deprecation notices are logged.</li>
+  <li><strong>Removal:</strong> The hook is removed in the next major version (e.g., v2.0.0).</li>
+</ol>
+
+<h3>@since Markers</h3>
+<p>Every hook in the Hook Reference Table includes a <code>@since</code> version (e.g., "1.0.0", "1.1.0"). This tells developers which version introduced the hook. If you depend on a hook added in v1.1.0, you can safely assume it exists in v1.1.0+.</p>
+
+<h3>Third-Party Extensions</h3>
+<p>If you ship an extension (plugin, theme, or SaaS integration) that uses ShapeForms hooks:</p>
+<ul>
+  <li><strong>Target a minimum version.</strong> Document which version of ShapeForms your extension requires.</li>
+  <li><strong>Check for hook existence.</strong> Use <code>has_filter()</code> or <code>has_action()</code> before calling dynamic hooks.</li>
+  <li><strong>Use @since markers as a reference.</strong> Don't use hooks released after your stated minimum version.</li>
+</ul>
+
+<!-- JavaScript Events -->
+<h2 id="js-events">JavaScript Events &amp; Extension Guide</h2>
+
+<p>ShapeForms's frontend fires a single jQuery event that extensions can hook into. Two
+additional events listed below are a shared convention used by <strong>ShapeForms Pro</strong>
+modules — Lite itself does not fire them, but documenting them here lets you write one
+extension that works in both Lite and Pro forms.</p>
+
+<table>
+  <thead><tr><th>Event</th><th>Fired by</th><th>Target</th><th>Detail / Use</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_form_reset</code></td><td>Lite (frontend)</td><td><code>document</code></td><td>Fired after a successful AJAX submission and form reset; args <code>[ $form ]</code>. Use to clean up custom state.</td></tr>
+    <tr><td><code>shapeforms:form_settings_rendered</code></td><td>Lite (builder)</td><td><code>document</code></td><td><code>formSettings</code> object — fired when the Settings panel renders; used to inject Pro setting tabs. Builder only.</td></tr>
+    <tr><td><code>shapeforms:before_save</code></td><td>Lite (builder)</td><td><code>document</code></td><td><code>formSettings</code> object — builder only; attach handlers to inject extra keys before save.</td></tr>
+    <tr><td><code>shapeforms_frontend_init</code> <span class="bf-badge bf-badge--pro">Pro</span></td><td>Pro / 3rd&#8209;party</td><td><code>document</code></td><td>Convention signal that a form was (re)injected into the DOM. Pro field modules listen to (re)initialize widgets. Not fired by Lite.</td></tr>
+    <tr><td><code>shapeforms_step_loaded</code> <span class="bf-badge bf-badge--pro">Pro</span></td><td>Pro (multi&#8209;page)</td><td><code>document</code></td><td>Convention signal that a multi-step form advanced to a new page. Fired by the Pro multi-page module, not by Lite.</td></tr>
+  </tbody>
+</table>
+
+<h3>Hooking into the Lite reset event</h3>
+<p>In a Lite-only install, the event you can rely on is <code>shapeforms_form_reset</code>,
+fired on <code>document</code> after a successful submission:</p>
+
+<pre><code>jQuery( document ).on( 'shapeforms_form_reset', function( e, $form ) {
+    // $form is the jQuery-wrapped form element. Clean up custom widget state here.
+    MyWidget.cleanup( $form );
+} );</code></pre>
+
+<h3>Writing an extension that also works on Pro forms</h3>
+<p>If your widget needs to (re)initialize when Pro injects or re-renders a form (e.g. multi-step
+navigation or repeater rows), also listen for the Pro convention events. They are harmless in a
+Lite-only install — they simply never fire:</p>
+
+<pre><code>// Runs on initial load and again whenever Pro (re)injects / advances the form.
+jQuery( document ).on( 'shapeforms_frontend_init shapeforms_step_loaded', function( e, formEl ) {
+    var $form = jQuery( formEl );
+    MyWidget.init( $form );
+} );</code></pre>
+
+<h3>The Double-Bind Guard Pattern</h3>
+<p>Because the convention re-init events (<code>shapeforms_frontend_init</code> /
+<code>shapeforms_step_loaded</code>) can fire more than once for the same form, guard your
+initializer so it only runs once per form element:</p>
+
+<pre><code>jQuery( document ).on( 'shapeforms_frontend_init', function( e, formEl ) {
+    var $form = jQuery( formEl );
+    // Check if already initialized
+    if ( $form.data( 'mywidget_initialized' ) ) {
+        return; // Skip if already done
+    }
+
+    // Initialize the widget
+    MyWidget.init( $form );
+
+    // Mark as initialized
+    $form.data( 'mywidget_initialized', true );
+} );</code></pre>
+
+<!-- CSS Variables -->
+<h2 id="css-variables">CSS Custom Properties</h2>
+
+<p>ShapeForms uses CSS variables on the <code>.shapeforms-lite-form</code> element. Override these in your theme:</p>
+
+<pre><code>/* Field styling */
+--bf-field-padding-y: 10px;
+--bf-field-padding-x: 14px;
+--bf-field-border-width: 1.5px;
+--bf-field-border-style: solid;
+--bf-field-border: #d1d5db;
+--bf-field-radius: 8px;
+--bf-field-bg: #fff;
+--bf-field-text: #111827;
+--bf-field-font-size: 14px;
+
+/* Focus state */
+--bf-focus-color: #0f766e;
+
+/* Error state */
+--bf-error-color: #dc2626;
+--bf-required-color: var(--bf-error-color);
+
+/* Button */
+--bf-button-padding-y: 10px;
+--bf-button-padding-x: 24px;
+--bf-button-radius: 6px;
+--bf-button-bg: #2f80ed;
+--bf-button-text: #fff;
+--bf-button-font-size: 14px;
+
+/* Gutenberg block overrides (on .shapeforms-block-wrap) */
+--bfb-form-max-width, --bfb-form-padding, --bfb-form-bg
+--bfb-label-color, --bfb-label-font-size
+--bfb-field-height, --bfb-field-padding, --bfb-field-bg, --bfb-field-text
+--bfb-field-border-width, --bfb-field-border-color, --bfb-field-radius
+--bfb-focus-color, --bfb-focus-bg
+--bfb-btn-padding, --bfb-btn-bg, --bfb-btn-text, --bfb-btn-hover-bg, --bfb-btn-radius
+--bfb-error-color, --bfb-required-color</code></pre>
+
+<!-- AJAX Endpoints -->
+<h2 id="rest-ajax">AJAX Endpoints</h2>
+
+<table>
+  <thead><tr><th>Action</th><th>Purpose</th><th>Auth</th></tr></thead>
+  <tbody>
+    <tr><td><code>shapeforms_lite_submit_form</code></td><td>Form submission</td><td>Public (nopriv)</td></tr>
+    <tr><td><code>shapeforms_lite_save_form</code></td><td>Save form in builder</td><td>Admin only</td></tr>
+    <tr><td><code>shapeforms_connection_save</code></td><td>Save integration connection</td><td>Admin only</td></tr>
+    <tr><td><code>shapeforms_connection_delete</code></td><td>Delete integration connection</td><td>Admin only</td></tr>
+    <tr><td><code>shapeforms_connection_toggle</code></td><td>Enable/disable connection</td><td>Admin only</td></tr>
+    <tr><td><code>shapeforms_connection_test</code></td><td>Test integration &amp; validate credentials</td><td>Admin only</td></tr>
+    <tr><td><code>shapeforms_connection_fetch_lists</code></td><td>Fetch lists for saved connection</td><td>Admin only</td></tr>
+  </tbody>
+</table>
+
+<!-- File Structure -->
+<h2 id="file-structure">File Structure</h2>
+
+<pre><code>shapeforms/
+  shapeforms.php          # Plugin bootstrap
+  uninstall.php              # Cleanup on uninstall
+  readme.txt                 # WordPress.org readme
+
+  admin/
+    class-shapeforms-lite-admin.php             # Admin pages, menus, builder data
+    admin-builder.php                         # Builder page template
+    ajax-save.php                             # AJAX form save handler
+    class-shapeforms-lite-export-import.php     # Export/import tools
+    class-shapeforms-lite-integrations-page.php # Integrations admin page
+
+  includes/
+    class-shapeforms-lite.php                   # Main plugin class (singleton)
+    class-shapeforms-lite-activator.php         # Activation &amp; table creation
+    class-shapeforms-lite-loader.php            # Hook registration helper
+    class-shapeforms-lite-email-handler.php     # Email notification handler
+    class-shapeforms-lite-integrations.php      # Per-form integration dispatch
+    class-shapeforms-lite-cache.php             # Cache purge helpers
+    class-shapeforms-lite-privacy.php           # GDPR exporter &amp; eraser
+
+  public/
+    class-shapeforms-lite-shortcode.php         # Shortcode rendering
+    class-shapeforms-lite-form-handler.php      # Submission processing
+    class-shapeforms-lite-block.php             # Gutenberg block
+    class-shapeforms-lite-elementor.php         # Elementor bootstrap
+    class-shapeforms-lite-elementor-widget.php  # Elementor widget
+
+  assets/
+    css/
+      frontend.css      # Frontend form styles
+      builder.css       # Admin builder styles
+      settings.css      # Admin settings/entries/reports styles
+      integrations.css  # Per-form integrations panel
+      integrations-page.css  # Global integrations page
+    js/
+      frontend.js       # Frontend form logic (AJAX, validation, pickers)
+      builder.js        # Admin builder logic
+      block-form.js     # Gutenberg block editor script
+      integrations.js   # Per-form integrations panel
+      integrations-page.js  # Global integrations page
+      flatpickr.min.js  # Date/time picker library
+      sortable.js       # Drag &amp; drop library
+
+  languages/
+    shapeforms.pot   # Translation template
+
+  docs/
+    user-guide.html     # User documentation
+    developer-guide.html  # This file</code></pre>
+
+<hr style="margin:48px 0 24px;border:none;border-top:1px solid var(--bf-border)">
+<p style="font-size:13px;color:var(--bf-muted)">ShapeForms v1.1.8 &mdash; Developer Guide &mdash; &copy; Shapekode</p>
+
+</main>
+</div>
+
+<script>
+(function(){
+  var links=document.querySelectorAll('.bf-sidebar__link');
+  var sections=[];
+  links.forEach(function(l){var h=l.getAttribute('href');if(h&&h.charAt(0)==='#'){var el=document.getElementById(h.slice(1));if(el)sections.push({link:l,el:el})}});
+  function update(){var st=window.scrollY+80;sections.forEach(function(s){s.link.classList.remove('is-active')});for(var i=sections.length-1;i>=0;i--){if(sections[i].el.offsetTop<=st){sections[i].link.classList.add('is-active');break}}}
+  window.addEventListener('scroll',update);update();
+})();
+</script>
+
+</body>
+</html>
