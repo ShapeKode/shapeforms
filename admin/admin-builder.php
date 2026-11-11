@@ -218,7 +218,7 @@ $shapeforms_lite_field_groups = apply_filters( 'shapeforms_builder_field_groups'
 								 *
 								 * @param bool $show Whether to show the teaser. Defaults to shapeforms_show_upgrade_cta.
 								 */
-								if ( apply_filters( 'shapeforms_show_locked_fields_teaser', apply_filters( 'shapeforms_show_upgrade_cta', true ) ) ) :
+								if ( apply_filters( 'shapeforms_show_locked_fields_teaser', apply_filters( 'shapeforms_show_upgrade_cta', false ) ) ) :
 									$shapeforms_lite_premium_fields = array(
 										array( 'label' => __( 'Page Break', 'shapeforms' ), 'icon' => 'dashicons-layout' ),
 										array( 'label' => __( 'Payment Item', 'shapeforms' ), 'icon' => 'dashicons-tag' ),
@@ -446,7 +446,7 @@ $shapeforms_lite_field_groups = apply_filters( 'shapeforms_builder_field_groups'
  * only while the upgrade CTAs are shown, so it disappears (with the teaser that
  * opens it) once an add-on turns shapeforms_show_upgrade_cta off.
  */
-if ( apply_filters( 'shapeforms_show_upgrade_cta', true ) ) :
+if ( apply_filters( 'shapeforms_show_upgrade_cta', false ) ) :
 	?>
 	<div class="shapeforms-upgrade-modal" id="shapeforms-shortcode-upgrade-modal" hidden>
 		<div class="shapeforms-upgrade-modal__backdrop" data-shapeforms-upgrade-close></div>
@@ -550,7 +550,7 @@ endif;
 // shapeforms_show_upgrade_cta block above, so an add-on can keep this ONE
 // contextual teaser+modal on without reinstating the others (shortcode/template/
 // email/attachment/routing teasers) it may still want suppressed.
-if ( apply_filters( 'shapeforms_show_locked_fields_teaser', apply_filters( 'shapeforms_show_upgrade_cta', true ) ) ) :
+if ( apply_filters( 'shapeforms_show_locked_fields_teaser', apply_filters( 'shapeforms_show_upgrade_cta', false ) ) ) :
 	?>
 	<div class="shapeforms-upgrade-modal" id="shapeforms-fields-upgrade-modal" hidden>
 		<div class="shapeforms-upgrade-modal__backdrop" data-shapeforms-upgrade-close></div>

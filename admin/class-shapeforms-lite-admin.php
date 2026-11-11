@@ -226,7 +226,7 @@ class ShapeForms_Lite_Admin {
 	 * @return array<string, string>
 	 */
 	public function add_plugin_action_links( $links ) {
-		if ( ! apply_filters( 'shapeforms_show_upgrade_cta', true ) ) {
+		if ( ! apply_filters( 'shapeforms_show_upgrade_cta', false ) ) {
 			return $links;
 		}
 
@@ -1258,7 +1258,7 @@ class ShapeForms_Lite_Admin {
 					// correctly falsy. Do NOT "simplify" it to `? 1 : 0` -- that arrives
 					// as the string '0', which is truthy, and the teaser would then show
 					// even with an add-on active.
-					'showUpgradeCta'     => (bool) apply_filters( 'shapeforms_show_upgrade_cta', true ),
+					'showUpgradeCta'     => (bool) apply_filters( 'shapeforms_show_upgrade_cta', false ),
 					// Same bool rule as showUpgradeCta above. Gates ONLY the template
 					// library's locked rows, so an add-on that suppresses the shared CTAs
 					// can still advertise templates it has not unlocked yet.
@@ -1791,7 +1791,7 @@ class ShapeForms_Lite_Admin {
 		 */
 		return (bool) apply_filters(
 			'shapeforms_show_locked_templates_teaser',
-			apply_filters( 'shapeforms_show_upgrade_cta', true )
+			apply_filters( 'shapeforms_show_upgrade_cta', false )
 		);
 	}
 
@@ -1821,7 +1821,7 @@ class ShapeForms_Lite_Admin {
 		 */
 		return (bool) apply_filters(
 			'shapeforms_show_locked_export_teaser',
-			apply_filters( 'shapeforms_show_upgrade_cta', true )
+			apply_filters( 'shapeforms_show_upgrade_cta', false )
 		);
 	}
 
@@ -2229,7 +2229,7 @@ class ShapeForms_Lite_Admin {
 	 * @return void
 	 */
 	public function render_header_upgrade() {
-		if ( ! apply_filters( 'shapeforms_show_upgrade_cta', true ) ) {
+		if ( ! apply_filters( 'shapeforms_show_upgrade_cta', false ) ) {
 			return;
 		}
 		?>

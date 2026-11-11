@@ -439,7 +439,7 @@ class ShapeForms_Lite_Integrations_Page {
 	 * @return void
 	 */
 	private function render_header_upgrade(): void {
-		if ( ! apply_filters( 'shapeforms_show_upgrade_cta', true ) ) {
+		if ( ! apply_filters( 'shapeforms_show_upgrade_cta', false ) ) {
 			return;
 		}
 		?>
