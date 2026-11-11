@@ -15,10 +15,23 @@ msgstr ""
 
 #. Plugin Name of the plugin
 #: shapeforms.php
+#: admin/class-shapeforms-lite-admin.php:109
+#: admin/class-shapeforms-lite-admin.php:110
+#: admin/class-shapeforms-lite-admin.php:2156
+#: admin/class-shapeforms-lite-admin.php:2552
+#: admin/class-shapeforms-lite-integrations-page.php:377
+#: includes/class-shapeforms-lite-email-handler.php:161
+#: includes/class-shapeforms-lite-email-handler.php:170
+#: includes/class-shapeforms-lite-email-handler.php:415
+#: public/class-shapeforms-lite-elementor-widget.php:52
+#: public/class-shapeforms-lite-elementor-widget.php:128
+#: assets/js/block-form.js:16
+#: assets/js/block-form.js:95
 msgid "ShapeForms"
 msgstr ""
 
 #. Plugin URI of the plugin
+#. Author URI of the plugin
 #: shapeforms.php
 msgid "https://shapekode.com/"
 msgstr ""
@@ -33,18 +46,13 @@ msgstr ""
 msgid "Shapekode"
 msgstr ""
 
-#. Author URI of the plugin
-#: shapeforms.php
-msgid "https://shapekode.com/"
-msgstr ""
-
 #: admin/admin-builder.php:13
-#: admin/class-shapeforms-lite-admin.php:987
+#: admin/class-shapeforms-lite-admin.php:925
 msgid "Basic Fields"
 msgstr ""
 
 #: admin/admin-builder.php:14
-#: admin/class-shapeforms-lite-admin.php:988
+#: admin/class-shapeforms-lite-admin.php:926
 msgid "Advanced Fields"
 msgstr ""
 
@@ -58,7 +66,7 @@ msgstr ""
 
 #: admin/admin-builder.php:66
 #: admin/admin-builder.php:337
-#: admin/class-shapeforms-lite-admin.php:1000
+#: admin/class-shapeforms-lite-admin.php:938
 msgid "Blank Form"
 msgstr ""
 
@@ -85,8 +93,8 @@ msgstr ""
 
 #: admin/admin-builder.php:102
 #: admin/ajax-save.php:81
-#: admin/class-shapeforms-lite-admin.php:889
-#: admin/class-shapeforms-lite-admin.php:6039
+#: admin/class-shapeforms-lite-admin.php:827
+#: admin/class-shapeforms-lite-admin.php:5608
 msgid "Untitled Form"
 msgstr ""
 
@@ -99,38 +107,38 @@ msgid "Builder"
 msgstr ""
 
 #: admin/admin-builder.php:111
-#: admin/class-shapeforms-lite-admin.php:951
-#: admin/class-shapeforms-lite-admin.php:1202
-#: admin/class-shapeforms-lite-admin.php:1279
+#: admin/class-shapeforms-lite-admin.php:889
+#: admin/class-shapeforms-lite-admin.php:1140
+#: admin/class-shapeforms-lite-admin.php:1217
 msgid "Style"
 msgstr ""
 
 #: admin/admin-builder.php:114
-#: admin/class-shapeforms-lite-admin.php:166
-#: admin/class-shapeforms-lite-admin.php:167
-#: admin/class-shapeforms-lite-admin.php:2301
-#: admin/class-shapeforms-lite-admin.php:2853
-#: admin/class-shapeforms-lite-admin.php:3137
-#: admin/class-shapeforms-lite-integrations-page.php:330
-#: admin/class-shapeforms-lite-integrations-page.php:373
+#: admin/class-shapeforms-lite-admin.php:151
+#: admin/class-shapeforms-lite-admin.php:152
+#: admin/class-shapeforms-lite-admin.php:2121
+#: admin/class-shapeforms-lite-admin.php:2523
+#: admin/class-shapeforms-lite-admin.php:2807
+#: admin/class-shapeforms-lite-integrations-page.php:324
+#: admin/class-shapeforms-lite-integrations-page.php:367
 #: shapeforms.php:316
 msgid "Settings"
 msgstr ""
 
 #: admin/admin-builder.php:121
-#: admin/class-shapeforms-lite-admin.php:3034
-#: admin/class-shapeforms-lite-admin.php:3350
+#: admin/class-shapeforms-lite-admin.php:2704
+#: admin/class-shapeforms-lite-admin.php:2919
 msgid "Shortcode"
 msgstr ""
 
 #: admin/admin-builder.php:126
-#: admin/class-shapeforms-lite-admin.php:3096
-#: admin/class-shapeforms-lite-admin.php:3135
+#: admin/class-shapeforms-lite-admin.php:2766
+#: admin/class-shapeforms-lite-admin.php:2805
 msgid "Preview"
 msgstr ""
 
 #: admin/admin-builder.php:129
-#: admin/class-shapeforms-lite-admin.php:885
+#: admin/class-shapeforms-lite-admin.php:823
 msgid "Save Form"
 msgstr ""
 
@@ -210,8 +218,8 @@ msgid "Payments, multi-page breaks, repeaters, signatures and more — drag them
 msgstr ""
 
 #: admin/admin-builder.php:287
-#: admin/class-shapeforms-lite-admin.php:1037
-#: admin/class-shapeforms-lite-admin.php:2608
+#: admin/class-shapeforms-lite-admin.php:975
+#: admin/class-shapeforms-lite-admin.php:2395
 msgid "Upgrade Now"
 msgstr ""
 
@@ -220,7 +228,7 @@ msgid "Update the selected field properties."
 msgstr ""
 
 #: admin/admin-builder.php:303
-#: admin/class-shapeforms-lite-admin.php:888
+#: admin/class-shapeforms-lite-admin.php:826
 msgid "Select a field to edit its settings."
 msgstr ""
 
@@ -277,17 +285,17 @@ msgid "Preview device"
 msgstr ""
 
 #: admin/admin-builder.php:378
-#: admin/class-shapeforms-lite-admin.php:3344
+#: admin/class-shapeforms-lite-admin.php:2913
 msgid "Desktop"
 msgstr ""
 
 #: admin/admin-builder.php:379
-#: admin/class-shapeforms-lite-admin.php:3345
+#: admin/class-shapeforms-lite-admin.php:2914
 msgid "Tablet"
 msgstr ""
 
 #: admin/admin-builder.php:380
-#: admin/class-shapeforms-lite-admin.php:3346
+#: admin/class-shapeforms-lite-admin.php:2915
 #: shapeforms.php:311
 msgid "Mobile"
 msgstr ""
@@ -318,7 +326,7 @@ msgstr ""
 #: admin/admin-builder.php:530
 #: admin/admin-builder.php:558
 #: admin/admin-builder.php:586
-#: admin/class-shapeforms-lite-admin.php:2494
+#: admin/class-shapeforms-lite-admin.php:2281
 #: includes/class-shapeforms-lite-ai-builder.php:2043
 msgid "Close"
 msgstr ""
@@ -332,7 +340,7 @@ msgid "Choose a Template"
 msgstr ""
 
 #: admin/admin-builder.php:434
-#: admin/class-shapeforms-lite-admin.php:1011
+#: admin/class-shapeforms-lite-admin.php:949
 msgid "Import Template"
 msgstr ""
 
@@ -363,7 +371,7 @@ msgstr ""
 #: admin/admin-builder.php:541
 #: admin/admin-builder.php:569
 #: admin/admin-builder.php:598
-#: admin/class-shapeforms-lite-admin.php:2533
+#: admin/class-shapeforms-lite-admin.php:2320
 msgid "Maybe later"
 msgstr ""
 
@@ -506,7 +514,7 @@ msgid "Unable to update the form. Database error: %s"
 msgstr ""
 
 #: admin/ajax-save.php:142
-#: admin/class-shapeforms-lite-admin.php:1310
+#: admin/class-shapeforms-lite-admin.php:1248
 msgid "Unable to save the form."
 msgstr ""
 
@@ -517,21 +525,21 @@ msgid "Unable to save the form. Database error: %s"
 msgstr ""
 
 #: admin/ajax-save.php:179
-#: admin/class-shapeforms-lite-admin.php:1309
+#: admin/class-shapeforms-lite-admin.php:1247
 msgid "Form saved successfully."
 msgstr ""
 
 #: admin/ajax-save.php:549
-#: admin/class-shapeforms-lite-admin.php:893
-#: admin/class-shapeforms-lite-admin.php:6057
+#: admin/class-shapeforms-lite-admin.php:831
+#: admin/class-shapeforms-lite-admin.php:5626
 #: public/class-shapeforms-lite-form-handler.php:770
 #: public/class-shapeforms-lite-shortcode.php:738
 msgid "Thanks! Your form was submitted successfully."
 msgstr ""
 
 #: admin/ajax-save.php:550
-#: admin/class-shapeforms-lite-admin.php:894
-#: admin/class-shapeforms-lite-admin.php:6058
+#: admin/class-shapeforms-lite-admin.php:832
+#: admin/class-shapeforms-lite-admin.php:5627
 #: public/class-shapeforms-lite-form-handler.php:771
 #: public/class-shapeforms-lite-shortcode.php:739
 #: public/class-shapeforms-lite-shortcode.php:1417
@@ -540,871 +548,846 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:124
-#: admin/class-shapeforms-lite-admin.php:125
-#: admin/class-shapeforms-lite-admin.php:2369
-#: admin/class-shapeforms-lite-admin.php:2882
-#: admin/class-shapeforms-lite-integrations-page.php:403
-#: includes/class-shapeforms-lite-email-handler.php:161
-#: includes/class-shapeforms-lite-email-handler.php:170
-#: includes/class-shapeforms-lite-email-handler.php:415
-#: public/class-shapeforms-lite-elementor-widget.php:52
-#: public/class-shapeforms-lite-elementor-widget.php:128
-#: assets/js/block-form.js:16
-#: assets/js/block-form.js:95
-msgid "ShapeForms"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:137
-#: admin/class-shapeforms-lite-admin.php:138
-#: admin/class-shapeforms-lite-admin.php:2838
-#: admin/class-shapeforms-lite-admin.php:2969
-#: admin/class-shapeforms-lite-admin.php:3516
-#: admin/class-shapeforms-lite-admin.php:3534
+#: admin/class-shapeforms-lite-admin.php:122
+#: admin/class-shapeforms-lite-admin.php:123
+#: admin/class-shapeforms-lite-admin.php:2508
+#: admin/class-shapeforms-lite-admin.php:2639
+#: admin/class-shapeforms-lite-admin.php:3085
+#: admin/class-shapeforms-lite-admin.php:3103
 msgid "All Forms"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:146
-#: admin/class-shapeforms-lite-admin.php:3062
+#: admin/class-shapeforms-lite-admin.php:131
+#: admin/class-shapeforms-lite-admin.php:2732
 msgid "Add New Form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:147
-#: admin/class-shapeforms-lite-admin.php:2959
+#: admin/class-shapeforms-lite-admin.php:132
+#: admin/class-shapeforms-lite-admin.php:2629
 msgid "Add New"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:156
-#: admin/class-shapeforms-lite-admin.php:299
-#: admin/class-shapeforms-lite-admin.php:2283
-#: admin/class-shapeforms-lite-admin.php:2843
-#: admin/class-shapeforms-lite-admin.php:3035
-#: admin/class-shapeforms-lite-admin.php:3094
-#: admin/class-shapeforms-lite-admin.php:3134
-#: admin/class-shapeforms-lite-admin.php:3444
-#: admin/class-shapeforms-lite-admin.php:6867
+#: admin/class-shapeforms-lite-admin.php:141
+#: admin/class-shapeforms-lite-admin.php:250
+#: admin/class-shapeforms-lite-admin.php:2103
+#: admin/class-shapeforms-lite-admin.php:2513
+#: admin/class-shapeforms-lite-admin.php:2705
+#: admin/class-shapeforms-lite-admin.php:2764
+#: admin/class-shapeforms-lite-admin.php:2804
+#: admin/class-shapeforms-lite-admin.php:3013
+#: admin/class-shapeforms-lite-admin.php:6436
 #: admin/class-shapeforms-lite-export-import.php:101
-#: admin/class-shapeforms-lite-integrations-page.php:370
+#: admin/class-shapeforms-lite-integrations-page.php:364
 msgid "Entries"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:176
-#: admin/class-shapeforms-lite-admin.php:177
-#: admin/class-shapeforms-lite-admin.php:2289
-#: admin/class-shapeforms-lite-admin.php:2848
-#: admin/class-shapeforms-lite-admin.php:6734
-#: admin/class-shapeforms-lite-integrations-page.php:371
+#: admin/class-shapeforms-lite-admin.php:161
+#: admin/class-shapeforms-lite-admin.php:162
+#: admin/class-shapeforms-lite-admin.php:2109
+#: admin/class-shapeforms-lite-admin.php:2518
+#: admin/class-shapeforms-lite-admin.php:6303
+#: admin/class-shapeforms-lite-integrations-page.php:365
 msgid "Reports"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:186
-#: admin/class-shapeforms-lite-admin.php:187
-#: admin/class-shapeforms-lite-admin.php:459
-#: admin/class-shapeforms-lite-admin.php:3318
+#: admin/class-shapeforms-lite-admin.php:171
+#: admin/class-shapeforms-lite-admin.php:172
+#: admin/class-shapeforms-lite-admin.php:399
+#: admin/class-shapeforms-lite-admin.php:2887
 msgid "Preview Form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:198
-#: admin/class-shapeforms-lite-admin.php:199
-msgid "Help & Support"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:226
-#: admin/class-shapeforms-lite-admin.php:228
-#: admin/class-shapeforms-lite-admin.php:229
-#: admin/class-shapeforms-lite-admin.php:285
-#: admin/class-shapeforms-lite-admin.php:2428
-#: admin/class-shapeforms-lite-integrations-page.php:462
+#: admin/class-shapeforms-lite-admin.php:236
+#: admin/class-shapeforms-lite-admin.php:2215
+#: admin/class-shapeforms-lite-integrations-page.php:436
 msgid "Upgrade to Pro"
 msgstr ""
 
 #. translators: %s: number of unread entries.
-#: admin/class-shapeforms-lite-admin.php:314
+#: admin/class-shapeforms-lite-admin.php:265
 #, php-format
 msgid "%s unread entry"
 msgid_plural "%s unread entries"
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/class-shapeforms-lite-admin.php:555
+#: admin/class-shapeforms-lite-admin.php:495
 msgid "The SVG file could not be read."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:562
+#: admin/class-shapeforms-lite-admin.php:502
 msgid "This SVG could not be sanitized and was rejected for security reasons."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:866
+#: admin/class-shapeforms-lite-admin.php:804
 msgid "1 Column"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:871
+#: admin/class-shapeforms-lite-admin.php:809
 msgid "2 Columns"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:876
+#: admin/class-shapeforms-lite-admin.php:814
 msgid "3 Columns"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:881
+#: admin/class-shapeforms-lite-admin.php:819
 msgid "4 Columns"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:886
+#: admin/class-shapeforms-lite-admin.php:824
 msgid "Saving..."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:887
+#: admin/class-shapeforms-lite-admin.php:825
 msgid "Start building your form by adding a row, then drag or click fields into a column."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:890
+#: admin/class-shapeforms-lite-admin.php:828
 msgid "Option 1, Option 2"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:895
+#: admin/class-shapeforms-lite-admin.php:833
 #: includes/class-shapeforms-lite-ai-builder.php:1887
 msgid "Option 1"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:896
+#: admin/class-shapeforms-lite-admin.php:834
 #: includes/class-shapeforms-lite-ai-builder.php:1888
 msgid "Option 2"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:897
+#: admin/class-shapeforms-lite-admin.php:835
 msgid "I agree to the <a href=\"#\">terms and conditions</a>."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:898
+#: admin/class-shapeforms-lite-admin.php:836
 msgid "Add a short description for this section."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:904
+#: admin/class-shapeforms-lite-admin.php:842
 msgid "Enter text"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:905
-#: admin/class-shapeforms-lite-admin.php:4203
+#: admin/class-shapeforms-lite-admin.php:843
+#: admin/class-shapeforms-lite-admin.php:3772
 msgid "you@example.com"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:906
+#: admin/class-shapeforms-lite-admin.php:844
 msgid "https://example.com"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:907
+#: admin/class-shapeforms-lite-admin.php:845
 msgid "+1 (555) 000-0000"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:908
-#: admin/class-shapeforms-lite-admin.php:909
+#: admin/class-shapeforms-lite-admin.php:846
+#: admin/class-shapeforms-lite-admin.php:847
 msgid "Enter a number"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:910
+#: admin/class-shapeforms-lite-admin.php:848
 msgid "Enter your message"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:911
+#: admin/class-shapeforms-lite-admin.php:849
 msgid "Select…"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:912
+#: admin/class-shapeforms-lite-admin.php:850
 msgid "Select options…"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:913
+#: admin/class-shapeforms-lite-admin.php:851
 msgid "Select a date"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:914
+#: admin/class-shapeforms-lite-admin.php:852
 msgid "Select a time"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:915
-#: admin/class-shapeforms-lite-admin.php:4278
+#: admin/class-shapeforms-lite-admin.php:853
+#: admin/class-shapeforms-lite-admin.php:3847
 msgid "Password"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:916
+#: admin/class-shapeforms-lite-admin.php:854
 msgid "Select date range"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:917
+#: admin/class-shapeforms-lite-admin.php:855
 msgid "Type to search…"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:921
-#: admin/class-shapeforms-lite-admin.php:3092
-#: admin/class-shapeforms-lite-admin.php:3136
+#: admin/class-shapeforms-lite-admin.php:859
+#: admin/class-shapeforms-lite-admin.php:2762
+#: admin/class-shapeforms-lite-admin.php:2806
 msgid "Duplicate"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:922
-#: admin/class-shapeforms-lite-admin.php:3083
-#: admin/class-shapeforms-lite-admin.php:3131
-#: admin/class-shapeforms-lite-integrations-page.php:188
+#: admin/class-shapeforms-lite-admin.php:860
+#: admin/class-shapeforms-lite-admin.php:2753
+#: admin/class-shapeforms-lite-admin.php:2801
+#: admin/class-shapeforms-lite-integrations-page.php:182
 msgid "Delete"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:923
+#: admin/class-shapeforms-lite-admin.php:861
 msgid "Add Row"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:927
+#: admin/class-shapeforms-lite-admin.php:865
 msgid "Row added."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:928
+#: admin/class-shapeforms-lite-admin.php:866
 msgid "Row deleted."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:929
+#: admin/class-shapeforms-lite-admin.php:867
 msgid "Row duplicated."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:930
+#: admin/class-shapeforms-lite-admin.php:868
 msgid "Field added."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:931
+#: admin/class-shapeforms-lite-admin.php:869
 msgid "Field deleted."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:932
+#: admin/class-shapeforms-lite-admin.php:870
 msgid "Field duplicated."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:935
+#: admin/class-shapeforms-lite-admin.php:873
 msgid "Label"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:936
+#: admin/class-shapeforms-lite-admin.php:874
 msgid "Selected Field"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:937
-#: admin/class-shapeforms-lite-admin.php:1174
+#: admin/class-shapeforms-lite-admin.php:875
+#: admin/class-shapeforms-lite-admin.php:1112
 #: public/class-shapeforms-lite-elementor-widget.php:701
 msgid "Placeholder"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:938
+#: admin/class-shapeforms-lite-admin.php:876
 msgid "Default Value"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:939
+#: admin/class-shapeforms-lite-admin.php:877
 msgid "Required"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:940
+#: admin/class-shapeforms-lite-admin.php:878
 msgid "Custom error message"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:941
+#: admin/class-shapeforms-lite-admin.php:879
 #: admin/migrator/sources/class-shapeforms-lite-source-cf7.php:854
 #: public/class-shapeforms-lite-elementor-widget.php:1136
 msgid "Options"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:942
+#: admin/class-shapeforms-lite-admin.php:880
 msgid "Separate options with commas."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:943
+#: admin/class-shapeforms-lite-admin.php:881
 msgid "Options Layout"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:944
+#: admin/class-shapeforms-lite-admin.php:882
 msgid "Stacked (default)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:945
+#: admin/class-shapeforms-lite-admin.php:883
 msgid "Inline"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:946
-#: admin/class-shapeforms-lite-integrations-page.php:351
+#: admin/class-shapeforms-lite-admin.php:884
+#: admin/class-shapeforms-lite-integrations-page.php:345
 #: includes/class-shapeforms-lite-ai-builder.php:2042
 msgid "Cancel"
 msgstr ""
 
 #. translators: %s: design theme name, e.g. "Royal Purple".
-#: admin/class-shapeforms-lite-admin.php:948
+#: admin/class-shapeforms-lite-admin.php:886
 #, php-format
 msgid "Apply %s?"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:949
+#: admin/class-shapeforms-lite-admin.php:887
 msgid "These custom colors are overriding the theme. Applying it will replace them:"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:950
+#: admin/class-shapeforms-lite-admin.php:888
 msgid "Apply theme"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:952
-#: admin/class-shapeforms-lite-admin.php:6543
+#: admin/class-shapeforms-lite-admin.php:890
+#: admin/class-shapeforms-lite-admin.php:6112
 #: public/class-shapeforms-lite-elementor-widget.php:1321
 msgid "Checkbox"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:953
+#: admin/class-shapeforms-lite-admin.php:891
 msgid "Switch"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:954
+#: admin/class-shapeforms-lite-admin.php:892
 msgid "Add button alignment"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:955
+#: admin/class-shapeforms-lite-admin.php:893
 msgid "Form default"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:956
+#: admin/class-shapeforms-lite-admin.php:894
 msgid "Hide label"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:957
+#: admin/class-shapeforms-lite-admin.php:895
 msgid "Remove button position"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:958
+#: admin/class-shapeforms-lite-admin.php:896
 msgid "Top of the row"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:959
+#: admin/class-shapeforms-lite-admin.php:897
 msgid "Bottom of the row"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:962
+#: admin/class-shapeforms-lite-admin.php:900
 msgid "Options appearance"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:963
+#: admin/class-shapeforms-lite-admin.php:901
 msgid "Empty follows the form style"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:964
+#: admin/class-shapeforms-lite-admin.php:902
 msgid "Reset"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:967
+#: admin/class-shapeforms-lite-admin.php:905
 msgid "Choose an icon"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:968
+#: admin/class-shapeforms-lite-admin.php:906
 msgid "Icons"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:969
+#: admin/class-shapeforms-lite-admin.php:907
 msgid "SVG"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:970
+#: admin/class-shapeforms-lite-admin.php:908
 #: shapeforms.php:305
 msgid "Image"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:971
+#: admin/class-shapeforms-lite-admin.php:909
 msgid "Upload or choose an SVG"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:972
+#: admin/class-shapeforms-lite-admin.php:910
 msgid "Upload or choose an image"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:973
+#: admin/class-shapeforms-lite-admin.php:911
 msgid "Use this file"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:974
+#: admin/class-shapeforms-lite-admin.php:912
 msgid "SVG files from your Media Library. Every upload is cleaned before it is stored."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:975
+#: admin/class-shapeforms-lite-admin.php:913
 msgid "PNG, JPG, GIF or WebP from your Media Library."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:976
+#: admin/class-shapeforms-lite-admin.php:914
 msgid "Click to choose a different file"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:977
+#: admin/class-shapeforms-lite-admin.php:915
 msgid "Custom image"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:980
+#: admin/class-shapeforms-lite-admin.php:918
 msgid "Option value"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:981
+#: admin/class-shapeforms-lite-admin.php:919
 msgid "Add Option"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:982
+#: admin/class-shapeforms-lite-admin.php:920
 msgid "Remove icon"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:983
+#: admin/class-shapeforms-lite-admin.php:921
 msgid "Search icons"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:984
+#: admin/class-shapeforms-lite-admin.php:922
 msgid "No icons match."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:985
+#: admin/class-shapeforms-lite-admin.php:923
 msgid "Column Width"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:986
+#: admin/class-shapeforms-lite-admin.php:924
 msgid "Layout"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:989
+#: admin/class-shapeforms-lite-admin.php:927
 msgid "Row"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:990
+#: admin/class-shapeforms-lite-admin.php:928
 msgid "columns"
 msgstr ""
 
 #. translators: 1: this screen's number, 2: total number of screens. Shown on each question card in the builder when conversational mode is on.
-#: admin/class-shapeforms-lite-admin.php:992
+#: admin/class-shapeforms-lite-admin.php:930
 #, php-format
 msgid "Screen %1$s of %2$s"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:993
+#: admin/class-shapeforms-lite-admin.php:931
 msgid "Not a screen — this field renders nothing for the visitor."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:994
+#: admin/class-shapeforms-lite-admin.php:932
 msgid "Default Screen Colours"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:995
+#: admin/class-shapeforms-lite-admin.php:933
 msgid "The starting point for every screen. Any screen can override these from its own settings, and a colour you leave untouched here inherits your form's existing style."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:996
+#: admin/class-shapeforms-lite-admin.php:934
 msgid "Conversational mode is off for this form. Turn it on under Settings → Conversational to style it."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:997
+#: admin/class-shapeforms-lite-admin.php:935
 msgid "fields"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:998
+#: admin/class-shapeforms-lite-admin.php:936
 msgid "Drop a field here"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:999
+#: admin/class-shapeforms-lite-admin.php:937
 msgid "or click one in the Field Library"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1001
+#: admin/class-shapeforms-lite-admin.php:939
 msgid "Contact Form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1002
+#: admin/class-shapeforms-lite-admin.php:940
 msgid "Lead Capture Form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1003
+#: admin/class-shapeforms-lite-admin.php:941
 msgid "A simple contact form with name, email, subject, and message."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1004
+#: admin/class-shapeforms-lite-admin.php:942
 msgid "A lead form for collecting contact details, budget, and project needs."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1005
+#: admin/class-shapeforms-lite-admin.php:943
 msgid "Feedback Form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1006
+#: admin/class-shapeforms-lite-admin.php:944
 msgid "Collect user feedback with rating and comments."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1007
+#: admin/class-shapeforms-lite-admin.php:945
 msgid "Newsletter Signup"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1008
+#: admin/class-shapeforms-lite-admin.php:946
 msgid "Simple email signup with name for newsletters."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1009
+#: admin/class-shapeforms-lite-admin.php:947
 msgid "Registration Form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1010
+#: admin/class-shapeforms-lite-admin.php:948
 msgid "Event or account registration with full details."
 msgstr ""
 
 #. translators: %s: comma-separated list of feature names that must be enabled.
-#: admin/class-shapeforms-lite-admin.php:1013
+#: admin/class-shapeforms-lite-admin.php:951
 #, php-format
 msgid "This template uses %s, which is currently disabled. Enable it in Settings for the form to work fully."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1026
-#: admin/class-shapeforms-lite-admin.php:1080
+#: admin/class-shapeforms-lite-admin.php:964
+#: admin/class-shapeforms-lite-admin.php:1018
 msgid "Available with an upgrade"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1036
+#: admin/class-shapeforms-lite-admin.php:974
 msgid "This ready-made form is not included here. Upgrade to import it in one click, along with every other template in the library."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1038
+#: admin/class-shapeforms-lite-admin.php:976
 msgid "Enable AJAX submit"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1039
+#: admin/class-shapeforms-lite-admin.php:977
 msgid "Enable redirect after submit"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1040
+#: admin/class-shapeforms-lite-admin.php:978
 msgid "Redirect URL"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1041
+#: admin/class-shapeforms-lite-admin.php:979
 msgid "Thank you message"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1044
+#: admin/class-shapeforms-lite-admin.php:982
 msgid "Visual"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1045
+#: admin/class-shapeforms-lite-admin.php:983
 msgid "Code"
 msgstr ""
 
 #. translators: %s: call-to-action label, e.g. "Upgrade".
-#: admin/class-shapeforms-lite-admin.php:1057
+#: admin/class-shapeforms-lite-admin.php:995
 #, php-format
 msgid "Submitted-data shortcodes — %s"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1058
-#: admin/class-shapeforms-lite-admin.php:1064
-#: admin/class-shapeforms-lite-admin.php:1070
-#: admin/class-shapeforms-lite-admin.php:1076
-#: admin/class-shapeforms-lite-admin.php:1079
-#: admin/class-shapeforms-lite-admin.php:2360
-#: admin/class-shapeforms-lite-integrations-page.php:394
+#: admin/class-shapeforms-lite-admin.php:996
+#: admin/class-shapeforms-lite-admin.php:1002
+#: admin/class-shapeforms-lite-admin.php:1008
+#: admin/class-shapeforms-lite-admin.php:1014
+#: admin/class-shapeforms-lite-admin.php:1017
 msgid "Upgrade"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1060
+#: admin/class-shapeforms-lite-admin.php:998
 msgid "Insert submitted data into the message with an upgrade."
 msgstr ""
 
 #. translators: %s: call-to-action label, e.g. "Upgrade".
-#: admin/class-shapeforms-lite-admin.php:1063
+#: admin/class-shapeforms-lite-admin.php:1001
 #, php-format
 msgid "Custom email editor — %s"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1066
+#: admin/class-shapeforms-lite-admin.php:1004
 msgid "Write your own subject and message for this email with an upgrade."
 msgstr ""
 
 #. translators: %s: call-to-action label, e.g. "Upgrade".
-#: admin/class-shapeforms-lite-admin.php:1069
+#: admin/class-shapeforms-lite-admin.php:1007
 #, php-format
 msgid "PDF attachments — %s"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1072
+#: admin/class-shapeforms-lite-admin.php:1010
 msgid "Attach a PDF of each submission to this email with an upgrade."
 msgstr ""
 
 #. translators: %s: call-to-action label, e.g. "Upgrade".
-#: admin/class-shapeforms-lite-admin.php:1075
+#: admin/class-shapeforms-lite-admin.php:1013
 #, php-format
 msgid "Conditional recipients — %s"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1078
+#: admin/class-shapeforms-lite-admin.php:1016
 msgid "Route this notification to different people based on what was answered, with an upgrade."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1081
+#: admin/class-shapeforms-lite-admin.php:1019
 msgid "Submission Settings"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1082
+#: admin/class-shapeforms-lite-admin.php:1020
 msgid "After Submit"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1083
+#: admin/class-shapeforms-lite-admin.php:1021
 msgid "AJAX submit"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1084
+#: admin/class-shapeforms-lite-admin.php:1022
 msgid "Submit without page reload and show a success message."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1085
+#: admin/class-shapeforms-lite-admin.php:1023
 msgid "Custom page redirect"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1086
+#: admin/class-shapeforms-lite-admin.php:1024
 msgid "Send the user to a custom URL after submit."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1087
+#: admin/class-shapeforms-lite-admin.php:1025
 msgid "Enable admin email"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1088
+#: admin/class-shapeforms-lite-admin.php:1026
 msgid "Enable user confirmation email"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1089
+#: admin/class-shapeforms-lite-admin.php:1027
 msgid "Admin email address"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1090
+#: admin/class-shapeforms-lite-admin.php:1028
 msgid "Admin Email Recipient"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1091
+#: admin/class-shapeforms-lite-admin.php:1029
 msgid "Site admin email"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1092
+#: admin/class-shapeforms-lite-admin.php:1030
 msgid "Use the email address from WordPress settings."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1093
+#: admin/class-shapeforms-lite-admin.php:1031
 msgid "Custom email"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1094
+#: admin/class-shapeforms-lite-admin.php:1032
 msgid "Send notifications to a custom email address."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1095
+#: admin/class-shapeforms-lite-admin.php:1033
 msgid "Admin Notifications"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1096
+#: admin/class-shapeforms-lite-admin.php:1034
 msgid "User Confirmation Email"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1097
+#: admin/class-shapeforms-lite-admin.php:1035
 msgid "Terms text"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1098
+#: admin/class-shapeforms-lite-admin.php:1036
 msgid "This field will use the captcha provider selected in global settings."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1099
+#: admin/class-shapeforms-lite-admin.php:1037
 msgid "Zone Colors"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1100
+#: admin/class-shapeforms-lite-admin.php:1038
 msgid "Detractors (0–6)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1101
+#: admin/class-shapeforms-lite-admin.php:1039
 msgid "Passives (7–8)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1102
+#: admin/class-shapeforms-lite-admin.php:1040
 msgid "Promoters (9–10)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1103
+#: admin/class-shapeforms-lite-admin.php:1041
 msgid "Reset to default"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1104
+#: admin/class-shapeforms-lite-admin.php:1042
 msgid "Icon Size (px)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1105
+#: admin/class-shapeforms-lite-admin.php:1043
 msgid "Star Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1106
+#: admin/class-shapeforms-lite-admin.php:1044
 msgid "Active Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1107
+#: admin/class-shapeforms-lite-admin.php:1045
 #: public/class-shapeforms-lite-shortcode.php:2187
 msgid "Choose file or drag & drop"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1108
+#: admin/class-shapeforms-lite-admin.php:1046
 msgid "Allowed file types"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1109
+#: admin/class-shapeforms-lite-admin.php:1047
 msgid "Max file size (MB)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1110
+#: admin/class-shapeforms-lite-admin.php:1048
 #: public/class-shapeforms-lite-elementor-widget.php:1838
 msgid "Description"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1111
-#: admin/class-shapeforms-lite-admin.php:1180
-#: admin/class-shapeforms-lite-admin.php:6623
+#: admin/class-shapeforms-lite-admin.php:1049
+#: admin/class-shapeforms-lite-admin.php:1118
+#: admin/class-shapeforms-lite-admin.php:6192
 #: public/class-shapeforms-lite-elementor-widget.php:1881
 msgid "Submit Button"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1112
+#: admin/class-shapeforms-lite-admin.php:1050
 msgid "Button text"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1113
+#: admin/class-shapeforms-lite-admin.php:1051
 msgid "Button alignment"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1114
+#: admin/class-shapeforms-lite-admin.php:1052
 msgid "Button layout"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1115
+#: admin/class-shapeforms-lite-admin.php:1053
 msgid "Icon"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1116
-#: admin/class-shapeforms-lite-admin.php:1118
+#: admin/class-shapeforms-lite-admin.php:1054
+#: admin/class-shapeforms-lite-admin.php:1056
 msgid "Dashicon"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1117
+#: admin/class-shapeforms-lite-admin.php:1055
 msgid "Custom SVG"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1119
+#: admin/class-shapeforms-lite-admin.php:1057
 msgid "Upload SVG"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1120
+#: admin/class-shapeforms-lite-admin.php:1058
 msgid "Change SVG"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1121
+#: admin/class-shapeforms-lite-admin.php:1059
 msgid "Use this SVG"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1122
+#: admin/class-shapeforms-lite-admin.php:1060
 msgid "SVG Icon"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1123
+#: admin/class-shapeforms-lite-admin.php:1061
 msgid "Icon position"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1124
+#: admin/class-shapeforms-lite-admin.php:1062
 msgid "Icon gap (px)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1125
+#: admin/class-shapeforms-lite-admin.php:1063
 msgid "CSS Class"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1126
+#: admin/class-shapeforms-lite-admin.php:1064
 msgid "Auto Populate Key"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1127
+#: admin/class-shapeforms-lite-admin.php:1065
 msgid "Pre-fill from URL parameter (?key=value) or logged-in user data (email, first_name, last_name, display_name). Pro: also meta_*, post_meta_*, query_*."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1128
+#: admin/class-shapeforms-lite-admin.php:1066
 msgid "Row settings"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1129
+#: admin/class-shapeforms-lite-admin.php:1067
 msgid "Move up"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1130
+#: admin/class-shapeforms-lite-admin.php:1068
 msgid "Move down"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1131
+#: admin/class-shapeforms-lite-admin.php:1069
 msgid "Column"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1132
-#: admin/class-shapeforms-lite-admin.php:1280
+#: admin/class-shapeforms-lite-admin.php:1070
+#: admin/class-shapeforms-lite-admin.php:1218
 msgid "Width"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1133
+#: admin/class-shapeforms-lite-admin.php:1071
 msgid "Below fields"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1134
+#: admin/class-shapeforms-lite-admin.php:1072
 msgid "Inline with last row"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1135
+#: admin/class-shapeforms-lite-admin.php:1073
 msgid "Button color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1136
+#: admin/class-shapeforms-lite-admin.php:1074
 msgid "Field Appearance"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1137
+#: admin/class-shapeforms-lite-admin.php:1075
 msgid "Field style"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1138
+#: admin/class-shapeforms-lite-admin.php:1076
 msgid "Field size"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1139
+#: admin/class-shapeforms-lite-admin.php:1077
 msgid "Focus color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1140
+#: admin/class-shapeforms-lite-admin.php:1078
 msgid "Field Styles"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1141
+#: admin/class-shapeforms-lite-admin.php:1079
 msgid "Label Styles"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1142
+#: admin/class-shapeforms-lite-admin.php:1080
 msgid "Button Styles"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1143
+#: admin/class-shapeforms-lite-admin.php:1081
 msgid "Add fields in the Builder tab to preview your styling here."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1144
-#: shapeforms.php:322
+#: admin/class-shapeforms-lite-admin.php:1082
 #: public/class-shapeforms-lite-elementor-widget.php:740
+#: shapeforms.php:322
 msgid "Size"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1145
+#: admin/class-shapeforms-lite-admin.php:1083
 #: public/class-shapeforms-lite-elementor-widget.php:1733
 msgid "Border"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1146
+#: admin/class-shapeforms-lite-admin.php:1084
 msgid "Border Size"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1147
+#: admin/class-shapeforms-lite-admin.php:1085
 #: public/class-shapeforms-lite-elementor-widget.php:258
 #: public/class-shapeforms-lite-elementor-widget.php:545
 #: public/class-shapeforms-lite-elementor-widget.php:910
@@ -1415,7 +1398,7 @@ msgstr ""
 msgid "Border Radius"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1148
+#: admin/class-shapeforms-lite-admin.php:1086
 #: public/class-shapeforms-lite-elementor-widget.php:807
 #: public/class-shapeforms-lite-elementor-widget.php:830
 #: public/class-shapeforms-lite-elementor-widget.php:947
@@ -1428,172 +1411,172 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1149
-#: admin/class-shapeforms-lite-admin.php:6498
+#: admin/class-shapeforms-lite-admin.php:1087
+#: admin/class-shapeforms-lite-admin.php:6067
 #: admin/migrator/sources/class-shapeforms-lite-source-cf7.php:846
 #: shapeforms.php:319
 msgid "Text"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1150
-#: admin/class-shapeforms-lite-admin.php:1203
-#: admin/class-shapeforms-lite-admin.php:1287
+#: admin/class-shapeforms-lite-admin.php:1088
+#: admin/class-shapeforms-lite-admin.php:1141
+#: admin/class-shapeforms-lite-admin.php:1225
 msgid "Default"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1151
+#: admin/class-shapeforms-lite-admin.php:1089
 msgid "Sublabel"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1152
+#: admin/class-shapeforms-lite-admin.php:1090
 msgid "Error"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1153
-#: admin/class-shapeforms-lite-admin.php:1275
+#: admin/class-shapeforms-lite-admin.php:1091
+#: admin/class-shapeforms-lite-admin.php:1213
 msgid "Solid"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1154
+#: admin/class-shapeforms-lite-admin.php:1092
 msgid "Dashed"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1155
-#: admin/class-shapeforms-lite-admin.php:4245
+#: admin/class-shapeforms-lite-admin.php:1093
+#: admin/class-shapeforms-lite-admin.php:3814
 msgid "None"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1156
+#: admin/class-shapeforms-lite-admin.php:1094
 msgid "Small"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1157
+#: admin/class-shapeforms-lite-admin.php:1095
 msgid "Medium"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1158
+#: admin/class-shapeforms-lite-admin.php:1096
 msgid "Large"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1159
-#: admin/class-shapeforms-lite-admin.php:1185
-#: admin/class-shapeforms-lite-admin.php:1286
+#: admin/class-shapeforms-lite-admin.php:1097
+#: admin/class-shapeforms-lite-admin.php:1123
+#: admin/class-shapeforms-lite-admin.php:1224
 #: public/class-shapeforms-lite-elementor-widget.php:210
 #: public/class-shapeforms-lite-elementor-widget.php:1893
 msgid "Left"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1160
-#: admin/class-shapeforms-lite-admin.php:1186
+#: admin/class-shapeforms-lite-admin.php:1098
+#: admin/class-shapeforms-lite-admin.php:1124
 #: public/class-shapeforms-lite-elementor-widget.php:214
 #: public/class-shapeforms-lite-elementor-widget.php:1897
 msgid "Center"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1161
-#: admin/class-shapeforms-lite-admin.php:1187
-#: admin/class-shapeforms-lite-admin.php:1284
+#: admin/class-shapeforms-lite-admin.php:1099
+#: admin/class-shapeforms-lite-admin.php:1125
+#: admin/class-shapeforms-lite-admin.php:1222
 #: public/class-shapeforms-lite-elementor-widget.php:218
 #: public/class-shapeforms-lite-elementor-widget.php:1901
 msgid "Right"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1162
+#: admin/class-shapeforms-lite-admin.php:1100
 msgid "Teal"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1163
+#: admin/class-shapeforms-lite-admin.php:1101
 msgid "Blue"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1164
+#: admin/class-shapeforms-lite-admin.php:1102
 msgid "Green"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1165
+#: admin/class-shapeforms-lite-admin.php:1103
 msgid "Red"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1166
+#: admin/class-shapeforms-lite-admin.php:1104
 msgid "Dark"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1170
+#: admin/class-shapeforms-lite-admin.php:1108
 #: public/class-shapeforms-lite-elementor-widget.php:182
 msgid "Form Container"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1171
+#: admin/class-shapeforms-lite-admin.php:1109
 #: public/class-shapeforms-lite-elementor-widget.php:318
 msgid "Layout & Spacing"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1172
+#: admin/class-shapeforms-lite-admin.php:1110
 #: public/class-shapeforms-lite-elementor-widget.php:399
 msgid "Labels"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1173
+#: admin/class-shapeforms-lite-admin.php:1111
 #: public/class-shapeforms-lite-elementor-widget.php:510
 msgid "Input Fields"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1175
+#: admin/class-shapeforms-lite-admin.php:1113
 #: public/class-shapeforms-lite-elementor-widget.php:732
 msgid "Checkbox & Radio"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1176
+#: admin/class-shapeforms-lite-admin.php:1114
 #: public/class-shapeforms-lite-elementor-widget.php:870
 msgid "Select Dropdown"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1177
-#: admin/class-shapeforms-lite-admin.php:6613
+#: admin/class-shapeforms-lite-admin.php:1115
+#: admin/class-shapeforms-lite-admin.php:6182
 #: public/class-shapeforms-lite-elementor-widget.php:1238
 msgid "Terms & Conditions"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1178
-#: admin/class-shapeforms-lite-admin.php:6618
+#: admin/class-shapeforms-lite-admin.php:1116
+#: admin/class-shapeforms-lite-admin.php:6187
 #: public/class-shapeforms-lite-elementor-widget.php:1634
 msgid "File Upload"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1179
-#: admin/class-shapeforms-lite-admin.php:6608
+#: admin/class-shapeforms-lite-admin.php:1117
+#: admin/class-shapeforms-lite-admin.php:6177
 #: public/class-shapeforms-lite-elementor-widget.php:1701
 msgid "Section Break"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1181
+#: admin/class-shapeforms-lite-admin.php:1119
 #: public/class-shapeforms-lite-elementor-widget.php:2093
 msgid "Error Messages"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1182
+#: admin/class-shapeforms-lite-admin.php:1120
 #: public/class-shapeforms-lite-elementor-widget.php:2191
 msgid "Success Message"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1183
+#: admin/class-shapeforms-lite-admin.php:1121
 #: public/class-shapeforms-lite-elementor-widget.php:190
 msgid "Max Width"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1184
+#: admin/class-shapeforms-lite-admin.php:1122
 #: public/class-shapeforms-lite-elementor-widget.php:206
 msgid "Alignment"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1188
-#: admin/class-shapeforms-lite-admin.php:1244
+#: admin/class-shapeforms-lite-admin.php:1126
+#: admin/class-shapeforms-lite-admin.php:1182
 #: public/class-shapeforms-lite-elementor-widget.php:222
 #: public/class-shapeforms-lite-elementor-widget.php:1922
 msgid "Full Width"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1189
+#: admin/class-shapeforms-lite-admin.php:1127
 #: public/class-shapeforms-lite-elementor-widget.php:270
 #: public/class-shapeforms-lite-elementor-widget.php:557
 #: public/class-shapeforms-lite-elementor-widget.php:922
@@ -1604,7 +1587,7 @@ msgstr ""
 msgid "Padding"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1190
+#: admin/class-shapeforms-lite-admin.php:1128
 #: public/class-shapeforms-lite-elementor-widget.php:415
 #: public/class-shapeforms-lite-elementor-widget.php:1709
 #: public/class-shapeforms-lite-elementor-widget.php:2176
@@ -1612,7 +1595,7 @@ msgstr ""
 msgid "Margin"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1191
+#: admin/class-shapeforms-lite-admin.php:1129
 #: public/class-shapeforms-lite-elementor-widget.php:797
 #: public/class-shapeforms-lite-elementor-widget.php:820
 #: public/class-shapeforms-lite-elementor-widget.php:984
@@ -1623,7 +1606,7 @@ msgstr ""
 msgid "Border Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1192
+#: admin/class-shapeforms-lite-admin.php:1130
 #: public/class-shapeforms-lite-elementor-widget.php:1277
 #: public/class-shapeforms-lite-elementor-widget.php:1290
 #: public/class-shapeforms-lite-elementor-widget.php:1533
@@ -1631,20 +1614,20 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1193
+#: admin/class-shapeforms-lite-admin.php:1131
 #: public/class-shapeforms-lite-elementor-widget.php:282
 msgid "Box Shadow"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1194
+#: admin/class-shapeforms-lite-admin.php:1132
 msgid "Box Shadow (Hover)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1195
+#: admin/class-shapeforms-lite-admin.php:1133
 msgid "Box Shadow (Focus)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1196
+#: admin/class-shapeforms-lite-admin.php:1134
 #: public/class-shapeforms-lite-elementor-widget.php:290
 #: public/class-shapeforms-lite-elementor-widget.php:456
 #: public/class-shapeforms-lite-elementor-widget.php:586
@@ -1659,8 +1642,8 @@ msgstr ""
 msgid "Normal"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1197
-#: admin/class-shapeforms-lite-admin.php:1249
+#: admin/class-shapeforms-lite-admin.php:1135
+#: admin/class-shapeforms-lite-admin.php:1187
 #: public/class-shapeforms-lite-elementor-widget.php:300
 #: public/class-shapeforms-lite-elementor-widget.php:621
 #: public/class-shapeforms-lite-elementor-widget.php:816
@@ -1674,68 +1657,68 @@ msgstr ""
 msgid "Hover"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1198
-#: admin/class-shapeforms-lite-admin.php:1250
+#: admin/class-shapeforms-lite-admin.php:1136
+#: admin/class-shapeforms-lite-admin.php:1188
 #: public/class-shapeforms-lite-elementor-widget.php:479
 #: public/class-shapeforms-lite-elementor-widget.php:656
 msgid "Focus"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1199
+#: admin/class-shapeforms-lite-admin.php:1137
 #: public/class-shapeforms-lite-elementor-widget.php:839
 #: public/class-shapeforms-lite-elementor-widget.php:1458
 msgid "Checked"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1200
+#: admin/class-shapeforms-lite-admin.php:1138
 #: public/class-shapeforms-lite-elementor-widget.php:1208
 msgid "Selected"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1204
+#: admin/class-shapeforms-lite-admin.php:1142
 msgid "Button"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1205
+#: admin/class-shapeforms-lite-admin.php:1143
 #: public/class-shapeforms-lite-elementor-widget.php:326
 msgid "Row Gap"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1206
+#: admin/class-shapeforms-lite-admin.php:1144
 #: public/class-shapeforms-lite-elementor-widget.php:342
 msgid "Column Gap"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1207
+#: admin/class-shapeforms-lite-admin.php:1145
 #: public/class-shapeforms-lite-elementor-widget.php:372
 #: public/class-shapeforms-lite-elementor-widget.php:1392
 msgid "Field Margin"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1208
+#: admin/class-shapeforms-lite-admin.php:1146
 #: public/class-shapeforms-lite-elementor-widget.php:384
 msgid "Input Margin"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1209
+#: admin/class-shapeforms-lite-admin.php:1147
 msgid "Typography"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1210
+#: admin/class-shapeforms-lite-admin.php:1148
 msgid "Required Mark Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1211
+#: admin/class-shapeforms-lite-admin.php:1149
 #: public/class-shapeforms-lite-elementor-widget.php:518
 msgid "Height"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1212
+#: admin/class-shapeforms-lite-admin.php:1150
 #: public/class-shapeforms-lite-elementor-widget.php:531
 msgid "Textarea Height"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1213
+#: admin/class-shapeforms-lite-admin.php:1151
 #: public/class-shapeforms-lite-elementor-widget.php:598
 #: public/class-shapeforms-lite-elementor-widget.php:633
 #: public/class-shapeforms-lite-elementor-widget.php:670
@@ -1750,1368 +1733,1129 @@ msgstr ""
 msgid "Text Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1214
+#: admin/class-shapeforms-lite-admin.php:1152
 #: public/class-shapeforms-lite-elementor-widget.php:709
 #: public/class-shapeforms-lite-elementor-widget.php:880
 msgid "Placeholder Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1215
+#: admin/class-shapeforms-lite-admin.php:1153
 msgid "Focus Border Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1216
+#: admin/class-shapeforms-lite-admin.php:1154
 msgid "Focus Background"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1217
+#: admin/class-shapeforms-lite-admin.php:1155
 msgid "Accent Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1218
+#: admin/class-shapeforms-lite-admin.php:1156
 #: public/class-shapeforms-lite-elementor-widget.php:460
 #: public/class-shapeforms-lite-elementor-widget.php:483
 #: public/class-shapeforms-lite-elementor-widget.php:753
 msgid "Label Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1219
+#: admin/class-shapeforms-lite-admin.php:1157
 msgid "Link Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1220
+#: admin/class-shapeforms-lite-admin.php:1158
 #: public/class-shapeforms-lite-elementor-widget.php:1370
 msgid "Spacing"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1221
+#: admin/class-shapeforms-lite-admin.php:1159
 msgid "Gap"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1222
+#: admin/class-shapeforms-lite-admin.php:1160
 msgid "Checked Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1223
+#: admin/class-shapeforms-lite-admin.php:1161
 #: public/class-shapeforms-lite-elementor-widget.php:891
 msgid "Arrow Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1224
+#: admin/class-shapeforms-lite-admin.php:1162
 #: public/class-shapeforms-lite-elementor-widget.php:1050
 msgid "Panel Background"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1225
+#: admin/class-shapeforms-lite-admin.php:1163
 #: public/class-shapeforms-lite-elementor-widget.php:1059
 msgid "Panel Border Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1226
+#: admin/class-shapeforms-lite-admin.php:1164
 msgid "Option Background"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1227
+#: admin/class-shapeforms-lite-admin.php:1165
 msgid "Option Text"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1228
+#: admin/class-shapeforms-lite-admin.php:1166
 msgid "Option Hover Background"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1229
+#: admin/class-shapeforms-lite-admin.php:1167
 msgid "Option Hover Text Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1230
+#: admin/class-shapeforms-lite-admin.php:1168
 msgid "Selected Option Background"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1231
+#: admin/class-shapeforms-lite-admin.php:1169
 #: public/class-shapeforms-lite-elementor-widget.php:1093
 msgid "Search Box"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1232
+#: admin/class-shapeforms-lite-admin.php:1170
 #: public/class-shapeforms-lite-elementor-widget.php:1103
 msgid "Search Background"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1233
+#: admin/class-shapeforms-lite-admin.php:1171
 #: public/class-shapeforms-lite-elementor-widget.php:1112
 msgid "Search Text Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1234
+#: admin/class-shapeforms-lite-admin.php:1172
 #: public/class-shapeforms-lite-elementor-widget.php:1123
 msgid "Search Placeholder Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1235
+#: admin/class-shapeforms-lite-admin.php:1173
 #: public/class-shapeforms-lite-elementor-widget.php:1304
 msgid "Copy Text"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1236
+#: admin/class-shapeforms-lite-admin.php:1174
 #: public/class-shapeforms-lite-elementor-widget.php:1757
 msgid "Border Width"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1237
+#: admin/class-shapeforms-lite-admin.php:1175
 msgid "Border Style"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1238
+#: admin/class-shapeforms-lite-admin.php:1176
 msgid "Button Background"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1239
+#: admin/class-shapeforms-lite-admin.php:1177
 #: public/class-shapeforms-lite-elementor-widget.php:1657
 #: public/class-shapeforms-lite-elementor-widget.php:1683
 msgid "Button Text Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1240
+#: admin/class-shapeforms-lite-admin.php:1178
 #: public/class-shapeforms-lite-elementor-widget.php:1807
 msgid "Title Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1241
+#: admin/class-shapeforms-lite-admin.php:1179
 #: public/class-shapeforms-lite-elementor-widget.php:1847
 msgid "Description Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1242
+#: admin/class-shapeforms-lite-admin.php:1180
 #: public/class-shapeforms-lite-elementor-widget.php:2135
 msgid "Notice Background"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1243
+#: admin/class-shapeforms-lite-admin.php:1181
 #: public/class-shapeforms-lite-elementor-widget.php:2122
 msgid "Notice Text Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1245
+#: admin/class-shapeforms-lite-admin.php:1183
 #: public/class-shapeforms-lite-elementor-widget.php:1955
 msgid "Icon Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1246
+#: admin/class-shapeforms-lite-admin.php:1184
 msgid "Hover Text Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1247
+#: admin/class-shapeforms-lite-admin.php:1185
 msgid "Hover Background"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1248
+#: admin/class-shapeforms-lite-admin.php:1186
 msgid "Hover Border Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1251
+#: admin/class-shapeforms-lite-admin.php:1189
 msgid "Focus Ring Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1252
+#: admin/class-shapeforms-lite-admin.php:1190
 #: public/class-shapeforms-lite-elementor-widget.php:1017
 msgid "Ring Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1253
+#: admin/class-shapeforms-lite-admin.php:1191
 msgid "Hover Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1254
+#: admin/class-shapeforms-lite-admin.php:1192
 msgid "Link Hover Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1255
+#: admin/class-shapeforms-lite-admin.php:1193
 msgid "Focused Label Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1256
+#: admin/class-shapeforms-lite-admin.php:1194
 msgid "States"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1257
+#: admin/class-shapeforms-lite-admin.php:1195
 msgid "Sub-field Label"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1258
+#: admin/class-shapeforms-lite-admin.php:1196
 #: public/class-shapeforms-lite-elementor-widget.php:470
 #: public/class-shapeforms-lite-elementor-widget.php:493
 msgid "Sub-label Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1259
+#: admin/class-shapeforms-lite-admin.php:1197
 #: public/class-shapeforms-lite-elementor-widget.php:356
 msgid "Sub-field Gap"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1260
+#: admin/class-shapeforms-lite-admin.php:1198
 #: public/class-shapeforms-lite-elementor-widget.php:1982
 msgid "Button Margin"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1261
+#: admin/class-shapeforms-lite-admin.php:1199
 msgid "Container Margin"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1262
+#: admin/class-shapeforms-lite-admin.php:1200
 msgid "Font Family"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1263
+#: admin/class-shapeforms-lite-admin.php:1201
 msgid "Font Size"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1264
+#: admin/class-shapeforms-lite-admin.php:1202
 msgid "Weight"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1265
+#: admin/class-shapeforms-lite-admin.php:1203
 msgid "Line Height"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1266
+#: admin/class-shapeforms-lite-admin.php:1204
 msgid "Letter Spacing"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1267
+#: admin/class-shapeforms-lite-admin.php:1205
 msgid "Transform"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1268
+#: admin/class-shapeforms-lite-admin.php:1206
 msgid "X Offset"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1269
+#: admin/class-shapeforms-lite-admin.php:1207
 msgid "Y Offset"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1270
+#: admin/class-shapeforms-lite-admin.php:1208
 msgid "Blur"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1271
+#: admin/class-shapeforms-lite-admin.php:1209
 msgid "Spread"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1272
+#: admin/class-shapeforms-lite-admin.php:1210
 msgid "Shadow Color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1273
+#: admin/class-shapeforms-lite-admin.php:1211
 msgid "Inset"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1274
+#: admin/class-shapeforms-lite-admin.php:1212
 msgid "Gradient"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1276
+#: admin/class-shapeforms-lite-admin.php:1214
 msgid "Angle"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1277
+#: admin/class-shapeforms-lite-admin.php:1215
 msgid "Color 1"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1278
+#: admin/class-shapeforms-lite-admin.php:1216
 msgid "Color 2"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1281
+#: admin/class-shapeforms-lite-admin.php:1219
 msgid "Radius"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1282
+#: admin/class-shapeforms-lite-admin.php:1220
 msgid "Link sides"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1283
+#: admin/class-shapeforms-lite-admin.php:1221
 msgid "Top"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1285
+#: admin/class-shapeforms-lite-admin.php:1223
 msgid "Bottom"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1288
+#: admin/class-shapeforms-lite-admin.php:1226
 msgid "Opacity (%)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1289
+#: admin/class-shapeforms-lite-admin.php:1227
 msgid "Reset color"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1290
+#: admin/class-shapeforms-lite-admin.php:1228
 msgid "Reset this section"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1291
+#: admin/class-shapeforms-lite-admin.php:1229
 msgid "Preview states — messages & open dropdown"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1292
+#: admin/class-shapeforms-lite-admin.php:1230
 msgid "Your form has been submitted successfully."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1293
+#: admin/class-shapeforms-lite-admin.php:1231
 msgid "Please correct the highlighted fields below."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1294
+#: admin/class-shapeforms-lite-admin.php:1232
 msgid "Field with an error"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1295
+#: admin/class-shapeforms-lite-admin.php:1233
 msgid "Invalid value"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1296
+#: admin/class-shapeforms-lite-admin.php:1234
 msgid "This field is required."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1297
+#: admin/class-shapeforms-lite-admin.php:1235
 msgid "Dropdown (open)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1298
+#: admin/class-shapeforms-lite-admin.php:1236
 msgid "Search…"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1299
+#: admin/class-shapeforms-lite-admin.php:1237
 msgid "Selected option"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1300
+#: admin/class-shapeforms-lite-admin.php:1238
 msgid "Another option"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1301
+#: admin/class-shapeforms-lite-admin.php:1239
 msgid "Theme Default"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1302
+#: admin/class-shapeforms-lite-admin.php:1240
 msgid "UPPERCASE"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1303
+#: admin/class-shapeforms-lite-admin.php:1241
 msgid "lowercase"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1304
+#: admin/class-shapeforms-lite-admin.php:1242
 msgid "Capitalize"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1305
+#: admin/class-shapeforms-lite-admin.php:1243
 msgid "Dotted"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1308
+#: admin/class-shapeforms-lite-admin.php:1246
 msgid "Add at least one field before saving."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1420
+#: admin/class-shapeforms-lite-admin.php:1358
 #: public/class-shapeforms-lite-block.php:179
 #: public/class-shapeforms-lite-elementor-widget.php:2359
 #: public/class-shapeforms-lite-shortcode.php:2618
 msgid "Submitting..."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1421
+#: admin/class-shapeforms-lite-admin.php:1359
 #: public/class-shapeforms-lite-block.php:180
 #: public/class-shapeforms-lite-elementor-widget.php:2360
 #: public/class-shapeforms-lite-shortcode.php:2619
 msgid "Form submitted successfully."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1422
+#: admin/class-shapeforms-lite-admin.php:1360
 #: public/class-shapeforms-lite-block.php:181
 #: public/class-shapeforms-lite-elementor-widget.php:2361
 #: public/class-shapeforms-lite-shortcode.php:2620
 msgid "Unable to submit the form."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1508
-#: admin/class-shapeforms-lite-admin.php:3002
-#: admin/class-shapeforms-lite-admin.php:3119
-#: admin/class-shapeforms-lite-integrations-page.php:191
+#: admin/class-shapeforms-lite-admin.php:1446
+#: admin/class-shapeforms-lite-admin.php:2672
+#: admin/class-shapeforms-lite-admin.php:2789
+#: admin/class-shapeforms-lite-integrations-page.php:185
 msgid "Active"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1509
-#: admin/class-shapeforms-lite-admin.php:3003
-#: admin/class-shapeforms-lite-admin.php:3119
-#: admin/class-shapeforms-lite-integrations-page.php:192
+#: admin/class-shapeforms-lite-admin.php:1447
+#: admin/class-shapeforms-lite-admin.php:2673
+#: admin/class-shapeforms-lite-admin.php:2789
+#: admin/class-shapeforms-lite-integrations-page.php:186
 msgid "Inactive"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1567
+#: admin/class-shapeforms-lite-admin.php:1505
 msgid "selected"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1568
-#: admin/class-shapeforms-lite-admin.php:3651
+#: admin/class-shapeforms-lite-admin.php:1506
+#: admin/class-shapeforms-lite-admin.php:3220
 msgid "Select one or more entries and choose a bulk action."
 msgstr ""
 
 #. translators: %d: number of selected entries to delete.
-#: admin/class-shapeforms-lite-admin.php:1570
+#: admin/class-shapeforms-lite-admin.php:1508
 #, php-format
 msgid "Permanently delete %d selected entries? This cannot be undone."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1571
+#: admin/class-shapeforms-lite-admin.php:1509
 #: includes/class-shapeforms-lite-ai-builder.php:2045
 msgid "Something went wrong. Please try again."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1683
-#: admin/class-shapeforms-lite-admin.php:3628
-#: admin/class-shapeforms-lite-admin.php:5341
+#: admin/class-shapeforms-lite-admin.php:1621
+#: admin/class-shapeforms-lite-admin.php:3197
+#: admin/class-shapeforms-lite-admin.php:4910
 msgid "Mark as Spam"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1684
-#: admin/class-shapeforms-lite-admin.php:5341
+#: admin/class-shapeforms-lite-admin.php:1622
+#: admin/class-shapeforms-lite-admin.php:4910
 msgid "Not Spam"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1798
+#: admin/class-shapeforms-lite-admin.php:1736
 msgid "Sending..."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1799
-#: admin/class-shapeforms-lite-admin.php:4700
+#: admin/class-shapeforms-lite-admin.php:1737
+#: admin/class-shapeforms-lite-admin.php:4269
 msgid "Email sent successfully!"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1800
+#: admin/class-shapeforms-lite-admin.php:1738
 msgid "Failed to send email."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1921
+#: admin/class-shapeforms-lite-admin.php:1859
 msgid "Contest / Giveaway Entry"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1921
+#: admin/class-shapeforms-lite-admin.php:1859
 msgid "Run a contest or giveaway with entrant details and a skill-testing question."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1924
+#: admin/class-shapeforms-lite-admin.php:1862
 msgid "Project Quote Request"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1924
+#: admin/class-shapeforms-lite-admin.php:1862
 msgid "Let prospects describe a project and request a price quote with budget and timeline."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1925
+#: admin/class-shapeforms-lite-admin.php:1863
 msgid "File Upload / Document Submission"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1925
+#: admin/class-shapeforms-lite-admin.php:1863
 msgid "Collect documents from users — resumes, contracts, invoices — with contact details."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1926
+#: admin/class-shapeforms-lite-admin.php:1864
 msgid "Consent / Waiver Form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1926
+#: admin/class-shapeforms-lite-admin.php:1864
 msgid "Capture agreement and a signature for waivers, consents, and release forms."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1927
+#: admin/class-shapeforms-lite-admin.php:1865
 msgid "Real Estate Inquiry"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1927
+#: admin/class-shapeforms-lite-admin.php:1865
 msgid "Capture buyer and seller leads with inquiry type, property type, budget, and timeline."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1928
+#: admin/class-shapeforms-lite-admin.php:1866
 msgid "Testimonial Submission"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1928
+#: admin/class-shapeforms-lite-admin.php:1866
 msgid "Collect customer testimonials with a star rating, quote, and optional photo."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1929
+#: admin/class-shapeforms-lite-admin.php:1867
 msgid "Rental Application"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1929
+#: admin/class-shapeforms-lite-admin.php:1867
 msgid "Screen rental applicants with contact, employment, occupancy, and document details."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1930
+#: admin/class-shapeforms-lite-admin.php:1868
 msgid "Product Return / RMA Request"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1930
+#: admin/class-shapeforms-lite-admin.php:1868
 msgid "Handle returns with order number, reason, preferred resolution, and a photo."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1933
+#: admin/class-shapeforms-lite-admin.php:1871
 msgid "Restaurant Reservation"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1933
+#: admin/class-shapeforms-lite-admin.php:1871
 msgid "Take table bookings with party size, date, time, and seating preferences."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1934
+#: admin/class-shapeforms-lite-admin.php:1872
 msgid "Wedding RSVP"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1934
+#: admin/class-shapeforms-lite-admin.php:1872
 msgid "Collect RSVPs with guest count, meal choice, and a note to the couple."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1935
+#: admin/class-shapeforms-lite-admin.php:1873
 msgid "Event Ticket Purchase"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1935
+#: admin/class-shapeforms-lite-admin.php:1873
 msgid "Sell event tickets with ticket tiers, quantity, and an order summary."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1936
+#: admin/class-shapeforms-lite-admin.php:1874
 msgid "Catering Request Estimate"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1936
+#: admin/class-shapeforms-lite-admin.php:1874
 msgid "Request catering and see a live estimate from guest count multiplied by price per person."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1939
+#: admin/class-shapeforms-lite-admin.php:1877
 msgid "Time-Off / Leave Request"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1939
+#: admin/class-shapeforms-lite-admin.php:1877
 msgid "Employees request leave with dates and a reason, ready for an approval workflow."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1940
+#: admin/class-shapeforms-lite-admin.php:1878
 msgid "Employee Onboarding"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1940
+#: admin/class-shapeforms-lite-admin.php:1878
 msgid "Onboard new hires: personal details, document upload, and a policy signature."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1941
+#: admin/class-shapeforms-lite-admin.php:1879
 msgid "NPS Feedback Survey"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1941
+#: admin/class-shapeforms-lite-admin.php:1879
 msgid "Measure loyalty with a Net Promoter Score question and follow-up feedback."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1944
+#: admin/class-shapeforms-lite-admin.php:1882
 msgid "Patient Intake / Medical History"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1944
+#: admin/class-shapeforms-lite-admin.php:1882
 msgid "Gather patient details, medical history, and a consent signature before an appointment."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1947
+#: admin/class-shapeforms-lite-admin.php:1885
 msgid "Course Enrollment"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1947
+#: admin/class-shapeforms-lite-admin.php:1885
 msgid "Enroll students in a course with plan selection, level, and an order summary."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1948
+#: admin/class-shapeforms-lite-admin.php:1886
 msgid "Volunteer Signup"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1948
+#: admin/class-shapeforms-lite-admin.php:1886
 msgid "Recruit volunteers with areas of interest, availability, and experience."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1949
+#: admin/class-shapeforms-lite-admin.php:1887
 msgid "Petition / Signature Drive"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1949
+#: admin/class-shapeforms-lite-admin.php:1887
 msgid "Gather supporters with a name, location, comment, and a signature."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1952
+#: admin/class-shapeforms-lite-admin.php:1890
 msgid "Payment Order Form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1952
+#: admin/class-shapeforms-lite-admin.php:1890
 msgid "Collect product orders with a payment item, quantity, custom amount, and order summary."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1953
+#: admin/class-shapeforms-lite-admin.php:1891
 msgid "Donation Form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1953
+#: admin/class-shapeforms-lite-admin.php:1891
 msgid "Accept donations with preset amounts or a custom amount, plus donor details."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1954
+#: admin/class-shapeforms-lite-admin.php:1892
 msgid "Service Price Calculator"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1954
+#: admin/class-shapeforms-lite-admin.php:1892
 msgid "Let users calculate a service price from quantity multiplied by rate, with an instant total."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1955
+#: admin/class-shapeforms-lite-admin.php:1893
 msgid "Loan Repayment Calculator"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1955
+#: admin/class-shapeforms-lite-admin.php:1893
 msgid "Estimate simple-interest loan cost from amount, rate, and term."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1956
+#: admin/class-shapeforms-lite-admin.php:1894
 msgid "Subscription Signup"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1956
+#: admin/class-shapeforms-lite-admin.php:1894
 msgid "Let customers pick a subscription plan and sign up, ready for recurring billing."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1957
+#: admin/class-shapeforms-lite-admin.php:1895
 msgid "Gym Membership Signup"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1957
+#: admin/class-shapeforms-lite-admin.php:1895
 msgid "Sign up new members with a plan, add-ons, emergency contact, and payment."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1960
+#: admin/class-shapeforms-lite-admin.php:1898
 msgid "Multi-Step Registration"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1960
+#: admin/class-shapeforms-lite-admin.php:1898
 msgid "Three-step registration: personal information, account setup, and preferences."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1961
+#: admin/class-shapeforms-lite-admin.php:1899
 msgid "Multi-Step Survey"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1961
+#: admin/class-shapeforms-lite-admin.php:1899
 msgid "A two-step satisfaction survey split across pages for better completion."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1962
+#: admin/class-shapeforms-lite-admin.php:1900
 msgid "Multi-Step Booking + Payment"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:1962
+#: admin/class-shapeforms-lite-admin.php:1900
 msgid "Service booking with date and time selection, attendee details, and payment."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2051
-msgid "Dismiss this notice"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2059
-msgid "Early Bird Sale"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2062
-msgid "ShapeForms Pro is here — get 70% off!"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2064
-msgid "Payments, multi-page forms, advanced fields, and much more."
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2069
-#: admin/class-shapeforms-lite-admin.php:2784
-msgid "Claim 70% Off"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2276
-#: admin/class-shapeforms-lite-admin.php:2955
+#: admin/class-shapeforms-lite-admin.php:2096
+#: admin/class-shapeforms-lite-admin.php:2625
 #: admin/class-shapeforms-lite-export-import.php:98
-#: admin/class-shapeforms-lite-integrations-page.php:369
+#: admin/class-shapeforms-lite-integrations-page.php:363
 msgid "Forms"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2295
-#: admin/class-shapeforms-lite-admin.php:2751
+#: admin/class-shapeforms-lite-admin.php:2115
+#: admin/class-shapeforms-lite-integrations-page.php:86
 #: admin/class-shapeforms-lite-integrations-page.php:87
-#: admin/class-shapeforms-lite-integrations-page.php:88
-#: admin/class-shapeforms-lite-integrations-page.php:224
-#: admin/class-shapeforms-lite-integrations-page.php:372
+#: admin/class-shapeforms-lite-integrations-page.php:218
+#: admin/class-shapeforms-lite-integrations-page.php:366
 msgid "Integrations"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2307
-#: admin/class-shapeforms-lite-admin.php:2858
-#: admin/class-shapeforms-lite-admin.php:3817
-#: admin/class-shapeforms-lite-integrations-page.php:374
+#: admin/class-shapeforms-lite-admin.php:2127
+#: admin/class-shapeforms-lite-admin.php:2528
+#: admin/class-shapeforms-lite-admin.php:3386
+#: admin/class-shapeforms-lite-integrations-page.php:368
 msgid "SMTP"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2313
-#: admin/class-shapeforms-lite-admin.php:2863
-#: admin/class-shapeforms-lite-admin.php:3818
-#: admin/class-shapeforms-lite-admin.php:4321
-#: admin/class-shapeforms-lite-integrations-page.php:375
+#: admin/class-shapeforms-lite-admin.php:2133
+#: admin/class-shapeforms-lite-admin.php:2533
+#: admin/class-shapeforms-lite-admin.php:3387
+#: admin/class-shapeforms-lite-admin.php:3890
+#: admin/class-shapeforms-lite-integrations-page.php:369
 #: shapeforms.php:315
 msgid "Tools"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2319
-#: admin/class-shapeforms-lite-integrations-page.php:378
-msgid "Documentation"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2326
-#: admin/class-shapeforms-lite-integrations-page.php:383
-msgid "User Documentation"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2332
-#: admin/class-shapeforms-lite-integrations-page.php:384
-msgid "Admin Documentation"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2457
+#: admin/class-shapeforms-lite-admin.php:2244
 msgid "Export Excel"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2461
+#: admin/class-shapeforms-lite-admin.php:2248
 msgid "Export PDF"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2472
+#: admin/class-shapeforms-lite-admin.php:2259
 msgid "Upgrade required"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2513
-#: admin/class-shapeforms-lite-admin.php:2680
+#: admin/class-shapeforms-lite-admin.php:2300
+#: admin/class-shapeforms-lite-admin.php:2467
 msgid "Excel & PDF export"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2524
+#: admin/class-shapeforms-lite-admin.php:2311
 msgid "ShapeForms exports your entries to CSV. Upgrade to download them as formatted Excel spreadsheets and print-ready PDF files, right from this screen."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2527
+#: admin/class-shapeforms-lite-admin.php:2314
 msgid "Formatted Excel (.xlsx) for reporting and analysis"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2528
+#: admin/class-shapeforms-lite-admin.php:2315
 msgid "Print-ready PDF records to share or archive"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2529
+#: admin/class-shapeforms-lite-admin.php:2316
 msgid "One click from this screen, honouring your current filters"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2567
+#: admin/class-shapeforms-lite-admin.php:2354
 msgid "Excel and PDF export are available in the ShapeForms premium add-on."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2571
+#: admin/class-shapeforms-lite-admin.php:2358
 msgid "Export format"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2574
+#: admin/class-shapeforms-lite-admin.php:2361
 msgid "JSON"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2578
+#: admin/class-shapeforms-lite-admin.php:2365
 msgid "Learn more"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2674
+#: admin/class-shapeforms-lite-admin.php:2461
 msgid "Excel export"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2677
+#: admin/class-shapeforms-lite-admin.php:2464
 msgid "PDF export"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2724
-msgid "Pro active"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2726
-msgid "You're on ShapeForms Pro"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2727
-msgid "Every premium feature is unlocked — payments, multi-page forms, advanced fields, and 30+ integrations are ready to use inside your forms."
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2729
-msgid "Go to your forms"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2744
-msgid "Drag & Drop Form Builder, Contact Form, Survey & Multi-Step Forms"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2745
-msgid "Unlimited forms & entries"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2746
-msgid "Core fields (text, email, select, date, file upload…)"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2747
-msgid "Email notifications + SMTP"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2748
-msgid "Conditional logic"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2749
-msgid "Anti-spam: reCAPTCHA, hCaptcha & Turnstile"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2750
-msgid "Entries, CSV export & reports"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2751
-msgid "Mailchimp & Brevo"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2751
-msgid "35+ apps"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2752
-msgid "Multi-page (step) forms"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2753
-msgid "Payments — Stripe & PayPal"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2754
-msgid "Advanced fields (Rich Text, Signature, Repeater, Calculation, Geolocation, NPS…)"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2755
-msgid "Webhooks"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2756
-msgid "Form scheduling (open / close dates)"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2757
-msgid "Auto-populate & hidden data"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2758
-msgid "Advanced analytics (views & conversions)"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2759
-msgid "Priority support & automatic updates"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2764
-msgid "Included"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2767
-msgid "Not included"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2779
-msgid "Early Bird Sale — 70% off"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2781
-msgid "Do more with ShapeForms Pro"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2782
-msgid "Add payments, multi-page forms, advanced fields, and 30+ integrations — all inside the same drag-and-drop builder you already know."
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2788
-msgid "Instant access"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2789
-msgid "Automatic updates"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2790
-msgid "Priority support"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2798
-msgid "Feature"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2799
-msgid "Lite (Free)"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2801
-msgid "Pro"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2802
-msgid "Recommended"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:2972
-#: admin/class-shapeforms-lite-admin.php:3098
-#: admin/class-shapeforms-lite-admin.php:3139
-#: admin/class-shapeforms-lite-admin.php:3509
+#: admin/class-shapeforms-lite-admin.php:2642
+#: admin/class-shapeforms-lite-admin.php:2768
+#: admin/class-shapeforms-lite-admin.php:2809
+#: admin/class-shapeforms-lite-admin.php:3078
 msgid "Trash"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2980
+#: admin/class-shapeforms-lite-admin.php:2650
 msgid "Bulk Actions"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2982
-#: admin/class-shapeforms-lite-admin.php:3081
-#: admin/class-shapeforms-lite-admin.php:3130
-#: admin/class-shapeforms-lite-admin.php:3622
-#: admin/class-shapeforms-lite-admin.php:5328
+#: admin/class-shapeforms-lite-admin.php:2652
+#: admin/class-shapeforms-lite-admin.php:2751
+#: admin/class-shapeforms-lite-admin.php:2800
+#: admin/class-shapeforms-lite-admin.php:3191
+#: admin/class-shapeforms-lite-admin.php:4897
 msgid "Restore"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2983
-#: admin/class-shapeforms-lite-admin.php:3623
-#: admin/class-shapeforms-lite-admin.php:5331
+#: admin/class-shapeforms-lite-admin.php:2653
+#: admin/class-shapeforms-lite-admin.php:3192
+#: admin/class-shapeforms-lite-admin.php:4900
 msgid "Delete Permanently"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2985
-#: admin/class-shapeforms-lite-admin.php:3629
-#: admin/class-shapeforms-lite-admin.php:5344
+#: admin/class-shapeforms-lite-admin.php:2655
+#: admin/class-shapeforms-lite-admin.php:3198
+#: admin/class-shapeforms-lite-admin.php:4913
 msgid "Move to Trash"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:2988
-#: admin/class-shapeforms-lite-admin.php:3611
-#: admin/class-shapeforms-lite-admin.php:3651
+#: admin/class-shapeforms-lite-admin.php:2658
+#: admin/class-shapeforms-lite-admin.php:3180
+#: admin/class-shapeforms-lite-admin.php:3220
 msgid "Apply"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3001
+#: admin/class-shapeforms-lite-admin.php:2671
 msgid "All Status"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3005
+#: admin/class-shapeforms-lite-admin.php:2675
 msgid "Filter"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3020
-#: admin/class-shapeforms-lite-admin.php:3022
+#: admin/class-shapeforms-lite-admin.php:2690
+#: admin/class-shapeforms-lite-admin.php:2692
 msgid "Search Forms"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3021
+#: admin/class-shapeforms-lite-admin.php:2691
 msgid "Search forms…"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3033
-#: admin/class-shapeforms-lite-admin.php:3692
-#: admin/class-shapeforms-lite-admin.php:5443
-#: admin/class-shapeforms-lite-admin.php:6866
-#: admin/class-shapeforms-lite-integrations-page.php:635
+#: admin/class-shapeforms-lite-admin.php:2703
+#: admin/class-shapeforms-lite-admin.php:3261
+#: admin/class-shapeforms-lite-admin.php:5012
+#: admin/class-shapeforms-lite-admin.php:6435
+#: admin/class-shapeforms-lite-integrations-page.php:609
 #: includes/class-shapeforms-lite-privacy.php:387
 #: assets/js/block-form.js:101
 msgid "Form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3036
-#: admin/class-shapeforms-lite-admin.php:3694
+#: admin/class-shapeforms-lite-admin.php:2706
+#: admin/class-shapeforms-lite-admin.php:3263
 msgid "Status"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3037
+#: admin/class-shapeforms-lite-admin.php:2707
 msgid "Updated"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3038
-#: admin/class-shapeforms-lite-admin.php:3125
+#: admin/class-shapeforms-lite-admin.php:2708
+#: admin/class-shapeforms-lite-admin.php:2795
 msgid "Actions"
 msgstr ""
 
 #. translators: %s: search term.
-#: admin/class-shapeforms-lite-admin.php:3051
+#: admin/class-shapeforms-lite-admin.php:2721
 #, php-format
 msgid "No forms found for \"%s\"."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3058
+#: admin/class-shapeforms-lite-admin.php:2728
 msgid "Trash is empty."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3061
+#: admin/class-shapeforms-lite-admin.php:2731
 msgid "No forms yet. Create your first form!"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3083
-#: admin/class-shapeforms-lite-admin.php:3131
+#: admin/class-shapeforms-lite-admin.php:2753
+#: admin/class-shapeforms-lite-admin.php:2801
 msgid "Delete permanently?"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3090
-#: admin/class-shapeforms-lite-admin.php:3133
+#: admin/class-shapeforms-lite-admin.php:2760
+#: admin/class-shapeforms-lite-admin.php:2803
 #: shapeforms.php:318
 msgid "Edit"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3104
+#: admin/class-shapeforms-lite-admin.php:2774
 msgid "Click to copy"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3180
-#: admin/class-shapeforms-lite-admin.php:3785
+#: admin/class-shapeforms-lite-admin.php:2850
+#: admin/class-shapeforms-lite-admin.php:3354
 msgid "&laquo;"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3181
-#: admin/class-shapeforms-lite-admin.php:3786
+#: admin/class-shapeforms-lite-admin.php:2851
+#: admin/class-shapeforms-lite-admin.php:3355
 msgid "&raquo;"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3219
-msgid "User Guide"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3220
-msgid "Learn how to create forms, manage entries, configure settings, and embed forms on your site."
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3221
-msgid "Open User Guide"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3230
-msgid "Developer Guide"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3231
-msgid "Hooks, filters, custom field types, integrations API, database schema, and file structure reference."
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3232
-msgid "Open Developer Guide"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3241
-msgid "Support"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3242
-msgid "Run into an issue? Open a support ticket and our team will help you get back on track quickly."
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3243
-msgid "Get Support"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3252
-msgid "Community"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3253
-msgid "Join the ShapeForms community to share tips, ask questions, and connect with other users and developers."
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3254
-msgid "Join Community"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3263
-#: admin/class-shapeforms-lite-admin.php:3265
-msgid "Leave a Review"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3264
-msgid "Enjoying ShapeForms? A quick 5-star review on WordPress.org helps others find the plugin and motivates us to keep improving."
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3274
-#: admin/class-shapeforms-lite-admin.php:3276
-msgid "Request a Feature"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3275
-msgid "Have an idea that would make ShapeForms even better? Share it with us — your feedback shapes our roadmap."
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3286
-msgid "Help &amp; Support"
-msgstr ""
-
-#: admin/class-shapeforms-lite-admin.php:3322
+#: admin/class-shapeforms-lite-admin.php:2891
 msgid "Form not found."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3331
+#: admin/class-shapeforms-lite-admin.php:2900
 msgid "Exit"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3338
+#: admin/class-shapeforms-lite-admin.php:2907
 msgid "Form Preview"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3339
+#: admin/class-shapeforms-lite-admin.php:2908
 msgid "Untitled form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3343
+#: admin/class-shapeforms-lite-admin.php:2912
 msgid "Preview devices"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3349
+#: admin/class-shapeforms-lite-admin.php:2918
 msgid "Copy shortcode"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3448
-#: admin/class-shapeforms-lite-admin.php:3662
+#: admin/class-shapeforms-lite-admin.php:3017
+#: admin/class-shapeforms-lite-admin.php:3231
 msgid "Export CSV"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3479
+#: admin/class-shapeforms-lite-admin.php:3048
 msgid "Entry deleted successfully."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3483
+#: admin/class-shapeforms-lite-admin.php:3052
 msgid "Entry moved to Trash."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3493
-#: admin/class-shapeforms-lite-integrations-page.php:234
+#: admin/class-shapeforms-lite-admin.php:3062
+#: admin/class-shapeforms-lite-integrations-page.php:228
 msgid "All"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3496
-#: admin/class-shapeforms-lite-admin.php:6765
-#: admin/class-shapeforms-lite-admin.php:6901
+#: admin/class-shapeforms-lite-admin.php:3065
+#: admin/class-shapeforms-lite-admin.php:6334
+#: admin/class-shapeforms-lite-admin.php:6470
 msgid "Unread"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3499
-#: admin/class-shapeforms-lite-admin.php:6902
+#: admin/class-shapeforms-lite-admin.php:3068
+#: admin/class-shapeforms-lite-admin.php:6471
 msgid "Read"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3502
-#: admin/class-shapeforms-lite-admin.php:6774
-#: admin/class-shapeforms-lite-admin.php:6903
+#: admin/class-shapeforms-lite-admin.php:3071
+#: admin/class-shapeforms-lite-admin.php:6343
+#: admin/class-shapeforms-lite-admin.php:6472
 msgid "Starred"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3505
+#: admin/class-shapeforms-lite-admin.php:3074
 msgid "Spam"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3547
+#: admin/class-shapeforms-lite-admin.php:3116
 msgid "All Time"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3548
-#: admin/class-shapeforms-lite-admin.php:6783
+#: admin/class-shapeforms-lite-admin.php:3117
+#: admin/class-shapeforms-lite-admin.php:6352
 msgid "Today"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3549
+#: admin/class-shapeforms-lite-admin.php:3118
 msgid "Yesterday"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3550
+#: admin/class-shapeforms-lite-admin.php:3119
 msgid "Last 7 Days"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3551
-#: admin/class-shapeforms-lite-admin.php:6829
+#: admin/class-shapeforms-lite-admin.php:3120
+#: admin/class-shapeforms-lite-admin.php:6398
 msgid "Last 30 Days"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3552
+#: admin/class-shapeforms-lite-admin.php:3121
 msgid "Custom Range"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3609
+#: admin/class-shapeforms-lite-admin.php:3178
 msgid "From"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3610
-#: admin/class-shapeforms-lite-admin.php:4296
+#: admin/class-shapeforms-lite-admin.php:3179
+#: admin/class-shapeforms-lite-admin.php:3865
 msgid "To"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3620
+#: admin/class-shapeforms-lite-admin.php:3189
 msgid "Bulk actions"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3625
+#: admin/class-shapeforms-lite-admin.php:3194
 msgid "Mark as Read"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3626
-#: admin/class-shapeforms-lite-admin.php:5338
+#: admin/class-shapeforms-lite-admin.php:3195
+#: admin/class-shapeforms-lite-admin.php:4907
 msgid "Mark as Unread"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3627
+#: admin/class-shapeforms-lite-admin.php:3196
 msgid "Mark as Starred"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3656
+#: admin/class-shapeforms-lite-admin.php:3225
 msgid "Export Selected"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3687
+#: admin/class-shapeforms-lite-admin.php:3256
 msgid "Select all"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3690
+#: admin/class-shapeforms-lite-admin.php:3259
 msgid "ID"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3691
+#: admin/class-shapeforms-lite-admin.php:3260
 msgid "Submission"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3693
+#: admin/class-shapeforms-lite-admin.php:3262
 #: admin/migrator/sources/class-shapeforms-lite-source-cf7.php:851
 msgid "Date"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3700
+#: admin/class-shapeforms-lite-admin.php:3269
 msgid "No entries found."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3714
+#: admin/class-shapeforms-lite-admin.php:3283
 msgid "Select entry"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3719
+#: admin/class-shapeforms-lite-admin.php:3288
 #: shapeforms.php:274
 msgid "Star"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3812
+#: admin/class-shapeforms-lite-admin.php:3381
 msgid "General"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3813
-#: admin/class-shapeforms-lite-admin.php:6603
+#: admin/class-shapeforms-lite-admin.php:3382
+#: admin/class-shapeforms-lite-admin.php:6172
 msgid "Captcha"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3816
+#: admin/class-shapeforms-lite-admin.php:3385
 msgid "AI"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3834
+#: admin/class-shapeforms-lite-admin.php:3403
 msgid "ShapeForms Settings"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3859
+#: admin/class-shapeforms-lite-admin.php:3428
 msgid "General Settings"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3860
+#: admin/class-shapeforms-lite-admin.php:3429
 msgid "Configure the core behavior and appearance of your forms."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3867
+#: admin/class-shapeforms-lite-admin.php:3436
 msgid "Form Style"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3871
+#: admin/class-shapeforms-lite-admin.php:3440
 msgid "Plugin (ShapeForms)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3872
+#: admin/class-shapeforms-lite-admin.php:3441
 msgid "Use the built-in ShapeForms styles for inputs, buttons, and layout."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3878
+#: admin/class-shapeforms-lite-admin.php:3447
 msgid "Theme (Inherit)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3879
+#: admin/class-shapeforms-lite-admin.php:3448
 msgid "Inherit input, button, and label styles from your active theme."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3885
+#: admin/class-shapeforms-lite-admin.php:3454
 msgid "Notifications"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3888
+#: admin/class-shapeforms-lite-admin.php:3457
 msgid "Default email"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3892
+#: admin/class-shapeforms-lite-admin.php:3461
 msgid "Leave blank to use the site admin email."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3898
+#: admin/class-shapeforms-lite-admin.php:3467
 msgid "Validation Messages"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3899
+#: admin/class-shapeforms-lite-admin.php:3468
 msgid "Customize the required field error messages. Leave blank to use the default."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3902
+#: admin/class-shapeforms-lite-admin.php:3471
 msgid "Text field"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3903
+#: admin/class-shapeforms-lite-admin.php:3472
 msgid "Email field"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3904
+#: admin/class-shapeforms-lite-admin.php:3473
 msgid "Number field"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3905
+#: admin/class-shapeforms-lite-admin.php:3474
 msgid "Textarea field"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3906
+#: admin/class-shapeforms-lite-admin.php:3475
 msgid "Select field"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3907
+#: admin/class-shapeforms-lite-admin.php:3476
 msgid "Checkbox field"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3908
+#: admin/class-shapeforms-lite-admin.php:3477
 msgid "Radio field"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3909
+#: admin/class-shapeforms-lite-admin.php:3478
 msgid "Date field"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3910
+#: admin/class-shapeforms-lite-admin.php:3479
 msgid "Time field"
 msgstr ""
 
 #. translators: %s: field label
-#: admin/class-shapeforms-lite-admin.php:3920
+#: admin/class-shapeforms-lite-admin.php:3489
 #: public/class-shapeforms-lite-form-handler.php:1166
 #: public/class-shapeforms-lite-form-handler.php:1454
 #: public/class-shapeforms-lite-shortcode.php:1288
@@ -3119,587 +2863,587 @@ msgstr ""
 msgid "%s is required."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3929
+#: admin/class-shapeforms-lite-admin.php:3498
 msgid "Data"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3932
+#: admin/class-shapeforms-lite-admin.php:3501
 msgid "Delete all forms, entries, and settings when the plugin is uninstalled."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3937
-#: admin/class-shapeforms-lite-admin.php:4042
-#: admin/class-shapeforms-lite-admin.php:4171
-#: admin/class-shapeforms-lite-admin.php:4288
+#: admin/class-shapeforms-lite-admin.php:3506
+#: admin/class-shapeforms-lite-admin.php:3611
+#: admin/class-shapeforms-lite-admin.php:3740
+#: admin/class-shapeforms-lite-admin.php:3857
 msgid "Save Changes"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3942
+#: admin/class-shapeforms-lite-admin.php:3511
 msgid "Captcha Settings"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3943
+#: admin/class-shapeforms-lite-admin.php:3512
 msgid "Choose which captcha service should protect all frontend forms."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3950
-#: admin/class-shapeforms-lite-admin.php:4061
+#: admin/class-shapeforms-lite-admin.php:3519
+#: admin/class-shapeforms-lite-admin.php:3630
 msgid "Provider"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3954
+#: admin/class-shapeforms-lite-admin.php:3523
 msgid "Google reCAPTCHA v2"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3955
+#: admin/class-shapeforms-lite-admin.php:3524
 msgid "Free checkbox challenge from Google."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3959
+#: admin/class-shapeforms-lite-admin.php:3528
 msgid "hCaptcha"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3960
+#: admin/class-shapeforms-lite-admin.php:3529
 msgid "Privacy-focused captcha alternative."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3964
+#: admin/class-shapeforms-lite-admin.php:3533
 msgid "Cloudflare Turnstile"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3965
+#: admin/class-shapeforms-lite-admin.php:3534
 msgid "Modern, no-puzzle captcha from Cloudflare."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3969
+#: admin/class-shapeforms-lite-admin.php:3538
 msgid "Simple Math"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3970
+#: admin/class-shapeforms-lite-admin.php:3539
 msgid "Built-in math challenge, no external services."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3977
+#: admin/class-shapeforms-lite-admin.php:3546
 msgid "reCAPTCHA Keys"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3979
-#: admin/class-shapeforms-lite-admin.php:3998
-#: admin/class-shapeforms-lite-admin.php:4017
+#: admin/class-shapeforms-lite-admin.php:3548
+#: admin/class-shapeforms-lite-admin.php:3567
+#: admin/class-shapeforms-lite-admin.php:3586
 msgid "Site key"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3985
-#: admin/class-shapeforms-lite-admin.php:4004
-#: admin/class-shapeforms-lite-admin.php:4023
+#: admin/class-shapeforms-lite-admin.php:3554
+#: admin/class-shapeforms-lite-admin.php:3573
+#: admin/class-shapeforms-lite-admin.php:3592
 msgid "Secret key"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3987
-#: admin/class-shapeforms-lite-admin.php:4006
-#: admin/class-shapeforms-lite-admin.php:4025
-#: admin/class-shapeforms-lite-admin.php:4099
-#: admin/class-shapeforms-lite-integrations-page.php:197
+#: admin/class-shapeforms-lite-admin.php:3556
+#: admin/class-shapeforms-lite-admin.php:3575
+#: admin/class-shapeforms-lite-admin.php:3594
+#: admin/class-shapeforms-lite-admin.php:3668
+#: admin/class-shapeforms-lite-integrations-page.php:191
 msgid "Saved — leave blank to keep current key"
 msgstr ""
 
 #. translators: %s: reCAPTCHA URL
-#: admin/class-shapeforms-lite-admin.php:3988
+#: admin/class-shapeforms-lite-admin.php:3557
 #, php-format
 msgid "Get your keys from %s. Supports reCAPTCHA v2 (checkbox)."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:3996
+#: admin/class-shapeforms-lite-admin.php:3565
 msgid "hCaptcha Keys"
 msgstr ""
 
 #. translators: %s: the captcha provider's URL
-#: admin/class-shapeforms-lite-admin.php:4007
-#: admin/class-shapeforms-lite-admin.php:4026
+#: admin/class-shapeforms-lite-admin.php:3576
+#: admin/class-shapeforms-lite-admin.php:3595
 #, php-format
 msgid "Get your keys from %s."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4015
+#: admin/class-shapeforms-lite-admin.php:3584
 msgid "Turnstile Keys"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4035
+#: admin/class-shapeforms-lite-admin.php:3604
 msgid "Simple Math captcha is built in."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4036
+#: admin/class-shapeforms-lite-admin.php:3605
 msgid "No keys required. Visitors solve a small math question before submitting."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4053
+#: admin/class-shapeforms-lite-admin.php:3622
 msgid "AI Form Builder"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4054
+#: admin/class-shapeforms-lite-admin.php:3623
 msgid "Describe a form in plain language and have it built for you. Choose a provider and add your own API key — prompts are sent from this site straight to that provider, and usage is billed to your own account."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4063
+#: admin/class-shapeforms-lite-admin.php:3632
 msgid "Service"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4088
+#: admin/class-shapeforms-lite-admin.php:3657
 msgid "API key"
 msgstr ""
 
 #. translators: %s: AI provider name, e.g. "OpenRouter".
-#: admin/class-shapeforms-lite-admin.php:4105
+#: admin/class-shapeforms-lite-admin.php:3674
 #, php-format
 msgid "Get a key from %s"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4138
+#: admin/class-shapeforms-lite-admin.php:3707
 msgid "Currently set"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4143
+#: admin/class-shapeforms-lite-admin.php:3712
 msgid "Model"
 msgstr ""
 
 #. translators: %s: the provider's built-in default model id.
-#: admin/class-shapeforms-lite-admin.php:4153
+#: admin/class-shapeforms-lite-admin.php:3722
 #, php-format
 msgid "Default — %s"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4164
+#: admin/class-shapeforms-lite-admin.php:3733
 msgid "Optional. Leave on Default unless you have a reason to change it. Only models that support strict JSON schema output are listed — anything else cannot build a form."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4180
+#: admin/class-shapeforms-lite-admin.php:3749
 msgid "SMTP Settings"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4181
+#: admin/class-shapeforms-lite-admin.php:3750
 msgid "Configure a custom SMTP server to send emails reliably."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4185
+#: admin/class-shapeforms-lite-admin.php:3754
 msgid "Configuration"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4188
+#: admin/class-shapeforms-lite-admin.php:3757
 msgid "Mail Test"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4198
+#: admin/class-shapeforms-lite-admin.php:3767
 msgid "Sender"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4199
+#: admin/class-shapeforms-lite-admin.php:3768
 msgid "Applied to all ShapeForms emails, even when SMTP is disabled."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4201
+#: admin/class-shapeforms-lite-admin.php:3770
 msgid "From Email"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4207
+#: admin/class-shapeforms-lite-admin.php:3776
 msgid "From Name"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4213
+#: admin/class-shapeforms-lite-admin.php:3782
 msgid "Reply-To"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4215
+#: admin/class-shapeforms-lite-admin.php:3784
 msgid "reply@example.com"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4222
+#: admin/class-shapeforms-lite-admin.php:3791
 msgid "Enable SMTP"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4225
-#: admin/class-shapeforms-lite-admin.php:4265
+#: admin/class-shapeforms-lite-admin.php:3794
+#: admin/class-shapeforms-lite-admin.php:3834
 #: public/class-shapeforms-lite-elementor-widget.php:1744
 msgid "Yes"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4226
-#: admin/class-shapeforms-lite-admin.php:4266
+#: admin/class-shapeforms-lite-admin.php:3795
+#: admin/class-shapeforms-lite-admin.php:3835
 #: public/class-shapeforms-lite-elementor-widget.php:1745
 msgid "No"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4234
+#: admin/class-shapeforms-lite-admin.php:3803
 msgid "Server"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4236
+#: admin/class-shapeforms-lite-admin.php:3805
 msgid "SMTP Host"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4242
+#: admin/class-shapeforms-lite-admin.php:3811
 msgid "Encryption"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4246
+#: admin/class-shapeforms-lite-admin.php:3815
 msgid "TLS"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4247
+#: admin/class-shapeforms-lite-admin.php:3816
 msgid "SSL"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4252
+#: admin/class-shapeforms-lite-admin.php:3821
 msgid "Port"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4260
+#: admin/class-shapeforms-lite-admin.php:3829
 msgid "Authentication"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4262
+#: admin/class-shapeforms-lite-admin.php:3831
 msgid "SMTP Auth"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4272
+#: admin/class-shapeforms-lite-admin.php:3841
 msgid "Username"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4280
+#: admin/class-shapeforms-lite-admin.php:3849
 msgid "Saved — leave blank to keep current password"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4294
+#: admin/class-shapeforms-lite-admin.php:3863
 msgid "Send a Test Email"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4298
+#: admin/class-shapeforms-lite-admin.php:3867
 msgid "recipient@example.com"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4302
-#: admin/class-shapeforms-lite-admin.php:4304
+#: admin/class-shapeforms-lite-admin.php:3871
+#: admin/class-shapeforms-lite-admin.php:3873
 msgid "Subject"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4308
-#: admin/class-shapeforms-lite-admin.php:4310
+#: admin/class-shapeforms-lite-admin.php:3877
+#: admin/class-shapeforms-lite-admin.php:3879
 #: admin/migrator/sources/class-shapeforms-lite-source-cf7.php:852
 msgid "Message"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4315
+#: admin/class-shapeforms-lite-admin.php:3884
 msgid "Send Test Mail"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4322
+#: admin/class-shapeforms-lite-admin.php:3891
 msgid "Export and import your forms, entries, and plugin settings."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4536
+#: admin/class-shapeforms-lite-admin.php:4105
 msgid "Settings saved."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4667
-#: admin/class-shapeforms-lite-admin.php:5517
-#: admin/class-shapeforms-lite-admin.php:5543
-#: admin/class-shapeforms-lite-admin.php:5577
-#: admin/class-shapeforms-lite-integrations-page.php:997
-#: admin/class-shapeforms-lite-integrations-page.php:1024
-#: admin/class-shapeforms-lite-integrations-page.php:1038
-#: admin/class-shapeforms-lite-integrations-page.php:1110
-#: admin/class-shapeforms-lite-integrations-page.php:1133
+#: admin/class-shapeforms-lite-admin.php:4236
+#: admin/class-shapeforms-lite-admin.php:5086
+#: admin/class-shapeforms-lite-admin.php:5112
+#: admin/class-shapeforms-lite-admin.php:5146
+#: admin/class-shapeforms-lite-integrations-page.php:971
+#: admin/class-shapeforms-lite-integrations-page.php:998
+#: admin/class-shapeforms-lite-integrations-page.php:1012
+#: admin/class-shapeforms-lite-integrations-page.php:1084
+#: admin/class-shapeforms-lite-integrations-page.php:1107
 msgid "Unauthorized."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4673
+#: admin/class-shapeforms-lite-admin.php:4242
 #: public/class-shapeforms-lite-block.php:182
 #: public/class-shapeforms-lite-shortcode.php:2621
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4679
+#: admin/class-shapeforms-lite-admin.php:4248
 msgid "Please wait a few seconds before sending another test email."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4690
+#: admin/class-shapeforms-lite-admin.php:4259
 msgid "ShapeForms SMTP test email"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4694
+#: admin/class-shapeforms-lite-admin.php:4263
 msgid "This is a test email from ShapeForms confirming your email/SMTP settings are working."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:4703
+#: admin/class-shapeforms-lite-admin.php:4272
 msgid "Failed to send email. Check your SMTP configuration."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5079
+#: admin/class-shapeforms-lite-admin.php:4648
 msgid "Form moved to trash."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5080
+#: admin/class-shapeforms-lite-admin.php:4649
 msgid "Selected forms moved to trash."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5081
+#: admin/class-shapeforms-lite-admin.php:4650
 msgid "Form restored."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5082
+#: admin/class-shapeforms-lite-admin.php:4651
 msgid "Selected forms restored."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5083
+#: admin/class-shapeforms-lite-admin.php:4652
 msgid "Form permanently deleted."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5084
+#: admin/class-shapeforms-lite-admin.php:4653
 msgid "Selected forms permanently deleted."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5085
+#: admin/class-shapeforms-lite-admin.php:4654
 msgid "Unable to delete the form."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5086
+#: admin/class-shapeforms-lite-admin.php:4655
 msgid "Unable to duplicate the form."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5087
+#: admin/class-shapeforms-lite-admin.php:4656
 msgid "Security check failed."
 msgstr ""
 
 #. translators: %s: original form title
-#: admin/class-shapeforms-lite-admin.php:5126
+#: admin/class-shapeforms-lite-admin.php:4695
 #, php-format
 msgid "%s (Copy)"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5274
+#: admin/class-shapeforms-lite-admin.php:4843
 msgid "Entry Not Found"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5275
+#: admin/class-shapeforms-lite-admin.php:4844
 msgid "The requested entry does not exist."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5314
+#: admin/class-shapeforms-lite-admin.php:4883
 msgid "Back to Entries"
 msgstr ""
 
 #. translators: %d: entry ID
-#: admin/class-shapeforms-lite-admin.php:5318
+#: admin/class-shapeforms-lite-admin.php:4887
 #, php-format
 msgid "Entry #%d"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5331
+#: admin/class-shapeforms-lite-admin.php:4900
 msgid "Delete this entry permanently? This cannot be undone."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5335
+#: admin/class-shapeforms-lite-admin.php:4904
 msgid "Remove Star"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5335
+#: admin/class-shapeforms-lite-admin.php:4904
 msgid "Star Entry"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5358
+#: admin/class-shapeforms-lite-admin.php:4927
 #: includes/class-shapeforms-lite-email-handler.php:522
 msgid "Field"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5372
+#: admin/class-shapeforms-lite-admin.php:4941
 msgid "Accepted"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5372
+#: admin/class-shapeforms-lite-admin.php:4941
 msgid "Not accepted"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5430
+#: admin/class-shapeforms-lite-admin.php:4999
 msgid "Details"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5435
+#: admin/class-shapeforms-lite-admin.php:5004
 msgid "Submitted"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5452
+#: admin/class-shapeforms-lite-admin.php:5021
 msgid "IP Address"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5461
+#: admin/class-shapeforms-lite-admin.php:5030
 msgid "Browser"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:5524
-#: admin/class-shapeforms-lite-admin.php:5550
-#: admin/class-shapeforms-lite-admin.php:5609
+#: admin/class-shapeforms-lite-admin.php:5093
+#: admin/class-shapeforms-lite-admin.php:5119
+#: admin/class-shapeforms-lite-admin.php:5178
 msgid "Invalid request."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6439
-#: admin/class-shapeforms-lite-admin.php:6465
+#: admin/class-shapeforms-lite-admin.php:6008
+#: admin/class-shapeforms-lite-admin.php:6034
 msgid "No data"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6503
+#: admin/class-shapeforms-lite-admin.php:6072
 msgid "Name"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6508
+#: admin/class-shapeforms-lite-admin.php:6077
 #: admin/migrator/sources/class-shapeforms-lite-source-cf7.php:847
 #: shapeforms.php:289
 msgid "Email"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6513
+#: admin/class-shapeforms-lite-admin.php:6082
 #: admin/migrator/sources/class-shapeforms-lite-source-cf7.php:850
 msgid "Number"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6518
+#: admin/class-shapeforms-lite-admin.php:6087
 msgid "Textarea"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6523
+#: admin/class-shapeforms-lite-admin.php:6092
 msgid "Date Picker"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6528
+#: admin/class-shapeforms-lite-admin.php:6097
 msgid "Time Picker"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6533
+#: admin/class-shapeforms-lite-admin.php:6102
 #: public/class-shapeforms-lite-shortcode.php:1789
 msgid "Select"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6538
+#: admin/class-shapeforms-lite-admin.php:6107
 msgid "Multi Select"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6548
+#: admin/class-shapeforms-lite-admin.php:6117
 msgid "Radio"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6553
+#: admin/class-shapeforms-lite-admin.php:6122
 #: admin/migrator/sources/class-shapeforms-lite-source-cf7.php:849
 #: shapeforms.php:290
 msgid "Phone"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6558
+#: admin/class-shapeforms-lite-admin.php:6127
 msgid "URL"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6563
+#: admin/class-shapeforms-lite-admin.php:6132
 msgid "Numeric"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6568
+#: admin/class-shapeforms-lite-admin.php:6137
 msgid "Input Mask"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6573
+#: admin/class-shapeforms-lite-admin.php:6142
 msgid "HTML Editor"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6578
+#: admin/class-shapeforms-lite-admin.php:6147
 msgid "Paragraph"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6583
+#: admin/class-shapeforms-lite-admin.php:6152
 msgid "Address"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6588
+#: admin/class-shapeforms-lite-admin.php:6157
 #: public/class-shapeforms-lite-shortcode.php:2270
 msgid "Country"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6593
+#: admin/class-shapeforms-lite-admin.php:6162
 #: public/class-shapeforms-lite-elementor-widget.php:1489
 msgid "Star Rating"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6598
+#: admin/class-shapeforms-lite-admin.php:6167
 msgid "Slider Range"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6735
+#: admin/class-shapeforms-lite-admin.php:6304
 msgid "Overview"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6747
+#: admin/class-shapeforms-lite-admin.php:6316
 msgid "Total Forms"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6756
+#: admin/class-shapeforms-lite-admin.php:6325
 msgid "Total Entries"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6792
+#: admin/class-shapeforms-lite-admin.php:6361
 msgid "This Week"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6828
+#: admin/class-shapeforms-lite-admin.php:6397
 msgid "Submissions"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6859
+#: admin/class-shapeforms-lite-admin.php:6428
 msgid "Entries by Form"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6868
+#: admin/class-shapeforms-lite-admin.php:6437
 msgid "Breakdown"
 msgstr ""
 
 #. translators: %d: unread count
-#: admin/class-shapeforms-lite-admin.php:6889
+#: admin/class-shapeforms-lite-admin.php:6458
 #, php-format
 msgid "Unread: %d"
 msgstr ""
 
 #. translators: %d: read count
-#: admin/class-shapeforms-lite-admin.php:6890
+#: admin/class-shapeforms-lite-admin.php:6459
 #, php-format
 msgid "Read: %d"
 msgstr ""
 
 #. translators: %d: starred count
-#: admin/class-shapeforms-lite-admin.php:6891
+#: admin/class-shapeforms-lite-admin.php:6460
 #, php-format
 msgid "Starred: %d"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6911
+#: admin/class-shapeforms-lite-admin.php:6480
 msgid "No forms found. Create your first form to see reports."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6919
+#: admin/class-shapeforms-lite-admin.php:6488
 msgid "Recent Entries"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6920
+#: admin/class-shapeforms-lite-admin.php:6489
 msgid "View All"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6942
+#: admin/class-shapeforms-lite-admin.php:6511
 msgid "Entry"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6947
+#: admin/class-shapeforms-lite-admin.php:6516
 msgid "ago"
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6961
+#: admin/class-shapeforms-lite-admin.php:6530
 msgid "No entries yet. Entries will appear here once forms are submitted."
 msgstr ""
 
-#: admin/class-shapeforms-lite-admin.php:6975
+#: admin/class-shapeforms-lite-admin.php:6544
 msgid "entries"
 msgstr ""
 
@@ -3837,357 +3581,357 @@ msgstr ""
 msgid "Invalid ShapeForms export file."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:184
-#: admin/class-shapeforms-lite-integrations-page.php:353
+#: admin/class-shapeforms-lite-integrations-page.php:178
+#: admin/class-shapeforms-lite-integrations-page.php:347
 msgid "Save"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:185
+#: admin/class-shapeforms-lite-integrations-page.php:179
 msgid "Saving…"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:186
-#: admin/class-shapeforms-lite-integrations-page.php:352
+#: admin/class-shapeforms-lite-integrations-page.php:180
+#: admin/class-shapeforms-lite-integrations-page.php:346
 msgid "Test Connection"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:187
+#: admin/class-shapeforms-lite-integrations-page.php:181
 msgid "Testing…"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:189
+#: admin/class-shapeforms-lite-integrations-page.php:183
 msgid "Remove this connection and its settings?"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:190
+#: admin/class-shapeforms-lite-integrations-page.php:184
 msgid "— select —"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:193
+#: admin/class-shapeforms-lite-integrations-page.php:187
 msgid "Connection successful!"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:194
+#: admin/class-shapeforms-lite-integrations-page.php:188
 msgid "Connection failed: "
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:195
+#: admin/class-shapeforms-lite-integrations-page.php:189
 msgid "Saved."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:196
+#: admin/class-shapeforms-lite-integrations-page.php:190
 msgid "API Key is required."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:225
+#: admin/class-shapeforms-lite-integrations-page.php:219
 msgid "Connect your forms to email marketing, CRMs, and apps."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:235
+#: admin/class-shapeforms-lite-integrations-page.php:229
 msgid "Newsletter"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:236
+#: admin/class-shapeforms-lite-integrations-page.php:230
 msgid "CRM"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:237
+#: admin/class-shapeforms-lite-integrations-page.php:231
 msgid "Productivity"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:238
+#: admin/class-shapeforms-lite-integrations-page.php:232
 msgid "Automation"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:239
+#: admin/class-shapeforms-lite-integrations-page.php:233
 msgid "Messaging"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:240
+#: admin/class-shapeforms-lite-integrations-page.php:234
 msgid "Storage"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:282
+#: admin/class-shapeforms-lite-integrations-page.php:276
 msgid "Available in the premium add-on"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:314
-#: admin/class-shapeforms-lite-integrations-page.php:319
+#: admin/class-shapeforms-lite-integrations-page.php:308
+#: admin/class-shapeforms-lite-integrations-page.php:313
 msgid "Locked"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:323
+#: admin/class-shapeforms-lite-integrations-page.php:317
 msgid "Available in ShapeForms Pro"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:325
+#: admin/class-shapeforms-lite-integrations-page.php:319
 msgid "Disable"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:325
+#: admin/class-shapeforms-lite-integrations-page.php:319
 msgid "Enable"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:588
+#: admin/class-shapeforms-lite-integrations-page.php:562
 msgid "Sync subscribers to a Mailchimp audience."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:589
+#: admin/class-shapeforms-lite-integrations-page.php:563
 msgid "Audience"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:604
+#: admin/class-shapeforms-lite-integrations-page.php:578
 msgid "Add contacts to a Brevo contact list."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:605
+#: admin/class-shapeforms-lite-integrations-page.php:579
 msgid "Contact List"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:622
+#: admin/class-shapeforms-lite-integrations-page.php:596
 msgid "Add contacts and apply tags in ActiveCampaign."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:623
-#: admin/class-shapeforms-lite-integrations-page.php:647
-#: admin/class-shapeforms-lite-integrations-page.php:720
-#: admin/class-shapeforms-lite-integrations-page.php:769
-#: admin/class-shapeforms-lite-integrations-page.php:879
+#: admin/class-shapeforms-lite-integrations-page.php:597
+#: admin/class-shapeforms-lite-integrations-page.php:621
+#: admin/class-shapeforms-lite-integrations-page.php:694
+#: admin/class-shapeforms-lite-integrations-page.php:743
+#: admin/class-shapeforms-lite-integrations-page.php:853
 msgid "List"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:634
+#: admin/class-shapeforms-lite-integrations-page.php:608
 msgid "Subscribe to a Kit form or sequence."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:646
+#: admin/class-shapeforms-lite-integrations-page.php:620
 msgid "Add subscribers to an AWeber list."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:658
+#: admin/class-shapeforms-lite-integrations-page.php:632
 msgid "Add contacts to a GetResponse campaign."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:659
-#: admin/class-shapeforms-lite-integrations-page.php:781
+#: admin/class-shapeforms-lite-integrations-page.php:633
+#: admin/class-shapeforms-lite-integrations-page.php:755
 msgid "Campaign"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:670
+#: admin/class-shapeforms-lite-integrations-page.php:644
 msgid "Add subscribers to a MailerLite group."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:671
+#: admin/class-shapeforms-lite-integrations-page.php:645
 msgid "Group"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:683
+#: admin/class-shapeforms-lite-integrations-page.php:657
 msgid "Create or update HubSpot CRM contacts."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:684
+#: admin/class-shapeforms-lite-integrations-page.php:658
 msgid "Portal"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:695
+#: admin/class-shapeforms-lite-integrations-page.php:669
 msgid "Push leads and contacts to Zoho CRM."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:696
+#: admin/class-shapeforms-lite-integrations-page.php:670
 msgid "Module"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:707
+#: admin/class-shapeforms-lite-integrations-page.php:681
 msgid "Create conversations in Help Scout."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:708
+#: admin/class-shapeforms-lite-integrations-page.php:682
 msgid "Mailbox"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:719
+#: admin/class-shapeforms-lite-integrations-page.php:693
 msgid "Add contacts and tags in FluentCRM."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:731
+#: admin/class-shapeforms-lite-integrations-page.php:705
 msgid "Append each submission as a new row."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:732
+#: admin/class-shapeforms-lite-integrations-page.php:706
 msgid "Spreadsheet"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:743
+#: admin/class-shapeforms-lite-integrations-page.php:717
 msgid "Upload file submissions to Dropbox."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:744
-#: admin/class-shapeforms-lite-integrations-page.php:978
+#: admin/class-shapeforms-lite-integrations-page.php:718
+#: admin/class-shapeforms-lite-integrations-page.php:952
 #: shapeforms.php:308
 msgid "Folder"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:755
+#: admin/class-shapeforms-lite-integrations-page.php:729
 msgid "Post a notification to a Slack channel."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:756
-#: admin/class-shapeforms-lite-integrations-page.php:941
-#: admin/class-shapeforms-lite-integrations-page.php:965
+#: admin/class-shapeforms-lite-integrations-page.php:730
+#: admin/class-shapeforms-lite-integrations-page.php:915
+#: admin/class-shapeforms-lite-integrations-page.php:939
 msgid "Channel"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:768
+#: admin/class-shapeforms-lite-integrations-page.php:742
 msgid "Add contacts to a Constant Contact list."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:780
+#: admin/class-shapeforms-lite-integrations-page.php:754
 msgid "Subscribe to a Drip campaign."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:792
+#: admin/class-shapeforms-lite-integrations-page.php:766
 msgid "Add subscribers to a Moosend mailing list."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:793
+#: admin/class-shapeforms-lite-integrations-page.php:767
 msgid "Mailing List"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:805
+#: admin/class-shapeforms-lite-integrations-page.php:779
 msgid "Create leads or contacts in Salesforce."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:806
+#: admin/class-shapeforms-lite-integrations-page.php:780
 msgid "Object"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:817
+#: admin/class-shapeforms-lite-integrations-page.php:791
 msgid "Create deals and contacts in Pipedrive."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:818
+#: admin/class-shapeforms-lite-integrations-page.php:792
 msgid "Pipeline"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:829
+#: admin/class-shapeforms-lite-integrations-page.php:803
 msgid "Create leads in Freshsales CRM."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:830
+#: admin/class-shapeforms-lite-integrations-page.php:804
 #: shapeforms.php:341
 msgid "View"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:841
+#: admin/class-shapeforms-lite-integrations-page.php:815
 msgid "Create items on a Monday.com board."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:842
+#: admin/class-shapeforms-lite-integrations-page.php:816
 msgid "Board"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:854
+#: admin/class-shapeforms-lite-integrations-page.php:828
 msgid "Add entries to a Notion database."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:855
+#: admin/class-shapeforms-lite-integrations-page.php:829
 msgid "Database"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:866
+#: admin/class-shapeforms-lite-integrations-page.php:840
 msgid "Create records in an Airtable base."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:867
+#: admin/class-shapeforms-lite-integrations-page.php:841
 msgid "Table"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:878
+#: admin/class-shapeforms-lite-integrations-page.php:852
 msgid "Create cards on a Trello board."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:890
+#: admin/class-shapeforms-lite-integrations-page.php:864
 msgid "Create tasks in an Asana project."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:891
+#: admin/class-shapeforms-lite-integrations-page.php:865
 msgid "Project"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:903
+#: admin/class-shapeforms-lite-integrations-page.php:877
 msgid "Trigger a Zapier webhook on submission."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:904
+#: admin/class-shapeforms-lite-integrations-page.php:878
 msgid "Zap"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:915
+#: admin/class-shapeforms-lite-integrations-page.php:889
 msgid "Trigger a Make scenario via webhook."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:916
+#: admin/class-shapeforms-lite-integrations-page.php:890
 msgid "Scenario"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:927
+#: admin/class-shapeforms-lite-integrations-page.php:901
 msgid "Trigger a Pabbly Connect workflow."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:928
+#: admin/class-shapeforms-lite-integrations-page.php:902
 msgid "Workflow"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:940
+#: admin/class-shapeforms-lite-integrations-page.php:914
 msgid "Post notifications to a Discord channel."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:952
+#: admin/class-shapeforms-lite-integrations-page.php:926
 msgid "Send messages to a Telegram chat."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:953
+#: admin/class-shapeforms-lite-integrations-page.php:927
 msgid "Chat"
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:964
+#: admin/class-shapeforms-lite-integrations-page.php:938
 msgid "Post notifications to a Teams channel."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:977
+#: admin/class-shapeforms-lite-integrations-page.php:951
 msgid "Upload file submissions to Google Drive."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:1003
+#: admin/class-shapeforms-lite-integrations-page.php:977
 msgid "Type is required."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:1045
+#: admin/class-shapeforms-lite-integrations-page.php:1019
 msgid "Missing type."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:1065
+#: admin/class-shapeforms-lite-integrations-page.php:1039
 msgid "Configure this integration in settings before enabling it."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:1084
+#: admin/class-shapeforms-lite-integrations-page.php:1058
 msgid "Complete the required settings before enabling this integration."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:1120
+#: admin/class-shapeforms-lite-integrations-page.php:1094
 msgid "Unknown integration type."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:1140
+#: admin/class-shapeforms-lite-integrations-page.php:1114
 msgid "Connection not found."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:1196
+#: admin/class-shapeforms-lite-integrations-page.php:1170
 msgid "API key is missing a valid data-center suffix (for example, -us6)."
 msgstr ""
 
-#: admin/class-shapeforms-lite-integrations-page.php:1215
-#: admin/class-shapeforms-lite-integrations-page.php:1236
+#: admin/class-shapeforms-lite-integrations-page.php:1189
+#: admin/class-shapeforms-lite-integrations-page.php:1210
 msgid "Invalid API key."
 msgstr ""
 
@@ -4403,252 +4147,6 @@ msgstr ""
 #: admin/migrator/sources/class-shapeforms-lite-source-cf7.php:990
 #, php-format
 msgid "%1$s — %2$s"
-msgstr ""
-
-#: shapeforms.php:268
-msgid "Check"
-msgstr ""
-
-#: shapeforms.php:269
-msgid "Cross"
-msgstr ""
-
-#: shapeforms.php:270
-msgid "Plus"
-msgstr ""
-
-#: shapeforms.php:271
-msgid "Minus"
-msgstr ""
-
-#: shapeforms.php:272
-msgid "Circle"
-msgstr ""
-
-#: shapeforms.php:273
-msgid "Square"
-msgstr ""
-
-#: shapeforms.php:275
-msgid "Heart"
-msgstr ""
-
-#: shapeforms.php:276
-msgid "Thumbs up"
-msgstr ""
-
-#: shapeforms.php:277
-msgid "Smile"
-msgstr ""
-
-#: shapeforms.php:278
-msgid "Award"
-msgstr ""
-
-#: shapeforms.php:279
-msgid "Flag"
-msgstr ""
-
-#: shapeforms.php:280
-msgid "Bookmark"
-msgstr ""
-
-#: shapeforms.php:281
-msgid "Bell"
-msgstr ""
-
-#: shapeforms.php:282
-msgid "Info"
-msgstr ""
-
-#: shapeforms.php:283
-msgid "Question"
-msgstr ""
-
-#: shapeforms.php:284
-msgid "Warning"
-msgstr ""
-
-#: shapeforms.php:287
-msgid "Person"
-msgstr ""
-
-#: shapeforms.php:288
-msgid "People"
-msgstr ""
-
-#: shapeforms.php:291
-msgid "Location"
-msgstr ""
-
-#: shapeforms.php:292
-msgid "Globe"
-msgstr ""
-
-#: shapeforms.php:293
-msgid "Home"
-msgstr ""
-
-#: shapeforms.php:294
-msgid "Business"
-msgstr ""
-
-#: shapeforms.php:297
-msgid "Cart"
-msgstr ""
-
-#: shapeforms.php:298
-msgid "Tag"
-msgstr ""
-
-#: shapeforms.php:299
-msgid "Card"
-msgstr ""
-
-#: shapeforms.php:300
-msgid "Gift"
-msgstr ""
-
-#: shapeforms.php:301
-msgid "Package"
-msgstr ""
-
-#: shapeforms.php:302
-msgid "Delivery"
-msgstr ""
-
-#: shapeforms.php:306
-msgid "Camera"
-msgstr ""
-
-#: shapeforms.php:307
-msgid "Document"
-msgstr ""
-
-#: shapeforms.php:309
-msgid "Print"
-msgstr ""
-
-#: shapeforms.php:310
-msgid "Screen"
-msgstr ""
-
-#: shapeforms.php:312
-msgid "Wireless"
-msgstr ""
-
-#: shapeforms.php:317
-msgid "Cut"
-msgstr ""
-
-#: shapeforms.php:320
-msgid "Layers"
-msgstr ""
-
-#: shapeforms.php:321
-msgid "Grid"
-msgstr ""
-
-#: shapeforms.php:325
-msgid "Calendar"
-msgstr ""
-
-#: shapeforms.php:326
-msgid "Clock"
-msgstr ""
-
-#: shapeforms.php:327
-msgid "Sun"
-msgstr ""
-
-#: shapeforms.php:328
-msgid "Moon"
-msgstr ""
-
-#: shapeforms.php:329
-msgid "Cloud"
-msgstr ""
-
-#: shapeforms.php:330
-msgid "Water"
-msgstr ""
-
-#: shapeforms.php:331
-msgid "Weather"
-msgstr ""
-
-#: shapeforms.php:332
-msgid "Power"
-msgstr ""
-
-#: shapeforms.php:333
-msgid "Anchor"
-msgstr ""
-
-#: shapeforms.php:334
-msgid "Compass"
-msgstr ""
-
-#: shapeforms.php:337
-msgid "Chart"
-msgstr ""
-
-#: shapeforms.php:338
-msgid "Growth"
-msgstr ""
-
-#: shapeforms.php:339
-msgid "Target"
-msgstr ""
-
-#: shapeforms.php:340
-#: public/class-shapeforms-lite-shortcode.php:1828
-msgid "Search"
-msgstr ""
-
-#: shapeforms.php:342
-msgid "Lock"
-msgstr ""
-
-#: shapeforms.php:343
-msgid "Shield"
-msgstr ""
-
-#: shapeforms.php:344
-#: public/class-shapeforms-lite-elementor-widget.php:1265
-msgid "Link"
-msgstr ""
-
-#: shapeforms.php:345
-msgid "Send"
-msgstr ""
-
-#: shapeforms.php:346
-msgid "Download"
-msgstr ""
-
-#: shapeforms.php:347
-msgid "Upload"
-msgstr ""
-
-#: shapeforms.php:348
-msgid "Refresh"
-msgstr ""
-
-#: shapeforms.php:349
-msgid "Arrow"
-msgstr ""
-
-#: shapeforms.php:350
-msgid "Navigation"
-msgstr ""
-
-#: shapeforms.php:351
-msgid "Book"
-msgstr ""
-
-#: shapeforms.php:352
-msgid "Food & drink"
 msgstr ""
 
 #: includes/class-shapeforms-lite-ai-builder.php:244
@@ -4953,6 +4451,11 @@ msgstr ""
 msgid "Checkmark Color"
 msgstr ""
 
+#: public/class-shapeforms-lite-elementor-widget.php:1265
+#: shapeforms.php:344
+msgid "Link"
+msgstr ""
+
 #: public/class-shapeforms-lite-elementor-widget.php:1330
 msgid "Checkbox Size"
 msgstr ""
@@ -5176,6 +4679,11 @@ msgstr ""
 #: public/class-shapeforms-lite-shortcode.php:1828
 #: public/class-shapeforms-lite-shortcode.php:2378
 msgid "Search&hellip;"
+msgstr ""
+
+#: public/class-shapeforms-lite-shortcode.php:1828
+#: shapeforms.php:340
+msgid "Search"
 msgstr ""
 
 #: public/class-shapeforms-lite-shortcode.php:2057
@@ -6027,6 +5535,242 @@ msgstr ""
 
 #: public/class-shapeforms-lite-shortcode.php:3070
 msgid "Zimbabwe"
+msgstr ""
+
+#: shapeforms.php:268
+msgid "Check"
+msgstr ""
+
+#: shapeforms.php:269
+msgid "Cross"
+msgstr ""
+
+#: shapeforms.php:270
+msgid "Plus"
+msgstr ""
+
+#: shapeforms.php:271
+msgid "Minus"
+msgstr ""
+
+#: shapeforms.php:272
+msgid "Circle"
+msgstr ""
+
+#: shapeforms.php:273
+msgid "Square"
+msgstr ""
+
+#: shapeforms.php:275
+msgid "Heart"
+msgstr ""
+
+#: shapeforms.php:276
+msgid "Thumbs up"
+msgstr ""
+
+#: shapeforms.php:277
+msgid "Smile"
+msgstr ""
+
+#: shapeforms.php:278
+msgid "Award"
+msgstr ""
+
+#: shapeforms.php:279
+msgid "Flag"
+msgstr ""
+
+#: shapeforms.php:280
+msgid "Bookmark"
+msgstr ""
+
+#: shapeforms.php:281
+msgid "Bell"
+msgstr ""
+
+#: shapeforms.php:282
+msgid "Info"
+msgstr ""
+
+#: shapeforms.php:283
+msgid "Question"
+msgstr ""
+
+#: shapeforms.php:284
+msgid "Warning"
+msgstr ""
+
+#: shapeforms.php:287
+msgid "Person"
+msgstr ""
+
+#: shapeforms.php:288
+msgid "People"
+msgstr ""
+
+#: shapeforms.php:291
+msgid "Location"
+msgstr ""
+
+#: shapeforms.php:292
+msgid "Globe"
+msgstr ""
+
+#: shapeforms.php:293
+msgid "Home"
+msgstr ""
+
+#: shapeforms.php:294
+msgid "Business"
+msgstr ""
+
+#: shapeforms.php:297
+msgid "Cart"
+msgstr ""
+
+#: shapeforms.php:298
+msgid "Tag"
+msgstr ""
+
+#: shapeforms.php:299
+msgid "Card"
+msgstr ""
+
+#: shapeforms.php:300
+msgid "Gift"
+msgstr ""
+
+#: shapeforms.php:301
+msgid "Package"
+msgstr ""
+
+#: shapeforms.php:302
+msgid "Delivery"
+msgstr ""
+
+#: shapeforms.php:306
+msgid "Camera"
+msgstr ""
+
+#: shapeforms.php:307
+msgid "Document"
+msgstr ""
+
+#: shapeforms.php:309
+msgid "Print"
+msgstr ""
+
+#: shapeforms.php:310
+msgid "Screen"
+msgstr ""
+
+#: shapeforms.php:312
+msgid "Wireless"
+msgstr ""
+
+#: shapeforms.php:317
+msgid "Cut"
+msgstr ""
+
+#: shapeforms.php:320
+msgid "Layers"
+msgstr ""
+
+#: shapeforms.php:321
+msgid "Grid"
+msgstr ""
+
+#: shapeforms.php:325
+msgid "Calendar"
+msgstr ""
+
+#: shapeforms.php:326
+msgid "Clock"
+msgstr ""
+
+#: shapeforms.php:327
+msgid "Sun"
+msgstr ""
+
+#: shapeforms.php:328
+msgid "Moon"
+msgstr ""
+
+#: shapeforms.php:329
+msgid "Cloud"
+msgstr ""
+
+#: shapeforms.php:330
+msgid "Water"
+msgstr ""
+
+#: shapeforms.php:331
+msgid "Weather"
+msgstr ""
+
+#: shapeforms.php:332
+msgid "Power"
+msgstr ""
+
+#: shapeforms.php:333
+msgid "Anchor"
+msgstr ""
+
+#: shapeforms.php:334
+msgid "Compass"
+msgstr ""
+
+#: shapeforms.php:337
+msgid "Chart"
+msgstr ""
+
+#: shapeforms.php:338
+msgid "Growth"
+msgstr ""
+
+#: shapeforms.php:339
+msgid "Target"
+msgstr ""
+
+#: shapeforms.php:342
+msgid "Lock"
+msgstr ""
+
+#: shapeforms.php:343
+msgid "Shield"
+msgstr ""
+
+#: shapeforms.php:345
+msgid "Send"
+msgstr ""
+
+#: shapeforms.php:346
+msgid "Download"
+msgstr ""
+
+#: shapeforms.php:347
+msgid "Upload"
+msgstr ""
+
+#: shapeforms.php:348
+msgid "Refresh"
+msgstr ""
+
+#: shapeforms.php:349
+msgid "Arrow"
+msgstr ""
+
+#: shapeforms.php:350
+msgid "Navigation"
+msgstr ""
+
+#: shapeforms.php:351
+msgid "Book"
+msgstr ""
+
+#: shapeforms.php:352
+msgid "Food & drink"
 msgstr ""
 
 #: assets/js/block-form.js:19
