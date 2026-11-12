@@ -331,7 +331,7 @@ class ShapeForms_Lite_Form_Handler {
 		 * submission; the entry is still persisted (as spam) and shapeforms_entry_saved
 		 * still fires so persistence-level listeners run.
 		 *
-		 * @since 1.1.3
+		 * @since 1.0.0
 		 * @param bool                                $is_spam    Whether to treat the submission as spam. Default false.
 		 * @param int                                 $form_id    Form ID.
 		 * @param array<string, mixed>                $settings   Form settings.
@@ -1227,7 +1227,7 @@ class ShapeForms_Lite_Form_Handler {
 		 * HTML (rich text) that would be tag-stripped. Implementations MUST return
 		 * an already-sanitized value, or null to defer to Lite.
 		 *
-		 * @since 1.1.0
+		 * @since 1.0.0
 		 *
 		 * @param mixed  $pre  Null to defer to Lite; any other value short-circuits.
 		 * @param string $type Field type slug.

@@ -957,7 +957,7 @@ class ShapeForms_Lite_Admin {
 						 * rather than "upgrade" here — the visitor already owns the product,
 						 * and buying it again is not the action they need.
 						 *
-						 * @since 1.1.7
+						 * @since 1.0.0
 						 *
 						 * @param string $title Headline text.
 						 */
@@ -967,7 +967,7 @@ class ShapeForms_Lite_Admin {
 						 * Filters the body copy shown in the template preview pane when a
 						 * locked template row is selected.
 						 *
-						 * @since 1.1.7
+						 * @since 1.0.0
 						 *
 						 * @param string $text Body copy.
 						 */
@@ -1656,7 +1656,7 @@ class ShapeForms_Lite_Admin {
 				 * notes panel rendered via `shapeforms_entry_detail_sidebar`. Mirrors
 				 * `shapeforms_builder_enqueue_assets` for the builder screen.
 				 *
-				 * @since 1.1.3
+				 * @since 1.0.0
 				 *
 				 * @param int $entry_id The entry being viewed.
 				 */
@@ -1785,7 +1785,7 @@ class ShapeForms_Lite_Admin {
 		/**
 		 * Filters whether the template library advertises its locked rows.
 		 *
-		 * @since 1.1.7
+		 * @since 1.0.0
 		 *
 		 * @param bool $show Whether to show the teaser. Defaults to shapeforms_show_upgrade_cta.
 		 */
@@ -1815,7 +1815,7 @@ class ShapeForms_Lite_Admin {
 		/**
 		 * Filters whether the locked Excel/PDF export controls are advertised.
 		 *
-		 * @since 1.1.7
+		 * @since 1.0.0
 		 *
 		 * @param bool $show Whether to show the teasers. Defaults to shapeforms_show_upgrade_cta.
 		 */
@@ -2014,7 +2014,7 @@ class ShapeForms_Lite_Admin {
 		 * against rendering twice in one request (more than one ShapeForms screen can
 		 * wire the purge in a single load).
 		 *
-		 * @since 1.1.7
+		 * @since 1.0.0
 		 */
 		do_action( 'shapeforms_admin_notices' );
 	}
@@ -2291,7 +2291,7 @@ class ShapeForms_Lite_Admin {
 					 * HERE is only the fallback — a callback that handles just 'export' will
 					 * not change what the user actually sees on this screen.
 					 *
-					 * @since 1.1.7
+					 * @since 1.0.0
 					 *
 					 * @param string $title   Heading text.
 					 * @param string $context Which dialog. One of 'fields', 'templates',
@@ -2303,7 +2303,7 @@ class ShapeForms_Lite_Admin {
 					/**
 					 * Filters the body copy of a locked-content upgrade dialog.
 					 *
-					 * @since 1.1.7
+					 * @since 1.0.0
 					 *
 					 * @param string $text    Body copy.
 					 * @param string $context Which dialog. One of 'fields', 'templates', 'export'.
@@ -2345,7 +2345,7 @@ class ShapeForms_Lite_Admin {
 		/**
 		 * Filters the hint under the export-format control.
 		 *
-		 * @since 1.1.7
+		 * @since 1.0.0
 		 *
 		 * @param string $hint Default hint text.
 		 */
@@ -2384,7 +2384,7 @@ class ShapeForms_Lite_Admin {
 	 *    filtered CTA pointing at a License tab opened wp-admin in a second tab.
 	 * 3. Escaping, which is easy to get right once and easy to forget in the seventh copy.
 	 *
-	 * @since 1.1.7
+	 * @since 1.0.0
 	 *
 	 * @param string $class   CSS class for the anchor.
 	 * @param string $default Default label, in case this CTA reads differently.
@@ -2403,7 +2403,7 @@ class ShapeForms_Lite_Admin {
 		 * them to a sales page is the wrong action. An in-admin URL is detected and
 		 * opened in the same tab.
 		 *
-		 * @since 1.1.2
+		 * @since 1.0.0
 		 *
 		 * @param string $url Destination URL. Default the sales site.
 		 */
@@ -2417,7 +2417,7 @@ class ShapeForms_Lite_Admin {
 		 * the same value produces, for example, the accessible name "Export Excel
 		 * Activate License" and the option label "Excel (.xlsx) — Activate License".
 		 *
-		 * @since 1.1.7 The $context argument.
+		 * @since 1.0.0 The $context argument.
 		 *
 		 * @param string $label   Default label for this call-to-action.
 		 * @param string $context Where it appears. One of:
@@ -3023,7 +3023,7 @@ class ShapeForms_Lite_Admin {
 					 * fires when the current filtered view has entries. Handlers should render
 					 * their own filter-scoped, nonce-protected export links/buttons.
 					 *
-					 * @since 1.1.2
+					 * @since 1.0.0
 					 *
 					 * @param array<string, mixed> $filter_context The current screen filters:
 					 *        'form_id', 'status', 'date_range', 'date_from', 'date_to'.
@@ -3150,7 +3150,7 @@ class ShapeForms_Lite_Admin {
 					 * match the native Form/Date filters — Lite's dropdown toggle JS
 					 * already handles any `.shapeforms-dropdown__trigger` on this screen.
 					 *
-					 * @since 1.1.3
+					 * @since 1.0.0
 					 *
 					 * @param array<string, mixed> $filter_context form_id, status, date_range, date_from, date_to.
 					 */
@@ -3203,7 +3203,7 @@ class ShapeForms_Lite_Admin {
 							 * (e.g. Approve / Reject). The add-on performs the work by
 							 * handling the `shapeforms_bulk_entry_action` action.
 							 *
-							 * @since 1.1.3
+							 * @since 1.0.0
 							 *
 							 * @param string $filter_status The current status view.
 							 */
@@ -3238,7 +3238,7 @@ class ShapeForms_Lite_Admin {
 							 * and own the JS that collects the checked ids and posts to their
 							 * endpoint.
 							 *
-							 * @since 1.1.2
+							 * @since 1.0.0
 							 */
 							do_action( 'shapeforms_entries_bulk_export_actions' );
 							?>
@@ -3306,7 +3306,7 @@ class ShapeForms_Lite_Admin {
 										 * list (e.g. an approval-status badge). Returned markup is passed
 										 * through wp_kses_post before output.
 										 *
-										 * @since 1.1.3
+										 * @since 1.0.0
 										 *
 										 * @param string $html  Extra HTML (default empty).
 										 * @param object $entry The entry row object.
@@ -4805,7 +4805,7 @@ class ShapeForms_Lite_Admin {
 		 * extra query per row. Values must be plain identifier names of columns that
 		 * exist on the entries table; each is passed through esc_sql().
 		 *
-		 * @since 1.1.3
+		 * @since 1.0.0
 		 *
 		 * @param string[] $extra_columns Extra column names (default empty).
 		 */
@@ -4984,7 +4984,7 @@ class ShapeForms_Lite_Admin {
 					 * main-column UI). Receives the entry row object and the decoded entry-data map
 					 * ( $field_id => array{ label, type, value, path? } ) so it need not re-query.
 					 *
-					 * @since 1.1.3
+					 * @since 1.0.0
 					 *
 					 * @param object                             $entry   The entry row object.
 					 * @param array<string, array<string, mixed>> $decoded Decoded entry_data_json map.
@@ -5042,7 +5042,7 @@ class ShapeForms_Lite_Admin {
 					 * Lets an add-on append its own sidebar card to the entry-detail view — e.g.
 					 * a private admin-notes panel. Receives the full entry row object.
 					 *
-					 * @since 1.1.3
+					 * @since 1.0.0
 					 *
 					 * @param object $entry The entry row object (id, form_id, status, created_at, …).
 					 */
@@ -5161,7 +5161,7 @@ class ShapeForms_Lite_Admin {
 		 * send its own JSON response (which ends the request); if none does, Lite
 		 * proceeds with its built-in actions and rejects an unknown action.
 		 *
-		 * @since 1.1.3
+		 * @since 1.0.0
 		 *
 		 * @param string $action The requested bulk action.
 		 * @param int[]  $ids    Resolved entry ids.
@@ -5341,7 +5341,7 @@ class ShapeForms_Lite_Admin {
 	 * call this so every format scopes an export identically. The caller is
 	 * responsible for the nonce/capability check before invoking an export.
 	 *
-	 * @since 1.1.2
+	 * @since 1.0.0
 	 *
 	 * @return array<string, mixed> Filter set for {@see self::stream_entries_export()}.
 	 */
@@ -5379,7 +5379,7 @@ class ShapeForms_Lite_Admin {
 	 * for its target file type (a CSV cell, an XLSX row, a PDF table cell). No output
 	 * is produced by this method itself.
 	 *
-	 * @since 1.1.2
+	 * @since 1.0.0
 	 *
 	 * @param array<string, mixed> $filters    Query filters. Accepts 'ids' (int[],
 	 *                                          exact entry ids — takes precedence) or
@@ -5581,7 +5581,7 @@ class ShapeForms_Lite_Admin {
 		 * AND verbatim, so a callback MUST return only already-escaped or
 		 * $wpdb->prepare()'d SQL fragments — never raw user input.
 		 *
-		 * @since 1.1.3
+		 * @since 1.0.0
 		 *
 		 * @param string[]             $clauses Prepared WHERE fragments.
 		 * @param array<string, mixed> $filters Active filters for this query.

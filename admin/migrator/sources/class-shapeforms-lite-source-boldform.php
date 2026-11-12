@@ -14,7 +14,7 @@
  * its "remove data on uninstall" setting on) takes the data away.
  *
  * @package ShapeFormsLite
- * @since   1.1.8
+ * @since   1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

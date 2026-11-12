@@ -9,7 +9,7 @@
  * `shapeforms_migration_sources` filter.
  *
  * @package ShapeFormsLite
- * @since   1.1.6
+ * @since   1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -81,7 +81,7 @@ class ShapeForms_Lite_Migrator {
 		 * Add-ons (or future core sources) can register an importer by appending
 		 * an object implementing ShapeForms_Lite_Migration_Source.
 		 *
-		 * @since 1.1.6
+		 * @since 1.0.0
 		 *
 		 * @param array<int, ShapeForms_Lite_Migration_Source> $sources Source objects.
 		 */

@@ -3,7 +3,7 @@
  * Value object describing the outcome of migrating one source form.
  *
  * @package ShapeFormsLite
- * @since   1.1.6
+ * @since   1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

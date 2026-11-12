@@ -6,7 +6,7 @@
  * mail/confirmation mapping are added in later phases.
  *
  * @package ShapeFormsLite
- * @since   1.1.6
+ * @since   1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

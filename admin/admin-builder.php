@@ -214,7 +214,7 @@ $shapeforms_lite_field_groups = apply_filters( 'shapeforms_builder_field_groups'
 								 * entitled overrides this on its own to keep showing this ONE contextual
 								 * teaser without reinstating every other upgrade CTA.
 								 *
-								 * @since 1.1.7
+								 * @since 1.0.0
 								 *
 								 * @param bool $show Whether to show the teaser. Defaults to shapeforms_show_upgrade_cta.
 								 */
@@ -242,7 +242,7 @@ $shapeforms_lite_field_groups = apply_filters( 'shapeforms_builder_field_groups'
 										 * at the top of it — leaving a heading that sells an upgrade above a body
 										 * that asks for activation.
 										 *
-										 * @since 1.1.7
+										 * @since 1.0.0
 										 *
 										 * @param string $title Heading text. Default 'Premium Fields'.
 										 */
@@ -266,7 +266,7 @@ $shapeforms_lite_field_groups = apply_filters( 'shapeforms_builder_field_groups'
 												 * Only the add-on that locked these fields knows why they are
 												 * locked, so it owns this wording.
 												 *
-												 * @since 1.1.7
+												 * @since 1.0.0
 												 *
 												 * @param string $title Headline text.
 												 */
@@ -276,7 +276,7 @@ $shapeforms_lite_field_groups = apply_filters( 'shapeforms_builder_field_groups'
 												/**
 												 * Filters the body copy on the Field Library's lock overlay.
 												 *
-												 * @since 1.1.7
+												 * @since 1.0.0
 												 *
 												 * @param string $text Body copy.
 												 */

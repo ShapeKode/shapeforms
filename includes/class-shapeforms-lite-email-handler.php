@@ -129,7 +129,7 @@ class ShapeForms_Lite_Email_Handler {
 		 * built-in settings get; anything that yields no valid address falls back
 		 * to the recipient resolved above, so a notification is never lost.
 		 *
-		 * @since 1.1.5
+		 * @since 1.0.0
 		 *
 		 * @param string               $to          Resolved recipient address.
 		 * @param object               $form_record Form record.
@@ -180,7 +180,7 @@ class ShapeForms_Lite_Email_Handler {
 		 * Filter the admin-notification email headers (e.g. to add a Reply-To,
 		 * Cc or Bcc). The first entry keeps the HTML content type.
 		 *
-		 * @since 1.1.4
+		 * @since 1.0.0
 		 *
 		 * @param string[]             $headers     wp_mail headers.
 		 * @param object               $form_record Form record.
@@ -220,7 +220,7 @@ class ShapeForms_Lite_Email_Handler {
 		 * or a file from outside the site. Generated attachments belong in uploads
 		 * anyway, which is where Lite's own uploaded files already live.
 		 *
-		 * @since 1.1.5
+		 * @since 1.0.0
 		 *
 		 * @param array<int, string>   $attachments Absolute file paths.
 		 * @param object               $form_record Form record.
@@ -251,7 +251,7 @@ class ShapeForms_Lite_Email_Handler {
 	 * refusing to send a notification because one attachment was wrong, and the
 	 * notification itself matters more than the file riding along with it.
 	 *
-	 * @since 1.1.5
+	 * @since 1.0.0
 	 *
 	 * @param mixed $attachments Filtered attachment list.
 	 * @return array<int, string> Paths that are safe to attach, possibly empty.
@@ -311,7 +311,7 @@ class ShapeForms_Lite_Email_Handler {
 	 * Note this rejects the display-name form ("Sales <sales@example.com>"), which
 	 * sanitize_email() rewrites. Addresses only.
 	 *
-	 * @since 1.1.5
+	 * @since 1.0.0
 	 *
 	 * Accepts an array as readily as a comma-separated string. A filter whose whole
 	 * purpose is "send this to several people" invites returning a list, and casting
@@ -354,7 +354,7 @@ class ShapeForms_Lite_Email_Handler {
 	 * submitted data may not have applied the checks above. Every other header is
 	 * passed through untouched.
 	 *
-	 * @since 1.1.5
+	 * @since 1.0.0
 	 *
 	 * @param array<int, string> $headers wp_mail headers.
 	 * @return array<int, string>
@@ -425,7 +425,7 @@ class ShapeForms_Lite_Email_Handler {
 		/**
 		 * Filter the user-confirmation email headers (e.g. to add a Reply-To).
 		 *
-		 * @since 1.1.4
+		 * @since 1.0.0
 		 *
 		 * @param string[]             $headers     wp_mail headers.
 		 * @param object               $form_record Form record.
@@ -462,7 +462,7 @@ class ShapeForms_Lite_Email_Handler {
 		 * Paths are re-validated exactly as on the admin side: real, readable, and
 		 * inside the uploads directory.
 		 *
-		 * @since 1.1.5
+		 * @since 1.0.0
 		 *
 		 * @param array<int, string>   $attachments Absolute file paths.
 		 * @param object               $form_record Form record.

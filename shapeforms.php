@@ -3,7 +3,7 @@
  * Plugin Name:       ShapeForms
  * Plugin URI:        https://shapekode.com/
  * Description:       Lightweight drag and drop form builder for WordPress.
- * Version:           1.1.8
+ * Version:           1.0.0
  * Requires at least: 6.3
  * Tested up to:      7.1
  * Requires PHP:      7.4
@@ -21,8 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SHAPEFORMS_LITE_VERSION', '1.1.8' );
-define( 'SHAPEFORMS_LITE_DB_VERSION', '1.1.3' );
+define( 'SHAPEFORMS_LITE_VERSION', '1.0.0' );
+define( 'SHAPEFORMS_LITE_DB_VERSION', '1.0.0' );
 define( 'SHAPEFORMS_LITE_FILE', __FILE__ );
 define( 'SHAPEFORMS_LITE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SHAPEFORMS_LITE_URL', plugin_dir_url( __FILE__ ) );
@@ -131,7 +131,7 @@ add_action( 'plugins_loaded', 'shapeforms_lite_maybe_create_tables' );
  * values are the only two the form-level setting has, so a field can never ask for
  * a treatment the stylesheet does not implement.
  *
- * @since 1.1.9
+ * @since 1.0.0
  *
  * @param mixed  $field      Field array.
  * @param string $form_style The form-level choice_style.
@@ -156,7 +156,7 @@ function shapeforms_lite_field_choice_style( $field, $form_style ) {
  * either scope. A property missing from this list is dropped on save, so the
  * builder and the sanitizer cannot disagree about what a field may set.
  *
- * @since 1.1.9
+ * @since 1.0.0
  *
  * @return array<int, string> Allowed custom-property names.
  */
@@ -190,7 +190,7 @@ function shapeforms_lite_choice_style_vars() {
  * that fails is dropped rather than stored empty, so "inherit the form" stays the
  * absence of a value on both sides of the save.
  *
- * @since 1.1.9
+ * @since 1.0.0
  *
  * @param mixed $source Raw map of property => value.
  * @return array<string, string> Sanitized map.
@@ -226,7 +226,7 @@ function shapeforms_lite_sanitize_choice_style( $source ) {
  * grammar can reach a style attribute, whatever route it took into the row (a
  * hand-edited export and an import both re-enter through here).
  *
- * @since 1.1.9
+ * @since 1.0.0
  *
  * @param mixed $source Field array, or a bare override map.
  * @return string Declarations without the surrounding attribute.
@@ -258,7 +258,7 @@ function shapeforms_lite_choice_style_declarations( $source ) {
  * Keys are the stored value. They are part of the saved form, so renaming one
  * orphans the icon on every form that chose it; add rather than rename.
  *
- * @since 1.1.9
+ * @since 1.0.0
  *
  * @return array<string, array{label: string, svg: string}> Icon key => label + inner SVG.
  */
@@ -360,7 +360,7 @@ function shapeforms_lite_choice_icons() {
 	 * for it being safe and static. Only elements Lite's field kses allowlist
 	 * permits survive the render (svg, path, polyline, line, circle, rect, g).
 	 *
-	 * @since 1.1.9
+	 * @since 1.0.0
 	 *
 	 * @param array<string, array{label: string, svg: string}> $icons Icon key => label + inner SVG.
 	 */
@@ -370,7 +370,7 @@ function shapeforms_lite_choice_icons() {
 /**
  * Renders one choice icon as inline SVG.
  *
- * @since 1.1.9
+ * @since 1.0.0
  *
  * @param mixed $key  Icon key.
  * @param int   $size Pixel size for the width/height attributes.
@@ -406,7 +406,7 @@ function shapeforms_lite_choice_icon_svg( $key, $size = 16 ) {
  * ShapeForms_Lite_Admin::sanitize_svg_upload(), so what a URL here points at has
  * already had its script, event handlers and external references stripped.
  *
- * @since 1.1.9
+ * @since 1.0.0
  *
  * @param mixed $raw Raw value.
  * @return string|array{type: string, id: int, url: string} Icon key, image descriptor, or '' for none.
@@ -461,7 +461,7 @@ function shapeforms_lite_sanitize_option_icon( $raw ) {
  * the option count and trailing empties are cut, so a field with no icons at all
  * stores an empty array and adds nothing to the saved form.
  *
- * @since 1.1.9
+ * @since 1.0.0
  *
  * @param mixed $source Raw list.
  * @param int   $count  Number of options the field has.
@@ -498,7 +498,7 @@ function shapeforms_lite_sanitize_option_icons( $source, $count ) {
  * on the form element — which is exactly what an extension rendering its own choice
  * markup cannot see.
  *
- * @since 1.1.9
+ * @since 1.0.0
  *
  * @param mixed $key Icon key, image descriptor, or ''.
  * @return string Markup, or '' when there is no icon.

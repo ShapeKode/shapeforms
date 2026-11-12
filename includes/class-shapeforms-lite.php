@@ -337,7 +337,7 @@ final class ShapeForms_Lite {
 	 * The method_exists() guard matters: on a ShapeForms older than this one the
 	 * method itself is absent, which correctly reads as "no capabilities".
 	 *
-	 * @since 1.1.5
+	 * @since 1.0.0
 	 *
 	 * @param string $capability Capability name.
 	 * @return bool
@@ -431,7 +431,7 @@ final class ShapeForms_Lite {
 		 * escapes on output, so returning markup here would break CSV/plain-text
 		 * surfaces.
 		 *
-		 * @since 1.1.0
+		 * @since 1.0.0
 		 *
 		 * @param string $formatted Default flattened display string.
 		 * @param mixed  $value     Raw stored field value (string or array).

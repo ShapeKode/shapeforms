@@ -4,7 +4,7 @@
 
 ![WordPress](https://img.shields.io/badge/WordPress-6.3%2B-21759b)
 ![PHP](https://img.shields.io/badge/PHP-7.4%2B-777bb4)
-![Version](https://img.shields.io/badge/version-1.1.8-0a9396)
+![Version](https://img.shields.io/badge/version-1.0.0-0a9396)
 ![License](https://img.shields.io/badge/license-GPLv2%2B-green)
 
 ShapeForms is the free tier of **ShapeForms**, a freemium form builder. Build any kind of form visually, embed it anywhere, and manage every submission inside the WordPress dashboard — with zero bloat. **ShapeForms Pro** (a separate plugin) extends Lite through hooks; Lite never depends on Pro.

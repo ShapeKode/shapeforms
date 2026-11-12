@@ -266,7 +266,7 @@ class ShapeForms_Lite_Integrations_Page {
 						/**
 						 * Filters the tooltip shown on a locked integration card.
 						 *
-						 * @since 1.1.7
+						 * @since 1.0.0
 						 *
 						 * @param string $title Tooltip text.
 						 * @param string $type  Integration type slug.

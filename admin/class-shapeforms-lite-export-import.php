@@ -234,7 +234,7 @@ class ShapeForms_Lite_Export_Import {
 						 * Filters the Tools → Entries export panel description. An add-on
 						 * can replace it when it adds CSV/Excel/PDF format choices to this panel.
 						 *
-						 * @since 1.1.2
+						 * @since 1.0.0
 						 *
 						 * @param string $description Default panel description.
 						 */
@@ -256,7 +256,7 @@ class ShapeForms_Lite_Export_Import {
 					 * inside the form, before the "Which entries" scope control, so a handler's
 					 * inputs post together with the export.
 					 *
-					 * @since 1.1.2
+					 * @since 1.0.0
 					 */
 					do_action( 'shapeforms_tools_entries_export_fields' );
 					?>
@@ -323,7 +323,7 @@ class ShapeForms_Lite_Export_Import {
 			 * render its own card in this tab — for example an "Import Entries" card
 			 * that attaches a ShapeForms entries export onto a chosen form.
 			 *
-			 * @since 1.1.2
+			 * @since 1.0.0
 			 *
 			 * @param array<int, array<string, mixed>> $forms Non-trashed forms as { id, title },
 			 *        so a handler can offer a target-form selector without a second query.
@@ -938,7 +938,7 @@ class ShapeForms_Lite_Export_Import {
 		 * HTML-capable field) by returning a value sanitized appropriately for that
 		 * type. Return the given default to leave the value unchanged.
 		 *
-		 * @since 1.1.2
+		 * @since 1.0.0
 		 *
 		 * @param string $sanitized The default-sanitized (tag-stripped) value.
 		 * @param mixed  $value     The raw value from the import file.

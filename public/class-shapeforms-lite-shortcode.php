@@ -1988,7 +1988,7 @@ class ShapeForms_Lite_Shortcode {
 		 * would otherwise be stripped by wp_kses() when the control HTML is
 		 * echoed. The array uses the standard wp_kses() allowed-HTML format.
 		 *
-		 * @since 1.1.0
+		 * @since 1.0.0
 		 *
 		 * @param array<string, array<string, bool>> $allowed Allowed tags => attributes map.
 		 */
